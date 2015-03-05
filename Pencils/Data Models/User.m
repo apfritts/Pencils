@@ -16,6 +16,7 @@
         self.firstName = dictionary[@"first_name"];
         self.lastName = dictionary[@"last_name"];
         self.email = dictionary[@"email"];
+        self.userId = [dictionary[@"user_id"] integerValue];
         self.userType = (int)[dictionary[@"user_type"] integerValue];
     }
     return self;

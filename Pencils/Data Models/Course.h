@@ -11,6 +11,7 @@
 @interface Course : NSObject
 
 @property (strong, nonatomic) NSString *name;
+@property (strong, nonatomic) NSDate *deleted;
 
 -(instancetype)initWithDictionary:(NSDictionary *)dictionary;
 

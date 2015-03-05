@@ -27,16 +27,18 @@
 
 - (void)testInitWithDictionary {
     NSDictionary *dictionary = @{
+                                 @"email": @"E-mail",
                                  @"first_name": @"First",
                                  @"last_name": @"Last",
-                                 @"email": @"E-mail",
-                                 @"user_type": @"1",
-                                 @"password": @"password"
+                                 @"password": @"password",
+                                 @"user_id": @"1",
+                                 @"user_type": @"1"
                                  };
     User *user = [[User alloc] initWithDictionary:dictionary];
+    XCTAssertEqual(@"E-mail", user.email, @"User's e-mail should be set");
     XCTAssertEqual(@"First", user.firstName, @"User's first name should be set");
     XCTAssertEqual(@"Last", user.lastName, @"User's last name should be set");
-    XCTAssertEqual(@"E-mail", user.email, @"User's e-mail should be set");
+    XCTAssertEqual(1, user.userId, @"User's ID should be 1");
     XCTAssertEqual(UserTypeTeacher, user.userType, @"User's type should be UserTypeTeacher");
     XCTAssertNil(user.password, @"User password should not be set on initWithDictionary");
 }

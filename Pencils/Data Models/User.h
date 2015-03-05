@@ -19,6 +19,7 @@ enum UserType {
 @property (strong, nonatomic) NSString *lastName;
 @property (strong, nonatomic) NSString *email;
 @property (strong, nonatomic) NSString *password;
+@property (assign, nonatomic) NSInteger userId;
 @property (assign, nonatomic) enum UserType userType;
 
 -(instancetype)initWithDictionary:(NSDictionary *)dictionary;

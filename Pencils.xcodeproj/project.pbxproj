@@ -16,7 +16,6 @@
 		736A89121AA8AA2A0035631A /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 736A89101AA8AA2A0035631A /* LoginViewController.xib */; };
 		736A89171AA8AA570035631A /* SignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 736A89151AA8AA570035631A /* SignupViewController.m */; };
 		736A89181AA8AA570035631A /* SignupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 736A89161AA8AA570035631A /* SignupViewController.xib */; };
-		736A891B1AA8AA780035631A /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 736A891A1AA8AA780035631A /* User.m */; };
 		736A89231AA8AD010035631A /* UserTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 736A89221AA8AD010035631A /* UserTest.m */; };
 		736A89281AA8AF7C0035631A /* CourseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 736A89261AA8AF7C0035631A /* CourseTableViewCell.m */; };
 		736A89291AA8AF7C0035631A /* CourseTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 736A89271AA8AF7C0035631A /* CourseTableViewCell.xib */; };
@@ -28,7 +27,6 @@
 		736A89391AA8B0250035631A /* RequestsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 736A89371AA8B0250035631A /* RequestsTableViewCell.xib */; };
 		736A893C1AA8B0610035631A /* HeaderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 736A893B1AA8B0610035631A /* HeaderTableViewCell.m */; };
 		736A89401AA8B0AD0035631A /* NavigationUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 736A893F1AA8B0AD0035631A /* NavigationUtility.m */; };
-		736A89431AA8B39A0035631A /* Course.m in Sources */ = {isa = PBXBuildFile; fileRef = 736A89421AA8B39A0035631A /* Course.m */; };
 		736A89481AA8B4300035631A /* CoursesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 736A89461AA8B4300035631A /* CoursesViewController.m */; };
 		736A89491AA8B4300035631A /* CoursesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 736A89471AA8B4300035631A /* CoursesViewController.xib */; };
 		736A894D1AA8B4480035631A /* CreateCourseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 736A894B1AA8B4480035631A /* CreateCourseViewController.m */; };
@@ -39,7 +37,6 @@
 		736A89581AA8B4BD0035631A /* TeacherCourseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 736A89561AA8B4BD0035631A /* TeacherCourseViewController.xib */; };
 		736A895C1AA8B4D80035631A /* TeachACourseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 736A895A1AA8B4D80035631A /* TeachACourseViewController.m */; };
 		736A895D1AA8B4D80035631A /* TeachACourseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 736A895B1AA8B4D80035631A /* TeachACourseViewController.xib */; };
-		736A89601AA8B5100035631A /* Material.m in Sources */ = {isa = PBXBuildFile; fileRef = 736A895F1AA8B5100035631A /* Material.m */; };
 		736A89641AA8B5DF0035631A /* MaterialTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 736A89621AA8B5DF0035631A /* MaterialTableViewCell.m */; };
 		736A89651AA8B5DF0035631A /* MaterialTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 736A89631AA8B5DF0035631A /* MaterialTableViewCell.xib */; };
 		736A89691AA8B6080035631A /* SearchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 736A89671AA8B6080035631A /* SearchTableViewCell.m */; };
@@ -52,6 +49,12 @@
 		736A89811AA8B9760035631A /* UploadViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 736A897F1AA8B9760035631A /* UploadViewController.xib */; };
 		736A89851AA8B9BC0035631A /* TabsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 736A89831AA8B9BC0035631A /* TabsViewController.m */; };
 		736A89861AA8B9BC0035631A /* TabsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 736A89841AA8B9BC0035631A /* TabsViewController.xib */; };
+		736A898A1AA8BBCB0035631A /* CourseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 736A89891AA8BBCB0035631A /* CourseManager.m */; };
+		736A898D1AA8BCE80035631A /* MaterialManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 736A898C1AA8BCE80035631A /* MaterialManager.m */; };
+		736A89991AA8CB190035631A /* Course.m in Sources */ = {isa = PBXBuildFile; fileRef = 736A89921AA8CB190035631A /* Course.m */; };
+		736A899A1AA8CB190035631A /* Material.m in Sources */ = {isa = PBXBuildFile; fileRef = 736A89941AA8CB190035631A /* Material.m */; };
+		736A899B1AA8CB190035631A /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 736A89961AA8CB190035631A /* User.m */; };
+		736A899C1AA8CB190035631A /* UserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 736A89981AA8CB190035631A /* UserManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,8 +84,6 @@
 		736A89141AA8AA570035631A /* SignupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SignupViewController.h; path = "View Controllers/Login and Signup/SignupViewController.h"; sourceTree = "<group>"; };
 		736A89151AA8AA570035631A /* SignupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SignupViewController.m; path = "View Controllers/Login and Signup/SignupViewController.m"; sourceTree = "<group>"; };
 		736A89161AA8AA570035631A /* SignupViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SignupViewController.xib; path = "View Controllers/Login and Signup/SignupViewController.xib"; sourceTree = "<group>"; };
-		736A89191AA8AA780035631A /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = User.h; path = Models/User.h; sourceTree = "<group>"; };
-		736A891A1AA8AA780035631A /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = Models/User.m; sourceTree = "<group>"; };
 		736A89221AA8AD010035631A /* UserTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserTest.m; path = Models/UserTest.m; sourceTree = "<group>"; };
 		736A89251AA8AF7C0035631A /* CourseTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CourseTableViewCell.h; path = Views/Common/CourseTableViewCell.h; sourceTree = "<group>"; };
 		736A89261AA8AF7C0035631A /* CourseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CourseTableViewCell.m; path = Views/Common/CourseTableViewCell.m; sourceTree = "<group>"; };
@@ -100,8 +101,6 @@
 		736A893B1AA8B0610035631A /* HeaderTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HeaderTableViewCell.m; path = Views/Common/HeaderTableViewCell.m; sourceTree = "<group>"; };
 		736A893E1AA8B0AD0035631A /* NavigationUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NavigationUtility.h; path = Utilities/NavigationUtility.h; sourceTree = "<group>"; };
 		736A893F1AA8B0AD0035631A /* NavigationUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NavigationUtility.m; path = Utilities/NavigationUtility.m; sourceTree = "<group>"; };
-		736A89411AA8B39A0035631A /* Course.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Course.h; path = Models/Course.h; sourceTree = "<group>"; };
-		736A89421AA8B39A0035631A /* Course.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Course.m; path = Models/Course.m; sourceTree = "<group>"; };
 		736A89451AA8B4300035631A /* CoursesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CoursesViewController.h; path = "View Controllers/Courses/CoursesViewController.h"; sourceTree = "<group>"; };
 		736A89461AA8B4300035631A /* CoursesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CoursesViewController.m; path = "View Controllers/Courses/CoursesViewController.m"; sourceTree = "<group>"; };
 		736A89471AA8B4300035631A /* CoursesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CoursesViewController.xib; path = "View Controllers/Courses/CoursesViewController.xib"; sourceTree = "<group>"; };
@@ -117,8 +116,6 @@
 		736A89591AA8B4D80035631A /* TeachACourseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TeachACourseViewController.h; path = "View Controllers/Courses/TeachACourseViewController.h"; sourceTree = "<group>"; };
 		736A895A1AA8B4D80035631A /* TeachACourseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TeachACourseViewController.m; path = "View Controllers/Courses/TeachACourseViewController.m"; sourceTree = "<group>"; };
 		736A895B1AA8B4D80035631A /* TeachACourseViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TeachACourseViewController.xib; path = "View Controllers/Courses/TeachACourseViewController.xib"; sourceTree = "<group>"; };
-		736A895E1AA8B5100035631A /* Material.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Material.h; path = Models/Material.h; sourceTree = "<group>"; };
-		736A895F1AA8B5100035631A /* Material.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Material.m; path = Models/Material.m; sourceTree = "<group>"; };
 		736A89611AA8B5DF0035631A /* MaterialTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MaterialTableViewCell.h; path = Views/Common/MaterialTableViewCell.h; sourceTree = "<group>"; };
 		736A89621AA8B5DF0035631A /* MaterialTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MaterialTableViewCell.m; path = Views/Common/MaterialTableViewCell.m; sourceTree = "<group>"; };
 		736A89631AA8B5DF0035631A /* MaterialTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MaterialTableViewCell.xib; path = Views/Common/MaterialTableViewCell.xib; sourceTree = "<group>"; };
@@ -137,6 +134,18 @@
 		736A89821AA8B9BC0035631A /* TabsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TabsViewController.h; path = "View Controllers/TabsViewController.h"; sourceTree = "<group>"; };
 		736A89831AA8B9BC0035631A /* TabsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TabsViewController.m; path = "View Controllers/TabsViewController.m"; sourceTree = "<group>"; };
 		736A89841AA8B9BC0035631A /* TabsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TabsViewController.xib; path = "View Controllers/TabsViewController.xib"; sourceTree = "<group>"; };
+		736A89881AA8BBCB0035631A /* CourseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CourseManager.h; path = "Data Managers/CourseManager.h"; sourceTree = "<group>"; };
+		736A89891AA8BBCB0035631A /* CourseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CourseManager.m; path = "Data Managers/CourseManager.m"; sourceTree = "<group>"; };
+		736A898B1AA8BCE80035631A /* MaterialManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MaterialManager.h; path = "Data Managers/MaterialManager.h"; sourceTree = "<group>"; };
+		736A898C1AA8BCE80035631A /* MaterialManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MaterialManager.m; path = "Data Managers/MaterialManager.m"; sourceTree = "<group>"; };
+		736A89911AA8CB190035631A /* Course.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Course.h; path = "Data Models/Course.h"; sourceTree = "<group>"; };
+		736A89921AA8CB190035631A /* Course.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Course.m; path = "Data Models/Course.m"; sourceTree = "<group>"; };
+		736A89931AA8CB190035631A /* Material.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Material.h; path = "Data Models/Material.h"; sourceTree = "<group>"; };
+		736A89941AA8CB190035631A /* Material.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Material.m; path = "Data Models/Material.m"; sourceTree = "<group>"; };
+		736A89951AA8CB190035631A /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = User.h; path = "Data Models/User.h"; sourceTree = "<group>"; };
+		736A89961AA8CB190035631A /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = "Data Models/User.m"; sourceTree = "<group>"; };
+		736A89971AA8CB190035631A /* UserManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserManager.h; path = "Data Models/UserManager.h"; sourceTree = "<group>"; };
+		736A89981AA8CB190035631A /* UserManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserManager.m; path = "Data Models/UserManager.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,14 +188,15 @@
 			isa = PBXGroup;
 			children = (
 				736A890D1AA8A9EF0035631A /* Controllers */,
-				736A890B1AA8A9E30035631A /* Models */,
+				736A89871AA8BB990035631A /* Data Managers */,
+				736A890B1AA8A9E30035631A /* Data Models */,
+				736A88DE1AA819A40035631A /* Supporting Files */,
 				736A890C1AA8A9EA0035631A /* Views */,
 				736A893D1AA8B0820035631A /* Utilities */,
 				736A88E21AA819A40035631A /* AppDelegate.h */,
 				736A88E31AA819A40035631A /* AppDelegate.m */,
 				736A88EB1AA819A40035631A /* Images.xcassets */,
 				736A88ED1AA819A40035631A /* LaunchScreen.xib */,
-				736A88DE1AA819A40035631A /* Supporting Files */,
 			);
 			path = Pencils;
 			sourceTree = "<group>";
@@ -204,8 +214,8 @@
 			isa = PBXGroup;
 			children = (
 				736A89211AA8ACC50035631A /* Models */,
-				736A88FA1AA819A40035631A /* PencilsTests.m */,
 				736A88F81AA819A40035631A /* Supporting Files */,
+				736A88FA1AA819A40035631A /* PencilsTests.m */,
 			);
 			path = PencilsTests;
 			sourceTree = "<group>";
@@ -218,17 +228,17 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		736A890B1AA8A9E30035631A /* Models */ = {
+		736A890B1AA8A9E30035631A /* Data Models */ = {
 			isa = PBXGroup;
 			children = (
-				736A89411AA8B39A0035631A /* Course.h */,
-				736A89421AA8B39A0035631A /* Course.m */,
-				736A895E1AA8B5100035631A /* Material.h */,
-				736A895F1AA8B5100035631A /* Material.m */,
-				736A89191AA8AA780035631A /* User.h */,
-				736A891A1AA8AA780035631A /* User.m */,
+				736A89911AA8CB190035631A /* Course.h */,
+				736A89921AA8CB190035631A /* Course.m */,
+				736A89931AA8CB190035631A /* Material.h */,
+				736A89941AA8CB190035631A /* Material.m */,
+				736A89951AA8CB190035631A /* User.h */,
+				736A89961AA8CB190035631A /* User.m */,
 			);
-			name = Models;
+			name = "Data Models";
 			sourceTree = "<group>";
 		};
 		736A890C1AA8A9EA0035631A /* Views */ = {
@@ -363,6 +373,19 @@
 			name = Upload;
 			sourceTree = "<group>";
 		};
+		736A89871AA8BB990035631A /* Data Managers */ = {
+			isa = PBXGroup;
+			children = (
+				736A89881AA8BBCB0035631A /* CourseManager.h */,
+				736A89891AA8BBCB0035631A /* CourseManager.m */,
+				736A898B1AA8BCE80035631A /* MaterialManager.h */,
+				736A898C1AA8BCE80035631A /* MaterialManager.m */,
+				736A89971AA8CB190035631A /* UserManager.h */,
+				736A89981AA8CB190035631A /* UserManager.m */,
+			);
+			name = "Data Managers";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -481,25 +504,28 @@
 			files = (
 				736A89851AA8B9BC0035631A /* TabsViewController.m in Sources */,
 				736A892D1AA8AFC20035631A /* TeacherTableViewCell.m in Sources */,
-				736A891B1AA8AA780035631A /* User.m in Sources */,
+				736A899B1AA8CB190035631A /* User.m in Sources */,
 				736A88E41AA819A40035631A /* AppDelegate.m in Sources */,
 				736A894D1AA8B4480035631A /* CreateCourseViewController.m in Sources */,
 				736A89571AA8B4BD0035631A /* TeacherCourseViewController.m in Sources */,
 				736A89481AA8B4300035631A /* CoursesViewController.m in Sources */,
-				736A89601AA8B5100035631A /* Material.m in Sources */,
 				736A88E11AA819A40035631A /* main.m in Sources */,
 				736A89801AA8B9760035631A /* UploadViewController.m in Sources */,
-				736A89431AA8B39A0035631A /* Course.m in Sources */,
+				736A899A1AA8CB190035631A /* Material.m in Sources */,
 				736A89691AA8B6080035631A /* SearchTableViewCell.m in Sources */,
 				736A897A1AA8B6DE0035631A /* ViewMaterialViewController.m in Sources */,
 				736A893C1AA8B0610035631A /* HeaderTableViewCell.m in Sources */,
 				736A896E1AA8B6340035631A /* EditCourseViewController.m in Sources */,
+				736A898A1AA8BBCB0035631A /* CourseManager.m in Sources */,
+				736A89991AA8CB190035631A /* Course.m in Sources */,
 				736A89171AA8AA570035631A /* SignupViewController.m in Sources */,
 				736A89521AA8B4880035631A /* GlobalCourseViewController.m in Sources */,
 				736A89381AA8B0250035631A /* RequestsTableViewCell.m in Sources */,
 				736A89111AA8AA2A0035631A /* LoginViewController.m in Sources */,
 				736A89401AA8B0AD0035631A /* NavigationUtility.m in Sources */,
+				736A899C1AA8CB190035631A /* UserManager.m in Sources */,
 				736A895C1AA8B4D80035631A /* TeachACourseViewController.m in Sources */,
+				736A898D1AA8BCE80035631A /* MaterialManager.m in Sources */,
 				736A89641AA8B5DF0035631A /* MaterialTableViewCell.m in Sources */,
 				736A89281AA8AF7C0035631A /* CourseTableViewCell.m in Sources */,
 				736A89331AA8B0070035631A /* HomeViewController.m in Sources */,
