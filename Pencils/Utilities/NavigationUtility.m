@@ -1,46 +1,66 @@
-//
-//  Navigation.m
-//  Pencils
-//
-//  Created by AP Fritts on 3/5/15.
-//  Copyright (c) 2015 Box. All rights reserved.
-//
+/**
+ * Purpose:
+ *
+ * Copyright 2015 Pencils Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 
 #import <UIKit/UIKit.h>
 #import "NavigationUtility.h"
+#import "HomeViewController.h"
+#import "LoginViewController.h"
+
+@interface NavigationUtility()
+
++(void)pushViewController:(UIViewController *)viewController;
+
+@end
 
 @implementation NavigationUtility
+static UIWindow *registeredWindow;
 
-+(void)navigateToHome {
-    // Replaces root view of Tab Controller
-}
-
-+(void)navigateToCourses {
-    // Replaces root view of Tab Controller
-}
-
-+(void)navigateToCourseListOf:(NSArray* (^)())courses {
-    // pushViewController onto NavigationController
-}
-
-+(void)navigateToGlobalCourse:(Course *)course {
-    // pushViewController onto NavigationController
++(void)registerWindow:(UIWindow *)window {
+    registeredWindow = window;
 }
 
 +(void)navigateToCourseCreate {
     // pushViewController onto NavigationController
 }
 
-+(void)navigateToTeacherCourse:(Course *)course {
++(void)navigateToCourseListOf:(NSArray* (^)())courses {
     // pushViewController onto NavigationController
+}
+
++(void)navigateToCourses {
+    // Replaces root view of Tab Controller
 }
 
 +(void)navigateToEditTeacherCourse:(Course *)course {
     // pushViewController onto NavigationController
 }
 
-+(void)navigateToTeachCourse:(Course *)course {
++(void)navigateToHome {
+    // Replaces root view of Tab Controller
+    registeredWindow.rootViewController = [[HomeViewController alloc] init];
+}
+
++(void)navigateToGlobalCourse:(Course *)course {
     // pushViewController onto NavigationController
+}
+
++(void)navigateToLogin {
+    registeredWindow.rootViewController = [[LoginViewController alloc] init];
 }
 
 +(void)navigateToMaterial:(Material *)material {
@@ -52,8 +72,20 @@
     // A user must login and then present this view controller over the HomeViewController
 }
 
++(void)navigateToTeacherCourse:(Course *)course {
+    // pushViewController onto NavigationController
+}
+
++(void)navigateToTeachCourse:(Course *)course {
+    // pushViewController onto NavigationController
+}
+
 +(void)logout {
     // Replaces root view controller with LoginViewController
+}
+
++(void)pushViewController:(UIViewController *)viewController {
+    [registeredWindow.rootViewController.navigationController pushViewController:viewController animated:YES];
 }
 
 @end

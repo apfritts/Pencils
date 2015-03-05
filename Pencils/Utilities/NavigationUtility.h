@@ -1,10 +1,20 @@
-//
-//  Navigation.h
-//  Pencils
-//
-//  Created by AP Fritts on 3/5/15.
-//  Copyright (c) 2015 Box. All rights reserved.
-//
+/**
+ * Purpose:
+ *
+ * Copyright 2015 Pencils Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 
 #import <Foundation/Foundation.h>
 #import "Course.h"
@@ -12,14 +22,17 @@
 
 @interface NavigationUtility : NSObject
 
-+(void)navigateToHome;
-+(void)navigateToCourses;
-+(void)navigateToCourseListOf:(NSArray* (^)())courses;
-+(void)navigateToGlobalCourse:(Course *)course;
++(void)registerWindow:(UIWindow *)window;
+
 +(void)navigateToCourseCreate;
-+(void)navigateToTeacherCourse:(Course *)course;
++(void)navigateToCourseListOf:(NSArray* (^)())courses;
++(void)navigateToCourses;
 +(void)navigateToEditTeacherCourse:(Course *)course;
++(void)navigateToGlobalCourse:(Course *)course;
++(void)navigateToHome;
++(void)navigateToLogin;
 +(void)navigateToTeachCourse:(Course *)course;
++(void)navigateToTeacherCourse:(Course *)course;
 +(void)navigateToMaterial:(Material *)material;
 +(void)navigateToMaterialUpload;
 +(void)logout;

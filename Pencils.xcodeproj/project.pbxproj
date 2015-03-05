@@ -25,7 +25,6 @@
 		736A89341AA8B0070035631A /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 736A89321AA8B0070035631A /* HomeViewController.xib */; };
 		736A89381AA8B0250035631A /* RequestsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 736A89361AA8B0250035631A /* RequestsTableViewCell.m */; };
 		736A89391AA8B0250035631A /* RequestsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 736A89371AA8B0250035631A /* RequestsTableViewCell.xib */; };
-		736A893C1AA8B0610035631A /* HeaderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 736A893B1AA8B0610035631A /* HeaderTableViewCell.m */; };
 		736A89401AA8B0AD0035631A /* NavigationUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 736A893F1AA8B0AD0035631A /* NavigationUtility.m */; };
 		736A89481AA8B4300035631A /* CoursesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 736A89461AA8B4300035631A /* CoursesViewController.m */; };
 		736A89491AA8B4300035631A /* CoursesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 736A89471AA8B4300035631A /* CoursesViewController.xib */; };
@@ -55,6 +54,8 @@
 		736A899A1AA8CB190035631A /* Material.m in Sources */ = {isa = PBXBuildFile; fileRef = 736A89941AA8CB190035631A /* Material.m */; };
 		736A899B1AA8CB190035631A /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 736A89961AA8CB190035631A /* User.m */; };
 		736A899C1AA8CB190035631A /* UserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 736A89981AA8CB190035631A /* UserManager.m */; };
+		8F1E33671AA915DA001C7A56 /* HeaderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F1E33651AA915DA001C7A56 /* HeaderTableViewCell.m */; };
+		8F1E33681AA915DA001C7A56 /* HeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F1E33661AA915DA001C7A56 /* HeaderTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,7 +73,7 @@
 		736A88DF1AA819A40035631A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		736A88E01AA819A40035631A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		736A88E21AA819A40035631A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		736A88E31AA819A40035631A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		736A88E31AA819A40035631A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; wrapsLines = 0; };
 		736A88EB1AA819A40035631A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		736A88EE1AA819A40035631A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		736A88F41AA819A40035631A /* PencilsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PencilsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -97,8 +98,6 @@
 		736A89351AA8B0250035631A /* RequestsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RequestsTableViewCell.h; path = "View Controllers/Home/RequestsTableViewCell.h"; sourceTree = "<group>"; };
 		736A89361AA8B0250035631A /* RequestsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RequestsTableViewCell.m; path = "View Controllers/Home/RequestsTableViewCell.m"; sourceTree = "<group>"; };
 		736A89371AA8B0250035631A /* RequestsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RequestsTableViewCell.xib; path = "View Controllers/Home/RequestsTableViewCell.xib"; sourceTree = "<group>"; };
-		736A893A1AA8B0610035631A /* HeaderTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HeaderTableViewCell.h; path = Views/Common/HeaderTableViewCell.h; sourceTree = "<group>"; };
-		736A893B1AA8B0610035631A /* HeaderTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HeaderTableViewCell.m; path = Views/Common/HeaderTableViewCell.m; sourceTree = "<group>"; };
 		736A893E1AA8B0AD0035631A /* NavigationUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NavigationUtility.h; path = Utilities/NavigationUtility.h; sourceTree = "<group>"; };
 		736A893F1AA8B0AD0035631A /* NavigationUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NavigationUtility.m; path = Utilities/NavigationUtility.m; sourceTree = "<group>"; };
 		736A89451AA8B4300035631A /* CoursesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CoursesViewController.h; path = "View Controllers/Courses/CoursesViewController.h"; sourceTree = "<group>"; };
@@ -146,6 +145,9 @@
 		736A89961AA8CB190035631A /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = "Data Models/User.m"; sourceTree = "<group>"; };
 		736A89971AA8CB190035631A /* UserManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserManager.h; path = "Data Models/UserManager.h"; sourceTree = "<group>"; };
 		736A89981AA8CB190035631A /* UserManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserManager.m; path = "Data Models/UserManager.m"; sourceTree = "<group>"; };
+		8F1E33641AA915DA001C7A56 /* HeaderTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HeaderTableViewCell.h; path = Views/Common/HeaderTableViewCell.h; sourceTree = "<group>"; };
+		8F1E33651AA915DA001C7A56 /* HeaderTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HeaderTableViewCell.m; path = Views/Common/HeaderTableViewCell.m; sourceTree = "<group>"; };
+		8F1E33661AA915DA001C7A56 /* HeaderTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HeaderTableViewCell.xib; path = Views/Common/HeaderTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -291,8 +293,9 @@
 				736A89251AA8AF7C0035631A /* CourseTableViewCell.h */,
 				736A89261AA8AF7C0035631A /* CourseTableViewCell.m */,
 				736A89271AA8AF7C0035631A /* CourseTableViewCell.xib */,
-				736A893A1AA8B0610035631A /* HeaderTableViewCell.h */,
-				736A893B1AA8B0610035631A /* HeaderTableViewCell.m */,
+				8F1E33641AA915DA001C7A56 /* HeaderTableViewCell.h */,
+				8F1E33651AA915DA001C7A56 /* HeaderTableViewCell.m */,
+				8F1E33661AA915DA001C7A56 /* HeaderTableViewCell.xib */,
 				736A89611AA8B5DF0035631A /* MaterialTableViewCell.h */,
 				736A89621AA8B5DF0035631A /* MaterialTableViewCell.m */,
 				736A89631AA8B5DF0035631A /* MaterialTableViewCell.xib */,
@@ -474,6 +477,7 @@
 				736A896F1AA8B6340035631A /* EditCourseViewController.xib in Resources */,
 				736A88EF1AA819A40035631A /* LaunchScreen.xib in Resources */,
 				736A88EC1AA819A40035631A /* Images.xcassets in Resources */,
+				8F1E33681AA915DA001C7A56 /* HeaderTableViewCell.xib in Resources */,
 				736A897B1AA8B6DE0035631A /* ViewMaterialViewController.xib in Resources */,
 				736A89181AA8AA570035631A /* SignupViewController.xib in Resources */,
 				736A89531AA8B4880035631A /* GlobalCourseViewController.xib in Resources */,
@@ -514,8 +518,8 @@
 				736A899A1AA8CB190035631A /* Material.m in Sources */,
 				736A89691AA8B6080035631A /* SearchTableViewCell.m in Sources */,
 				736A897A1AA8B6DE0035631A /* ViewMaterialViewController.m in Sources */,
-				736A893C1AA8B0610035631A /* HeaderTableViewCell.m in Sources */,
 				736A896E1AA8B6340035631A /* EditCourseViewController.m in Sources */,
+				8F1E33671AA915DA001C7A56 /* HeaderTableViewCell.m in Sources */,
 				736A898A1AA8BBCB0035631A /* CourseManager.m in Sources */,
 				736A89991AA8CB190035631A /* Course.m in Sources */,
 				736A89171AA8AA570035631A /* SignupViewController.m in Sources */,
@@ -644,6 +648,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Pencils/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -654,6 +659,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Pencils/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

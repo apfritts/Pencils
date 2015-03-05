@@ -19,13 +19,16 @@
 #import "UserManager.h"
 
 @implementation UserManager
+static User *_currentUser;
 
 +(User *)currentUser {
-    return nil;
+    return _currentUser;
 }
 
 +(User *)loginWithEmail:(NSString *)email andPassword:(NSString *)password {
-    return nil;
+    // Login
+    // set Current user
+    return _currentUser;
 }
 
 +(void)logout {
