@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6750" systemVersion="14D87h" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6735"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController">
@@ -13,7 +13,75 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="apq-rH-iN5">
+                    <rect key="frame" x="200" y="64" width="200" height="200"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="200" id="MPC-Kp-fjP"/>
+                        <constraint firstAttribute="width" constant="200" id="x5P-4Z-R9E"/>
+                    </constraints>
+                </imageView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J5V-Py-CLd">
+                    <rect key="frame" x="150" y="280" width="300" height="130"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="E-mail:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YSQ-US-GgG">
+                            <rect key="frame" x="10" y="15" width="54" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6nf-6c-OAA">
+                            <rect key="frame" x="10" y="55" width="81" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="692-es-Xaq">
+                            <rect key="frame" x="101" y="10" width="189" height="30"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xcy-gd-slh">
+                            <rect key="frame" x="131" y="90" width="38" height="30"/>
+                            <state key="normal" title="Login">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                        </button>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HV5-3C-hde">
+                            <rect key="frame" x="101" y="50" width="189" height="30"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="6nf-6c-OAA" firstAttribute="leading" secondItem="YSQ-US-GgG" secondAttribute="leading" id="AKP-9G-LVi"/>
+                        <constraint firstItem="Xcy-gd-slh" firstAttribute="top" secondItem="HV5-3C-hde" secondAttribute="bottom" constant="10" id="Dr6-31-09R"/>
+                        <constraint firstItem="HV5-3C-hde" firstAttribute="leading" secondItem="6nf-6c-OAA" secondAttribute="trailing" constant="10" id="F8C-Fe-FCJ"/>
+                        <constraint firstAttribute="centerX" secondItem="Xcy-gd-slh" secondAttribute="centerX" id="UMM-e0-oy0"/>
+                        <constraint firstAttribute="trailing" secondItem="HV5-3C-hde" secondAttribute="trailing" constant="10" id="VfT-sV-lyZ"/>
+                        <constraint firstItem="692-es-Xaq" firstAttribute="top" secondItem="J5V-Py-CLd" secondAttribute="top" constant="10" id="Y8P-Tx-sjT"/>
+                        <constraint firstItem="6nf-6c-OAA" firstAttribute="centerY" secondItem="HV5-3C-hde" secondAttribute="centerY" id="ZLt-jM-Aqe"/>
+                        <constraint firstItem="YSQ-US-GgG" firstAttribute="centerY" secondItem="692-es-Xaq" secondAttribute="centerY" id="cH7-X2-8xY"/>
+                        <constraint firstAttribute="bottom" secondItem="Xcy-gd-slh" secondAttribute="bottom" constant="10" id="eUH-qG-aEb"/>
+                        <constraint firstAttribute="trailing" secondItem="692-es-Xaq" secondAttribute="trailing" constant="10" id="gIR-It-5aL"/>
+                        <constraint firstItem="6nf-6c-OAA" firstAttribute="leading" secondItem="J5V-Py-CLd" secondAttribute="leading" constant="10" id="hRr-9w-q3P"/>
+                        <constraint firstAttribute="width" constant="300" id="vQt-4G-kMS"/>
+                        <constraint firstItem="HV5-3C-hde" firstAttribute="width" secondItem="692-es-Xaq" secondAttribute="width" id="wZp-gf-15s"/>
+                        <constraint firstItem="HV5-3C-hde" firstAttribute="top" secondItem="692-es-Xaq" secondAttribute="bottom" constant="10" id="xfs-6G-8Po"/>
+                    </constraints>
+                </view>
+            </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="centerX" secondItem="apq-rH-iN5" secondAttribute="centerX" id="A6b-EN-YWw"/>
+                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="J5V-Py-CLd" secondAttribute="trailing" constant="10" id="G64-GB-EyF"/>
+                <constraint firstAttribute="centerX" secondItem="J5V-Py-CLd" secondAttribute="centerX" id="GCQ-8N-ZVE"/>
+                <constraint firstItem="J5V-Py-CLd" firstAttribute="top" secondItem="apq-rH-iN5" secondAttribute="bottom" constant="16" id="GeM-B9-f0T"/>
+                <constraint firstItem="J5V-Py-CLd" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="mW9-C4-aGL"/>
+                <constraint firstAttribute="bottom" secondItem="J5V-Py-CLd" secondAttribute="bottom" constant="190" id="v27-bd-TH3"/>
+            </constraints>
+            <point key="canvasLocation" x="290" y="405"/>
         </view>
     </objects>
 </document>
