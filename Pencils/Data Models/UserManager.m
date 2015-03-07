@@ -17,6 +17,7 @@
  */
 
 #import "UserManager.h"
+#import <Parse/Parse.h>
 
 @implementation UserManager
 static User *_currentUser;
@@ -25,14 +26,53 @@ static User *_currentUser;
     return _currentUser;
 }
 
-+(void)loginWithEmail:(NSString *)email andPassword:(NSString *)password andCompletion:(void (^)(NSError *))completion {
++(void)loginWithEmail:(NSString *)email andPassword:(NSString *)password andCompletion:(void (^)(User *user, NSError *error))completion {
     NSError *error = nil;
     // Login
+    [PFUser logInWithUsernameInBackground:email password:password block:^(PFUser *pfUser, NSError *error) {
+        User *user = nil;
+        if (user) {
+            user = [[User alloc] initWithDictionary:@{
+                                                     @"first_name": pfUser[@"first_name"],
+                                                     @"last_name": pfUser[@"last_name"],
+                                                     @"email": pfUser.username
+                                                     }];
+        }
+        _currentUser = user;
+        completion(user, error);
+        
+    }];
+    
     // set Current user
     
     if (completion != nil) {
-        completion(error);
+        completion(nil, error);
     }
+}
+
++(void)signUpWithFirstName:(NSString *)firstName andLastName:(NSString *)lastName andEmail:(NSString *)email andPassword:(NSString *)password andCompletion:(void (^)(User *user, NSError *error))completion {
+    // do some validation
+    
+    // setup the Parse User object
+    PFUser *pUser = [PFUser user];
+    pUser.username = email;
+    pUser.password = password;
+    pUser.email = email;
+    pUser[@"first_name"] = firstName;
+    pUser[@"last_name"] = lastName;
+    
+    [pUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        User *user = nil;
+        if (!error) {
+            user = [[User alloc] initWithDictionary:@{
+                                                     @"first_name": firstName,
+                                                     @"last_name": lastName,
+                                                     @"email": email
+                                                     }];
+        }
+        _currentUser = user;
+        completion(user, error);
+    }];
 }
 
 +(void)logout {

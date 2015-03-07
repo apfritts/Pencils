@@ -1,735 +1,2506 @@
-// !$*UTF8*$!
-{
-	archiveVersion = 1;
-	classes = {
-	};
-	objectVersion = 46;
-	objects = {
-
-/* Begin PBXBuildFile section */
-		736A88E11AA819A40035631A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 736A88E01AA819A40035631A /* main.m */; };
-		736A88E41AA819A40035631A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 736A88E31AA819A40035631A /* AppDelegate.m */; };
-		736A88EC1AA819A40035631A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 736A88EB1AA819A40035631A /* Images.xcassets */; };
-		736A88EF1AA819A40035631A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 736A88ED1AA819A40035631A /* LaunchScreen.xib */; };
-		736A88FB1AA819A40035631A /* PencilsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 736A88FA1AA819A40035631A /* PencilsTests.m */; };
-		736A89111AA8AA2A0035631A /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 736A890F1AA8AA2A0035631A /* LoginViewController.m */; };
-		736A89121AA8AA2A0035631A /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 736A89101AA8AA2A0035631A /* LoginViewController.xib */; };
-		736A89171AA8AA570035631A /* SignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 736A89151AA8AA570035631A /* SignupViewController.m */; };
-		736A89181AA8AA570035631A /* SignupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 736A89161AA8AA570035631A /* SignupViewController.xib */; };
-		736A89231AA8AD010035631A /* UserTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 736A89221AA8AD010035631A /* UserTest.m */; };
-		736A89281AA8AF7C0035631A /* CourseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 736A89261AA8AF7C0035631A /* CourseTableViewCell.m */; };
-		736A89291AA8AF7C0035631A /* CourseTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 736A89271AA8AF7C0035631A /* CourseTableViewCell.xib */; };
-		736A892D1AA8AFC20035631A /* TeacherTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 736A892B1AA8AFC20035631A /* TeacherTableViewCell.m */; };
-		736A892E1AA8AFC20035631A /* TeacherTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 736A892C1AA8AFC20035631A /* TeacherTableViewCell.xib */; };
-		736A89331AA8B0070035631A /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 736A89311AA8B0070035631A /* HomeViewController.m */; };
-		736A89341AA8B0070035631A /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 736A89321AA8B0070035631A /* HomeViewController.xib */; };
-		736A89381AA8B0250035631A /* RequestsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 736A89361AA8B0250035631A /* RequestsTableViewCell.m */; };
-		736A89391AA8B0250035631A /* RequestsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 736A89371AA8B0250035631A /* RequestsTableViewCell.xib */; };
-		736A89401AA8B0AD0035631A /* NavigationUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 736A893F1AA8B0AD0035631A /* NavigationUtility.m */; };
-		736A89481AA8B4300035631A /* CoursesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 736A89461AA8B4300035631A /* CoursesViewController.m */; };
-		736A89491AA8B4300035631A /* CoursesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 736A89471AA8B4300035631A /* CoursesViewController.xib */; };
-		736A894D1AA8B4480035631A /* CreateCourseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 736A894B1AA8B4480035631A /* CreateCourseViewController.m */; };
-		736A894E1AA8B4480035631A /* CreateCourseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 736A894C1AA8B4480035631A /* CreateCourseViewController.xib */; };
-		736A89521AA8B4880035631A /* GlobalCourseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 736A89501AA8B4880035631A /* GlobalCourseViewController.m */; };
-		736A89531AA8B4880035631A /* GlobalCourseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 736A89511AA8B4880035631A /* GlobalCourseViewController.xib */; };
-		736A89571AA8B4BD0035631A /* TeacherCourseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 736A89551AA8B4BD0035631A /* TeacherCourseViewController.m */; };
-		736A89581AA8B4BD0035631A /* TeacherCourseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 736A89561AA8B4BD0035631A /* TeacherCourseViewController.xib */; };
-		736A895C1AA8B4D80035631A /* TeachACourseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 736A895A1AA8B4D80035631A /* TeachACourseViewController.m */; };
-		736A895D1AA8B4D80035631A /* TeachACourseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 736A895B1AA8B4D80035631A /* TeachACourseViewController.xib */; };
-		736A89641AA8B5DF0035631A /* MaterialTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 736A89621AA8B5DF0035631A /* MaterialTableViewCell.m */; };
-		736A89651AA8B5DF0035631A /* MaterialTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 736A89631AA8B5DF0035631A /* MaterialTableViewCell.xib */; };
-		736A89691AA8B6080035631A /* SearchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 736A89671AA8B6080035631A /* SearchTableViewCell.m */; };
-		736A896A1AA8B6080035631A /* SearchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 736A89681AA8B6080035631A /* SearchTableViewCell.xib */; };
-		736A896E1AA8B6340035631A /* EditCourseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 736A896C1AA8B6340035631A /* EditCourseViewController.m */; };
-		736A896F1AA8B6340035631A /* EditCourseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 736A896D1AA8B6340035631A /* EditCourseViewController.xib */; };
-		736A897A1AA8B6DE0035631A /* ViewMaterialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 736A89781AA8B6DE0035631A /* ViewMaterialViewController.m */; };
-		736A897B1AA8B6DE0035631A /* ViewMaterialViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 736A89791AA8B6DE0035631A /* ViewMaterialViewController.xib */; };
-		736A89801AA8B9760035631A /* UploadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 736A897E1AA8B9760035631A /* UploadViewController.m */; };
-		736A89811AA8B9760035631A /* UploadViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 736A897F1AA8B9760035631A /* UploadViewController.xib */; };
-		736A89851AA8B9BC0035631A /* TabsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 736A89831AA8B9BC0035631A /* TabsViewController.m */; };
-		736A89861AA8B9BC0035631A /* TabsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 736A89841AA8B9BC0035631A /* TabsViewController.xib */; };
-		736A898A1AA8BBCB0035631A /* CourseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 736A89891AA8BBCB0035631A /* CourseManager.m */; };
-		736A898D1AA8BCE80035631A /* MaterialManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 736A898C1AA8BCE80035631A /* MaterialManager.m */; };
-		736A89991AA8CB190035631A /* Course.m in Sources */ = {isa = PBXBuildFile; fileRef = 736A89921AA8CB190035631A /* Course.m */; };
-		736A899A1AA8CB190035631A /* Material.m in Sources */ = {isa = PBXBuildFile; fileRef = 736A89941AA8CB190035631A /* Material.m */; };
-		736A899B1AA8CB190035631A /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 736A89961AA8CB190035631A /* User.m */; };
-		736A899C1AA8CB190035631A /* UserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 736A89981AA8CB190035631A /* UserManager.m */; };
-		8F1E33671AA915DA001C7A56 /* HeaderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F1E33651AA915DA001C7A56 /* HeaderTableViewCell.m */; };
-		8F1E33681AA915DA001C7A56 /* HeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F1E33661AA915DA001C7A56 /* HeaderTableViewCell.xib */; };
-/* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		736A88F51AA819A40035631A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 736A88D31AA819A40035631A /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 736A88DA1AA819A40035631A;
-			remoteInfo = Pencils;
-		};
-/* End PBXContainerItemProxy section */
-
-/* Begin PBXFileReference section */
-		736A88DB1AA819A40035631A /* Pencils.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pencils.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		736A88DF1AA819A40035631A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		736A88E01AA819A40035631A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		736A88E21AA819A40035631A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		736A88E31AA819A40035631A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; wrapsLines = 0; };
-		736A88EB1AA819A40035631A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		736A88EE1AA819A40035631A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		736A88F41AA819A40035631A /* PencilsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PencilsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		736A88F91AA819A40035631A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		736A88FA1AA819A40035631A /* PencilsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PencilsTests.m; sourceTree = "<group>"; };
-		736A890E1AA8AA2A0035631A /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = "View Controllers/Login and Signup/LoginViewController.h"; sourceTree = "<group>"; };
-		736A890F1AA8AA2A0035631A /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = "View Controllers/Login and Signup/LoginViewController.m"; sourceTree = "<group>"; };
-		736A89101AA8AA2A0035631A /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LoginViewController.xib; path = "View Controllers/Login and Signup/LoginViewController.xib"; sourceTree = "<group>"; };
-		736A89141AA8AA570035631A /* SignupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SignupViewController.h; path = "View Controllers/Login and Signup/SignupViewController.h"; sourceTree = "<group>"; };
-		736A89151AA8AA570035631A /* SignupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SignupViewController.m; path = "View Controllers/Login and Signup/SignupViewController.m"; sourceTree = "<group>"; };
-		736A89161AA8AA570035631A /* SignupViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SignupViewController.xib; path = "View Controllers/Login and Signup/SignupViewController.xib"; sourceTree = "<group>"; };
-		736A89221AA8AD010035631A /* UserTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserTest.m; path = Models/UserTest.m; sourceTree = "<group>"; };
-		736A89251AA8AF7C0035631A /* CourseTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CourseTableViewCell.h; path = Views/Common/CourseTableViewCell.h; sourceTree = "<group>"; };
-		736A89261AA8AF7C0035631A /* CourseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CourseTableViewCell.m; path = Views/Common/CourseTableViewCell.m; sourceTree = "<group>"; };
-		736A89271AA8AF7C0035631A /* CourseTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CourseTableViewCell.xib; path = Views/Common/CourseTableViewCell.xib; sourceTree = "<group>"; };
-		736A892A1AA8AFC20035631A /* TeacherTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TeacherTableViewCell.h; path = Views/Common/TeacherTableViewCell.h; sourceTree = "<group>"; };
-		736A892B1AA8AFC20035631A /* TeacherTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TeacherTableViewCell.m; path = Views/Common/TeacherTableViewCell.m; sourceTree = "<group>"; };
-		736A892C1AA8AFC20035631A /* TeacherTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TeacherTableViewCell.xib; path = Views/Common/TeacherTableViewCell.xib; sourceTree = "<group>"; };
-		736A89301AA8B0070035631A /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomeViewController.h; path = "View Controllers/Home/HomeViewController.h"; sourceTree = "<group>"; };
-		736A89311AA8B0070035631A /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomeViewController.m; path = "View Controllers/Home/HomeViewController.m"; sourceTree = "<group>"; };
-		736A89321AA8B0070035631A /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HomeViewController.xib; path = "View Controllers/Home/HomeViewController.xib"; sourceTree = "<group>"; };
-		736A89351AA8B0250035631A /* RequestsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RequestsTableViewCell.h; path = "View Controllers/Home/RequestsTableViewCell.h"; sourceTree = "<group>"; };
-		736A89361AA8B0250035631A /* RequestsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RequestsTableViewCell.m; path = "View Controllers/Home/RequestsTableViewCell.m"; sourceTree = "<group>"; };
-		736A89371AA8B0250035631A /* RequestsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RequestsTableViewCell.xib; path = "View Controllers/Home/RequestsTableViewCell.xib"; sourceTree = "<group>"; };
-		736A893E1AA8B0AD0035631A /* NavigationUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NavigationUtility.h; path = Utilities/NavigationUtility.h; sourceTree = "<group>"; };
-		736A893F1AA8B0AD0035631A /* NavigationUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NavigationUtility.m; path = Utilities/NavigationUtility.m; sourceTree = "<group>"; };
-		736A89451AA8B4300035631A /* CoursesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CoursesViewController.h; path = "View Controllers/Courses/CoursesViewController.h"; sourceTree = "<group>"; };
-		736A89461AA8B4300035631A /* CoursesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CoursesViewController.m; path = "View Controllers/Courses/CoursesViewController.m"; sourceTree = "<group>"; };
-		736A89471AA8B4300035631A /* CoursesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CoursesViewController.xib; path = "View Controllers/Courses/CoursesViewController.xib"; sourceTree = "<group>"; };
-		736A894A1AA8B4480035631A /* CreateCourseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CreateCourseViewController.h; path = "View Controllers/Courses/CreateCourseViewController.h"; sourceTree = "<group>"; };
-		736A894B1AA8B4480035631A /* CreateCourseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CreateCourseViewController.m; path = "View Controllers/Courses/CreateCourseViewController.m"; sourceTree = "<group>"; };
-		736A894C1AA8B4480035631A /* CreateCourseViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CreateCourseViewController.xib; path = "View Controllers/Courses/CreateCourseViewController.xib"; sourceTree = "<group>"; };
-		736A894F1AA8B4880035631A /* GlobalCourseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GlobalCourseViewController.h; path = "View Controllers/Courses/GlobalCourseViewController.h"; sourceTree = "<group>"; };
-		736A89501AA8B4880035631A /* GlobalCourseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GlobalCourseViewController.m; path = "View Controllers/Courses/GlobalCourseViewController.m"; sourceTree = "<group>"; };
-		736A89511AA8B4880035631A /* GlobalCourseViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = GlobalCourseViewController.xib; path = "View Controllers/Courses/GlobalCourseViewController.xib"; sourceTree = "<group>"; };
-		736A89541AA8B4BD0035631A /* TeacherCourseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TeacherCourseViewController.h; path = "View Controllers/Courses/TeacherCourseViewController.h"; sourceTree = "<group>"; };
-		736A89551AA8B4BD0035631A /* TeacherCourseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TeacherCourseViewController.m; path = "View Controllers/Courses/TeacherCourseViewController.m"; sourceTree = "<group>"; };
-		736A89561AA8B4BD0035631A /* TeacherCourseViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TeacherCourseViewController.xib; path = "View Controllers/Courses/TeacherCourseViewController.xib"; sourceTree = "<group>"; };
-		736A89591AA8B4D80035631A /* TeachACourseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TeachACourseViewController.h; path = "View Controllers/Courses/TeachACourseViewController.h"; sourceTree = "<group>"; };
-		736A895A1AA8B4D80035631A /* TeachACourseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TeachACourseViewController.m; path = "View Controllers/Courses/TeachACourseViewController.m"; sourceTree = "<group>"; };
-		736A895B1AA8B4D80035631A /* TeachACourseViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TeachACourseViewController.xib; path = "View Controllers/Courses/TeachACourseViewController.xib"; sourceTree = "<group>"; };
-		736A89611AA8B5DF0035631A /* MaterialTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MaterialTableViewCell.h; path = Views/Common/MaterialTableViewCell.h; sourceTree = "<group>"; };
-		736A89621AA8B5DF0035631A /* MaterialTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MaterialTableViewCell.m; path = Views/Common/MaterialTableViewCell.m; sourceTree = "<group>"; };
-		736A89631AA8B5DF0035631A /* MaterialTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MaterialTableViewCell.xib; path = Views/Common/MaterialTableViewCell.xib; sourceTree = "<group>"; };
-		736A89661AA8B6080035631A /* SearchTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchTableViewCell.h; path = Views/Common/SearchTableViewCell.h; sourceTree = "<group>"; };
-		736A89671AA8B6080035631A /* SearchTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchTableViewCell.m; path = Views/Common/SearchTableViewCell.m; sourceTree = "<group>"; };
-		736A89681AA8B6080035631A /* SearchTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SearchTableViewCell.xib; path = Views/Common/SearchTableViewCell.xib; sourceTree = "<group>"; };
-		736A896B1AA8B6340035631A /* EditCourseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EditCourseViewController.h; path = "View Controllers/Courses/EditCourseViewController.h"; sourceTree = "<group>"; };
-		736A896C1AA8B6340035631A /* EditCourseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EditCourseViewController.m; path = "View Controllers/Courses/EditCourseViewController.m"; sourceTree = "<group>"; };
-		736A896D1AA8B6340035631A /* EditCourseViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = EditCourseViewController.xib; path = "View Controllers/Courses/EditCourseViewController.xib"; sourceTree = "<group>"; };
-		736A89771AA8B6DE0035631A /* ViewMaterialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ViewMaterialViewController.h; path = "View Controllers/Materials/ViewMaterialViewController.h"; sourceTree = "<group>"; };
-		736A89781AA8B6DE0035631A /* ViewMaterialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ViewMaterialViewController.m; path = "View Controllers/Materials/ViewMaterialViewController.m"; sourceTree = "<group>"; };
-		736A89791AA8B6DE0035631A /* ViewMaterialViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ViewMaterialViewController.xib; path = "View Controllers/Materials/ViewMaterialViewController.xib"; sourceTree = "<group>"; };
-		736A897D1AA8B9760035631A /* UploadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UploadViewController.h; path = "View Controllers/Upload/UploadViewController.h"; sourceTree = "<group>"; };
-		736A897E1AA8B9760035631A /* UploadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UploadViewController.m; path = "View Controllers/Upload/UploadViewController.m"; sourceTree = "<group>"; };
-		736A897F1AA8B9760035631A /* UploadViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = UploadViewController.xib; path = "View Controllers/Upload/UploadViewController.xib"; sourceTree = "<group>"; };
-		736A89821AA8B9BC0035631A /* TabsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TabsViewController.h; path = "View Controllers/TabsViewController.h"; sourceTree = "<group>"; };
-		736A89831AA8B9BC0035631A /* TabsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TabsViewController.m; path = "View Controllers/TabsViewController.m"; sourceTree = "<group>"; };
-		736A89841AA8B9BC0035631A /* TabsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TabsViewController.xib; path = "View Controllers/TabsViewController.xib"; sourceTree = "<group>"; };
-		736A89881AA8BBCB0035631A /* CourseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CourseManager.h; path = "Data Managers/CourseManager.h"; sourceTree = "<group>"; };
-		736A89891AA8BBCB0035631A /* CourseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CourseManager.m; path = "Data Managers/CourseManager.m"; sourceTree = "<group>"; };
-		736A898B1AA8BCE80035631A /* MaterialManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MaterialManager.h; path = "Data Managers/MaterialManager.h"; sourceTree = "<group>"; };
-		736A898C1AA8BCE80035631A /* MaterialManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MaterialManager.m; path = "Data Managers/MaterialManager.m"; sourceTree = "<group>"; };
-		736A89911AA8CB190035631A /* Course.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Course.h; path = "Data Models/Course.h"; sourceTree = "<group>"; };
-		736A89921AA8CB190035631A /* Course.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Course.m; path = "Data Models/Course.m"; sourceTree = "<group>"; };
-		736A89931AA8CB190035631A /* Material.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Material.h; path = "Data Models/Material.h"; sourceTree = "<group>"; };
-		736A89941AA8CB190035631A /* Material.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Material.m; path = "Data Models/Material.m"; sourceTree = "<group>"; };
-		736A89951AA8CB190035631A /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = User.h; path = "Data Models/User.h"; sourceTree = "<group>"; };
-		736A89961AA8CB190035631A /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = "Data Models/User.m"; sourceTree = "<group>"; };
-		736A89971AA8CB190035631A /* UserManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserManager.h; path = "Data Models/UserManager.h"; sourceTree = "<group>"; };
-		736A89981AA8CB190035631A /* UserManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserManager.m; path = "Data Models/UserManager.m"; sourceTree = "<group>"; };
-		8F1E33641AA915DA001C7A56 /* HeaderTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HeaderTableViewCell.h; path = Views/Common/HeaderTableViewCell.h; sourceTree = "<group>"; };
-		8F1E33651AA915DA001C7A56 /* HeaderTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HeaderTableViewCell.m; path = Views/Common/HeaderTableViewCell.m; sourceTree = "<group>"; };
-		8F1E33661AA915DA001C7A56 /* HeaderTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HeaderTableViewCell.xib; path = Views/Common/HeaderTableViewCell.xib; sourceTree = "<group>"; };
-/* End PBXFileReference section */
-
-/* Begin PBXFrameworksBuildPhase section */
-		736A88D81AA819A40035631A /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		736A88F11AA819A40035631A /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXFrameworksBuildPhase section */
-
-/* Begin PBXGroup section */
-		736A88D21AA819A40035631A = {
-			isa = PBXGroup;
-			children = (
-				736A88DD1AA819A40035631A /* Pencils */,
-				736A88F71AA819A40035631A /* PencilsTests */,
-				736A88DC1AA819A40035631A /* Products */,
-			);
-			sourceTree = "<group>";
-		};
-		736A88DC1AA819A40035631A /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				736A88DB1AA819A40035631A /* Pencils.app */,
-				736A88F41AA819A40035631A /* PencilsTests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		736A88DD1AA819A40035631A /* Pencils */ = {
-			isa = PBXGroup;
-			children = (
-				736A890D1AA8A9EF0035631A /* Controllers */,
-				736A89871AA8BB990035631A /* Data Managers */,
-				736A890B1AA8A9E30035631A /* Data Models */,
-				736A88DE1AA819A40035631A /* Supporting Files */,
-				736A890C1AA8A9EA0035631A /* Views */,
-				736A893D1AA8B0820035631A /* Utilities */,
-				736A88E21AA819A40035631A /* AppDelegate.h */,
-				736A88E31AA819A40035631A /* AppDelegate.m */,
-				736A88EB1AA819A40035631A /* Images.xcassets */,
-				736A88ED1AA819A40035631A /* LaunchScreen.xib */,
-			);
-			path = Pencils;
-			sourceTree = "<group>";
-		};
-		736A88DE1AA819A40035631A /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				736A88DF1AA819A40035631A /* Info.plist */,
-				736A88E01AA819A40035631A /* main.m */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		736A88F71AA819A40035631A /* PencilsTests */ = {
-			isa = PBXGroup;
-			children = (
-				736A89211AA8ACC50035631A /* Models */,
-				736A88F81AA819A40035631A /* Supporting Files */,
-				736A88FA1AA819A40035631A /* PencilsTests.m */,
-			);
-			path = PencilsTests;
-			sourceTree = "<group>";
-		};
-		736A88F81AA819A40035631A /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				736A88F91AA819A40035631A /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		736A890B1AA8A9E30035631A /* Data Models */ = {
-			isa = PBXGroup;
-			children = (
-				736A89911AA8CB190035631A /* Course.h */,
-				736A89921AA8CB190035631A /* Course.m */,
-				736A89931AA8CB190035631A /* Material.h */,
-				736A89941AA8CB190035631A /* Material.m */,
-				736A89951AA8CB190035631A /* User.h */,
-				736A89961AA8CB190035631A /* User.m */,
-			);
-			name = "Data Models";
-			sourceTree = "<group>";
-		};
-		736A890C1AA8A9EA0035631A /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				736A89241AA8AF480035631A /* Common */,
-			);
-			name = Views;
-			sourceTree = "<group>";
-		};
-		736A890D1AA8A9EF0035631A /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				736A89441AA8B4190035631A /* Courses */,
-				736A892F1AA8AFC90035631A /* Home */,
-				736A89131AA8AA380035631A /* Login and Signup */,
-				736A89701AA8B6530035631A /* Materials */,
-				736A897C1AA8B95E0035631A /* Upload */,
-				736A89821AA8B9BC0035631A /* TabsViewController.h */,
-				736A89831AA8B9BC0035631A /* TabsViewController.m */,
-				736A89841AA8B9BC0035631A /* TabsViewController.xib */,
-			);
-			name = Controllers;
-			sourceTree = "<group>";
-		};
-		736A89131AA8AA380035631A /* Login and Signup */ = {
-			isa = PBXGroup;
-			children = (
-				736A890E1AA8AA2A0035631A /* LoginViewController.h */,
-				736A890F1AA8AA2A0035631A /* LoginViewController.m */,
-				736A89101AA8AA2A0035631A /* LoginViewController.xib */,
-				736A89141AA8AA570035631A /* SignupViewController.h */,
-				736A89151AA8AA570035631A /* SignupViewController.m */,
-				736A89161AA8AA570035631A /* SignupViewController.xib */,
-			);
-			name = "Login and Signup";
-			sourceTree = "<group>";
-		};
-		736A89211AA8ACC50035631A /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				736A89221AA8AD010035631A /* UserTest.m */,
-			);
-			name = Models;
-			sourceTree = "<group>";
-		};
-		736A89241AA8AF480035631A /* Common */ = {
-			isa = PBXGroup;
-			children = (
-				736A89251AA8AF7C0035631A /* CourseTableViewCell.h */,
-				736A89261AA8AF7C0035631A /* CourseTableViewCell.m */,
-				736A89271AA8AF7C0035631A /* CourseTableViewCell.xib */,
-				8F1E33641AA915DA001C7A56 /* HeaderTableViewCell.h */,
-				8F1E33651AA915DA001C7A56 /* HeaderTableViewCell.m */,
-				8F1E33661AA915DA001C7A56 /* HeaderTableViewCell.xib */,
-				736A89611AA8B5DF0035631A /* MaterialTableViewCell.h */,
-				736A89621AA8B5DF0035631A /* MaterialTableViewCell.m */,
-				736A89631AA8B5DF0035631A /* MaterialTableViewCell.xib */,
-				736A89661AA8B6080035631A /* SearchTableViewCell.h */,
-				736A89671AA8B6080035631A /* SearchTableViewCell.m */,
-				736A89681AA8B6080035631A /* SearchTableViewCell.xib */,
-				736A892A1AA8AFC20035631A /* TeacherTableViewCell.h */,
-				736A892B1AA8AFC20035631A /* TeacherTableViewCell.m */,
-				736A892C1AA8AFC20035631A /* TeacherTableViewCell.xib */,
-			);
-			name = Common;
-			sourceTree = "<group>";
-		};
-		736A892F1AA8AFC90035631A /* Home */ = {
-			isa = PBXGroup;
-			children = (
-				736A89301AA8B0070035631A /* HomeViewController.h */,
-				736A89311AA8B0070035631A /* HomeViewController.m */,
-				736A89321AA8B0070035631A /* HomeViewController.xib */,
-				736A89351AA8B0250035631A /* RequestsTableViewCell.h */,
-				736A89361AA8B0250035631A /* RequestsTableViewCell.m */,
-				736A89371AA8B0250035631A /* RequestsTableViewCell.xib */,
-			);
-			name = Home;
-			sourceTree = "<group>";
-		};
-		736A893D1AA8B0820035631A /* Utilities */ = {
-			isa = PBXGroup;
-			children = (
-				736A893E1AA8B0AD0035631A /* NavigationUtility.h */,
-				736A893F1AA8B0AD0035631A /* NavigationUtility.m */,
-			);
-			name = Utilities;
-			sourceTree = "<group>";
-		};
-		736A89441AA8B4190035631A /* Courses */ = {
-			isa = PBXGroup;
-			children = (
-				736A89451AA8B4300035631A /* CoursesViewController.h */,
-				736A89461AA8B4300035631A /* CoursesViewController.m */,
-				736A89471AA8B4300035631A /* CoursesViewController.xib */,
-				736A894A1AA8B4480035631A /* CreateCourseViewController.h */,
-				736A894B1AA8B4480035631A /* CreateCourseViewController.m */,
-				736A894C1AA8B4480035631A /* CreateCourseViewController.xib */,
-				736A896B1AA8B6340035631A /* EditCourseViewController.h */,
-				736A896C1AA8B6340035631A /* EditCourseViewController.m */,
-				736A896D1AA8B6340035631A /* EditCourseViewController.xib */,
-				736A894F1AA8B4880035631A /* GlobalCourseViewController.h */,
-				736A89501AA8B4880035631A /* GlobalCourseViewController.m */,
-				736A89511AA8B4880035631A /* GlobalCourseViewController.xib */,
-				736A89591AA8B4D80035631A /* TeachACourseViewController.h */,
-				736A895A1AA8B4D80035631A /* TeachACourseViewController.m */,
-				736A895B1AA8B4D80035631A /* TeachACourseViewController.xib */,
-				736A89541AA8B4BD0035631A /* TeacherCourseViewController.h */,
-				736A89551AA8B4BD0035631A /* TeacherCourseViewController.m */,
-				736A89561AA8B4BD0035631A /* TeacherCourseViewController.xib */,
-			);
-			name = Courses;
-			sourceTree = "<group>";
-		};
-		736A89701AA8B6530035631A /* Materials */ = {
-			isa = PBXGroup;
-			children = (
-				736A89771AA8B6DE0035631A /* ViewMaterialViewController.h */,
-				736A89781AA8B6DE0035631A /* ViewMaterialViewController.m */,
-				736A89791AA8B6DE0035631A /* ViewMaterialViewController.xib */,
-			);
-			name = Materials;
-			sourceTree = "<group>";
-		};
-		736A897C1AA8B95E0035631A /* Upload */ = {
-			isa = PBXGroup;
-			children = (
-				736A897D1AA8B9760035631A /* UploadViewController.h */,
-				736A897E1AA8B9760035631A /* UploadViewController.m */,
-				736A897F1AA8B9760035631A /* UploadViewController.xib */,
-			);
-			name = Upload;
-			sourceTree = "<group>";
-		};
-		736A89871AA8BB990035631A /* Data Managers */ = {
-			isa = PBXGroup;
-			children = (
-				736A89881AA8BBCB0035631A /* CourseManager.h */,
-				736A89891AA8BBCB0035631A /* CourseManager.m */,
-				736A898B1AA8BCE80035631A /* MaterialManager.h */,
-				736A898C1AA8BCE80035631A /* MaterialManager.m */,
-				736A89971AA8CB190035631A /* UserManager.h */,
-				736A89981AA8CB190035631A /* UserManager.m */,
-			);
-			name = "Data Managers";
-			sourceTree = "<group>";
-		};
-/* End PBXGroup section */
-
-/* Begin PBXNativeTarget section */
-		736A88DA1AA819A40035631A /* Pencils */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 736A88FE1AA819A40035631A /* Build configuration list for PBXNativeTarget "Pencils" */;
-			buildPhases = (
-				736A88D71AA819A40035631A /* Sources */,
-				736A88D81AA819A40035631A /* Frameworks */,
-				736A88D91AA819A40035631A /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = Pencils;
-			productName = Pencils;
-			productReference = 736A88DB1AA819A40035631A /* Pencils.app */;
-			productType = "com.apple.product-type.application";
-		};
-		736A88F31AA819A40035631A /* PencilsTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 736A89011AA819A40035631A /* Build configuration list for PBXNativeTarget "PencilsTests" */;
-			buildPhases = (
-				736A88F01AA819A40035631A /* Sources */,
-				736A88F11AA819A40035631A /* Frameworks */,
-				736A88F21AA819A40035631A /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				736A88F61AA819A40035631A /* PBXTargetDependency */,
-			);
-			name = PencilsTests;
-			productName = PencilsTests;
-			productReference = 736A88F41AA819A40035631A /* PencilsTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-/* End PBXNativeTarget section */
-
-/* Begin PBXProject section */
-		736A88D31AA819A40035631A /* Project object */ = {
-			isa = PBXProject;
-			attributes = {
-				LastUpgradeCheck = 0610;
-				ORGANIZATIONNAME = Box;
-				TargetAttributes = {
-					736A88DA1AA819A40035631A = {
-						CreatedOnToolsVersion = 6.1.1;
-					};
-					736A88F31AA819A40035631A = {
-						CreatedOnToolsVersion = 6.1.1;
-						TestTargetID = 736A88DA1AA819A40035631A;
-					};
-				};
-			};
-			buildConfigurationList = 736A88D61AA819A40035631A /* Build configuration list for PBXProject "Pencils" */;
-			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
-			hasScannedForEncodings = 0;
-			knownRegions = (
-				en,
-				Base,
-			);
-			mainGroup = 736A88D21AA819A40035631A;
-			productRefGroup = 736A88DC1AA819A40035631A /* Products */;
-			projectDirPath = "";
-			projectRoot = "";
-			targets = (
-				736A88DA1AA819A40035631A /* Pencils */,
-				736A88F31AA819A40035631A /* PencilsTests */,
-			);
-		};
-/* End PBXProject section */
-
-/* Begin PBXResourcesBuildPhase section */
-		736A88D91AA819A40035631A /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				736A89291AA8AF7C0035631A /* CourseTableViewCell.xib in Resources */,
-				736A89861AA8B9BC0035631A /* TabsViewController.xib in Resources */,
-				736A89811AA8B9760035631A /* UploadViewController.xib in Resources */,
-				736A89391AA8B0250035631A /* RequestsTableViewCell.xib in Resources */,
-				736A892E1AA8AFC20035631A /* TeacherTableViewCell.xib in Resources */,
-				736A896F1AA8B6340035631A /* EditCourseViewController.xib in Resources */,
-				736A88EF1AA819A40035631A /* LaunchScreen.xib in Resources */,
-				736A88EC1AA819A40035631A /* Images.xcassets in Resources */,
-				8F1E33681AA915DA001C7A56 /* HeaderTableViewCell.xib in Resources */,
-				736A897B1AA8B6DE0035631A /* ViewMaterialViewController.xib in Resources */,
-				736A89181AA8AA570035631A /* SignupViewController.xib in Resources */,
-				736A89531AA8B4880035631A /* GlobalCourseViewController.xib in Resources */,
-				736A89491AA8B4300035631A /* CoursesViewController.xib in Resources */,
-				736A89651AA8B5DF0035631A /* MaterialTableViewCell.xib in Resources */,
-				736A89581AA8B4BD0035631A /* TeacherCourseViewController.xib in Resources */,
-				736A89341AA8B0070035631A /* HomeViewController.xib in Resources */,
-				736A89121AA8AA2A0035631A /* LoginViewController.xib in Resources */,
-				736A895D1AA8B4D80035631A /* TeachACourseViewController.xib in Resources */,
-				736A894E1AA8B4480035631A /* CreateCourseViewController.xib in Resources */,
-				736A896A1AA8B6080035631A /* SearchTableViewCell.xib in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		736A88F21AA819A40035631A /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXResourcesBuildPhase section */
-
-/* Begin PBXSourcesBuildPhase section */
-		736A88D71AA819A40035631A /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				736A89851AA8B9BC0035631A /* TabsViewController.m in Sources */,
-				736A892D1AA8AFC20035631A /* TeacherTableViewCell.m in Sources */,
-				736A899B1AA8CB190035631A /* User.m in Sources */,
-				736A88E41AA819A40035631A /* AppDelegate.m in Sources */,
-				736A894D1AA8B4480035631A /* CreateCourseViewController.m in Sources */,
-				736A89571AA8B4BD0035631A /* TeacherCourseViewController.m in Sources */,
-				736A89481AA8B4300035631A /* CoursesViewController.m in Sources */,
-				736A88E11AA819A40035631A /* main.m in Sources */,
-				736A89801AA8B9760035631A /* UploadViewController.m in Sources */,
-				736A899A1AA8CB190035631A /* Material.m in Sources */,
-				736A89691AA8B6080035631A /* SearchTableViewCell.m in Sources */,
-				736A897A1AA8B6DE0035631A /* ViewMaterialViewController.m in Sources */,
-				736A896E1AA8B6340035631A /* EditCourseViewController.m in Sources */,
-				8F1E33671AA915DA001C7A56 /* HeaderTableViewCell.m in Sources */,
-				736A898A1AA8BBCB0035631A /* CourseManager.m in Sources */,
-				736A89991AA8CB190035631A /* Course.m in Sources */,
-				736A89171AA8AA570035631A /* SignupViewController.m in Sources */,
-				736A89521AA8B4880035631A /* GlobalCourseViewController.m in Sources */,
-				736A89381AA8B0250035631A /* RequestsTableViewCell.m in Sources */,
-				736A89111AA8AA2A0035631A /* LoginViewController.m in Sources */,
-				736A89401AA8B0AD0035631A /* NavigationUtility.m in Sources */,
-				736A899C1AA8CB190035631A /* UserManager.m in Sources */,
-				736A895C1AA8B4D80035631A /* TeachACourseViewController.m in Sources */,
-				736A898D1AA8BCE80035631A /* MaterialManager.m in Sources */,
-				736A89641AA8B5DF0035631A /* MaterialTableViewCell.m in Sources */,
-				736A89281AA8AF7C0035631A /* CourseTableViewCell.m in Sources */,
-				736A89331AA8B0070035631A /* HomeViewController.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		736A88F01AA819A40035631A /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				736A89231AA8AD010035631A /* UserTest.m in Sources */,
-				736A88FB1AA819A40035631A /* PencilsTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		736A88F61AA819A40035631A /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 736A88DA1AA819A40035631A /* Pencils */;
-			targetProxy = 736A88F51AA819A40035631A /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		736A88ED1AA819A40035631A /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				736A88EE1AA819A40035631A /* Base */,
-			);
-			name = LaunchScreen.xib;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
-
-/* Begin XCBuildConfiguration section */
-		736A88FC1AA819A40035631A /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				COPY_PHASE_STRIP = NO;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = iphoneos;
-			};
-			name = Debug;
-		};
-		736A88FD1AA819A40035631A /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				COPY_PHASE_STRIP = YES;
-				ENABLE_NS_ASSERTIONS = NO;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				SDKROOT = iphoneos;
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		736A88FF1AA819A40035631A /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = Pencils/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Debug;
-		};
-		736A89001AA819A40035631A /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = Pencils/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
-		736A89021AA819A40035631A /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = PencilsTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Pencils.app/Pencils";
-			};
-			name = Debug;
-		};
-		736A89031AA819A40035631A /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = PencilsTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Pencils.app/Pencils";
-			};
-			name = Release;
-		};
-/* End XCBuildConfiguration section */
-
-/* Begin XCConfigurationList section */
-		736A88D61AA819A40035631A /* Build configuration list for PBXProject "Pencils" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				736A88FC1AA819A40035631A /* Debug */,
-				736A88FD1AA819A40035631A /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		736A88FE1AA819A40035631A /* Build configuration list for PBXNativeTarget "Pencils" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				736A88FF1AA819A40035631A /* Debug */,
-				736A89001AA819A40035631A /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		736A89011AA819A40035631A /* Build configuration list for PBXNativeTarget "PencilsTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				736A89021AA819A40035631A /* Debug */,
-				736A89031AA819A40035631A /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-/* End XCConfigurationList section */
-	};
-	rootObject = 736A88D31AA819A40035631A /* Project object */;
-}
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>archiveVersion</key>
+	<string>1</string>
+	<key>classes</key>
+	<dict/>
+	<key>objectVersion</key>
+	<string>46</string>
+	<key>objects</key>
+	<dict>
+		<key>0C05AA37EF89374E60A73E2A</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>Copy Pods Resources</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh"
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>0F2A0554565FA42DB574478E</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>name</key>
+			<string>Pods.debug.xcconfig</string>
+			<key>path</key>
+			<string>Pods/Target Support Files/Pods/Pods.debug.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>4220930C02A341CF7DCA73C7</key>
+		<dict>
+			<key>fileRef</key>
+			<string>54BF8E171EB0C38EEC311560</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>50EC3B1FA6DDFEB55F4412AE</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>54BF8E171EB0C38EEC311560</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Frameworks</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>54BF8E171EB0C38EEC311560</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>archive.ar</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>libPods.a</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>58059A81657BC21CBD539E6D</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>0F2A0554565FA42DB574478E</string>
+				<string>6F0F987FDC3E78742DF01139</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Pods</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>6F0F987FDC3E78742DF01139</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>name</key>
+			<string>Pods.release.xcconfig</string>
+			<key>path</key>
+			<string>Pods/Target Support Files/Pods/Pods.release.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>736A88D21AA819A40035631A</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>736A88DD1AA819A40035631A</string>
+				<string>736A88F71AA819A40035631A</string>
+				<string>736A88DC1AA819A40035631A</string>
+				<string>58059A81657BC21CBD539E6D</string>
+				<string>50EC3B1FA6DDFEB55F4412AE</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>736A88D31AA819A40035631A</key>
+		<dict>
+			<key>attributes</key>
+			<dict>
+				<key>LastUpgradeCheck</key>
+				<string>0610</string>
+				<key>ORGANIZATIONNAME</key>
+				<string>Box</string>
+				<key>TargetAttributes</key>
+				<dict>
+					<key>736A88DA1AA819A40035631A</key>
+					<dict>
+						<key>CreatedOnToolsVersion</key>
+						<string>6.1.1</string>
+					</dict>
+					<key>736A88F31AA819A40035631A</key>
+					<dict>
+						<key>CreatedOnToolsVersion</key>
+						<string>6.1.1</string>
+						<key>TestTargetID</key>
+						<string>736A88DA1AA819A40035631A</string>
+					</dict>
+				</dict>
+			</dict>
+			<key>buildConfigurationList</key>
+			<string>736A88D61AA819A40035631A</string>
+			<key>compatibilityVersion</key>
+			<string>Xcode 3.2</string>
+			<key>developmentRegion</key>
+			<string>English</string>
+			<key>hasScannedForEncodings</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXProject</string>
+			<key>knownRegions</key>
+			<array>
+				<string>en</string>
+				<string>Base</string>
+			</array>
+			<key>mainGroup</key>
+			<string>736A88D21AA819A40035631A</string>
+			<key>productRefGroup</key>
+			<string>736A88DC1AA819A40035631A</string>
+			<key>projectDirPath</key>
+			<string></string>
+			<key>projectReferences</key>
+			<array/>
+			<key>projectRoot</key>
+			<string></string>
+			<key>targets</key>
+			<array>
+				<string>736A88DA1AA819A40035631A</string>
+				<string>736A88F31AA819A40035631A</string>
+			</array>
+		</dict>
+		<key>736A88D61AA819A40035631A</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>736A88FC1AA819A40035631A</string>
+				<string>736A88FD1AA819A40035631A</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>736A88D71AA819A40035631A</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>736A89851AA8B9BC0035631A</string>
+				<string>736A892D1AA8AFC20035631A</string>
+				<string>736A899B1AA8CB190035631A</string>
+				<string>736A88E41AA819A40035631A</string>
+				<string>736A894D1AA8B4480035631A</string>
+				<string>736A89571AA8B4BD0035631A</string>
+				<string>736A89481AA8B4300035631A</string>
+				<string>736A88E11AA819A40035631A</string>
+				<string>736A89801AA8B9760035631A</string>
+				<string>736A899A1AA8CB190035631A</string>
+				<string>736A89691AA8B6080035631A</string>
+				<string>736A897A1AA8B6DE0035631A</string>
+				<string>736A896E1AA8B6340035631A</string>
+				<string>8F1E33671AA915DA001C7A56</string>
+				<string>736A898A1AA8BBCB0035631A</string>
+				<string>736A89991AA8CB190035631A</string>
+				<string>736A89171AA8AA570035631A</string>
+				<string>736A89521AA8B4880035631A</string>
+				<string>736A89381AA8B0250035631A</string>
+				<string>736A89111AA8AA2A0035631A</string>
+				<string>736A89401AA8B0AD0035631A</string>
+				<string>736A899C1AA8CB190035631A</string>
+				<string>736A895C1AA8B4D80035631A</string>
+				<string>736A898D1AA8BCE80035631A</string>
+				<string>736A89641AA8B5DF0035631A</string>
+				<string>736A89281AA8AF7C0035631A</string>
+				<string>736A89331AA8B0070035631A</string>
+			</array>
+			<key>isa</key>
+			<string>PBXSourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>736A88D81AA819A40035631A</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>4220930C02A341CF7DCA73C7</string>
+			</array>
+			<key>isa</key>
+			<string>PBXFrameworksBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>736A88D91AA819A40035631A</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>736A89291AA8AF7C0035631A</string>
+				<string>736A89861AA8B9BC0035631A</string>
+				<string>736A89811AA8B9760035631A</string>
+				<string>736A89391AA8B0250035631A</string>
+				<string>736A892E1AA8AFC20035631A</string>
+				<string>736A896F1AA8B6340035631A</string>
+				<string>736A88EF1AA819A40035631A</string>
+				<string>736A88EC1AA819A40035631A</string>
+				<string>8F1E33681AA915DA001C7A56</string>
+				<string>736A897B1AA8B6DE0035631A</string>
+				<string>736A89181AA8AA570035631A</string>
+				<string>736A89531AA8B4880035631A</string>
+				<string>736A89491AA8B4300035631A</string>
+				<string>736A89651AA8B5DF0035631A</string>
+				<string>736A89581AA8B4BD0035631A</string>
+				<string>736A89341AA8B0070035631A</string>
+				<string>736A89121AA8AA2A0035631A</string>
+				<string>736A895D1AA8B4D80035631A</string>
+				<string>736A894E1AA8B4480035631A</string>
+				<string>736A896A1AA8B6080035631A</string>
+			</array>
+			<key>isa</key>
+			<string>PBXResourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>736A88DA1AA819A40035631A</key>
+		<dict>
+			<key>buildConfigurationList</key>
+			<string>736A88FE1AA819A40035631A</string>
+			<key>buildPhases</key>
+			<array>
+				<string>ED75349D04F20CB0CF135268</string>
+				<string>736A88D71AA819A40035631A</string>
+				<string>736A88D81AA819A40035631A</string>
+				<string>736A88D91AA819A40035631A</string>
+				<string>0C05AA37EF89374E60A73E2A</string>
+			</array>
+			<key>buildRules</key>
+			<array/>
+			<key>dependencies</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXNativeTarget</string>
+			<key>name</key>
+			<string>Pencils</string>
+			<key>productName</key>
+			<string>Pencils</string>
+			<key>productReference</key>
+			<string>736A88DB1AA819A40035631A</string>
+			<key>productType</key>
+			<string>com.apple.product-type.application</string>
+		</dict>
+		<key>736A88DB1AA819A40035631A</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>wrapper.application</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>Pencils.app</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>736A88DC1AA819A40035631A</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>736A88DB1AA819A40035631A</string>
+				<string>736A88F41AA819A40035631A</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Products</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>736A88DD1AA819A40035631A</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>736A890D1AA8A9EF0035631A</string>
+				<string>736A89871AA8BB990035631A</string>
+				<string>736A890B1AA8A9E30035631A</string>
+				<string>736A88DE1AA819A40035631A</string>
+				<string>736A890C1AA8A9EA0035631A</string>
+				<string>736A893D1AA8B0820035631A</string>
+				<string>736A88E21AA819A40035631A</string>
+				<string>736A88E31AA819A40035631A</string>
+				<string>736A88EB1AA819A40035631A</string>
+				<string>736A88ED1AA819A40035631A</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>path</key>
+			<string>Pencils</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>736A88DE1AA819A40035631A</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>736A88DF1AA819A40035631A</string>
+				<string>736A88E01AA819A40035631A</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Supporting Files</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>736A88DF1AA819A40035631A</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.plist.xml</string>
+			<key>path</key>
+			<string>Info.plist</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>736A88E01AA819A40035631A</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>main.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>736A88E11AA819A40035631A</key>
+		<dict>
+			<key>fileRef</key>
+			<string>736A88E01AA819A40035631A</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>736A88E21AA819A40035631A</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>AppDelegate.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>736A88E31AA819A40035631A</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>AppDelegate.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+			<key>wrapsLines</key>
+			<string>0</string>
+		</dict>
+		<key>736A88E41AA819A40035631A</key>
+		<dict>
+			<key>fileRef</key>
+			<string>736A88E31AA819A40035631A</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>736A88EB1AA819A40035631A</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>folder.assetcatalog</string>
+			<key>path</key>
+			<string>Images.xcassets</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>736A88EC1AA819A40035631A</key>
+		<dict>
+			<key>fileRef</key>
+			<string>736A88EB1AA819A40035631A</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>736A88ED1AA819A40035631A</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>736A88EE1AA819A40035631A</string>
+			</array>
+			<key>isa</key>
+			<string>PBXVariantGroup</string>
+			<key>name</key>
+			<string>LaunchScreen.xib</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>736A88EE1AA819A40035631A</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>file.xib</string>
+			<key>name</key>
+			<string>Base</string>
+			<key>path</key>
+			<string>Base.lproj/LaunchScreen.xib</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>736A88EF1AA819A40035631A</key>
+		<dict>
+			<key>fileRef</key>
+			<string>736A88ED1AA819A40035631A</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>736A88F01AA819A40035631A</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>736A89231AA8AD010035631A</string>
+				<string>736A88FB1AA819A40035631A</string>
+			</array>
+			<key>isa</key>
+			<string>PBXSourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>736A88F11AA819A40035631A</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXFrameworksBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>736A88F21AA819A40035631A</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXResourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>736A88F31AA819A40035631A</key>
+		<dict>
+			<key>buildConfigurationList</key>
+			<string>736A89011AA819A40035631A</string>
+			<key>buildPhases</key>
+			<array>
+				<string>736A88F01AA819A40035631A</string>
+				<string>736A88F11AA819A40035631A</string>
+				<string>736A88F21AA819A40035631A</string>
+			</array>
+			<key>buildRules</key>
+			<array/>
+			<key>dependencies</key>
+			<array>
+				<string>736A88F61AA819A40035631A</string>
+			</array>
+			<key>isa</key>
+			<string>PBXNativeTarget</string>
+			<key>name</key>
+			<string>PencilsTests</string>
+			<key>productName</key>
+			<string>PencilsTests</string>
+			<key>productReference</key>
+			<string>736A88F41AA819A40035631A</string>
+			<key>productType</key>
+			<string>com.apple.product-type.bundle.unit-test</string>
+		</dict>
+		<key>736A88F41AA819A40035631A</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>wrapper.cfbundle</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>PencilsTests.xctest</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>736A88F51AA819A40035631A</key>
+		<dict>
+			<key>containerPortal</key>
+			<string>736A88D31AA819A40035631A</string>
+			<key>isa</key>
+			<string>PBXContainerItemProxy</string>
+			<key>proxyType</key>
+			<string>1</string>
+			<key>remoteGlobalIDString</key>
+			<string>736A88DA1AA819A40035631A</string>
+			<key>remoteInfo</key>
+			<string>Pencils</string>
+		</dict>
+		<key>736A88F61AA819A40035631A</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXTargetDependency</string>
+			<key>target</key>
+			<string>736A88DA1AA819A40035631A</string>
+			<key>targetProxy</key>
+			<string>736A88F51AA819A40035631A</string>
+		</dict>
+		<key>736A88F71AA819A40035631A</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>736A89211AA8ACC50035631A</string>
+				<string>736A88F81AA819A40035631A</string>
+				<string>736A88FA1AA819A40035631A</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>path</key>
+			<string>PencilsTests</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>736A88F81AA819A40035631A</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>736A88F91AA819A40035631A</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Supporting Files</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>736A88F91AA819A40035631A</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.plist.xml</string>
+			<key>path</key>
+			<string>Info.plist</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>736A88FA1AA819A40035631A</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>PencilsTests.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>736A88FB1AA819A40035631A</key>
+		<dict>
+			<key>fileRef</key>
+			<string>736A88FA1AA819A40035631A</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>736A88FC1AA819A40035631A</key>
+		<dict>
+			<key>buildSettings</key>
+			<dict>
+				<key>ALWAYS_SEARCH_USER_PATHS</key>
+				<string>NO</string>
+				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
+				<string>gnu++0x</string>
+				<key>CLANG_CXX_LIBRARY</key>
+				<string>libc++</string>
+				<key>CLANG_ENABLE_MODULES</key>
+				<string>YES</string>
+				<key>CLANG_ENABLE_OBJC_ARC</key>
+				<string>YES</string>
+				<key>CLANG_WARN_BOOL_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
+				<string>YES_ERROR</string>
+				<key>CLANG_WARN_EMPTY_BODY</key>
+				<string>YES</string>
+				<key>CLANG_WARN_ENUM_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_INT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
+				<string>YES_ERROR</string>
+				<key>CLANG_WARN_UNREACHABLE_CODE</key>
+				<string>YES</string>
+				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
+				<string>YES</string>
+				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
+				<string>iPhone Developer</string>
+				<key>COPY_PHASE_STRIP</key>
+				<string>NO</string>
+				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
+				<string>YES</string>
+				<key>GCC_C_LANGUAGE_STANDARD</key>
+				<string>gnu99</string>
+				<key>GCC_DYNAMIC_NO_PIC</key>
+				<string>NO</string>
+				<key>GCC_OPTIMIZATION_LEVEL</key>
+				<string>0</string>
+				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
+				<array>
+					<string>DEBUG=1</string>
+					<string>$(inherited)</string>
+				</array>
+				<key>GCC_SYMBOLS_PRIVATE_EXTERN</key>
+				<string>NO</string>
+				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
+				<string>YES</string>
+				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
+				<string>YES_ERROR</string>
+				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
+				<string>YES_AGGRESSIVE</string>
+				<key>GCC_WARN_UNUSED_FUNCTION</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNUSED_VARIABLE</key>
+				<string>YES</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>8.1</string>
+				<key>MTL_ENABLE_DEBUG_INFO</key>
+				<string>YES</string>
+				<key>ONLY_ACTIVE_ARCH</key>
+				<string>YES</string>
+				<key>SDKROOT</key>
+				<string>iphoneos</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>736A88FD1AA819A40035631A</key>
+		<dict>
+			<key>buildSettings</key>
+			<dict>
+				<key>ALWAYS_SEARCH_USER_PATHS</key>
+				<string>NO</string>
+				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
+				<string>gnu++0x</string>
+				<key>CLANG_CXX_LIBRARY</key>
+				<string>libc++</string>
+				<key>CLANG_ENABLE_MODULES</key>
+				<string>YES</string>
+				<key>CLANG_ENABLE_OBJC_ARC</key>
+				<string>YES</string>
+				<key>CLANG_WARN_BOOL_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
+				<string>YES_ERROR</string>
+				<key>CLANG_WARN_EMPTY_BODY</key>
+				<string>YES</string>
+				<key>CLANG_WARN_ENUM_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_INT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
+				<string>YES_ERROR</string>
+				<key>CLANG_WARN_UNREACHABLE_CODE</key>
+				<string>YES</string>
+				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
+				<string>YES</string>
+				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
+				<string>iPhone Developer</string>
+				<key>COPY_PHASE_STRIP</key>
+				<string>YES</string>
+				<key>ENABLE_NS_ASSERTIONS</key>
+				<string>NO</string>
+				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
+				<string>YES</string>
+				<key>GCC_C_LANGUAGE_STANDARD</key>
+				<string>gnu99</string>
+				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
+				<string>YES</string>
+				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
+				<string>YES_ERROR</string>
+				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
+				<string>YES_AGGRESSIVE</string>
+				<key>GCC_WARN_UNUSED_FUNCTION</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNUSED_VARIABLE</key>
+				<string>YES</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>8.1</string>
+				<key>MTL_ENABLE_DEBUG_INFO</key>
+				<string>NO</string>
+				<key>SDKROOT</key>
+				<string>iphoneos</string>
+				<key>VALIDATE_PRODUCT</key>
+				<string>YES</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>736A88FE1AA819A40035631A</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>736A88FF1AA819A40035631A</string>
+				<string>736A89001AA819A40035631A</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>736A88FF1AA819A40035631A</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>0F2A0554565FA42DB574478E</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>ASSETCATALOG_COMPILER_APPICON_NAME</key>
+				<string>AppIcon</string>
+				<key>INFOPLIST_FILE</key>
+				<string>Pencils/Info.plist</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>8.0</string>
+				<key>LD_RUNPATH_SEARCH_PATHS</key>
+				<string>$(inherited) @executable_path/Frameworks</string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>736A89001AA819A40035631A</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>6F0F987FDC3E78742DF01139</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>ASSETCATALOG_COMPILER_APPICON_NAME</key>
+				<string>AppIcon</string>
+				<key>INFOPLIST_FILE</key>
+				<string>Pencils/Info.plist</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>8.0</string>
+				<key>LD_RUNPATH_SEARCH_PATHS</key>
+				<string>$(inherited) @executable_path/Frameworks</string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>736A89011AA819A40035631A</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>736A89021AA819A40035631A</string>
+				<string>736A89031AA819A40035631A</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>736A89021AA819A40035631A</key>
+		<dict>
+			<key>buildSettings</key>
+			<dict>
+				<key>BUNDLE_LOADER</key>
+				<string>$(TEST_HOST)</string>
+				<key>FRAMEWORK_SEARCH_PATHS</key>
+				<array>
+					<string>$(SDKROOT)/Developer/Library/Frameworks</string>
+					<string>$(inherited)</string>
+				</array>
+				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
+				<array>
+					<string>DEBUG=1</string>
+					<string>$(inherited)</string>
+				</array>
+				<key>INFOPLIST_FILE</key>
+				<string>PencilsTests/Info.plist</string>
+				<key>LD_RUNPATH_SEARCH_PATHS</key>
+				<string>$(inherited) @executable_path/Frameworks @loader_path/Frameworks</string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>TEST_HOST</key>
+				<string>$(BUILT_PRODUCTS_DIR)/Pencils.app/Pencils</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>736A89031AA819A40035631A</key>
+		<dict>
+			<key>buildSettings</key>
+			<dict>
+				<key>BUNDLE_LOADER</key>
+				<string>$(TEST_HOST)</string>
+				<key>FRAMEWORK_SEARCH_PATHS</key>
+				<array>
+					<string>$(SDKROOT)/Developer/Library/Frameworks</string>
+					<string>$(inherited)</string>
+				</array>
+				<key>INFOPLIST_FILE</key>
+				<string>PencilsTests/Info.plist</string>
+				<key>LD_RUNPATH_SEARCH_PATHS</key>
+				<string>$(inherited) @executable_path/Frameworks @loader_path/Frameworks</string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>TEST_HOST</key>
+				<string>$(BUILT_PRODUCTS_DIR)/Pencils.app/Pencils</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>736A890B1AA8A9E30035631A</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>736A89911AA8CB190035631A</string>
+				<string>736A89921AA8CB190035631A</string>
+				<string>736A89931AA8CB190035631A</string>
+				<string>736A89941AA8CB190035631A</string>
+				<string>736A89951AA8CB190035631A</string>
+				<string>736A89961AA8CB190035631A</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Data Models</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>736A890C1AA8A9EA0035631A</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>736A89241AA8AF480035631A</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Views</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>736A890D1AA8A9EF0035631A</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>736A89441AA8B4190035631A</string>
+				<string>736A892F1AA8AFC90035631A</string>
+				<string>736A89131AA8AA380035631A</string>
+				<string>736A89701AA8B6530035631A</string>
+				<string>736A897C1AA8B95E0035631A</string>
+				<string>736A89821AA8B9BC0035631A</string>
+				<string>736A89831AA8B9BC0035631A</string>
+				<string>736A89841AA8B9BC0035631A</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Controllers</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>736A890E1AA8AA2A0035631A</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>LoginViewController.h</string>
+			<key>path</key>
+			<string>View Controllers/Login and Signup/LoginViewController.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>736A890F1AA8AA2A0035631A</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>name</key>
+			<string>LoginViewController.m</string>
+			<key>path</key>
+			<string>View Controllers/Login and Signup/LoginViewController.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>736A89101AA8AA2A0035631A</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>file.xib</string>
+			<key>name</key>
+			<string>LoginViewController.xib</string>
+			<key>path</key>
+			<string>View Controllers/Login and Signup/LoginViewController.xib</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>736A89111AA8AA2A0035631A</key>
+		<dict>
+			<key>fileRef</key>
+			<string>736A890F1AA8AA2A0035631A</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>736A89121AA8AA2A0035631A</key>
+		<dict>
+			<key>fileRef</key>
+			<string>736A89101AA8AA2A0035631A</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>736A89131AA8AA380035631A</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>736A890E1AA8AA2A0035631A</string>
+				<string>736A890F1AA8AA2A0035631A</string>
+				<string>736A89101AA8AA2A0035631A</string>
+				<string>736A89141AA8AA570035631A</string>
+				<string>736A89151AA8AA570035631A</string>
+				<string>736A89161AA8AA570035631A</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Login and Signup</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>736A89141AA8AA570035631A</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>SignupViewController.h</string>
+			<key>path</key>
+			<string>View Controllers/Login and Signup/SignupViewController.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>736A89151AA8AA570035631A</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>name</key>
+			<string>SignupViewController.m</string>
+			<key>path</key>
+			<string>View Controllers/Login and Signup/SignupViewController.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>736A89161AA8AA570035631A</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>file.xib</string>
+			<key>name</key>
+			<string>SignupViewController.xib</string>
+			<key>path</key>
+			<string>View Controllers/Login and Signup/SignupViewController.xib</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>736A89171AA8AA570035631A</key>
+		<dict>
+			<key>fileRef</key>
+			<string>736A89151AA8AA570035631A</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>736A89181AA8AA570035631A</key>
+		<dict>
+			<key>fileRef</key>
+			<string>736A89161AA8AA570035631A</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>736A89211AA8ACC50035631A</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>736A89221AA8AD010035631A</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Models</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>736A89221AA8AD010035631A</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>name</key>
+			<string>UserTest.m</string>
+			<key>path</key>
+			<string>Models/UserTest.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>736A89231AA8AD010035631A</key>
+		<dict>
+			<key>fileRef</key>
+			<string>736A89221AA8AD010035631A</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>736A89241AA8AF480035631A</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>736A89251AA8AF7C0035631A</string>
+				<string>736A89261AA8AF7C0035631A</string>
+				<string>736A89271AA8AF7C0035631A</string>
+				<string>8F1E33641AA915DA001C7A56</string>
+				<string>8F1E33651AA915DA001C7A56</string>
+				<string>8F1E33661AA915DA001C7A56</string>
+				<string>736A89611AA8B5DF0035631A</string>
+				<string>736A89621AA8B5DF0035631A</string>
+				<string>736A89631AA8B5DF0035631A</string>
+				<string>736A89661AA8B6080035631A</string>
+				<string>736A89671AA8B6080035631A</string>
+				<string>736A89681AA8B6080035631A</string>
+				<string>736A892A1AA8AFC20035631A</string>
+				<string>736A892B1AA8AFC20035631A</string>
+				<string>736A892C1AA8AFC20035631A</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Common</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>736A89251AA8AF7C0035631A</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>CourseTableViewCell.h</string>
+			<key>path</key>
+			<string>Views/Common/CourseTableViewCell.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>736A89261AA8AF7C0035631A</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>name</key>
+			<string>CourseTableViewCell.m</string>
+			<key>path</key>
+			<string>Views/Common/CourseTableViewCell.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>736A89271AA8AF7C0035631A</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>file.xib</string>
+			<key>name</key>
+			<string>CourseTableViewCell.xib</string>
+			<key>path</key>
+			<string>Views/Common/CourseTableViewCell.xib</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>736A89281AA8AF7C0035631A</key>
+		<dict>
+			<key>fileRef</key>
+			<string>736A89261AA8AF7C0035631A</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>736A89291AA8AF7C0035631A</key>
+		<dict>
+			<key>fileRef</key>
+			<string>736A89271AA8AF7C0035631A</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>736A892A1AA8AFC20035631A</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>TeacherTableViewCell.h</string>
+			<key>path</key>
+			<string>Views/Common/TeacherTableViewCell.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>736A892B1AA8AFC20035631A</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>name</key>
+			<string>TeacherTableViewCell.m</string>
+			<key>path</key>
+			<string>Views/Common/TeacherTableViewCell.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>736A892C1AA8AFC20035631A</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>file.xib</string>
+			<key>name</key>
+			<string>TeacherTableViewCell.xib</string>
+			<key>path</key>
+			<string>Views/Common/TeacherTableViewCell.xib</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>736A892D1AA8AFC20035631A</key>
+		<dict>
+			<key>fileRef</key>
+			<string>736A892B1AA8AFC20035631A</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>736A892E1AA8AFC20035631A</key>
+		<dict>
+			<key>fileRef</key>
+			<string>736A892C1AA8AFC20035631A</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>736A892F1AA8AFC90035631A</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>736A89301AA8B0070035631A</string>
+				<string>736A89311AA8B0070035631A</string>
+				<string>736A89321AA8B0070035631A</string>
+				<string>736A89351AA8B0250035631A</string>
+				<string>736A89361AA8B0250035631A</string>
+				<string>736A89371AA8B0250035631A</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Home</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>736A89301AA8B0070035631A</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>HomeViewController.h</string>
+			<key>path</key>
+			<string>View Controllers/Home/HomeViewController.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>736A89311AA8B0070035631A</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>name</key>
+			<string>HomeViewController.m</string>
+			<key>path</key>
+			<string>View Controllers/Home/HomeViewController.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>736A89321AA8B0070035631A</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>file.xib</string>
+			<key>name</key>
+			<string>HomeViewController.xib</string>
+			<key>path</key>
+			<string>View Controllers/Home/HomeViewController.xib</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>736A89331AA8B0070035631A</key>
+		<dict>
+			<key>fileRef</key>
+			<string>736A89311AA8B0070035631A</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>736A89341AA8B0070035631A</key>
+		<dict>
+			<key>fileRef</key>
+			<string>736A89321AA8B0070035631A</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>736A89351AA8B0250035631A</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>RequestsTableViewCell.h</string>
+			<key>path</key>
+			<string>View Controllers/Home/RequestsTableViewCell.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>736A89361AA8B0250035631A</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>name</key>
+			<string>RequestsTableViewCell.m</string>
+			<key>path</key>
+			<string>View Controllers/Home/RequestsTableViewCell.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>736A89371AA8B0250035631A</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>file.xib</string>
+			<key>name</key>
+			<string>RequestsTableViewCell.xib</string>
+			<key>path</key>
+			<string>View Controllers/Home/RequestsTableViewCell.xib</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>736A89381AA8B0250035631A</key>
+		<dict>
+			<key>fileRef</key>
+			<string>736A89361AA8B0250035631A</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>736A89391AA8B0250035631A</key>
+		<dict>
+			<key>fileRef</key>
+			<string>736A89371AA8B0250035631A</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>736A893D1AA8B0820035631A</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>736A893E1AA8B0AD0035631A</string>
+				<string>736A893F1AA8B0AD0035631A</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Utilities</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>736A893E1AA8B0AD0035631A</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>NavigationUtility.h</string>
+			<key>path</key>
+			<string>Utilities/NavigationUtility.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>736A893F1AA8B0AD0035631A</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>name</key>
+			<string>NavigationUtility.m</string>
+			<key>path</key>
+			<string>Utilities/NavigationUtility.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>736A89401AA8B0AD0035631A</key>
+		<dict>
+			<key>fileRef</key>
+			<string>736A893F1AA8B0AD0035631A</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>736A89441AA8B4190035631A</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>736A89451AA8B4300035631A</string>
+				<string>736A89461AA8B4300035631A</string>
+				<string>736A89471AA8B4300035631A</string>
+				<string>736A894A1AA8B4480035631A</string>
+				<string>736A894B1AA8B4480035631A</string>
+				<string>736A894C1AA8B4480035631A</string>
+				<string>736A896B1AA8B6340035631A</string>
+				<string>736A896C1AA8B6340035631A</string>
+				<string>736A896D1AA8B6340035631A</string>
+				<string>736A894F1AA8B4880035631A</string>
+				<string>736A89501AA8B4880035631A</string>
+				<string>736A89511AA8B4880035631A</string>
+				<string>736A89591AA8B4D80035631A</string>
+				<string>736A895A1AA8B4D80035631A</string>
+				<string>736A895B1AA8B4D80035631A</string>
+				<string>736A89541AA8B4BD0035631A</string>
+				<string>736A89551AA8B4BD0035631A</string>
+				<string>736A89561AA8B4BD0035631A</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Courses</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>736A89451AA8B4300035631A</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>CoursesViewController.h</string>
+			<key>path</key>
+			<string>View Controllers/Courses/CoursesViewController.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>736A89461AA8B4300035631A</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>name</key>
+			<string>CoursesViewController.m</string>
+			<key>path</key>
+			<string>View Controllers/Courses/CoursesViewController.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>736A89471AA8B4300035631A</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>file.xib</string>
+			<key>name</key>
+			<string>CoursesViewController.xib</string>
+			<key>path</key>
+			<string>View Controllers/Courses/CoursesViewController.xib</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>736A89481AA8B4300035631A</key>
+		<dict>
+			<key>fileRef</key>
+			<string>736A89461AA8B4300035631A</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>736A89491AA8B4300035631A</key>
+		<dict>
+			<key>fileRef</key>
+			<string>736A89471AA8B4300035631A</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>736A894A1AA8B4480035631A</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>CreateCourseViewController.h</string>
+			<key>path</key>
+			<string>View Controllers/Courses/CreateCourseViewController.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>736A894B1AA8B4480035631A</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>name</key>
+			<string>CreateCourseViewController.m</string>
+			<key>path</key>
+			<string>View Controllers/Courses/CreateCourseViewController.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>736A894C1AA8B4480035631A</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>file.xib</string>
+			<key>name</key>
+			<string>CreateCourseViewController.xib</string>
+			<key>path</key>
+			<string>View Controllers/Courses/CreateCourseViewController.xib</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>736A894D1AA8B4480035631A</key>
+		<dict>
+			<key>fileRef</key>
+			<string>736A894B1AA8B4480035631A</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>736A894E1AA8B4480035631A</key>
+		<dict>
+			<key>fileRef</key>
+			<string>736A894C1AA8B4480035631A</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>736A894F1AA8B4880035631A</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>GlobalCourseViewController.h</string>
+			<key>path</key>
+			<string>View Controllers/Courses/GlobalCourseViewController.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>736A89501AA8B4880035631A</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>name</key>
+			<string>GlobalCourseViewController.m</string>
+			<key>path</key>
+			<string>View Controllers/Courses/GlobalCourseViewController.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>736A89511AA8B4880035631A</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>file.xib</string>
+			<key>name</key>
+			<string>GlobalCourseViewController.xib</string>
+			<key>path</key>
+			<string>View Controllers/Courses/GlobalCourseViewController.xib</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>736A89521AA8B4880035631A</key>
+		<dict>
+			<key>fileRef</key>
+			<string>736A89501AA8B4880035631A</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>736A89531AA8B4880035631A</key>
+		<dict>
+			<key>fileRef</key>
+			<string>736A89511AA8B4880035631A</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>736A89541AA8B4BD0035631A</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>TeacherCourseViewController.h</string>
+			<key>path</key>
+			<string>View Controllers/Courses/TeacherCourseViewController.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>736A89551AA8B4BD0035631A</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>name</key>
+			<string>TeacherCourseViewController.m</string>
+			<key>path</key>
+			<string>View Controllers/Courses/TeacherCourseViewController.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>736A89561AA8B4BD0035631A</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>file.xib</string>
+			<key>name</key>
+			<string>TeacherCourseViewController.xib</string>
+			<key>path</key>
+			<string>View Controllers/Courses/TeacherCourseViewController.xib</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>736A89571AA8B4BD0035631A</key>
+		<dict>
+			<key>fileRef</key>
+			<string>736A89551AA8B4BD0035631A</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>736A89581AA8B4BD0035631A</key>
+		<dict>
+			<key>fileRef</key>
+			<string>736A89561AA8B4BD0035631A</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>736A89591AA8B4D80035631A</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>TeachACourseViewController.h</string>
+			<key>path</key>
+			<string>View Controllers/Courses/TeachACourseViewController.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>736A895A1AA8B4D80035631A</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>name</key>
+			<string>TeachACourseViewController.m</string>
+			<key>path</key>
+			<string>View Controllers/Courses/TeachACourseViewController.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>736A895B1AA8B4D80035631A</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>file.xib</string>
+			<key>name</key>
+			<string>TeachACourseViewController.xib</string>
+			<key>path</key>
+			<string>View Controllers/Courses/TeachACourseViewController.xib</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>736A895C1AA8B4D80035631A</key>
+		<dict>
+			<key>fileRef</key>
+			<string>736A895A1AA8B4D80035631A</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>736A895D1AA8B4D80035631A</key>
+		<dict>
+			<key>fileRef</key>
+			<string>736A895B1AA8B4D80035631A</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>736A89611AA8B5DF0035631A</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>MaterialTableViewCell.h</string>
+			<key>path</key>
+			<string>Views/Common/MaterialTableViewCell.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>736A89621AA8B5DF0035631A</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>name</key>
+			<string>MaterialTableViewCell.m</string>
+			<key>path</key>
+			<string>Views/Common/MaterialTableViewCell.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>736A89631AA8B5DF0035631A</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>file.xib</string>
+			<key>name</key>
+			<string>MaterialTableViewCell.xib</string>
+			<key>path</key>
+			<string>Views/Common/MaterialTableViewCell.xib</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>736A89641AA8B5DF0035631A</key>
+		<dict>
+			<key>fileRef</key>
+			<string>736A89621AA8B5DF0035631A</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>736A89651AA8B5DF0035631A</key>
+		<dict>
+			<key>fileRef</key>
+			<string>736A89631AA8B5DF0035631A</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>736A89661AA8B6080035631A</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>SearchTableViewCell.h</string>
+			<key>path</key>
+			<string>Views/Common/SearchTableViewCell.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>736A89671AA8B6080035631A</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>name</key>
+			<string>SearchTableViewCell.m</string>
+			<key>path</key>
+			<string>Views/Common/SearchTableViewCell.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>736A89681AA8B6080035631A</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>file.xib</string>
+			<key>name</key>
+			<string>SearchTableViewCell.xib</string>
+			<key>path</key>
+			<string>Views/Common/SearchTableViewCell.xib</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>736A89691AA8B6080035631A</key>
+		<dict>
+			<key>fileRef</key>
+			<string>736A89671AA8B6080035631A</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>736A896A1AA8B6080035631A</key>
+		<dict>
+			<key>fileRef</key>
+			<string>736A89681AA8B6080035631A</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>736A896B1AA8B6340035631A</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>EditCourseViewController.h</string>
+			<key>path</key>
+			<string>View Controllers/Courses/EditCourseViewController.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>736A896C1AA8B6340035631A</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>name</key>
+			<string>EditCourseViewController.m</string>
+			<key>path</key>
+			<string>View Controllers/Courses/EditCourseViewController.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>736A896D1AA8B6340035631A</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>file.xib</string>
+			<key>name</key>
+			<string>EditCourseViewController.xib</string>
+			<key>path</key>
+			<string>View Controllers/Courses/EditCourseViewController.xib</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>736A896E1AA8B6340035631A</key>
+		<dict>
+			<key>fileRef</key>
+			<string>736A896C1AA8B6340035631A</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>736A896F1AA8B6340035631A</key>
+		<dict>
+			<key>fileRef</key>
+			<string>736A896D1AA8B6340035631A</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>736A89701AA8B6530035631A</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>736A89771AA8B6DE0035631A</string>
+				<string>736A89781AA8B6DE0035631A</string>
+				<string>736A89791AA8B6DE0035631A</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Materials</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>736A89771AA8B6DE0035631A</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>ViewMaterialViewController.h</string>
+			<key>path</key>
+			<string>View Controllers/Materials/ViewMaterialViewController.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>736A89781AA8B6DE0035631A</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>name</key>
+			<string>ViewMaterialViewController.m</string>
+			<key>path</key>
+			<string>View Controllers/Materials/ViewMaterialViewController.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>736A89791AA8B6DE0035631A</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>file.xib</string>
+			<key>name</key>
+			<string>ViewMaterialViewController.xib</string>
+			<key>path</key>
+			<string>View Controllers/Materials/ViewMaterialViewController.xib</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>736A897A1AA8B6DE0035631A</key>
+		<dict>
+			<key>fileRef</key>
+			<string>736A89781AA8B6DE0035631A</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>736A897B1AA8B6DE0035631A</key>
+		<dict>
+			<key>fileRef</key>
+			<string>736A89791AA8B6DE0035631A</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>736A897C1AA8B95E0035631A</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>736A897D1AA8B9760035631A</string>
+				<string>736A897E1AA8B9760035631A</string>
+				<string>736A897F1AA8B9760035631A</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Upload</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>736A897D1AA8B9760035631A</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>UploadViewController.h</string>
+			<key>path</key>
+			<string>View Controllers/Upload/UploadViewController.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>736A897E1AA8B9760035631A</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>name</key>
+			<string>UploadViewController.m</string>
+			<key>path</key>
+			<string>View Controllers/Upload/UploadViewController.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>736A897F1AA8B9760035631A</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>file.xib</string>
+			<key>name</key>
+			<string>UploadViewController.xib</string>
+			<key>path</key>
+			<string>View Controllers/Upload/UploadViewController.xib</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>736A89801AA8B9760035631A</key>
+		<dict>
+			<key>fileRef</key>
+			<string>736A897E1AA8B9760035631A</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>736A89811AA8B9760035631A</key>
+		<dict>
+			<key>fileRef</key>
+			<string>736A897F1AA8B9760035631A</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>736A89821AA8B9BC0035631A</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>TabsViewController.h</string>
+			<key>path</key>
+			<string>View Controllers/TabsViewController.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>736A89831AA8B9BC0035631A</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>name</key>
+			<string>TabsViewController.m</string>
+			<key>path</key>
+			<string>View Controllers/TabsViewController.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>736A89841AA8B9BC0035631A</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>file.xib</string>
+			<key>name</key>
+			<string>TabsViewController.xib</string>
+			<key>path</key>
+			<string>View Controllers/TabsViewController.xib</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>736A89851AA8B9BC0035631A</key>
+		<dict>
+			<key>fileRef</key>
+			<string>736A89831AA8B9BC0035631A</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>736A89861AA8B9BC0035631A</key>
+		<dict>
+			<key>fileRef</key>
+			<string>736A89841AA8B9BC0035631A</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>736A89871AA8BB990035631A</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>736A89881AA8BBCB0035631A</string>
+				<string>736A89891AA8BBCB0035631A</string>
+				<string>736A898B1AA8BCE80035631A</string>
+				<string>736A898C1AA8BCE80035631A</string>
+				<string>736A89971AA8CB190035631A</string>
+				<string>736A89981AA8CB190035631A</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Data Managers</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>736A89881AA8BBCB0035631A</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>CourseManager.h</string>
+			<key>path</key>
+			<string>Data Managers/CourseManager.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>736A89891AA8BBCB0035631A</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>name</key>
+			<string>CourseManager.m</string>
+			<key>path</key>
+			<string>Data Managers/CourseManager.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>736A898A1AA8BBCB0035631A</key>
+		<dict>
+			<key>fileRef</key>
+			<string>736A89891AA8BBCB0035631A</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>736A898B1AA8BCE80035631A</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>MaterialManager.h</string>
+			<key>path</key>
+			<string>Data Managers/MaterialManager.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>736A898C1AA8BCE80035631A</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>name</key>
+			<string>MaterialManager.m</string>
+			<key>path</key>
+			<string>Data Managers/MaterialManager.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>736A898D1AA8BCE80035631A</key>
+		<dict>
+			<key>fileRef</key>
+			<string>736A898C1AA8BCE80035631A</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>736A89911AA8CB190035631A</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>Course.h</string>
+			<key>path</key>
+			<string>Data Models/Course.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>736A89921AA8CB190035631A</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>name</key>
+			<string>Course.m</string>
+			<key>path</key>
+			<string>Data Models/Course.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>736A89931AA8CB190035631A</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>Material.h</string>
+			<key>path</key>
+			<string>Data Models/Material.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>736A89941AA8CB190035631A</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>name</key>
+			<string>Material.m</string>
+			<key>path</key>
+			<string>Data Models/Material.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>736A89951AA8CB190035631A</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>User.h</string>
+			<key>path</key>
+			<string>Data Models/User.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>736A89961AA8CB190035631A</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>name</key>
+			<string>User.m</string>
+			<key>path</key>
+			<string>Data Models/User.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>736A89971AA8CB190035631A</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>UserManager.h</string>
+			<key>path</key>
+			<string>Data Models/UserManager.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>736A89981AA8CB190035631A</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>name</key>
+			<string>UserManager.m</string>
+			<key>path</key>
+			<string>Data Models/UserManager.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>736A89991AA8CB190035631A</key>
+		<dict>
+			<key>fileRef</key>
+			<string>736A89921AA8CB190035631A</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>736A899A1AA8CB190035631A</key>
+		<dict>
+			<key>fileRef</key>
+			<string>736A89941AA8CB190035631A</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>736A899B1AA8CB190035631A</key>
+		<dict>
+			<key>fileRef</key>
+			<string>736A89961AA8CB190035631A</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>736A899C1AA8CB190035631A</key>
+		<dict>
+			<key>fileRef</key>
+			<string>736A89981AA8CB190035631A</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>8F1E33641AA915DA001C7A56</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>HeaderTableViewCell.h</string>
+			<key>path</key>
+			<string>Views/Common/HeaderTableViewCell.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8F1E33651AA915DA001C7A56</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>name</key>
+			<string>HeaderTableViewCell.m</string>
+			<key>path</key>
+			<string>Views/Common/HeaderTableViewCell.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8F1E33661AA915DA001C7A56</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>file.xib</string>
+			<key>name</key>
+			<string>HeaderTableViewCell.xib</string>
+			<key>path</key>
+			<string>Views/Common/HeaderTableViewCell.xib</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8F1E33671AA915DA001C7A56</key>
+		<dict>
+			<key>fileRef</key>
+			<string>8F1E33651AA915DA001C7A56</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>8F1E33681AA915DA001C7A56</key>
+		<dict>
+			<key>fileRef</key>
+			<string>8F1E33661AA915DA001C7A56</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>ED75349D04F20CB0CF135268</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>Check Pods Manifest.lock</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>diff "${PODS_ROOT}/../Podfile.lock" "${PODS_ROOT}/Manifest.lock" &gt; /dev/null
+if [[ $? != 0 ]] ; then
+    cat &lt;&lt; EOM
+error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.
+EOM
+    exit 1
+fi
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+	</dict>
+	<key>rootObject</key>
+	<string>736A88D31AA819A40035631A</string>
+</dict>
+</plist>

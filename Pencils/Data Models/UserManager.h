@@ -23,7 +23,8 @@
 @interface UserManager : NSObject
 
 +(User *)currentUser;
-+(void)loginWithEmail:(NSString *)email andPassword:(NSString *)password andCompletion:(void (^)(NSError *error))completion;
++(void)loginWithEmail:(NSString *)email andPassword:(NSString *)password andCompletion:(void (^)(User *user, NSError *error))completion;
++(void)signUpWithFirstName:(NSString *)firstName andLastName:(NSString *)lastName andEmail:(NSString *)email andPassword:(NSString *)password andCompletion:(void (^)(User *user, NSError *error))completion;
 +(void)logout;
 
 +(NSArray *)listUsersForCourse:(Course *)course;
