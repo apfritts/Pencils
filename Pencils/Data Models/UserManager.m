@@ -25,10 +25,14 @@ static User *_currentUser;
     return _currentUser;
 }
 
-+(User *)loginWithEmail:(NSString *)email andPassword:(NSString *)password {
++(void)loginWithEmail:(NSString *)email andPassword:(NSString *)password andCompletion:(void (^)(NSError *))completion {
+    NSError *error = nil;
     // Login
     // set Current user
-    return _currentUser;
+    
+    if (completion != nil) {
+        completion(error);
+    }
 }
 
 +(void)logout {
