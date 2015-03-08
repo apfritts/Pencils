@@ -28,11 +28,7 @@ static User *_currentUser;
         // we may be starting up, grab the PFUser currentUser object and see
         PFUser *pfUser = [PFUser currentUser];
         if (pfUser != nil) {
-            _currentUser = [[User alloc] initWithDictionary:@{
-                                                             @"first_name": pfUser[@"first_name"],
-                                                             @"last_name": pfUser[@"last_name"],
-                                                             @"email": pfUser.username
-                                                             }];
+            _currentUser = [[User alloc] initWithParseObject:pfUser];
         }
     }
     return _currentUser;
@@ -44,11 +40,7 @@ static User *_currentUser;
     [PFUser logInWithUsernameInBackground:email password:password block:^(PFUser *pfUser, NSError *error) {
         User *user = nil;
         if (user) {
-            user = [[User alloc] initWithDictionary:@{
-                                                     @"first_name": pfUser[@"first_name"],
-                                                     @"last_name": pfUser[@"last_name"],
-                                                     @"email": pfUser.username
-                                                     }];
+            user = [[User alloc] initWithParseObject:pfUser];
         }
         _currentUser = user;
         completion(user, error);
@@ -66,21 +58,17 @@ static User *_currentUser;
     // do some validation
     
     // setup the Parse User object
-    PFUser *pUser = [PFUser user];
-    pUser.username = email;
-    pUser.password = password;
-    pUser.email = email;
-    pUser[@"first_name"] = firstName;
-    pUser[@"last_name"] = lastName;
+    PFUser *pfUser = [PFUser user];
+    pfUser.username = email;
+    pfUser.password = password;
+    pfUser.email = email;
+    pfUser[@"first_name"] = firstName;
+    pfUser[@"last_name"] = lastName;
     
-    [pUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+    [pfUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         User *user = nil;
         if (!error) {
-            user = [[User alloc] initWithDictionary:@{
-                                                     @"first_name": firstName,
-                                                     @"last_name": lastName,
-                                                     @"email": email
-                                                     }];
+            user = [[User alloc] initWithParseObject:pfUser];
         }
         _currentUser = user;
         completion(user, error);
@@ -97,13 +85,8 @@ static User *_currentUser;
 }
 
 +(User *)retrieveUserById:(NSInteger)userId {
-    NSDictionary *fakeUser = @{
-                               @"first_name": @"Louise",
-                               @"last_name": @"Teacher",
-                               @"email": @"louise@awesome.com",
-                               @"user_id": @"007"
-                               };
-    return [[User alloc] initWithDictionary:fakeUser];
+    PFUser *pfUser = [[PFUser alloc] initWithClassName:@"User"];
+    return [[User alloc] initWithParseObject:pfUser];
 }
 
 @end

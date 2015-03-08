@@ -17,11 +17,14 @@
  */
 
 #import <Foundation/Foundation.h>
+#import <Parse/Parse.h>
 
 @interface Material : NSObject
 
 @property (strong, nonatomic) NSString *title;
 
 -(instancetype)initWithDictionary:(NSDictionary *)dictionary;
+-(instancetype)initWithParseObject:(PFObject *)pfObject;
+-(void)saveWithCompletion:(void (^)(NSError *error))completion;
 
 @end

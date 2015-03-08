@@ -17,6 +17,7 @@
  */
 
 #import <Foundation/Foundation.h>
+#import <Parse/Parse.h>
 
 enum UserType {
     UserTypeTeacher = 1,
@@ -32,6 +33,7 @@ enum UserType {
 @property (assign, nonatomic) NSInteger userId;
 @property (assign, nonatomic) enum UserType userType;
 
--(instancetype)initWithDictionary:(NSDictionary *)dictionary;
+-(instancetype)initWithParseObject:(PFUser *)pfUser;
+-(void)saveWithCompletion:(void (^)(NSError *error))completion;
 
 @end

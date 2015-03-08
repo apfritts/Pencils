@@ -35,6 +35,8 @@
 +(void)navigateToTeacherCourse:(Course *)course;
 +(void)navigateToMaterial:(Material *)material;
 +(void)navigateToMaterialUpload;
+
++(void)login;
 +(void)logout;
 
 @end

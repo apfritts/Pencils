@@ -17,6 +17,7 @@
  */
 
 #import <Foundation/Foundation.h>
+#import <Parse/Parse.h>
 
 @interface Course : NSObject
 
@@ -24,5 +25,7 @@
 @property (strong, nonatomic) NSDate *deleted;
 
 -(instancetype)initWithDictionary:(NSDictionary *)dictionary;
+-(instancetype)initWithParseObject:(PFObject *)pfObject;
+-(void)saveWithCompletion:(void (^)(NSError *error))completion;
 
 @end

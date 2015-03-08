@@ -17,12 +17,23 @@
  */
 
 #import "GlobalCourseViewController.h"
+#import "ColorUtility.h"
+#import <FontAwesome+iOS/UIImage+FontAwesome.h>
 
 @interface GlobalCourseViewController ()
 
 @end
 
 @implementation GlobalCourseViewController
+
+-(instancetype)init {
+    self = [super init];
+    if (self) {
+        self.title = @"Courses";
+        [self.tabBarItem setImage:[UIImage imageWithIcon:@"fa-graduation-cap" backgroundColor:[ColorUtility transparent] iconColor:[ColorUtility primaryColor] iconScale:2.0 andSize:CGSizeMake(50.0, 50.0)]];
+    }
+    return self;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];

@@ -17,19 +17,30 @@
  */
 
 #import "User.h"
+#import <Parse/Parse.h>
+
+@interface User()
+
+@property (strong, nonatomic) PFUser *persistance;
+
+@end
 
 @implementation User
 
--(instancetype)initWithDictionary:(NSDictionary *)dictionary {
+-(instancetype)initWithParseObject:(PFUser *)pfUser {
     self = [super init];
     if (self) {
-        self.firstName = dictionary[@"first_name"];
-        self.lastName = dictionary[@"last_name"];
-        self.email = dictionary[@"email"];
-        self.userId = [dictionary[@"user_id"] integerValue];
-        self.userType = (int)[dictionary[@"user_type"] integerValue];
+        self.persistance = pfUser;
     }
     return self;
+}
+
+-(void)saveWithCompletion:(void (^)(NSError *error))completion {
+    PFObject *user = [[PFObject alloc] init];
+    user[@"first_name"] = self.firstName;
+    [user saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        completion(error);
+    }];
 }
 
 @end

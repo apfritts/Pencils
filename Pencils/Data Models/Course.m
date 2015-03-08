@@ -18,14 +18,39 @@
 
 #import "Course.h"
 
+@interface Course()
+
+@property (strong, nonatomic) PFObject *persistance;
+
+@end
+
 @implementation Course
 
 -(instancetype)initWithDictionary:(NSDictionary *)dictionary {
     self = [super init];
     if (self) {
         self.name = dictionary[@"name"];
+        self.deleted = [dictionary[@"deleted"] date];
     }
     return self;
+}
+
+-(instancetype)initWithParseObject:(PFObject *)pfObject {
+    self = [super init];
+    if (self) {
+        self.persistance = pfObject;
+        self.name = pfObject[@"name"];
+        self.deleted = [pfObject[@"deleted"] date];
+    }
+    return self;
+}
+
+-(void)saveWithCompletion:(void (^)(NSError *error))completion {
+    self.persistance[@"name"] = self.name;
+    self.persistance[@"deleted"] = self.deleted;
+    [self.persistance saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        completion(error);
+    }];
 }
 
 @end

@@ -31,17 +31,16 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Initialize Parse
     //[Parse enableLocalDatastore];
-    [Parse setApplicationId:@"iDzDTVTy3MyydD3NuRXpTHtx1UqNxu2RhjDcjl4C"
-                  clientKey:@"DmsPDky8p7b9mrLaziANw7phlrsP0HFd6cclsn1U"];
+    [Parse setApplicationId:@"iDzDTVTy3MyydD3NuRXpTHtx1UqNxu2RhjDcjl4C" clientKey:@"DmsPDky8p7b9mrLaziANw7phlrsP0HFd6cclsn1U"];
     
     // Initialize the UI
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     [NavigationUtility registerWindow:self.window];
-    if ([UserManager currentUser] == nil) {
-        [NavigationUtility navigateToLogin];
-    } else {
-        [NavigationUtility navigateToHome];
-    }
+    //if ([UserManager currentUser] == nil) {
+    //    [NavigationUtility navigateToLogin];
+    //} else {
+        [NavigationUtility login];
+    //}
     [self.window makeKeyAndVisible];
     return YES;
 }

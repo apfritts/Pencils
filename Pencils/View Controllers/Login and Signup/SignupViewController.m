@@ -17,6 +17,7 @@
  */
 
 #import "SignupViewController.h"
+#import "NavigationUtility.h"
 #import "UserManager.h"
 
 @interface SignupViewController ()
@@ -34,6 +35,7 @@
     [UserManager signUpWithFirstName:self.firstNameField.text andLastName:self.lastNameField.text andEmail:self.emailField.text andPassword:self.passwordField.text andCompletion:^(User *user, NSError *error) {
         [[[UIAlertView alloc] initWithTitle:@"Sign Up" message:@"Signed up!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
         NSLog(@"%@", error);
+        [NavigationUtility login];
     }];
 }
 

@@ -19,6 +19,7 @@
 #import <UIKit/UIKit.h>
 #import "NavigationUtility.h"
 #import "HomeViewController.h"
+#import "GlobalCourseViewController.h"
 #import "LoginViewController.h"
 
 @interface NavigationUtility()
@@ -29,6 +30,7 @@
 
 @implementation NavigationUtility
 static UIWindow *registeredWindow;
+static UITabBarController *tabBarController;
 
 +(void)registerWindow:(UIWindow *)window {
     registeredWindow = window;
@@ -78,6 +80,16 @@ static UIWindow *registeredWindow;
 
 +(void)navigateToTeachCourse:(Course *)course {
     // pushViewController onto NavigationController
+}
+
++(void)login {
+    // Create the root tab bar and controller
+    tabBarController = [[UITabBarController alloc] init];
+    [tabBarController setViewControllers:@[
+                                           [[HomeViewController alloc] init],
+                                           [[GlobalCourseViewController alloc] init]
+                                           ]];
+    registeredWindow.rootViewController = tabBarController;
 }
 
 +(void)logout {

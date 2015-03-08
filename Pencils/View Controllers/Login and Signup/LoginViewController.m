@@ -30,7 +30,7 @@
 
 - (IBAction)loginTap:(id)sender {
     [UserManager loginWithEmail:self.emailField.text andPassword:self.passwordField.text andCompletion:^(User *user, NSError *error) {
-        [NavigationUtility navigateToHome];
+        [NavigationUtility login];
     }];
 }
 

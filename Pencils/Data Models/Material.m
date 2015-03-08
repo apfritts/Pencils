@@ -18,6 +18,12 @@
 
 #import "Material.h"
 
+@interface Material()
+
+@property (strong, nonatomic) PFObject *persistance;
+
+@end
+
 @implementation Material
 
 -(instancetype)initWithDictionary:(NSDictionary *)dictionary {
@@ -26,6 +32,22 @@
         self.title = dictionary[@"title"];
     }
     return self;
+}
+
+-(instancetype)initWithParseObject:(PFObject *)pfObject {
+    self = [super init];
+    if (self) {
+        self.persistance = pfObject;
+        self.title = pfObject[@"title"];
+    }
+    return self;
+}
+
+-(void)saveWithCompletion:(void (^)(NSError *error))completion {
+    self.persistance[@"title"] = self.title;
+    [self.persistance saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        completion(error);
+    }];
 }
 
 @end

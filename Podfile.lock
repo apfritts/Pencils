@@ -1,15 +1,18 @@
 PODS:
   - Bolts (1.1.4)
+  - FontAwesome+iOS (0.1.4)
   - LayerKit (0.10.2)
   - Parse (1.6.4):
     - Bolts (~> 1.1)
 
 DEPENDENCIES:
+  - FontAwesome+iOS
   - layerkit
   - parse
 
 SPEC CHECKSUMS:
   Bolts: dd9fb8433d67f5acc3b6b4d1379bbc5513d716c1
+  FontAwesome+iOS: 816c20304edef4ca92835de669577005cbaaf261
   LayerKit: bfe4403e05dd8013b60166e3281bd057afae91a2
   Parse: c2610f7a12ad0defc974803b819c4efe7746e6db
 
