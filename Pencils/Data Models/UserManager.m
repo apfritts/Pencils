@@ -20,9 +20,21 @@
 #import <Parse/Parse.h>
 
 @implementation UserManager
+// We are abstracting out the PFUser object. What if we want to change it later?
 static User *_currentUser;
 
 +(User *)currentUser {
+    if (_currentUser == nil) {
+        // we may be starting up, grab the PFUser currentUser object and see
+        PFUser *pfUser = [PFUser currentUser];
+        if (pfUser != nil) {
+            _currentUser = [[User alloc] initWithDictionary:@{
+                                                             @"first_name": pfUser[@"first_name"],
+                                                             @"last_name": pfUser[@"last_name"],
+                                                             @"email": pfUser.username
+                                                             }];
+        }
+    }
     return _currentUser;
 }
 
@@ -76,7 +88,8 @@ static User *_currentUser;
 }
 
 +(void)logout {
-    // logout
+    [PFUser logOut];
+    _currentUser = nil;
 }
 
 +(NSArray *)listUsersForCourse:(Course *)course {

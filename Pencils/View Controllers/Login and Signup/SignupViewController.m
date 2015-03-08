@@ -32,7 +32,8 @@
 
 - (IBAction)signUpTap:(id)sender {
     [UserManager signUpWithFirstName:self.firstNameField.text andLastName:self.lastNameField.text andEmail:self.emailField.text andPassword:self.passwordField.text andCompletion:^(User *user, NSError *error) {
-        // YAY
+        [[[UIAlertView alloc] initWithTitle:@"Sign Up" message:@"Signed up!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+        NSLog(@"%@", error);
     }];
 }
 
