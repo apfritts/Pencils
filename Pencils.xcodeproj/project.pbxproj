@@ -24,8 +24,6 @@
 		736A892E1AA8AFC20035631A /* TeacherTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 736A892C1AA8AFC20035631A /* TeacherTableViewCell.xib */; };
 		736A89331AA8B0070035631A /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 736A89311AA8B0070035631A /* HomeViewController.m */; };
 		736A89341AA8B0070035631A /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 736A89321AA8B0070035631A /* HomeViewController.xib */; };
-		736A89381AA8B0250035631A /* RequestsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 736A89361AA8B0250035631A /* RequestsTableViewCell.m */; };
-		736A89391AA8B0250035631A /* RequestsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 736A89371AA8B0250035631A /* RequestsTableViewCell.xib */; };
 		736A89401AA8B0AD0035631A /* NavigationUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 736A893F1AA8B0AD0035631A /* NavigationUtility.m */; };
 		736A89481AA8B4300035631A /* CoursesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 736A89461AA8B4300035631A /* CoursesViewController.m */; };
 		736A89491AA8B4300035631A /* CoursesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 736A89471AA8B4300035631A /* CoursesViewController.xib */; };
@@ -47,8 +45,6 @@
 		736A897B1AA8B6DE0035631A /* ViewMaterialViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 736A89791AA8B6DE0035631A /* ViewMaterialViewController.xib */; };
 		736A89801AA8B9760035631A /* UploadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 736A897E1AA8B9760035631A /* UploadViewController.m */; };
 		736A89811AA8B9760035631A /* UploadViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 736A897F1AA8B9760035631A /* UploadViewController.xib */; };
-		736A89851AA8B9BC0035631A /* TabsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 736A89831AA8B9BC0035631A /* TabsViewController.m */; };
-		736A89861AA8B9BC0035631A /* TabsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 736A89841AA8B9BC0035631A /* TabsViewController.xib */; };
 		736A898A1AA8BBCB0035631A /* CourseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 736A89891AA8BBCB0035631A /* CourseManager.m */; };
 		736A898D1AA8BCE80035631A /* MaterialManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 736A898C1AA8BCE80035631A /* MaterialManager.m */; };
 		736A89991AA8CB190035631A /* Course.m in Sources */ = {isa = PBXBuildFile; fileRef = 736A89921AA8CB190035631A /* Course.m */; };
@@ -58,6 +54,8 @@
 		8F1E33671AA915DA001C7A56 /* HeaderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F1E33651AA915DA001C7A56 /* HeaderTableViewCell.m */; };
 		8F1E33681AA915DA001C7A56 /* HeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F1E33661AA915DA001C7A56 /* HeaderTableViewCell.xib */; };
 		8F8B604B1AAC904C00FF9FED /* ColorUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F8B604A1AAC904C00FF9FED /* ColorUtility.m */; };
+		8FEAE15C1AACAC5A000A0F2C /* RequestsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FEAE15A1AACAC5A000A0F2C /* RequestsTableViewCell.m */; };
+		8FEAE15D1AACAC5A000A0F2C /* RequestsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FEAE15B1AACAC5A000A0F2C /* RequestsTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,9 +98,6 @@
 		736A89301AA8B0070035631A /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomeViewController.h; path = "View Controllers/Home/HomeViewController.h"; sourceTree = "<group>"; };
 		736A89311AA8B0070035631A /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomeViewController.m; path = "View Controllers/Home/HomeViewController.m"; sourceTree = "<group>"; };
 		736A89321AA8B0070035631A /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HomeViewController.xib; path = "View Controllers/Home/HomeViewController.xib"; sourceTree = "<group>"; };
-		736A89351AA8B0250035631A /* RequestsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RequestsTableViewCell.h; path = "View Controllers/Home/RequestsTableViewCell.h"; sourceTree = "<group>"; };
-		736A89361AA8B0250035631A /* RequestsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RequestsTableViewCell.m; path = "View Controllers/Home/RequestsTableViewCell.m"; sourceTree = "<group>"; };
-		736A89371AA8B0250035631A /* RequestsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RequestsTableViewCell.xib; path = "View Controllers/Home/RequestsTableViewCell.xib"; sourceTree = "<group>"; };
 		736A893E1AA8B0AD0035631A /* NavigationUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NavigationUtility.h; path = Utilities/NavigationUtility.h; sourceTree = "<group>"; };
 		736A893F1AA8B0AD0035631A /* NavigationUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NavigationUtility.m; path = Utilities/NavigationUtility.m; sourceTree = "<group>"; };
 		736A89451AA8B4300035631A /* CoursesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CoursesViewController.h; path = "View Controllers/Courses/CoursesViewController.h"; sourceTree = "<group>"; };
@@ -135,9 +130,6 @@
 		736A897D1AA8B9760035631A /* UploadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UploadViewController.h; path = "View Controllers/Upload/UploadViewController.h"; sourceTree = "<group>"; };
 		736A897E1AA8B9760035631A /* UploadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UploadViewController.m; path = "View Controllers/Upload/UploadViewController.m"; sourceTree = "<group>"; };
 		736A897F1AA8B9760035631A /* UploadViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = UploadViewController.xib; path = "View Controllers/Upload/UploadViewController.xib"; sourceTree = "<group>"; };
-		736A89821AA8B9BC0035631A /* TabsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TabsViewController.h; path = "View Controllers/TabsViewController.h"; sourceTree = "<group>"; };
-		736A89831AA8B9BC0035631A /* TabsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TabsViewController.m; path = "View Controllers/TabsViewController.m"; sourceTree = "<group>"; };
-		736A89841AA8B9BC0035631A /* TabsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TabsViewController.xib; path = "View Controllers/TabsViewController.xib"; sourceTree = "<group>"; };
 		736A89881AA8BBCB0035631A /* CourseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CourseManager.h; path = "Data Managers/CourseManager.h"; sourceTree = "<group>"; };
 		736A89891AA8BBCB0035631A /* CourseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CourseManager.m; path = "Data Managers/CourseManager.m"; sourceTree = "<group>"; };
 		736A898B1AA8BCE80035631A /* MaterialManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MaterialManager.h; path = "Data Managers/MaterialManager.h"; sourceTree = "<group>"; };
@@ -155,6 +147,9 @@
 		8F1E33661AA915DA001C7A56 /* HeaderTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HeaderTableViewCell.xib; path = Views/Common/HeaderTableViewCell.xib; sourceTree = "<group>"; };
 		8F8B60491AAC904C00FF9FED /* ColorUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ColorUtility.h; path = Utilities/ColorUtility.h; sourceTree = "<group>"; };
 		8F8B604A1AAC904C00FF9FED /* ColorUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ColorUtility.m; path = Utilities/ColorUtility.m; sourceTree = "<group>"; };
+		8FEAE1591AACAC5A000A0F2C /* RequestsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RequestsTableViewCell.h; path = Views/Home/RequestsTableViewCell.h; sourceTree = "<group>"; };
+		8FEAE15A1AACAC5A000A0F2C /* RequestsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RequestsTableViewCell.m; path = Views/Home/RequestsTableViewCell.m; sourceTree = "<group>"; };
+		8FEAE15B1AACAC5A000A0F2C /* RequestsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RequestsTableViewCell.xib; path = Views/Home/RequestsTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -274,6 +269,7 @@
 			isa = PBXGroup;
 			children = (
 				736A89241AA8AF480035631A /* Common */,
+				8FEAE1571AACAC30000A0F2C /* Home */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -286,9 +282,6 @@
 				736A89131AA8AA380035631A /* Login and Signup */,
 				736A89701AA8B6530035631A /* Materials */,
 				736A897C1AA8B95E0035631A /* Upload */,
-				736A89821AA8B9BC0035631A /* TabsViewController.h */,
-				736A89831AA8B9BC0035631A /* TabsViewController.m */,
-				736A89841AA8B9BC0035631A /* TabsViewController.xib */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -342,9 +335,6 @@
 				736A89301AA8B0070035631A /* HomeViewController.h */,
 				736A89311AA8B0070035631A /* HomeViewController.m */,
 				736A89321AA8B0070035631A /* HomeViewController.xib */,
-				736A89351AA8B0250035631A /* RequestsTableViewCell.h */,
-				736A89361AA8B0250035631A /* RequestsTableViewCell.m */,
-				736A89371AA8B0250035631A /* RequestsTableViewCell.xib */,
 			);
 			name = Home;
 			sourceTree = "<group>";
@@ -416,6 +406,16 @@
 				736A89981AA8CB190035631A /* UserManager.m */,
 			);
 			name = "Data Managers";
+			sourceTree = "<group>";
+		};
+		8FEAE1571AACAC30000A0F2C /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				8FEAE1591AACAC5A000A0F2C /* RequestsTableViewCell.h */,
+				8FEAE15A1AACAC5A000A0F2C /* RequestsTableViewCell.m */,
+				8FEAE15B1AACAC5A000A0F2C /* RequestsTableViewCell.xib */,
+			);
+			name = Home;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -501,9 +501,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				736A89291AA8AF7C0035631A /* CourseTableViewCell.xib in Resources */,
-				736A89861AA8B9BC0035631A /* TabsViewController.xib in Resources */,
 				736A89811AA8B9760035631A /* UploadViewController.xib in Resources */,
-				736A89391AA8B0250035631A /* RequestsTableViewCell.xib in Resources */,
+				8FEAE15D1AACAC5A000A0F2C /* RequestsTableViewCell.xib in Resources */,
 				736A892E1AA8AFC20035631A /* TeacherTableViewCell.xib in Resources */,
 				736A896F1AA8B6340035631A /* EditCourseViewController.xib in Resources */,
 				736A88EF1AA819A40035631A /* LaunchScreen.xib in Resources */,
@@ -570,12 +569,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				736A89851AA8B9BC0035631A /* TabsViewController.m in Sources */,
 				736A892D1AA8AFC20035631A /* TeacherTableViewCell.m in Sources */,
 				736A899B1AA8CB190035631A /* User.m in Sources */,
 				736A88E41AA819A40035631A /* AppDelegate.m in Sources */,
 				736A894D1AA8B4480035631A /* CreateCourseViewController.m in Sources */,
 				736A89571AA8B4BD0035631A /* TeacherCourseViewController.m in Sources */,
+				8FEAE15C1AACAC5A000A0F2C /* RequestsTableViewCell.m in Sources */,
 				736A89481AA8B4300035631A /* CoursesViewController.m in Sources */,
 				736A88E11AA819A40035631A /* main.m in Sources */,
 				8F8B604B1AAC904C00FF9FED /* ColorUtility.m in Sources */,
@@ -589,7 +588,6 @@
 				736A89991AA8CB190035631A /* Course.m in Sources */,
 				736A89171AA8AA570035631A /* SignupViewController.m in Sources */,
 				736A89521AA8B4880035631A /* GlobalCourseViewController.m in Sources */,
-				736A89381AA8B0250035631A /* RequestsTableViewCell.m in Sources */,
 				736A89111AA8AA2A0035631A /* LoginViewController.m in Sources */,
 				736A89401AA8B0AD0035631A /* NavigationUtility.m in Sources */,
 				736A899C1AA8CB190035631A /* UserManager.m in Sources */,

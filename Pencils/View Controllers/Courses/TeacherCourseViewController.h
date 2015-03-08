@@ -17,7 +17,10 @@
  */
 
 #import <UIKit/UIKit.h>
+#import "Course.h"
 
 @interface TeacherCourseViewController : UIViewController
+
+-(instancetype)initWithCourse:(Course *)course;
 
 @end

@@ -17,7 +17,10 @@
  */
 
 #import <UIKit/UIKit.h>
+#import "Course.h"
 
 @interface GlobalCourseViewController : UIViewController
+
+-(instancetype)initWithGlobalCourse:(Course *)globalCourse;
 
 @end

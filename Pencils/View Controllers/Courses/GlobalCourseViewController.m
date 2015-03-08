@@ -17,42 +17,27 @@
  */
 
 #import "GlobalCourseViewController.h"
-#import "ColorUtility.h"
-#import <FontAwesome+iOS/UIImage+FontAwesome.h>
 
 @interface GlobalCourseViewController ()
+
+@property (strong, nonatomic) Course *globalCourse;
 
 @end
 
 @implementation GlobalCourseViewController
 
--(instancetype)init {
+-(instancetype)initWithGlobalCourse:(Course *)globalCourse {
     self = [super init];
     if (self) {
-        self.title = @"Courses";
-        [self.tabBarItem setImage:[UIImage imageWithIcon:@"fa-graduation-cap" backgroundColor:[ColorUtility transparent] iconColor:[ColorUtility primaryColor] iconScale:2.0 andSize:CGSizeMake(50.0, 50.0)]];
+        self.globalCourse = globalCourse;
     }
     return self;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    
+    self.title = @"Global Course";
 }
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

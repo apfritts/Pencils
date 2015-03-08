@@ -17,31 +17,36 @@
  */
 
 #import "CoursesViewController.h"
+#import "ColorUtility.h"
+#import <FontAwesome+iOS/UIImage+FontAwesome.h>
 
 @interface CoursesViewController ()
+
+@property (strong, nonatomic) NSArray *courses;
 
 @end
 
 @implementation CoursesViewController
 
+-(instancetype)init {
+    self = [super init];
+    if (self) {
+        self.title = @"Courses";
+        [self.tabBarItem setImage:[UIImage imageWithIcon:@"icon-book" backgroundColor:[ColorUtility transparent] iconColor:[ColorUtility primaryColor] iconScale:1.0 andSize:CGSizeMake(30.0, 30.0)]];
+    }
+    return self;
+}
+
+-(instancetype)initWithCourses:(NSArray *)courses {
+    self = [self init];
+    if (self) {
+        self.courses = courses;
+    }
+    return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
 }
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

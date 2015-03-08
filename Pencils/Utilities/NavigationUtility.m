@@ -16,11 +16,30 @@
  * limitations under the License.
  */
 
-#import <UIKit/UIKit.h>
 #import "NavigationUtility.h"
-#import "HomeViewController.h"
+#import <UIKit/UIKit.h>
+#import <Parse/Parse.h>
+
+// Courses
+#import "CoursesViewController.h"
+#import "CreateCourseViewController.h"
+#import "EditCourseViewController.h"
 #import "GlobalCourseViewController.h"
+#import "TeachACourseViewController.h"
+#import "TeacherCourseViewController.h"
+
+// Home
+#import "HomeViewController.h"
+
+// Login and Signup
 #import "LoginViewController.h"
+#import "SignupViewController.h"
+
+// Materials
+#import "ViewMaterialViewController.h"
+
+// Upload
+#import "UploadViewController.h"
 
 @interface NavigationUtility()
 
@@ -29,44 +48,69 @@
 @end
 
 @implementation NavigationUtility
-static UIWindow *registeredWindow;
-static UITabBarController *tabBarController;
 
-+(void)registerWindow:(UIWindow *)window {
-    registeredWindow = window;
-}
+# pragma mark - Courses
 
 +(void)navigateToCourseCreate {
-    // pushViewController onto NavigationController
+    [NavigationUtility pushViewController:[[CreateCourseViewController alloc] init]];
 }
 
 +(void)navigateToCourseListOf:(NSArray* (^)())courses {
-    // pushViewController onto NavigationController
+    [NavigationUtility pushViewController:[[CoursesViewController alloc] initWithCourses:courses]];
 }
 
 +(void)navigateToCourses {
-    // Replaces root view of Tab Controller
+    // Sets to Courses tab controller
 }
 
 +(void)navigateToEditTeacherCourse:(Course *)course {
-    // pushViewController onto NavigationController
+    [NavigationUtility pushViewController:[[EditCourseViewController alloc] initWithCourse:course]];
 }
+
++(void)navigateToGlobalCourse:(Course *)course {
+    [NavigationUtility pushViewController:[[GlobalCourseViewController alloc] initWithGlobalCourse:course]];
+}
+
++(void)navigateToTeacherCourse:(Course *)course {
+    [NavigationUtility pushViewController:[[TeacherCourseViewController alloc] initWithCourse:course]];
+}
+
++(void)navigateToTeachCourse:(Course *)course {
+    [NavigationUtility pushViewController:[[TeachACourseViewController alloc] initWithCourse:course]];
+}
+
+# pragma mark - Home
 
 +(void)navigateToHome {
     // Replaces root view of Tab Controller
     registeredWindow.rootViewController = [[HomeViewController alloc] init];
 }
 
-+(void)navigateToGlobalCourse:(Course *)course {
-    // pushViewController onto NavigationController
+# pragma mark - Login & Signup
+
++(void)login {
+    // Create the root tab bar and controller
+    tabBarController = [[UITabBarController alloc] init];
+    UINavigationController *homeNavController = [[UINavigationController alloc] initWithRootViewController:[[HomeViewController alloc] init]];
+    UINavigationController *coursesNavController = [[UINavigationController alloc] initWithRootViewController:[[CoursesViewController alloc] init]];
+    [tabBarController setViewControllers:@[
+                                           homeNavController,
+                                           coursesNavController
+                                           ]];
+    registeredWindow.rootViewController = tabBarController;
 }
 
-+(void)navigateToLogin {
++(void)logout {
+    // Replaces root view controller with LoginViewController
+    [PFUser logOut];
     registeredWindow.rootViewController = [[LoginViewController alloc] init];
+    tabBarController = nil;
 }
+
+# pragma mark - Material & Upload
 
 +(void)navigateToMaterial:(Material *)material {
-    // pushViewController onto NavigationController
+    [NavigationUtility pushViewController:[[ViewMaterialViewController alloc] initWithMaterial:material]];
 }
 
 +(void)navigateToMaterialUpload {
@@ -74,30 +118,19 @@ static UITabBarController *tabBarController;
     // A user must login and then present this view controller over the HomeViewController
 }
 
-+(void)navigateToTeacherCourse:(Course *)course {
-    // pushViewController onto NavigationController
-}
+# pragma mark - Utilities
 
-+(void)navigateToTeachCourse:(Course *)course {
-    // pushViewController onto NavigationController
-}
+static UIWindow *registeredWindow;
+static UITabBarController *tabBarController;
 
-+(void)login {
-    // Create the root tab bar and controller
-    tabBarController = [[UITabBarController alloc] init];
-    [tabBarController setViewControllers:@[
-                                           [[HomeViewController alloc] init],
-                                           [[GlobalCourseViewController alloc] init]
-                                           ]];
-    registeredWindow.rootViewController = tabBarController;
-}
-
-+(void)logout {
-    // Replaces root view controller with LoginViewController
++(void)registerWindow:(UIWindow *)window {
+    registeredWindow = window;
 }
 
 +(void)pushViewController:(UIViewController *)viewController {
-    [registeredWindow.rootViewController.navigationController pushViewController:viewController animated:YES];
+    // Since each tab is a UINavigationController, we type cast so we can push on the new ViewController
+    UINavigationController *selectedViewController = (UINavigationController *)[tabBarController selectedViewController];
+    [selectedViewController pushViewController:viewController animated:YES];
 }
 
 @end

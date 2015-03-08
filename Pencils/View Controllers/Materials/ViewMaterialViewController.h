@@ -17,7 +17,10 @@
  */
 
 #import <UIKit/UIKit.h>
+#import "Material.h"
 
 @interface ViewMaterialViewController : UIViewController
+
+-(instancetype)initWithMaterial:(Material *)material;
 
 @end

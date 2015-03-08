@@ -30,7 +30,6 @@
 +(void)navigateToEditTeacherCourse:(Course *)course;
 +(void)navigateToGlobalCourse:(Course *)course;
 +(void)navigateToHome;
-+(void)navigateToLogin;
 +(void)navigateToTeachCourse:(Course *)course;
 +(void)navigateToTeacherCourse:(Course *)course;
 +(void)navigateToMaterial:(Material *)material;

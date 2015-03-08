@@ -18,6 +18,8 @@
 
 #import "HomeViewController.h"
 #import "ColorUtility.h"
+#import "NavigationUtility.h"
+#import "GlobalCourseViewController.h"
 #import <FontAwesome+iOS/UIImage+FontAwesome.h>
 
 @interface HomeViewController ()
@@ -30,29 +32,14 @@
     self = [super init];
     if (self) {
         self.title = @"Home";
-        [self.tabBarItem setImage:[UIImage imageWithIcon:@"fa-home" backgroundColor:[ColorUtility transparent] iconColor:[ColorUtility primaryColor] iconScale:2.0 andSize:CGSizeMake(50.0, 50.0)]];
+        [self.tabBarItem setImage:[UIImage imageWithIcon:@"icon-home" backgroundColor:[ColorUtility transparent] iconColor:[ColorUtility primaryColor] iconScale:1.0 andSize:CGSizeMake(30.0, 30.0)]];
     }
     return self;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
