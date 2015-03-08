@@ -17,6 +17,7 @@
  */
 
 #import "CourseManager.h"
+#import <Parse/Parse.h>
 
 @implementation CourseManager
 

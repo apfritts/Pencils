@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6750" systemVersion="14D87h" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6735"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="EmptyListTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="159"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hBy-Tp-VCG">
+                        <rect key="frame" x="110" y="10" width="100" height="100"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="hBy-Tp-VCG" secondAttribute="height" multiplier="1:1" id="O5m-Fu-SHh"/>
+                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="100" id="oSA-7l-QPz"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Whoa! Nothing found :-(" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kjn-Eu-I5O">
+                        <rect key="frame" x="10" y="120" width="300" height="28.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="kjn-Eu-I5O" secondAttribute="trailing" constant="10" id="ElL-fx-0DL"/>
+                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="hBy-Tp-VCG" secondAttribute="trailing" constant="10" id="Eml-Bb-RTJ"/>
+                    <constraint firstAttribute="bottom" secondItem="kjn-Eu-I5O" secondAttribute="bottom" constant="10" id="Fv7-7r-l2n"/>
+                    <constraint firstItem="hBy-Tp-VCG" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="Jud-zH-hza"/>
+                    <constraint firstItem="kjn-Eu-I5O" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="o3T-tu-lYk"/>
+                    <constraint firstAttribute="centerX" secondItem="hBy-Tp-VCG" secondAttribute="centerX" id="vMK-B8-Tfl"/>
+                    <constraint firstItem="kjn-Eu-I5O" firstAttribute="top" secondItem="hBy-Tp-VCG" secondAttribute="bottom" constant="10" id="w86-bj-EKw"/>
+                    <constraint firstItem="hBy-Tp-VCG" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="y5q-8W-Fh5"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="emptyImage" destination="hBy-Tp-VCG" id="ooO-CK-OtD"/>
+                <outlet property="emptyLabel" destination="kjn-Eu-I5O" id="KRB-IX-EMi"/>
+            </connections>
+            <point key="canvasLocation" x="331" y="299.5"/>
+        </tableViewCell>
+    </objects>
+</document>

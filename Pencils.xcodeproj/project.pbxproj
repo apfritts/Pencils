@@ -56,6 +56,8 @@
 		8F8B604B1AAC904C00FF9FED /* ColorUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F8B604A1AAC904C00FF9FED /* ColorUtility.m */; };
 		8FEAE15C1AACAC5A000A0F2C /* RequestsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FEAE15A1AACAC5A000A0F2C /* RequestsTableViewCell.m */; };
 		8FEAE15D1AACAC5A000A0F2C /* RequestsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FEAE15B1AACAC5A000A0F2C /* RequestsTableViewCell.xib */; };
+		8FEAE1631AACB3F6000A0F2C /* EmptyListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FEAE1611AACB3F6000A0F2C /* EmptyListTableViewCell.m */; };
+		8FEAE1641AACB3F6000A0F2C /* EmptyListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FEAE1621AACB3F6000A0F2C /* EmptyListTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -150,6 +152,10 @@
 		8FEAE1591AACAC5A000A0F2C /* RequestsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RequestsTableViewCell.h; path = Views/Home/RequestsTableViewCell.h; sourceTree = "<group>"; };
 		8FEAE15A1AACAC5A000A0F2C /* RequestsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RequestsTableViewCell.m; path = Views/Home/RequestsTableViewCell.m; sourceTree = "<group>"; };
 		8FEAE15B1AACAC5A000A0F2C /* RequestsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RequestsTableViewCell.xib; path = Views/Home/RequestsTableViewCell.xib; sourceTree = "<group>"; };
+		8FEAE15E1AACAE17000A0F2C /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPods.a; path = "Pods/../build/Debug-iphoneos/libPods.a"; sourceTree = "<group>"; };
+		8FEAE1601AACB3F6000A0F2C /* EmptyListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EmptyListTableViewCell.h; path = Views/Common/EmptyListTableViewCell.h; sourceTree = "<group>"; };
+		8FEAE1611AACB3F6000A0F2C /* EmptyListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EmptyListTableViewCell.m; path = Views/Common/EmptyListTableViewCell.m; sourceTree = "<group>"; };
+		8FEAE1621AACB3F6000A0F2C /* EmptyListTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = EmptyListTableViewCell.xib; path = Views/Common/EmptyListTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,6 +180,7 @@
 		50EC3B1FA6DDFEB55F4412AE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8FEAE15E1AACAE17000A0F2C /* libPods.a */,
 				54BF8E171EB0C38EEC311560 /* libPods.a */,
 			);
 			name = Frameworks;
@@ -313,6 +320,9 @@
 				736A89251AA8AF7C0035631A /* CourseTableViewCell.h */,
 				736A89261AA8AF7C0035631A /* CourseTableViewCell.m */,
 				736A89271AA8AF7C0035631A /* CourseTableViewCell.xib */,
+				8FEAE1601AACB3F6000A0F2C /* EmptyListTableViewCell.h */,
+				8FEAE1611AACB3F6000A0F2C /* EmptyListTableViewCell.m */,
+				8FEAE1621AACB3F6000A0F2C /* EmptyListTableViewCell.xib */,
 				8F1E33641AA915DA001C7A56 /* HeaderTableViewCell.h */,
 				8F1E33651AA915DA001C7A56 /* HeaderTableViewCell.m */,
 				8F1E33661AA915DA001C7A56 /* HeaderTableViewCell.xib */,
@@ -513,6 +523,7 @@
 				736A89531AA8B4880035631A /* GlobalCourseViewController.xib in Resources */,
 				736A89491AA8B4300035631A /* CoursesViewController.xib in Resources */,
 				736A89651AA8B5DF0035631A /* MaterialTableViewCell.xib in Resources */,
+				8FEAE1641AACB3F6000A0F2C /* EmptyListTableViewCell.xib in Resources */,
 				736A89581AA8B4BD0035631A /* TeacherCourseViewController.xib in Resources */,
 				736A89341AA8B0070035631A /* HomeViewController.xib in Resources */,
 				736A89121AA8AA2A0035631A /* LoginViewController.xib in Resources */,
@@ -586,6 +597,7 @@
 				8F1E33671AA915DA001C7A56 /* HeaderTableViewCell.m in Sources */,
 				736A898A1AA8BBCB0035631A /* CourseManager.m in Sources */,
 				736A89991AA8CB190035631A /* Course.m in Sources */,
+				8FEAE1631AACB3F6000A0F2C /* EmptyListTableViewCell.m in Sources */,
 				736A89171AA8AA570035631A /* SignupViewController.m in Sources */,
 				736A89521AA8B4880035631A /* GlobalCourseViewController.m in Sources */,
 				736A89111AA8AA2A0035631A /* LoginViewController.m in Sources */,
@@ -744,6 +756,10 @@
 				);
 				INFOPLIST_FILE = PencilsTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Pencils.app/Pencils";
 			};
@@ -759,6 +775,10 @@
 				);
 				INFOPLIST_FILE = PencilsTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Pencils.app/Pencils";
 			};

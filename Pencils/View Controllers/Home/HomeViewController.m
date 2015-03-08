@@ -19,10 +19,16 @@
 #import "HomeViewController.h"
 #import "ColorUtility.h"
 #import "NavigationUtility.h"
-#import "GlobalCourseViewController.h"
 #import <FontAwesome+iOS/UIImage+FontAwesome.h>
 
-@interface HomeViewController ()
+#import "CourseTableViewCell.h"
+#import "HeaderTableViewCell.h"
+#import "RequestsTableViewCell.h"
+
+@interface HomeViewController () <UITableViewDataSource, UITableViewDelegate>
+
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) NSArray *currentCourses;
 
 @end
 
@@ -39,7 +45,28 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [self.tableView registerNib:[UINib nibWithNibName:@"CourseTableViewCell" bundle:nil] forCellReuseIdentifier:@"CourseCell"];
+    [self.tableView registerNib:[UINib nibWithNibName:@"HeaderTableViewCell" bundle:nil] forCellReuseIdentifier:@"HeaderCell"];
+    self.tableView.dataSource = self;
+    self.tableView.delegate = self;
 }
 
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
+}
+
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    HeaderTableViewCell *header = [self.tableView dequeueReusableCellWithIdentifier:@"HeaderCell"];
+    return header;
+}
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 2;
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return [self.tableView dequeueReusableCellWithIdentifier:@"CourseCell"];
+}
 
 @end
