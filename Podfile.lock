@@ -1,4 +1,5 @@
 PODS:
+  - 1PasswordExtension (1.1.2)
   - Bolts (1.1.4)
   - FontAwesome+iOS (0.1.4)
   - LayerKit (0.10.2)
@@ -6,11 +7,13 @@ PODS:
     - Bolts (~> 1.1)
 
 DEPENDENCIES:
+  - 1PasswordExtension
   - FontAwesome+iOS
   - layerkit
   - parse
 
 SPEC CHECKSUMS:
+  1PasswordExtension: 38b5be7dd6dbe786c98f15d51d50ad21150db60a
   Bolts: dd9fb8433d67f5acc3b6b4d1379bbc5513d716c1
   FontAwesome+iOS: 816c20304edef4ca92835de669577005cbaaf261
   LayerKit: bfe4403e05dd8013b60166e3281bd057afae91a2

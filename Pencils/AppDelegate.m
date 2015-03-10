@@ -36,11 +36,11 @@
     // Initialize the UI
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     [NavigationUtility registerWindow:self.window];
-    //if ([UserManager currentUser] == nil) {
-    //    [NavigationUtility navigateToLogin];
-    //} else {
+    if ([UserManager currentUser] == nil) {
+        [NavigationUtility logout];
+    } else {
         [NavigationUtility login];
-    //}
+    }
     [self.window makeKeyAndVisible];
     return YES;
 }

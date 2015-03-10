@@ -19,6 +19,7 @@
 #import "LoginViewController.h"
 #import "NavigationUtility.h"
 #import "UserManager.h"
+#import "SignupViewController.h"
 
 @interface LoginViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *emailField;
@@ -32,6 +33,11 @@
     [UserManager loginWithEmail:self.emailField.text andPassword:self.passwordField.text andCompletion:^(User *user, NSError *error) {
         [NavigationUtility login];
     }];
+}
+
+- (IBAction)signUpTap:(id)sender {
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:[[SignupViewController alloc] init]];
+    [self presentViewController:nav animated:YES completion:nil];
 }
 
 @end
