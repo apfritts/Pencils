@@ -28,6 +28,6 @@
 +(void)logout;
 
 +(void)listUsersForCourse:(Course *)course withCompletion:(void (^)(NSArray *users, NSError *error))completion;
-+(void)retrieveUserById:(NSInteger)userId withCompletion:(void (^)(User *users, NSError *error))completion;
++(void)retrieveUserById:(NSString *)userId withCompletion:(void (^)(User *users, NSError *error))completion;
 
 @end

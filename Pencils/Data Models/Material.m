@@ -20,7 +20,7 @@
 
 @interface Material()
 
-@property (strong, nonatomic) PFObject *persistance;
+@property (strong, nonatomic) PFObject *_persistance;
 
 @end
 
@@ -30,7 +30,8 @@
     self = [super init];
     if (self) {
         self.title = dictionary[@"title"];
-        self.persistance = [PFObject objectWithClassName:@"Material"];
+        self.course = dictionary[@"course"];
+        self._persistance = [PFObject objectWithClassName:@"Material"];
     }
     return self;
 }
@@ -38,17 +39,35 @@
 -(instancetype)initWithParseObject:(PFObject *)pfObject {
     self = [super init];
     if (self) {
-        self.persistance = pfObject;
+        self._persistance = pfObject;
         self.title = pfObject[@"title"];
+        if (pfObject[@"course"]) {
+            self.course = [[Course alloc] initWithParseObject:pfObject[@"course"]];
+        }
     }
     return self;
 }
 
+-(NSArray *)validate {
+    // @TODO: validate the model and return an array of issues if necessary
+    return @[];
+}
+
 -(void)saveWithCompletion:(void (^)(NSError *error))completion {
-    self.persistance[@"title"] = self.title;
-    [self.persistance saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+    NSArray *validate = [self validate];
+    if (validate.count == 0) {
+        completion([[NSError alloc] initWithDomain:@"com.box.Pencils" code:1 userInfo:@{@"validate": validate}]);
+        return;
+    }
+    self._persistance[@"title"] = self.title;
+    self._persistance[@"course"] = [self.course persistance];
+    [self._persistance saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         completion(error);
     }];
+}
+
+-(PFObject *)persistance {
+    return self._persistance;
 }
 
 @end

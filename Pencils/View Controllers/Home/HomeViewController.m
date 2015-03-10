@@ -53,14 +53,18 @@
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.sectionHeaderHeight = 44.0;
     
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Logout" style:UIBarButtonItemStylePlain target:self action:@selector(onLogoutTap)];
+}
+
+-(void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
     [NavigationUtility progressBegin];
     [CourseManager listCourseForUser:[UserManager currentUser] withCompletion:^(NSArray *courses, NSError *error) {
         self.currentCourses = courses;
         [self.tableView reloadData];
         [NavigationUtility progressStop];
     }];
-    
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Logout" style:UIBarButtonItemStylePlain target:self action:@selector(onLogoutTap)];
 }
 
 -(void)onLogoutTap {

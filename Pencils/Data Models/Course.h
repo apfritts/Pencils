@@ -18,15 +18,22 @@
 
 #import <Foundation/Foundation.h>
 #import <Parse/Parse.h>
+#import "User.h"
 
 @interface Course : NSObject
 
 @property (strong, nonatomic) NSString *name;
 @property (strong, nonatomic) NSDate *deleted;
+@property (strong, nonatomic) NSDate *start;
+@property (strong, nonatomic) NSDate *end;
 @property (strong, nonatomic) Course *parent;
+@property (strong, nonatomic) User *user;
+@property (strong, nonatomic) User *owner;
 
 -(instancetype)initWithDictionary:(NSDictionary *)dictionary;
 -(instancetype)initWithParseObject:(PFObject *)pfObject;
+-(NSArray *)validate;
 -(void)saveWithCompletion:(void (^)(NSError *error))completion;
+-(PFObject *)persistance;
 
 @end

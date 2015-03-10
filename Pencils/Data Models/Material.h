@@ -18,13 +18,17 @@
 
 #import <Foundation/Foundation.h>
 #import <Parse/Parse.h>
+#import "Course.h"
 
 @interface Material : NSObject
 
 @property (strong, nonatomic) NSString *title;
+@property (strong, nonatomic) Course *course;
 
 -(instancetype)initWithDictionary:(NSDictionary *)dictionary;
 -(instancetype)initWithParseObject:(PFObject *)pfObject;
+-(NSArray *)validate;
 -(void)saveWithCompletion:(void (^)(NSError *error))completion;
+-(PFObject *)persistance;
 
 @end

@@ -28,17 +28,35 @@
 }
 
 +(void)listMaterialForCourse:(Course *)course withCompletion:(void (^)(NSArray *materials, NSError *error))completion {
-    NSArray *materials = nil;
-    if (completion != nil) {
-        completion(materials, nil);
-    }
+    PFQuery *query = [PFQuery queryWithClassName:@"Material"];
+    [query whereKey:@"course" equalTo:[course persistance]];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        NSMutableArray *materials = [NSMutableArray array];
+        if (objects) {
+            for (PFObject *object in objects) {
+                Material *material = [[Material alloc] initWithParseObject:object];
+                material.course = course;
+                [materials addObject:material];
+            }
+        }
+        if (completion != nil) {
+            completion(materials, error);
+        }
+    }];
 }
 
-+(void)retrieveMaterialById:(NSInteger)materialId withCompletion:(void (^)(Material *material, NSError *error))completion {
-    Material *material = nil;
-    if (completion != nil) {
-        completion(material, nil);
-    }
++(void)retrieveMaterialById:(NSString *)materialId withCompletion:(void (^)(Material *material, NSError *error))completion {
+    PFQuery *query = [PFQuery queryWithClassName:@"Material"];
+    [query includeKey:@"course"];
+    [query getObjectInBackgroundWithId:materialId block:^(PFObject *object, NSError *error) {
+        Material *material = nil;
+        if (object) {
+            material = [[Material alloc] initWithParseObject:object];
+        }
+        if (completion) {
+            completion(material, error);
+        }
+    }];
 }
 
 +(void)searchForMaterialInCourse:(Course *)course byTitle:(NSString *)title withCompletion:(void (^)(NSArray *, NSError *))completion {

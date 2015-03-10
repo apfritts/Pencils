@@ -35,43 +35,37 @@ static User *_currentUser;
 }
 
 +(void)loginWithEmail:(NSString *)email andPassword:(NSString *)password andCompletion:(void (^)(User *, NSError *))completion {
-    NSError *error = nil;
-    // Login
     [PFUser logInWithUsernameInBackground:email password:password block:^(PFUser *pfUser, NSError *error) {
         User *user = nil;
         if (user) {
             user = [[User alloc] initWithParseObject:pfUser];
         }
         _currentUser = user;
-        completion(user, error);
+        if (completion != nil) {
+            completion(user, error);
+        }
         
     }];
-    
-    // set Current user
-    
-    if (completion != nil) {
-        completion(nil, error);
-    }
 }
 
 +(void)signUpWithFirstName:(NSString *)firstName andLastName:(NSString *)lastName andEmail:(NSString *)email andPassword:(NSString *)password andCompletion:(void (^)(User *, NSError *))completion {
-    // do some validation
-    
-    // setup the Parse User object
-    PFUser *pfUser = [PFUser user];
-    pfUser.username = email;
-    pfUser.password = password;
-    pfUser.email = email;
-    pfUser[@"first_name"] = firstName;
-    pfUser[@"last_name"] = lastName;
-    
-    [pfUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        User *user = nil;
-        if (!error) {
-            user = [[User alloc] initWithParseObject:pfUser];
+    NSDictionary *dictionary = @{
+                                 @"first_name": firstName,
+                                 @"last_name": lastName,
+                                 @"email": email,
+                                 @"password": password
+                                 };
+    User *user = [[User alloc] initWithDictionary:dictionary];
+    [[user persistance] signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (completion) {
+            if (error) {
+                _currentUser = nil;
+                completion(nil, error);
+            } else {
+                _currentUser = user;
+                completion(user, error);
+            }
         }
-        _currentUser = user;
-        completion(user, error);
     }];
 }
 
@@ -81,18 +75,30 @@ static User *_currentUser;
 }
 
 +(void)listUsersForCourse:(Course *)course withCompletion:(void (^)(NSArray *, NSError *))completion {
-    NSArray *users = nil;
-    if (completion) {
-        completion(users, nil);
-    }
+    PFQuery *query = [PFUser query];
+    // @TODO: many-to-many relationship search between course and users
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        NSArray *users = nil;
+        if (objects) {
+            users = [NSMutableArray array];
+        }
+        if (completion) {
+            completion(users, error);
+        }
+    }];
 }
 
-+(void)retrieveUserById:(NSInteger)userId withCompletion:(void (^)(User *, NSError *))completion {
-    PFUser *pfUser = [[PFUser alloc] initWithClassName:@"User"];
-    User *user = [[User alloc] initWithParseObject:pfUser];
-    if (completion) {
-        completion(user, nil);
-    }
++(void)retrieveUserById:(NSString *)userId withCompletion:(void (^)(User *, NSError *))completion {
+    PFQuery *query = [PFUser query];
+    [query getObjectInBackgroundWithId:userId block:^(PFObject *object, NSError *error) {
+        User *user = nil;
+        if (object) {
+            user = [[User alloc] initWithParseObject:(PFUser *)object];
+        }
+        if (completion) {
+            completion(user, error);
+        }
+    }];
 }
 
 @end

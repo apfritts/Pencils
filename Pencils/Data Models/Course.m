@@ -20,7 +20,7 @@
 
 @interface Course()
 
-@property (strong, nonatomic) PFObject *persistance;
+@property (strong, nonatomic) PFObject *_persistance;
 
 @end
 
@@ -30,9 +30,13 @@
     self = [super init];
     if (self) {
         self.name = dictionary[@"name"];
+        self.start = [dictionary[@"start"] date];
+        self.end = [dictionary[@"end"] date];
         self.deleted = [dictionary[@"deleted"] date];
         self.parent = dictionary[@"parent"];
-        self.persistance = [PFObject objectWithClassName:@"Course"];
+        self.user = dictionary[@"user"];
+        self.owner = dictionary[@"owner"];
+        self._persistance = [PFObject objectWithClassName:@"Course"];
     }
     return self;
 }
@@ -40,24 +44,61 @@
 -(instancetype)initWithParseObject:(PFObject *)pfObject {
     self = [super init];
     if (self) {
-        self.persistance = pfObject;
+        self._persistance = pfObject;
         self.name = pfObject[@"name"];
+        self.start = [pfObject[@"start"] date];
+        self.end = [pfObject[@"end"] date];
         self.deleted = [pfObject[@"deleted"] date];
+        if (pfObject[@"parent"]) {
+            self.parent = [[Course alloc] initWithParseObject:pfObject[@"parent"]];
+        }
+        if (pfObject[@"user"]) {
+            self.user = [[User alloc] initWithParseObject:pfObject[@"user"]];
+        }
+        if (pfObject[@"owner"]) {
+            self.owner = [[User alloc] initWithParseObject:pfObject[@"owner"]];
+        }
     }
     return self;
 }
 
+-(NSArray *)validate {
+    // @TODO: validate the model and return an array of issues if necessary
+    return @[];
+}
+
 -(void)saveWithCompletion:(void (^)(NSError *))completion {
-    self.persistance[@"name"] = self.name;
+    NSArray *validate = [self validate];
+    if (validate.count == 0) {
+        completion([[NSError alloc] initWithDomain:@"com.box.Pencils" code:1 userInfo:@{@"validate": validate}]);
+        return;
+    }
+    self._persistance[@"name"] = self.name;
+    if (self.start) {
+        self._persistance[@"start"] = self.start;
+    }
+    if (self.end) {
+        self._persistance[@"end"] = self.end;
+    }
     if (self.deleted) {
-        self.persistance[@"deleted"] = self.deleted;
+        self._persistance[@"deleted"] = self.deleted;
     }
     if (self.parent) {
-        self.persistance[@"parent"] = self.parent.persistance;
+        self._persistance[@"parent"] = [self.parent persistance];
     }
-    [self.persistance saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+    if (self.user) {
+        self._persistance[@"user"] = [self.user persistance];
+    }
+    if (self.owner) {
+        self._persistance[@"owner"] = [self.owner persistance];
+    }
+    [self._persistance saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         completion(error);
     }];
+}
+
+-(PFObject *)persistance {
+    return self._persistance;
 }
 
 @end

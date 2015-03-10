@@ -33,6 +33,7 @@
 +(void)listGlobalCoursesWithCompletion:(void (^)(NSArray *, NSError *))completion {
     PFQuery *query = [PFQuery queryWithClassName:@"Course"];
     [query whereKey:@"parent" equalTo:[NSNull null]];
+    [query includeKey:@"owner"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         NSMutableArray *courses = [NSMutableArray array];
         if (objects) {
@@ -42,23 +43,63 @@
             }
         }
         if (completion != nil) {
-            completion(courses, nil);
+            completion(courses, error);
+        }
+    }];
+}
+
++(void)listCourseForCourse:(Course *)parentCourse withCompletion:(void (^)(NSArray *, NSError *))completion {
+    PFQuery *query = [PFQuery queryWithClassName:@"Course"];
+    [query whereKey:@"parent" equalTo:[parentCourse persistance]];
+    [query includeKey:@"user"];
+    [query includeKey:@"owner"];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        NSMutableArray *courses = [NSMutableArray array];
+        if (objects) {
+            for (PFObject *object in objects) {
+                Course *course = [[Course alloc] initWithParseObject:object];
+                course.parent = parentCourse;
+                [courses addObject:course];
+            }
+        }
+        if (completion != nil) {
+            completion(courses, error);
         }
     }];
 }
 
 +(void)listCourseForUser:(User *)user withCompletion:(void (^)(NSArray *, NSError *))completion {
-    if (completion != nil) {
-        completion(@[], nil);
-    }
+    PFQuery *query = [PFQuery queryWithClassName:@"Course"];
+    [query whereKey:@"user" equalTo:[user persistance]];
+    [query includeKey:@"parent"];
+    [query includeKey:@"owner"];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        NSMutableArray *courses = [NSMutableArray array];
+        if (objects) {
+            for (PFObject *object in objects) {
+                Course *course = [[Course alloc] initWithParseObject:object];
+                course.user = user;
+                [courses addObject:course];
+            }
+        }
+        if (completion != nil) {
+            completion(courses, error);
+        }
+    }];
 }
 
 
-+(void)retreiveCourseById:(NSInteger)courseId withCompletion:(void (^)(Course *, NSError *))completion {
-    Course *course = nil;
-    if (completion != nil) {
-        completion(course, nil);
-    }
++(void)retreiveCourseById:(NSString *)courseId withCompletion:(void (^)(Course *, NSError *))completion {
+    PFQuery *query = [PFQuery queryWithClassName:@"Course"];
+    [query getObjectInBackgroundWithId:courseId block:^(PFObject *object, NSError *error) {
+        Course *course = nil;
+        if (object) {
+            course = [[Course alloc] initWithParseObject:object];
+        }
+        if (completion) {
+            completion(course, error);
+        }
+    }];
 }
 
 

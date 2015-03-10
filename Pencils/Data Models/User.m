@@ -21,26 +21,65 @@
 
 @interface User()
 
-@property (strong, nonatomic) PFUser *persistance;
+@property (strong, nonatomic) PFUser *_persistance;
 
 @end
 
 @implementation User
 
--(instancetype)initWithParseObject:(PFUser *)pfUser {
+-(instancetype)initWithDictionary:(NSDictionary *)dictionary {
     self = [super init];
     if (self) {
-        self.persistance = pfUser;
+        self.firstName = dictionary[@"first_name"];
+        self.lastName = dictionary[@"last_name"];
+        self.email = dictionary[@"email"];
+        self.password = dictionary[@"password"];
+        
+        PFUser *pfUser = [PFUser user];
+        pfUser.username = self.email;
+        pfUser.password = self.password;
+        pfUser.email = self.email;
+        pfUser[@"first_name"] = self.firstName;
+        pfUser[@"last_name"] = self.lastName;
+        self._persistance = pfUser;
     }
     return self;
 }
 
+-(instancetype)initWithParseObject:(PFUser *)pfUser {
+    self = [super init];
+    if (self) {
+        self.firstName = pfUser[@"first_name"];
+        self.lastName = pfUser[@"last_name"];
+        self.email = pfUser.username;
+        self._persistance = pfUser;
+    }
+    return self;
+}
+
+-(NSArray *)validate {
+    // @TODO: validate the model and return an array of issues if necessary
+    return @[];
+}
+
 -(void)saveWithCompletion:(void (^)(NSError *error))completion {
-    PFObject *user = [[PFObject alloc] init];
-    user[@"first_name"] = self.firstName;
-    [user saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+    NSArray *validate = [self validate];
+    if (validate.count == 0) {
+        completion([[NSError alloc] initWithDomain:@"com.box.Pencils" code:1 userInfo:@{@"validate": validate}]);
+        return;
+    }
+    self._persistance[@"first_name"] = self.firstName;
+    self._persistance[@"last_name"] = self.lastName;
+    if (self.password) {
+        self._persistance.password = self.password;
+    }
+    [self._persistance saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         completion(error);
     }];
+}
+
+-(PFUser *)persistance {
+    return self._persistance;
 }
 
 @end

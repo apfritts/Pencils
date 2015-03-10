@@ -30,10 +30,12 @@ enum UserType {
 @property (strong, nonatomic) NSString *lastName;
 @property (strong, nonatomic) NSString *email;
 @property (strong, nonatomic) NSString *password;
-@property (assign, nonatomic) NSInteger userId;
 @property (assign, nonatomic) enum UserType userType;
 
+-(instancetype)initWithDictionary:(NSDictionary *)dictionary;
 -(instancetype)initWithParseObject:(PFUser *)pfUser;
+-(NSArray *)validate;
 -(void)saveWithCompletion:(void (^)(NSError *error))completion;
+-(PFUser *)persistance;
 
 @end
