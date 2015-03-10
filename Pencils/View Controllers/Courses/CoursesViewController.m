@@ -21,6 +21,7 @@
 #import "Course.h"
 #import "CourseTableViewCell.h"
 #import "NavigationUtility.h"
+#import "CourseManager.h"
 #import <FontAwesome+iOS/UIImage+FontAwesome.h>
 
 @interface CoursesViewController () <UITableViewDataSource, UITableViewDelegate>
@@ -62,6 +63,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    if (self.courses == nil) {
+        // This is THE top level list of global classes
+        [CourseManager listGlobalCoursesWithCompletion:^(NSArray *courses, NSError *error) {
+            if (!error) {
+                self.courses = courses;
+                [self.tableView reloadData];
+            }
+        }];
+    }
     
     [self.tableView registerNib:[UINib nibWithNibName:@"CourseTableViewCell" bundle:nil] forCellReuseIdentifier:@"CourseCell"];
     self.tableView.rowHeight = UITableViewAutomaticDimension;

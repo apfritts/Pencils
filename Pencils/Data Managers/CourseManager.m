@@ -21,22 +21,38 @@
 
 @implementation CourseManager
 
-+(Course *)createCourseWithDictionary:(NSDictionary *)dictionary {
-    return [[Course alloc] initWithDictionary:dictionary];
-}
-+(NSArray *)listGlobalCourses {
-    return @[];
-}
-
-+(NSArray *)listCourseForUser:(User *)user {
-    return @[];
-}
-+(Course *)retreiveCourseById:(NSInteger)courseId {
-    return nil;
++(void)createCourseWithDictionary:(NSDictionary *)dictionary withCompletion:(void (^)(Course *, NSError *))completion {
+    Course *course = [[Course alloc] initWithDictionary:dictionary];
+    if (completion != nil) {
+        completion(course, nil);
+    }
 }
 
-+(NSArray *)searchForCourseByTitle:(NSString *)title inGlobalCourse:(Course *)globalCourse {
-    return @[];
++(void)listGlobalCoursesWithCompletion:(void (^)(NSArray *, NSError *))completion {
+    if (completion != nil) {
+        completion(@[], nil);
+    }
+}
+
++(void)listCourseForUser:(User *)user withCompletion:(void (^)(NSArray *, NSError *))completion {
+    if (completion != nil) {
+        completion(@[], nil);
+    }
+}
+
+
++(void)retreiveCourseById:(NSInteger)courseId withCompletion:(void (^)(Course *, NSError *))completion {
+    Course *course = nil;
+    if (completion != nil) {
+        completion(course, nil);
+    }
+}
+
+
++(void)searchForCourseByTitle:(NSString *)title inGlobalCourse:(Course *)globalCourse withCompletion:(void (^)(NSArray *, NSError *))completion {
+    if (completion != nil) {
+        completion(@[], nil);
+    }
 }
 
 @end

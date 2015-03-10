@@ -22,10 +22,10 @@
 
 @interface CourseManager : NSObject
 
-+(Course *)createCourseWithDictionary:(NSDictionary *)dictionary;
-+(NSArray *)listGlobalCourses;
-+(NSArray *)listCourseForUser:(User *)user;
-+(Course *)retreiveCourseById:(NSInteger)courseId;
-+(NSArray *)searchForCourseByTitle:(NSString *)title inGlobalCourse:(Course *)globalCourse;
++(void)createCourseWithDictionary:(NSDictionary *)dictionary withCompletion:(void (^)(Course *course, NSError *error))completion;
++(void)listGlobalCoursesWithCompletion:(void (^)(NSArray *courses, NSError *error))completion;
++(void)listCourseForUser:(User *)user withCompletion:(void (^)(NSArray *courses, NSError *error))completion;
++(void)retreiveCourseById:(NSInteger)courseId withCompletion:(void (^)(Course *course, NSError *error))completion;
++(void)searchForCourseByTitle:(NSString *)title inGlobalCourse:(Course *)globalCourse withCompletion:(void (^)(NSArray *courses, NSError *error))completion;
 
 @end

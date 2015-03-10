@@ -27,7 +27,7 @@
 +(void)signUpWithFirstName:(NSString *)firstName andLastName:(NSString *)lastName andEmail:(NSString *)email andPassword:(NSString *)password andCompletion:(void (^)(User *user, NSError *error))completion;
 +(void)logout;
 
-+(NSArray *)listUsersForCourse:(Course *)course;
-+(User *)retrieveUserById:(NSInteger)userId;
++(void)listUsersForCourse:(Course *)course withCompletion:(void (^)(NSArray *users, NSError *error))completion;
++(void)retrieveUserById:(NSInteger)userId withCompletion:(void (^)(User *users, NSError *error))completion;
 
 @end

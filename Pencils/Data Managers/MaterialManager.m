@@ -20,20 +20,32 @@
 
 @implementation MaterialManager
 
-+(Material *)createMaterialWithDictionary:(NSDictionary *)dictionary {
-    return nil;
++(void)createMaterialWithDictionary:(NSDictionary *)dictionary withCompletion:(void (^)(Material *material, NSError *error))completion {
+    Material *material = nil;
+    if (completion != nil) {
+        completion(material, nil);
+    }
 }
 
-+(NSArray *)listMaterialForCourse:(Course *)course {
-    return nil;
++(void)listMaterialForCourse:(Course *)course withCompletion:(void (^)(NSArray *materials, NSError *error))completion {
+    NSArray *materials = nil;
+    if (completion != nil) {
+        completion(materials, nil);
+    }
 }
 
-+(Material *)retrieveMaterialById:(NSInteger)materialId {
-    return nil;
++(void)retrieveMaterialById:(NSInteger)materialId withCompletion:(void (^)(Material *material, NSError *error))completion {
+    Material *material = nil;
+    if (completion != nil) {
+        completion(material, nil);
+    }
 }
 
-+(NSArray *)searchForMaterialInCourse:(Course *)course byTitle:(NSString *)title {
-    return nil;
++(void)searchForMaterialInCourse:(Course *)course byTitle:(NSString *)title withCompletion:(void (^)(NSArray *, NSError *))completion {
+    NSArray *materials = nil;
+    if (completion != nil) {
+        completion(materials, nil);
+    }
 }
 
 @end

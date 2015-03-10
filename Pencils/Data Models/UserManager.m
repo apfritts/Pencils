@@ -34,7 +34,7 @@ static User *_currentUser;
     return _currentUser;
 }
 
-+(void)loginWithEmail:(NSString *)email andPassword:(NSString *)password andCompletion:(void (^)(User *user, NSError *error))completion {
++(void)loginWithEmail:(NSString *)email andPassword:(NSString *)password andCompletion:(void (^)(User *, NSError *))completion {
     NSError *error = nil;
     // Login
     [PFUser logInWithUsernameInBackground:email password:password block:^(PFUser *pfUser, NSError *error) {
@@ -54,7 +54,7 @@ static User *_currentUser;
     }
 }
 
-+(void)signUpWithFirstName:(NSString *)firstName andLastName:(NSString *)lastName andEmail:(NSString *)email andPassword:(NSString *)password andCompletion:(void (^)(User *user, NSError *error))completion {
++(void)signUpWithFirstName:(NSString *)firstName andLastName:(NSString *)lastName andEmail:(NSString *)email andPassword:(NSString *)password andCompletion:(void (^)(User *, NSError *))completion {
     // do some validation
     
     // setup the Parse User object
@@ -80,13 +80,19 @@ static User *_currentUser;
     _currentUser = nil;
 }
 
-+(NSArray *)listUsersForCourse:(Course *)course {
-    return nil;
++(void)listUsersForCourse:(Course *)course withCompletion:(void (^)(NSArray *, NSError *))completion {
+    NSArray *users = nil;
+    if (completion) {
+        completion(users, nil);
+    }
 }
 
-+(User *)retrieveUserById:(NSInteger)userId {
++(void)retrieveUserById:(NSInteger)userId withCompletion:(void (^)(User *, NSError *))completion {
     PFUser *pfUser = [[PFUser alloc] initWithClassName:@"User"];
-    return [[User alloc] initWithParseObject:pfUser];
+    User *user = [[User alloc] initWithParseObject:pfUser];
+    if (completion) {
+        completion(user, nil);
+    }
 }
 
 @end

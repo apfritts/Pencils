@@ -22,9 +22,9 @@
 
 @interface MaterialManager : NSObject
 
-+(Material *)createMaterialWithDictionary:(NSDictionary *)dictionary;
-+(NSArray *)listMaterialForCourse:(Course *)course;
-+(Material *)retrieveMaterialById:(NSInteger)materialId;
-+(NSArray *)searchForMaterialInCourse:(Course *)course byTitle:(NSString *)title;
++(void)createMaterialWithDictionary:(NSDictionary *)dictionary withCompletion:(void (^)(Material *material, NSError *error))completion;
++(void)listMaterialForCourse:(Course *)course withCompletion:(void (^)(NSArray *materials, NSError *error))completion;
++(void)retrieveMaterialById:(NSInteger)materialId withCompletion:(void (^)(Material *material, NSError *error))completion;
++(void)searchForMaterialInCourse:(Course *)course byTitle:(NSString *)title withCompletion:(void (^)(NSArray *materials, NSError *error))completion;
 
 @end
