@@ -71,10 +71,17 @@
                 [self.tableView reloadData];
             }
         }];
+        
+        // @TODO: We need to cleanup all of these inits/viewDidLoad stuff
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Create" style:UIBarButtonItemStylePlain target:self action:@selector(onCreateTap)];
     }
     
     [self.tableView registerNib:[UINib nibWithNibName:@"CourseTableViewCell" bundle:nil] forCellReuseIdentifier:@"CourseCell"];
     self.tableView.rowHeight = UITableViewAutomaticDimension;
+}
+
+-(void)onCreateTap {
+    [NavigationUtility navigateToCourseCreate];
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {

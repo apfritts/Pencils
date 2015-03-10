@@ -30,8 +30,14 @@
 @implementation LoginViewController
 
 - (IBAction)loginTap:(id)sender {
+    [NavigationUtility progressBegin];
     [UserManager loginWithEmail:self.emailField.text andPassword:self.passwordField.text andCompletion:^(User *user, NSError *error) {
-        [NavigationUtility login];
+        [NavigationUtility progressStop];
+        if (error) {
+            [[[UIAlertView alloc] initWithTitle:@"Error!" message:error.description delegate:nil cancelButtonTitle:@"Try Again" otherButtonTitles:nil] show];
+        } else {
+            [NavigationUtility login];
+        }
     }];
 }
 

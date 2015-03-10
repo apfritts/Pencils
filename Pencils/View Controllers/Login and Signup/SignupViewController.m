@@ -31,11 +31,24 @@
 
 @implementation SignupViewController
 
+-(void)viewDidLoad {
+    [super viewDidLoad];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"< Login" style:UIBarButtonItemStylePlain target:self action:@selector(onBackToLoginTap)];
+}
+
+-(void)onBackToLoginTap {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
 - (IBAction)signUpTap:(id)sender {
+    [NavigationUtility progressBeginInView:self.view];
     [UserManager signUpWithFirstName:self.firstNameField.text andLastName:self.lastNameField.text andEmail:self.emailField.text andPassword:self.passwordField.text andCompletion:^(User *user, NSError *error) {
-        [[[UIAlertView alloc] initWithTitle:@"Sign Up" message:@"Signed up!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
-        NSLog(@"%@", error);
-        [NavigationUtility login];
+        [NavigationUtility progressStop];
+        if (error) {
+            [[[UIAlertView alloc] initWithTitle:@"Error!" message:error.description delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+        } else {
+            [NavigationUtility login];
+        }
     }];
 }
 

@@ -128,6 +128,10 @@
 static MRActivityIndicatorView *currentProgress;
 
 +(void)progressBegin {
+    [NavigationUtility progressBeginInView:registeredWindow.rootViewController.view];
+}
+
++(void)progressBeginInView:(UIView *)view {
     if (currentProgress != nil) {
         [NavigationUtility progressStop];
     }
@@ -138,7 +142,7 @@ static MRActivityIndicatorView *currentProgress;
     currentProgress = [[MRActivityIndicatorView alloc] initWithFrame:popupViewRect];
     currentProgress.tintColor = [ColorUtility primaryColor];
     currentProgress.backgroundColor = [ColorUtility shadedBackground];
-    [registeredWindow.rootViewController.view addSubview:currentProgress];
+    [view addSubview:currentProgress];
     [currentProgress startAnimating];
 }
 

@@ -17,6 +17,7 @@
  */
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 #import "Course.h"
 #import "Material.h"
 
@@ -37,6 +38,7 @@
 +(void)navigateToMaterialUpload;
 
 +(void)progressBegin;
++(void)progressBeginInView:(UIView *)view;
 +(void)progressStop;
 
 +(void)login;
