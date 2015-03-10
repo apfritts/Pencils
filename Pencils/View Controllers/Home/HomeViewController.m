@@ -48,8 +48,8 @@
     
     [self.tableView registerNib:[UINib nibWithNibName:@"CourseTableViewCell" bundle:nil] forCellReuseIdentifier:@"CourseCell"];
     [self.tableView registerNib:[UINib nibWithNibName:@"HeaderTableViewCell" bundle:nil] forCellReuseIdentifier:@"HeaderCell"];
-    self.tableView.dataSource = self;
-    self.tableView.delegate = self;
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
+    self.tableView.sectionHeaderHeight = 44.0;
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -68,7 +68,7 @@
     Course *course = [[Course alloc] init];
     course.name = @"name of course";
     NSArray *courses = @[course, course, course,course, course, course,course, course, course];
-    [NavigationUtility navigateToCourseListOf:courses];
+    [NavigationUtility navigateToTeacherCourseListOf:courses];
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -77,6 +77,10 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     return [self.tableView dequeueReusableCellWithIdentifier:@"CourseCell"];
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [NavigationUtility navigateToTeacherCourse:self.currentCourses[indexPath.row]];
 }
 
 @end

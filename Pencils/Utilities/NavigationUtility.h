@@ -25,7 +25,8 @@
 +(void)registerWindow:(UIWindow *)window;
 
 +(void)navigateToCourseCreate;
-+(void)navigateToCourseListOf:(NSArray *)courses;
++(void)navigateToGlobalCourseListOf:(NSArray *)courses;
++(void)navigateToTeacherCourseListOf:(NSArray *)courses;
 +(void)navigateToCourses;
 +(void)navigateToEditTeacherCourse:(Course *)course;
 +(void)navigateToGlobalCourse:(Course *)course;

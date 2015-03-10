@@ -20,12 +20,14 @@
 #import "ColorUtility.h"
 #import "Course.h"
 #import "CourseTableViewCell.h"
+#import "NavigationUtility.h"
 #import <FontAwesome+iOS/UIImage+FontAwesome.h>
 
 @interface CoursesViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSArray *courses;
+@property (assign, nonatomic) BOOL isListOfGlobalCourses;
 
 @end
 
@@ -40,10 +42,20 @@
     return self;
 }
 
--(instancetype)initWithCourses:(NSArray *)courses {
+-(instancetype)initWithGlobalCourses:(NSArray *)courses {
     self = [self init];
     if (self) {
         self.courses = courses;
+        self.isListOfGlobalCourses = YES;
+    }
+    return self;
+}
+
+-(instancetype)initWithTeacherCourses:(NSArray *)courses {
+    self = [self init];
+    if (self) {
+        self.courses = courses;
+        self.isListOfGlobalCourses = NO;
     }
     return self;
 }
@@ -52,6 +64,7 @@
     [super viewDidLoad];
     
     [self.tableView registerNib:[UINib nibWithNibName:@"CourseTableViewCell" bundle:nil] forCellReuseIdentifier:@"CourseCell"];
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -63,6 +76,14 @@
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.courses.count;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (self.isListOfGlobalCourses) {
+        [NavigationUtility navigateToGlobalCourse:self.courses[indexPath.row]];
+    } else {
+        [NavigationUtility navigateToTeacherCourse:self.courses[indexPath.row]];
+    }
 }
 
 @end

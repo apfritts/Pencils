@@ -17,12 +17,22 @@
  */
 
 #import "CourseTableViewCell.h"
+#import <FontAwesome+iOS/UIFont+FontAwesome.h>
+#import <FontAwesome+iOS/NSString+FontAwesome.h>
+
+@interface CourseTableViewCell()
+
+@property (weak, nonatomic) IBOutlet UILabel *chevronRight;
+
+@end
 
 @implementation CourseTableViewCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];
     self.selectionStyle = UITableViewCellSelectionStyleNone;
+    self.chevronRight.font = [UIFont fontAwesomeFontOfSize:17.0];
+    self.chevronRight.text = [NSString fontAwesomeIconStringForEnum:FAIconChevronRight];
 }
 
 @end
