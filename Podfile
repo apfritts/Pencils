@@ -4,4 +4,5 @@ pod '1PasswordExtension'
 pod 'parse'
 pod 'FontAwesome+iOS'
 pod 'layerkit'
+pod 'MRProgress'
 

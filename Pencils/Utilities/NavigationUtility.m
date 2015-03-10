@@ -16,9 +16,11 @@
  * limitations under the License.
  */
 
+#import "ColorUtility.h"
+#import <MRProgress/MRProgress.h>
 #import "NavigationUtility.h"
-#import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
+#import <UIKit/UIKit.h>
 
 // Courses
 #import "CoursesViewController.h"
@@ -120,6 +122,30 @@
 +(void)navigateToMaterialUpload {
     // Presents this view controller over current view controller, unless it is the login screen.
     // A user must login and then present this view controller over the HomeViewController
+}
+
+# pragma mark - Progress
+static MRActivityIndicatorView *currentProgress;
+
++(void)progressBegin {
+    if (currentProgress != nil) {
+        [NavigationUtility progressStop];
+    }
+    CGFloat width = 100.0;
+    CGFloat height = 100.0;
+    CGSize windowSize = [[UIScreen mainScreen] bounds].size;
+    CGRect popupViewRect = CGRectMake((windowSize.width / 2) - (width / 2), (windowSize.height / 2) - (height / 2), width, height);
+    currentProgress = [[MRActivityIndicatorView alloc] initWithFrame:popupViewRect];
+    currentProgress.tintColor = [ColorUtility primaryColor];
+    currentProgress.backgroundColor = [ColorUtility shadedBackground];
+    [registeredWindow.rootViewController.view addSubview:currentProgress];
+    [currentProgress startAnimating];
+}
+
++(void)progressStop {
+    [currentProgress removeFromSuperview];
+    [currentProgress stopAnimating];
+    currentProgress = nil;
 }
 
 # pragma mark - Utilities

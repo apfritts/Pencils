@@ -18,4 +18,8 @@
     return [UIColor clearColor];
 }
 
++(UIColor *)shadedBackground {
+    return [UIColor colorWithWhite:0.3 alpha:0.5];
+}
+
 @end

@@ -13,5 +13,6 @@
 
 +(UIColor *)primaryColor;
 +(UIColor *)transparent;
++(UIColor *)shadedBackground;
 
 @end

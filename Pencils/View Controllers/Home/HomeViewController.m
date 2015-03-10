@@ -21,9 +21,11 @@
 #import "NavigationUtility.h"
 #import <FontAwesome+iOS/UIImage+FontAwesome.h>
 
+#import "CourseManager.h"
 #import "CourseTableViewCell.h"
 #import "HeaderTableViewCell.h"
 #import "RequestsTableViewCell.h"
+#import "UserManager.h"
 
 @interface HomeViewController () <HeaderTableViewCellDelegate, UITableViewDataSource, UITableViewDelegate>
 
@@ -50,6 +52,19 @@
     [self.tableView registerNib:[UINib nibWithNibName:@"HeaderTableViewCell" bundle:nil] forCellReuseIdentifier:@"HeaderCell"];
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.sectionHeaderHeight = 44.0;
+    
+    [NavigationUtility progressBegin];
+    [CourseManager listCourseForUser:[UserManager currentUser] withCompletion:^(NSArray *courses, NSError *error) {
+        self.currentCourses = courses;
+        [self.tableView reloadData];
+        [NavigationUtility progressStop];
+    }];
+    
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Logout" style:UIBarButtonItemStylePlain target:self action:@selector(onLogoutTap)];
+}
+
+-(void)onLogoutTap {
+    [NavigationUtility logout];
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -72,7 +87,7 @@
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 2;
+    return self.currentCourses.count;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {

@@ -36,6 +36,9 @@
 +(void)navigateToMaterial:(Material *)material;
 +(void)navigateToMaterialUpload;
 
++(void)progressBegin;
++(void)progressStop;
+
 +(void)login;
 +(void)logout;
 
