@@ -28,7 +28,6 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSArray *courses;
-@property (assign, nonatomic) BOOL isListOfGlobalCourses;
 
 @end
 
@@ -43,20 +42,10 @@
     return self;
 }
 
--(instancetype)initWithGlobalCourses:(NSArray *)courses {
+-(instancetype)initWithCourses:(NSArray *)courses {
     self = [self init];
     if (self) {
         self.courses = courses;
-        self.isListOfGlobalCourses = YES;
-    }
-    return self;
-}
-
--(instancetype)initWithTeacherCourses:(NSArray *)courses {
-    self = [self init];
-    if (self) {
-        self.courses = courses;
-        self.isListOfGlobalCourses = NO;
     }
     return self;
 }
@@ -65,8 +54,12 @@
     [super viewDidLoad];
     if (self.courses == nil) {
         // This is THE top level list of global classes
+        [NavigationUtility progressBegin];
         [CourseManager listGlobalCoursesWithCompletion:^(NSArray *courses, NSError *error) {
-            if (!error) {
+            [NavigationUtility progressStop];
+            if (error) {
+                [[[UIAlertView alloc] initWithTitle:@"Error" message:error.description delegate:nil cancelButtonTitle:@"Try Again" otherButtonTitles:nil] show];
+            } else {
                 self.courses = courses;
                 [self.tableView reloadData];
             }
@@ -76,6 +69,7 @@
         self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Create" style:UIBarButtonItemStylePlain target:self action:@selector(onCreateTap)];
     }
     
+    // Setup the table
     [self.tableView registerNib:[UINib nibWithNibName:@"CourseTableViewCell" bundle:nil] forCellReuseIdentifier:@"CourseCell"];
     self.tableView.rowHeight = UITableViewAutomaticDimension;
 }
@@ -96,7 +90,8 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (self.isListOfGlobalCourses) {
+    Course *course = self.courses[indexPath.row];
+    if (course.parent == nil) {
         [NavigationUtility navigateToGlobalCourse:self.courses[indexPath.row]];
     } else {
         [NavigationUtility navigateToTeacherCourse:self.courses[indexPath.row]];

@@ -57,12 +57,8 @@
     [NavigationUtility pushViewController:[[CreateCourseViewController alloc] init]];
 }
 
-+(void)navigateToGlobalCourseListOf:(NSArray *)courses {
-    [NavigationUtility pushViewController:[[CoursesViewController alloc] initWithGlobalCourses:courses]];
-}
-
-+(void)navigateToTeacherCourseListOf:(NSArray *)courses {
-    [NavigationUtility pushViewController:[[CoursesViewController alloc] initWithTeacherCourses:courses]];
++(void)navigateToCourseListOf:(NSArray *)courses {
+    [NavigationUtility pushViewController:[[CoursesViewController alloc] initWithCourses:courses]];
 }
 
 +(void)navigateToCourses {

@@ -23,15 +23,28 @@
 
 +(void)createCourseWithDictionary:(NSDictionary *)dictionary withCompletion:(void (^)(Course *, NSError *))completion {
     Course *course = [[Course alloc] initWithDictionary:dictionary];
-    if (completion != nil) {
-        completion(course, nil);
-    }
+    [course saveWithCompletion:^(NSError *error) {
+        if (completion != nil) {
+            completion(course, error);
+        }
+    }];
 }
 
 +(void)listGlobalCoursesWithCompletion:(void (^)(NSArray *, NSError *))completion {
-    if (completion != nil) {
-        completion(@[], nil);
-    }
+    PFQuery *query = [PFQuery queryWithClassName:@"Course"];
+    [query whereKey:@"parent" equalTo:[NSNull null]];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        NSMutableArray *courses = [NSMutableArray array];
+        if (objects) {
+            for (PFObject *object in objects) {
+                Course *course = [[Course alloc] initWithParseObject:object];
+                [courses addObject:course];
+            }
+        }
+        if (completion != nil) {
+            completion(courses, nil);
+        }
+    }];
 }
 
 +(void)listCourseForUser:(User *)user withCompletion:(void (^)(NSArray *, NSError *))completion {

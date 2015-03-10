@@ -83,7 +83,7 @@
     Course *course = [[Course alloc] init];
     course.name = @"name of course";
     NSArray *courses = @[course, course, course,course, course, course,course, course, course];
-    [NavigationUtility navigateToTeacherCourseListOf:courses];
+    [NavigationUtility navigateToCourseListOf:courses];
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

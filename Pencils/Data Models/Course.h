@@ -23,6 +23,7 @@
 
 @property (strong, nonatomic) NSString *name;
 @property (strong, nonatomic) NSDate *deleted;
+@property (strong, nonatomic) Course *parent;
 
 -(instancetype)initWithDictionary:(NSDictionary *)dictionary;
 -(instancetype)initWithParseObject:(PFObject *)pfObject;

@@ -31,6 +31,8 @@
     if (self) {
         self.name = dictionary[@"name"];
         self.deleted = [dictionary[@"deleted"] date];
+        self.parent = dictionary[@"parent"];
+        self.persistance = [PFObject objectWithClassName:@"Course"];
     }
     return self;
 }
@@ -45,9 +47,14 @@
     return self;
 }
 
--(void)saveWithCompletion:(void (^)(NSError *error))completion {
+-(void)saveWithCompletion:(void (^)(NSError *))completion {
     self.persistance[@"name"] = self.name;
-    self.persistance[@"deleted"] = self.deleted;
+    if (self.deleted) {
+        self.persistance[@"deleted"] = self.deleted;
+    }
+    if (self.parent) {
+        self.persistance[@"parent"] = self.parent.persistance;
+    }
     [self.persistance saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         completion(error);
     }];

@@ -30,6 +30,7 @@
     self = [super init];
     if (self) {
         self.title = dictionary[@"title"];
+        self.persistance = [PFObject objectWithClassName:@"Material"];
     }
     return self;
 }

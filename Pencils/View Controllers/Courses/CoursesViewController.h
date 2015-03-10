@@ -20,7 +20,6 @@
 
 @interface CoursesViewController : UIViewController
 
--(instancetype)initWithGlobalCourses:(NSArray *)courses;
--(instancetype)initWithTeacherCourses:(NSArray *)courses;
+-(instancetype)initWithCourses:(NSArray *)courses;
 
 @end

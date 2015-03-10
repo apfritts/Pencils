@@ -17,8 +17,13 @@
  */
 
 #import "CreateCourseViewController.h"
+#import "NavigationUtility.h"
+#import "CourseManager.h"
 
 @interface CreateCourseViewController ()
+
+@property (weak, nonatomic) IBOutlet UITextField *nameField;
+@property (weak, nonatomic) IBOutlet UITextField *descriptionField;
 
 @end
 
@@ -28,6 +33,23 @@
     [super viewDidLoad];
     
     self.title = @"Create Course";
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Create" style:UIBarButtonItemStylePlain target:self action:@selector(onCreateTap)];
+}
+
+-(void)onCreateTap {
+    [NavigationUtility progressBegin];
+    NSDictionary *dictionary = @{
+                                 @"name": self.nameField.text,
+                                 @"description": self.descriptionField.text
+                                 };
+    [CourseManager createCourseWithDictionary:dictionary withCompletion:^(Course *course, NSError *error) {
+        [NavigationUtility progressStop];
+        if (error) {
+            [[[UIAlertView alloc] initWithTitle:@"Error" message:error.description delegate:nil cancelButtonTitle:@"Try Again" otherButtonTitles:nil] show];
+        } else {
+            [NavigationUtility navigateToGlobalCourse:course];
+        }
+    }];
 }
 
 @end
