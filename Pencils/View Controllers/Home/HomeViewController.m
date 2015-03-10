@@ -25,7 +25,7 @@
 #import "HeaderTableViewCell.h"
 #import "RequestsTableViewCell.h"
 
-@interface HomeViewController () <UITableViewDataSource, UITableViewDelegate>
+@interface HomeViewController () <HeaderTableViewCellDelegate, UITableViewDataSource, UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSArray *currentCourses;
@@ -58,7 +58,17 @@
 
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     HeaderTableViewCell *header = [self.tableView dequeueReusableCellWithIdentifier:@"HeaderCell"];
+    header.headerLabel.text = @"Your Courses";
+    [header.headerButton setTitle:@"View All" forState:UIControlStateNormal];
+    header.delegate = self;
     return header;
+}
+
+-(void)headerTableViewCellButtonTap:(HeaderTableViewCell *)headerCell {
+    Course *course = [[Course alloc] init];
+    course.name = @"name of course";
+    NSArray *courses = @[course, course, course,course, course, course,course, course, course];
+    [NavigationUtility navigateToCourseListOf:courses];
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

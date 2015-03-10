@@ -18,10 +18,13 @@
 
 #import "CoursesViewController.h"
 #import "ColorUtility.h"
+#import "Course.h"
+#import "CourseTableViewCell.h"
 #import <FontAwesome+iOS/UIImage+FontAwesome.h>
 
-@interface CoursesViewController ()
+@interface CoursesViewController () <UITableViewDataSource, UITableViewDelegate>
 
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSArray *courses;
 
 @end
@@ -47,6 +50,19 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [self.tableView registerNib:[UINib nibWithNibName:@"CourseTableViewCell" bundle:nil] forCellReuseIdentifier:@"CourseCell"];
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    CourseTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"CourseCell"];
+    Course *course = self.courses[indexPath.row];
+    cell.courseLabel.text = course.name;
+    return cell;
+}
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return self.courses.count;
 }
 
 @end

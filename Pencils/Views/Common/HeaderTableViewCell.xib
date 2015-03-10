@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6750" systemVersion="14D87h" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14D87h" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6735"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -20,24 +20,36 @@
                             <constraint firstAttribute="height" constant="1" id="qbR-fm-AUz"/>
                         </constraints>
                     </view>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ElM-Xd-v7g">
-                        <rect key="frame" x="10" y="16" width="300" height="15"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ElM-Xd-v7g">
+                        <rect key="frame" x="10" y="16" width="244" height="15"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A6J-Xq-huC">
+                        <rect key="frame" x="264" y="9" width="46" height="30"/>
+                        <state key="normal" title="Button">
+                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                        <connections>
+                            <action selector="buttonTap:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="J65-8P-r2S"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="ElM-Xd-v7g" firstAttribute="centerY" secondItem="A6J-Xq-huC" secondAttribute="centerY" id="7Pg-hx-FsN"/>
                     <constraint firstAttribute="bottom" secondItem="xcv-fP-ntN" secondAttribute="bottom" constant="10" id="DuX-nF-wKa"/>
                     <constraint firstAttribute="trailing" secondItem="xcv-fP-ntN" secondAttribute="trailing" constant="10" id="KRu-yw-WaY"/>
+                    <constraint firstAttribute="trailing" secondItem="A6J-Xq-huC" secondAttribute="trailing" constant="10" id="Yqy-js-d2y"/>
                     <constraint firstItem="xcv-fP-ntN" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="dqL-LD-Rq8"/>
                     <constraint firstItem="xcv-fP-ntN" firstAttribute="top" secondItem="ElM-Xd-v7g" secondAttribute="bottom" constant="2" id="mpC-ug-KiC"/>
-                    <constraint firstAttribute="trailing" secondItem="ElM-Xd-v7g" secondAttribute="trailing" constant="10" id="pgj-Mg-LF8"/>
                     <constraint firstItem="ElM-Xd-v7g" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="vfb-hK-gn1"/>
+                    <constraint firstItem="A6J-Xq-huC" firstAttribute="leading" secondItem="ElM-Xd-v7g" secondAttribute="trailing" constant="10" id="wh6-nM-1jm"/>
                     <constraint firstItem="ElM-Xd-v7g" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="zY1-oF-5Hc"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="headerButton" destination="A6J-Xq-huC" id="bVO-P5-3Sk"/>
                 <outlet property="headerLabel" destination="ElM-Xd-v7g" id="veL-lA-ZwT"/>
             </connections>
         </tableViewCell>

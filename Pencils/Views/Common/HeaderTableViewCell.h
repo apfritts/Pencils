@@ -18,6 +18,18 @@
 
 #import <UIKit/UIKit.h>
 
+@class HeaderTableViewCell;
+
+@protocol HeaderTableViewCellDelegate <NSObject>
+
+-(void)headerTableViewCellButtonTap:(HeaderTableViewCell *)headerCell;
+
+@end
+
 @interface HeaderTableViewCell : UITableViewCell
+
+@property (weak, nonatomic) IBOutlet UILabel *headerLabel;
+@property (weak, nonatomic) IBOutlet UIButton *headerButton;
+@property (weak, nonatomic) id<HeaderTableViewCellDelegate> delegate;
 
 @end

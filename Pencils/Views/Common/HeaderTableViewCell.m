@@ -18,16 +18,12 @@
 
 #import "HeaderTableViewCell.h"
 
-@interface HeaderTableViewCell()
-
-@property (weak, nonatomic) IBOutlet UILabel *headerLabel;
-
-@end
-
 @implementation HeaderTableViewCell
 
-- (void)awakeFromNib {
-    self.headerLabel.text = @"Header Text";
+- (IBAction)buttonTap:(id)sender {
+    if ([self.delegate respondsToSelector:@selector(headerTableViewCellButtonTap:)]) {
+        [self.delegate headerTableViewCellButtonTap:self];
+    }
 }
 
 @end

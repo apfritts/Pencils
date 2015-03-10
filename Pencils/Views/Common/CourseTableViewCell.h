@@ -20,4 +20,6 @@
 
 @interface CourseTableViewCell : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet UILabel *courseLabel;
+
 @end

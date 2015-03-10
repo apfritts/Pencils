@@ -55,7 +55,7 @@
     [NavigationUtility pushViewController:[[CreateCourseViewController alloc] init]];
 }
 
-+(void)navigateToCourseListOf:(NSArray* (^)())courses {
++(void)navigateToCourseListOf:(NSArray *)courses {
     [NavigationUtility pushViewController:[[CoursesViewController alloc] initWithCourses:courses]];
 }
 
