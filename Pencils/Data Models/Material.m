@@ -41,7 +41,7 @@
     if (self) {
         self._persistance = pfObject;
         self.title = pfObject[@"title"];
-        if (pfObject[@"course"]) {
+        if ([pfObject[@"course"] isDataAvailable]) {
             self.course = [[Course alloc] initWithParseObject:pfObject[@"course"]];
         }
     }

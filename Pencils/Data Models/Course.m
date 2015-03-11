@@ -44,15 +44,15 @@
     self = [super init];
     if (self) {
         self._persistance = pfObject;
-        self.name = pfObject[@"name"];
-        self.start = [pfObject[@"start"] date];
-        self.end = [pfObject[@"end"] date];
-        self.deleted = [pfObject[@"deleted"] date];
-        if (pfObject[@"parent"]) {
-            self.parent = [[Course alloc] initWithParseObject:pfObject[@"parent"]];
+        self.name = [pfObject objectForKey:@"name"];
+        self.start = [pfObject objectForKey:@"start"];
+        self.end = [pfObject objectForKey:@"end"];
+        self.deleted = [pfObject objectForKey:@"deleted"];
+        if ([pfObject[@"parent"] isDataAvailable]) {
+            self.parent = [[Course alloc] initWithParseObject:[pfObject objectForKey:@"parent"]];
         }
-        if (pfObject[@"user"]) {
-            self.user = [[User alloc] initWithParseObject:pfObject[@"user"]];
+        if ([pfObject[@"user"] isDataAvailable]) {
+            self.user = [[User alloc] initWithParseObject:[pfObject objectForKey:@"user"]];
         }
     }
     return self;

@@ -49,8 +49,8 @@
 -(instancetype)initWithParseObject:(PFUser *)pfUser {
     self = [super init];
     if (self) {
-        self.firstName = pfUser[@"first_name"];
-        self.lastName = pfUser[@"last_name"];
+        self.firstName = [pfUser objectForKey:@"first_name"];
+        self.lastName = [pfUser objectForKey:@"last_name"];
         self.email = pfUser.username;
         self._persistance = pfUser;
     }
