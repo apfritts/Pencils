@@ -61,7 +61,7 @@
     
     // Setup the course fields
     self.nameField.text = self.course.name;
-    self.descriptionField.text = self.course.description;
+    self.descriptionField.text = self.course.courseDescription;
     [self.startPicker setTitle:[self.dateFormatter stringFromDate:self.course.start] forState:UIControlStateNormal];
     [self.endPicker setTitle:[self.dateFormatter stringFromDate:self.course.end] forState:UIControlStateNormal];
     
@@ -78,16 +78,11 @@
 
 -(void)onDoneTap {
     // @TODO: Move to data model
-    if (!self.course.start) {
-        [[[UIAlertView alloc] initWithTitle:@"Validation Error" message:@"You have to select a start date!" delegate:nil cancelButtonTitle:@"Fix it" otherButtonTitles:nil] show];
-        return;
-    }
-    if (!self.course.end) {
-        [[[UIAlertView alloc] initWithTitle:@"Validation Error" message:@"You have to select an end date!" delegate:nil cancelButtonTitle:@"Fix it" otherButtonTitles:nil] show];
-        return;
-    }
-    if (self.course.start > self.course.end) {
-        [[[UIAlertView alloc] initWithTitle:@"Validation Error" message:@"The start date is after the end date.\n\nYou cannot start the class after it ended!" delegate:nil cancelButtonTitle:@"Whoops!" otherButtonTitles:nil] show];
+    self.course.name = self.nameField.text;
+    self.course.courseDescription = self.descriptionField.text;
+    NSArray *validate = [self.course validate];
+    if (validate.count > 0) {
+        [[[UIAlertView alloc] initWithTitle:@"Validation Error" message:validate[0] delegate:nil cancelButtonTitle:@"Fix it" otherButtonTitles:nil] show];
         return;
     }
     

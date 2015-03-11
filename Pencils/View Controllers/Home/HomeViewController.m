@@ -102,7 +102,8 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [NavigationUtility navigateToTeacherCourse:self.currentCourses[indexPath.row]];
+    //[NavigationUtility navigateToTeacherCourse:self.currentCourses[indexPath.row]];
+    [NavigationUtility navigateToEditTeacherCourse:self.currentCourses[indexPath.row]];
 }
 
 @end

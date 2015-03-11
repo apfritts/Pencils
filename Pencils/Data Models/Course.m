@@ -30,6 +30,7 @@
     self = [super init];
     if (self) {
         self.name = dictionary[@"name"];
+        self.courseDescription = dictionary[@"description"];
         self.start = dictionary[@"start"];
         self.end = dictionary[@"end"];
         self.deleted = dictionary[@"deleted"];
@@ -45,6 +46,7 @@
     if (self) {
         self._persistance = pfObject;
         self.name = [pfObject objectForKey:@"name"];
+        self.courseDescription = [pfObject objectForKey:@"description"];
         self.start = [pfObject objectForKey:@"start"];
         self.end = [pfObject objectForKey:@"end"];
         self.deleted = [pfObject objectForKey:@"deleted"];
@@ -59,8 +61,25 @@
 }
 
 -(NSArray *)validate {
-    // @TODO: validate the model and return an array of issues if necessary
-    return @[];
+    NSMutableArray *validate = [NSMutableArray array];
+    if (self.name.length == 0) {
+        [validate addObject:@"A course name is required."];
+    }
+    if (self.courseDescription.length == 0) {
+        [validate addObject:@"A course description is required."];
+    }
+    if (self.parent != nil) {
+        if (!self.start) {
+            [validate addObject:@"You have to select a start date!"];
+        }
+        if (!self.end) {
+            [validate addObject:@"You have to select an end date!"];
+        }
+        if (self.start && self.end && self.start > self.end) {
+            [validate addObject:@"The start date is after the end date.\n\nYou cannot start the class after it ended!"];
+        }
+    }
+    return validate;
 }
 
 -(void)saveWithCompletion:(void (^)(NSError *))completion {
@@ -70,6 +89,7 @@
         return;
     }
     self._persistance[@"name"] = self.name;
+    self._persistance[@"description"] = self.courseDescription;
     if (self.start) {
         self._persistance[@"start"] = self.start;
     }

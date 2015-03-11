@@ -48,8 +48,13 @@
     [CourseManager createCourseWithDictionary:dictionary withCompletion:^(Course *course, NSError *error) {
         [NavigationUtility progressStop];
         if (error) {
-            [[[UIAlertView alloc] initWithTitle:@"Error" message:error.description delegate:nil cancelButtonTitle:@"Try Again" otherButtonTitles:nil] show];
+            NSString *errorMessage = error.description;
+            if (error.userInfo[@"validate"]) {
+                errorMessage = error.userInfo[@"validate"][0];
+            }
+            [[[UIAlertView alloc] initWithTitle:@"Error" message:errorMessage delegate:nil cancelButtonTitle:@"Try Again" otherButtonTitles:nil] show];
         } else {
+            [self.navigationController popViewControllerAnimated:YES];
             [NavigationUtility navigateToGlobalCourse:course];
         }
     }];

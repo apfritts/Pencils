@@ -23,6 +23,7 @@
 @interface Course : NSObject
 
 @property (strong, nonatomic) NSString *name;
+@property (strong, nonatomic) NSString *courseDescription;
 @property (strong, nonatomic) NSDate *deleted;
 @property (strong, nonatomic) NSDate *start;
 @property (strong, nonatomic) NSDate *end;

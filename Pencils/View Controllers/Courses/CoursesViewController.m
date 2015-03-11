@@ -89,7 +89,6 @@
 }
 
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
-    NSLog(@"searching for %@", searchText);
     if (searchText.length == 0) {
         self.filteredCourses = self.courses;
     } else {
