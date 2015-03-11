@@ -55,7 +55,7 @@
 
 -(void)saveWithCompletion:(void (^)(NSError *error))completion {
     NSArray *validate = [self validate];
-    if (validate.count == 0) {
+    if (validate.count > 0) {
         completion([[NSError alloc] initWithDomain:@"com.box.Pencils" code:1 userInfo:@{@"validate": validate}]);
         return;
     }

@@ -30,12 +30,11 @@
     self = [super init];
     if (self) {
         self.name = dictionary[@"name"];
-        self.start = [dictionary[@"start"] date];
-        self.end = [dictionary[@"end"] date];
-        self.deleted = [dictionary[@"deleted"] date];
+        self.start = dictionary[@"start"];
+        self.end = dictionary[@"end"];
+        self.deleted = dictionary[@"deleted"];
         self.parent = dictionary[@"parent"];
         self.user = dictionary[@"user"];
-        self.owner = dictionary[@"owner"];
         self._persistance = [PFObject objectWithClassName:@"Course"];
     }
     return self;
@@ -55,9 +54,6 @@
         if (pfObject[@"user"]) {
             self.user = [[User alloc] initWithParseObject:pfObject[@"user"]];
         }
-        if (pfObject[@"owner"]) {
-            self.owner = [[User alloc] initWithParseObject:pfObject[@"owner"]];
-        }
     }
     return self;
 }
@@ -69,7 +65,7 @@
 
 -(void)saveWithCompletion:(void (^)(NSError *))completion {
     NSArray *validate = [self validate];
-    if (validate.count == 0) {
+    if (validate.count > 0) {
         completion([[NSError alloc] initWithDomain:@"com.box.Pencils" code:1 userInfo:@{@"validate": validate}]);
         return;
     }
@@ -88,9 +84,6 @@
     }
     if (self.user) {
         self._persistance[@"user"] = [self.user persistance];
-    }
-    if (self.owner) {
-        self._persistance[@"owner"] = [self.owner persistance];
     }
     [self._persistance saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         completion(error);

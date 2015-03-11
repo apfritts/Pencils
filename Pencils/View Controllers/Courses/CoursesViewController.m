@@ -92,7 +92,7 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     Course *course = self.courses[indexPath.row];
     if (course.parent == nil) {
-        [NavigationUtility navigateToGlobalCourse:self.courses[indexPath.row]];
+        [NavigationUtility navigateToTeachCourse:self.courses[indexPath.row]];
     } else {
         [NavigationUtility navigateToTeacherCourse:self.courses[indexPath.row]];
     }

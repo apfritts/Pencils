@@ -33,7 +33,7 @@
 +(void)listGlobalCoursesWithCompletion:(void (^)(NSArray *, NSError *))completion {
     PFQuery *query = [PFQuery queryWithClassName:@"Course"];
     [query whereKey:@"parent" equalTo:[NSNull null]];
-    [query includeKey:@"owner"];
+    [query includeKey:@"user"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         NSMutableArray *courses = [NSMutableArray array];
         if (objects) {
@@ -52,7 +52,6 @@
     PFQuery *query = [PFQuery queryWithClassName:@"Course"];
     [query whereKey:@"parent" equalTo:[parentCourse persistance]];
     [query includeKey:@"user"];
-    [query includeKey:@"owner"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         NSMutableArray *courses = [NSMutableArray array];
         if (objects) {
@@ -72,7 +71,6 @@
     PFQuery *query = [PFQuery queryWithClassName:@"Course"];
     [query whereKey:@"user" equalTo:[user persistance]];
     [query includeKey:@"parent"];
-    [query includeKey:@"owner"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         NSMutableArray *courses = [NSMutableArray array];
         if (objects) {
