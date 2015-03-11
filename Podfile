@@ -1,9 +1,9 @@
-platform :ios, '8.0'
+platform :ios, '8.2'
 
 pod '1PasswordExtension'
-pod 'parse'
 pod 'FontAwesome+iOS'
 pod 'layerkit'
 pod 'MRProgress'
+pod 'parse'
 pod 'THCalendarDatePicker'
 

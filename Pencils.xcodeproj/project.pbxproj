@@ -15,7 +15,7 @@
 		145B7E5A1AAFFE040063F486 /* TeacherCourseDetailsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 145B7E581AAFFE040063F486 /* TeacherCourseDetailsTableViewCell.xib */; };
 		145B7E5E1AB002020063F486 /* TeacherMaterialsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 145B7E5C1AB002020063F486 /* TeacherMaterialsTableViewCell.m */; };
 		145B7E5F1AB002020063F486 /* TeacherMaterialsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 145B7E5D1AB002020063F486 /* TeacherMaterialsTableViewCell.xib */; };
-		4220930C02A341CF7DCA73C7 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 54BF8E171EB0C38EEC311560 /* libPods.a */; };
+		1C3DCAAA53B4C1E6B8A6C3B3 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 54BF8E171EB0C38EEC311560 /* libPods.a */; };
 		736A88E11AA819A40035631A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 736A88E01AA819A40035631A /* main.m */; };
 		736A88E41AA819A40035631A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 736A88E31AA819A40035631A /* AppDelegate.m */; };
 		736A88EC1AA819A40035631A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 736A88EB1AA819A40035631A /* Images.xcassets */; };
@@ -61,12 +61,9 @@
 		736A899C1AA8CB190035631A /* UserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 736A89981AA8CB190035631A /* UserManager.m */; };
 		8F1E33671AA915DA001C7A56 /* HeaderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F1E33651AA915DA001C7A56 /* HeaderTableViewCell.m */; };
 		8F1E33681AA915DA001C7A56 /* HeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F1E33661AA915DA001C7A56 /* HeaderTableViewCell.xib */; };
-		8F5F8DA11AB01C2E0013063A /* ActionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F5F8DA01AB01C2E0013063A /* ActionViewController.m */; };
-		8F5F8DA31AB01C2E0013063A /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F5F8DA21AB01C2E0013063A /* MainInterface.storyboard */; };
-		8F5F8DA61AB01C2E0013063A /* MaterialExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 8F5F8D9B1AB01C2E0013063A /* MaterialExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		8F5F8DAD1AB01DE40013063A /* CourseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F5F8DAB1AB01DE40013063A /* CourseCell.m */; };
-		8F5F8DAE1AB01DE40013063A /* CourseCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F5F8DAC1AB01DE40013063A /* CourseCell.xib */; };
-		8F5F8DB01AB021100013063A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8F5F8DAF1AB021100013063A /* Images.xcassets */; };
+		8F3F71BC1AB094C300E51690 /* ActionRequestHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F3F71BB1AB094C300E51690 /* ActionRequestHandler.m */; };
+		8F3F71BE1AB094C300E51690 /* Action.js in Resources */ = {isa = PBXBuildFile; fileRef = 8F3F71BD1AB094C300E51690 /* Action.js */; };
+		8F3F71C11AB094C300E51690 /* Share Material.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 8F3F71B61AB094C300E51690 /* Share Material.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		8F8B604B1AAC904C00FF9FED /* ColorUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F8B604A1AAC904C00FF9FED /* ColorUtility.m */; };
 		8FEAE15C1AACAC5A000A0F2C /* RequestsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FEAE15A1AACAC5A000A0F2C /* RequestsTableViewCell.m */; };
 		8FEAE15D1AACAC5A000A0F2C /* RequestsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FEAE15B1AACAC5A000A0F2C /* RequestsTableViewCell.xib */; };
@@ -82,12 +79,12 @@
 			remoteGlobalIDString = 736A88DA1AA819A40035631A;
 			remoteInfo = Pencils;
 		};
-		8F5F8DA41AB01C2E0013063A /* PBXContainerItemProxy */ = {
+		8F3F71BF1AB094C300E51690 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 736A88D31AA819A40035631A /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 8F5F8D9A1AB01C2E0013063A;
-			remoteInfo = MaterialExtension;
+			remoteGlobalIDString = 8F3F71B51AB094C300E51690;
+			remoteInfo = "Share Material";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -98,7 +95,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				8F5F8DA61AB01C2E0013063A /* MaterialExtension.appex in Embed App Extensions */,
+				8F3F71C11AB094C300E51690 /* Share Material.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -107,6 +104,7 @@
 
 /* Begin PBXFileReference section */
 		0F2A0554565FA42DB574478E /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		12BFBF4413D23D9325A098A3 /* libPods-MaterialExtension.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MaterialExtension.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		145B7E491AAFF1C30063F486 /* GlobalCourseDetailsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GlobalCourseDetailsTableViewCell.h; path = Views/Common/GlobalCourseDetailsTableViewCell.h; sourceTree = "<group>"; };
 		145B7E4A1AAFF1C30063F486 /* GlobalCourseDetailsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GlobalCourseDetailsTableViewCell.m; path = Views/Common/GlobalCourseDetailsTableViewCell.m; sourceTree = "<group>"; };
 		145B7E4B1AAFF1C30063F486 /* GlobalCourseDetailsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = GlobalCourseDetailsTableViewCell.xib; path = Views/Common/GlobalCourseDetailsTableViewCell.xib; sourceTree = "<group>"; };
@@ -119,7 +117,9 @@
 		145B7E5B1AB002020063F486 /* TeacherMaterialsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TeacherMaterialsTableViewCell.h; path = Views/Common/TeacherMaterialsTableViewCell.h; sourceTree = "<group>"; };
 		145B7E5C1AB002020063F486 /* TeacherMaterialsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TeacherMaterialsTableViewCell.m; path = Views/Common/TeacherMaterialsTableViewCell.m; sourceTree = "<group>"; };
 		145B7E5D1AB002020063F486 /* TeacherMaterialsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TeacherMaterialsTableViewCell.xib; path = Views/Common/TeacherMaterialsTableViewCell.xib; sourceTree = "<group>"; };
+		4D8B1C66CDC39DDA0C794A9F /* libPods-Pencils.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Pencils.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		54BF8E171EB0C38EEC311560 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		624B04AA7F96E3AC7299EEE7 /* Pods-Pencils.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pencils.release.xcconfig"; path = "Pods/Target Support Files/Pods-Pencils/Pods-Pencils.release.xcconfig"; sourceTree = "<group>"; };
 		6F0F987FDC3E78742DF01139 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		736A88DB1AA819A40035631A /* Pencils.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pencils.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		736A88DF1AA819A40035631A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -194,15 +194,11 @@
 		8F1E33641AA915DA001C7A56 /* HeaderTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HeaderTableViewCell.h; path = Views/Common/HeaderTableViewCell.h; sourceTree = "<group>"; };
 		8F1E33651AA915DA001C7A56 /* HeaderTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HeaderTableViewCell.m; path = Views/Common/HeaderTableViewCell.m; sourceTree = "<group>"; };
 		8F1E33661AA915DA001C7A56 /* HeaderTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HeaderTableViewCell.xib; path = Views/Common/HeaderTableViewCell.xib; sourceTree = "<group>"; };
-		8F5F8D9B1AB01C2E0013063A /* MaterialExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = MaterialExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
-		8F5F8D9E1AB01C2E0013063A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8F5F8D9F1AB01C2E0013063A /* ActionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ActionViewController.h; sourceTree = "<group>"; };
-		8F5F8DA01AB01C2E0013063A /* ActionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ActionViewController.m; sourceTree = "<group>"; };
-		8F5F8DA21AB01C2E0013063A /* MainInterface.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainInterface.storyboard; sourceTree = "<group>"; };
-		8F5F8DAA1AB01DE40013063A /* CourseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseCell.h; sourceTree = "<group>"; };
-		8F5F8DAB1AB01DE40013063A /* CourseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseCell.m; sourceTree = "<group>"; };
-		8F5F8DAC1AB01DE40013063A /* CourseCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CourseCell.xib; sourceTree = "<group>"; };
-		8F5F8DAF1AB021100013063A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		8F3F71B61AB094C300E51690 /* Share Material.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Share Material.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8F3F71B91AB094C300E51690 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8F3F71BA1AB094C300E51690 /* ActionRequestHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ActionRequestHandler.h; sourceTree = "<group>"; };
+		8F3F71BB1AB094C300E51690 /* ActionRequestHandler.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ActionRequestHandler.m; sourceTree = "<group>"; };
+		8F3F71BD1AB094C300E51690 /* Action.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = Action.js; sourceTree = "<group>"; };
 		8F8B60491AAC904C00FF9FED /* ColorUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ColorUtility.h; path = Utilities/ColorUtility.h; sourceTree = "<group>"; };
 		8F8B604A1AAC904C00FF9FED /* ColorUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ColorUtility.m; path = Utilities/ColorUtility.m; sourceTree = "<group>"; };
 		8FEAE1591AACAC5A000A0F2C /* RequestsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RequestsTableViewCell.h; path = Views/Home/RequestsTableViewCell.h; sourceTree = "<group>"; };
@@ -212,6 +208,7 @@
 		8FEAE1601AACB3F6000A0F2C /* EmptyListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EmptyListTableViewCell.h; path = Views/Common/EmptyListTableViewCell.h; sourceTree = "<group>"; };
 		8FEAE1611AACB3F6000A0F2C /* EmptyListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EmptyListTableViewCell.m; path = Views/Common/EmptyListTableViewCell.m; sourceTree = "<group>"; };
 		8FEAE1621AACB3F6000A0F2C /* EmptyListTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = EmptyListTableViewCell.xib; path = Views/Common/EmptyListTableViewCell.xib; sourceTree = "<group>"; };
+		C74813BEDAB9B7B6EEF1E181 /* Pods-Pencils.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pencils.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Pencils/Pods-Pencils.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -219,7 +216,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4220930C02A341CF7DCA73C7 /* libPods.a in Frameworks */,
+				1C3DCAAA53B4C1E6B8A6C3B3 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -230,7 +227,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		8F5F8D981AB01C2E0013063A /* Frameworks */ = {
+		8F3F71B31AB094C300E51690 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -245,6 +242,8 @@
 			children = (
 				8FEAE15E1AACAE17000A0F2C /* libPods.a */,
 				54BF8E171EB0C38EEC311560 /* libPods.a */,
+				12BFBF4413D23D9325A098A3 /* libPods-MaterialExtension.a */,
+				4D8B1C66CDC39DDA0C794A9F /* libPods-Pencils.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -254,6 +253,8 @@
 			children = (
 				0F2A0554565FA42DB574478E /* Pods.debug.xcconfig */,
 				6F0F987FDC3E78742DF01139 /* Pods.release.xcconfig */,
+				C74813BEDAB9B7B6EEF1E181 /* Pods-Pencils.debug.xcconfig */,
+				624B04AA7F96E3AC7299EEE7 /* Pods-Pencils.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -263,7 +264,7 @@
 			children = (
 				736A88DD1AA819A40035631A /* Pencils */,
 				736A88F71AA819A40035631A /* PencilsTests */,
-				8F5F8D9C1AB01C2E0013063A /* MaterialExtension */,
+				8F3F71B71AB094C300E51690 /* Share Material */,
 				736A88DC1AA819A40035631A /* Products */,
 				58059A81657BC21CBD539E6D /* Pods */,
 				50EC3B1FA6DDFEB55F4412AE /* Frameworks */,
@@ -275,7 +276,7 @@
 			children = (
 				736A88DB1AA819A40035631A /* Pencils.app */,
 				736A88F41AA819A40035631A /* PencilsTests.xctest */,
-				8F5F8D9B1AB01C2E0013063A /* MaterialExtension.appex */,
+				8F3F71B61AB094C300E51690 /* Share Material.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -495,25 +496,21 @@
 			name = "Data Managers";
 			sourceTree = "<group>";
 		};
-		8F5F8D9C1AB01C2E0013063A /* MaterialExtension */ = {
+		8F3F71B71AB094C300E51690 /* Share Material */ = {
 			isa = PBXGroup;
 			children = (
-				8F5F8D9D1AB01C2E0013063A /* Supporting Files */,
-				8F5F8D9F1AB01C2E0013063A /* ActionViewController.h */,
-				8F5F8DA01AB01C2E0013063A /* ActionViewController.m */,
-				8F5F8DA21AB01C2E0013063A /* MainInterface.storyboard */,
-				8F5F8DAA1AB01DE40013063A /* CourseCell.h */,
-				8F5F8DAB1AB01DE40013063A /* CourseCell.m */,
-				8F5F8DAC1AB01DE40013063A /* CourseCell.xib */,
-				8F5F8DAF1AB021100013063A /* Images.xcassets */,
+				8F3F71BA1AB094C300E51690 /* ActionRequestHandler.h */,
+				8F3F71BB1AB094C300E51690 /* ActionRequestHandler.m */,
+				8F3F71BD1AB094C300E51690 /* Action.js */,
+				8F3F71B81AB094C300E51690 /* Supporting Files */,
 			);
-			path = MaterialExtension;
+			path = "Share Material";
 			sourceTree = "<group>";
 		};
-		8F5F8D9D1AB01C2E0013063A /* Supporting Files */ = {
+		8F3F71B81AB094C300E51690 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				8F5F8D9E1AB01C2E0013063A /* Info.plist */,
+				8F3F71B91AB094C300E51690 /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -545,7 +542,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				8F5F8DA51AB01C2E0013063A /* PBXTargetDependency */,
+				8F3F71C01AB094C300E51690 /* PBXTargetDependency */,
 			);
 			name = Pencils;
 			productName = Pencils;
@@ -570,21 +567,21 @@
 			productReference = 736A88F41AA819A40035631A /* PencilsTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		8F5F8D9A1AB01C2E0013063A /* MaterialExtension */ = {
+		8F3F71B51AB094C300E51690 /* Share Material */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8F5F8DA71AB01C2E0013063A /* Build configuration list for PBXNativeTarget "MaterialExtension" */;
+			buildConfigurationList = 8F3F71C41AB094C300E51690 /* Build configuration list for PBXNativeTarget "Share Material" */;
 			buildPhases = (
-				8F5F8D971AB01C2E0013063A /* Sources */,
-				8F5F8D981AB01C2E0013063A /* Frameworks */,
-				8F5F8D991AB01C2E0013063A /* Resources */,
+				8F3F71B21AB094C300E51690 /* Sources */,
+				8F3F71B31AB094C300E51690 /* Frameworks */,
+				8F3F71B41AB094C300E51690 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = MaterialExtension;
-			productName = MaterialExtension;
-			productReference = 8F5F8D9B1AB01C2E0013063A /* MaterialExtension.appex */;
+			name = "Share Material";
+			productName = "Share Material";
+			productReference = 8F3F71B61AB094C300E51690 /* Share Material.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
@@ -603,7 +600,7 @@
 						CreatedOnToolsVersion = 6.1.1;
 						TestTargetID = 736A88DA1AA819A40035631A;
 					};
-					8F5F8D9A1AB01C2E0013063A = {
+					8F3F71B51AB094C300E51690 = {
 						CreatedOnToolsVersion = 6.2;
 					};
 				};
@@ -623,7 +620,7 @@
 			targets = (
 				736A88DA1AA819A40035631A /* Pencils */,
 				736A88F31AA819A40035631A /* PencilsTests */,
-				8F5F8D9A1AB01C2E0013063A /* MaterialExtension */,
+				8F3F71B51AB094C300E51690 /* Share Material */,
 			);
 		};
 /* End PBXProject section */
@@ -667,13 +664,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		8F5F8D991AB01C2E0013063A /* Resources */ = {
+		8F3F71B41AB094C300E51690 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8F5F8DB01AB021100013063A /* Images.xcassets in Resources */,
-				8F5F8DAE1AB01DE40013063A /* CourseCell.xib in Resources */,
-				8F5F8DA31AB01C2E0013063A /* MainInterface.storyboard in Resources */,
+				8F3F71BE1AB094C300E51690 /* Action.js in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -693,7 +688,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
-			showEnvVarsInLog = 0;
 		};
 		ED75349D04F20CB0CF135268 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -761,12 +755,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		8F5F8D971AB01C2E0013063A /* Sources */ = {
+		8F3F71B21AB094C300E51690 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8F5F8DAD1AB01DE40013063A /* CourseCell.m in Sources */,
-				8F5F8DA11AB01C2E0013063A /* ActionViewController.m in Sources */,
+				8F3F71BC1AB094C300E51690 /* ActionRequestHandler.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -778,10 +771,10 @@
 			target = 736A88DA1AA819A40035631A /* Pencils */;
 			targetProxy = 736A88F51AA819A40035631A /* PBXContainerItemProxy */;
 		};
-		8F5F8DA51AB01C2E0013063A /* PBXTargetDependency */ = {
+		8F3F71C01AB094C300E51690 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 8F5F8D9A1AB01C2E0013063A /* MaterialExtension */;
-			targetProxy = 8F5F8DA41AB01C2E0013063A /* PBXContainerItemProxy */;
+			target = 8F3F71B51AB094C300E51690 /* Share Material */;
+			targetProxy = 8F3F71BF1AB094C300E51690 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -831,7 +824,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -866,7 +859,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -879,7 +872,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Pencils/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -891,7 +884,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Pencils/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -939,27 +932,25 @@
 			};
 			name = Release;
 		};
-		8F5F8DA81AB01C2E0013063A /* Debug */ = {
+		8F3F71C21AB094C300E51690 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = MaterialExtension/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				INFOPLIST_FILE = "Share Material/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
 		};
-		8F5F8DA91AB01C2E0013063A /* Release */ = {
+		8F3F71C31AB094C300E51690 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COPY_PHASE_STRIP = NO;
-				INFOPLIST_FILE = MaterialExtension/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				INFOPLIST_FILE = "Share Material/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -996,11 +987,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8F5F8DA71AB01C2E0013063A /* Build configuration list for PBXNativeTarget "MaterialExtension" */ = {
+		8F3F71C41AB094C300E51690 /* Build configuration list for PBXNativeTarget "Share Material" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				8F5F8DA81AB01C2E0013063A /* Debug */,
-				8F5F8DA91AB01C2E0013063A /* Release */,
+				8F3F71C21AB094C300E51690 /* Debug */,
+				8F3F71C31AB094C300E51690 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
