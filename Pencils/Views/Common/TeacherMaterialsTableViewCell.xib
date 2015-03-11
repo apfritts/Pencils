@@ -13,13 +13,19 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mky-vu-zmO">
-                        <rect key="frame" x="8" y="11" width="42" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mky-vu-zmO">
+                        <rect key="frame" x="8" y="8" width="304" height="27"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="Mky-vu-zmO" secondAttribute="bottom" constant="8" id="0U6-T1-dmy"/>
+                    <constraint firstItem="Mky-vu-zmO" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="RAM-OT-Bfg"/>
+                    <constraint firstAttribute="trailing" secondItem="Mky-vu-zmO" secondAttribute="trailing" constant="8" id="Ttu-Jf-oP0"/>
+                    <constraint firstItem="Mky-vu-zmO" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="p1D-5T-ckF"/>
+                </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="materialNameLabel" destination="Mky-vu-zmO" id="cyq-JF-ghY"/>

@@ -21,6 +21,6 @@
 }
 
 - (IBAction)onGlobalCourseButton:(id)sender {
-    [NavigationUtility navigateToGlobalCourse:self.course.parent];
+    [NavigationUtility navigateToGlobalCourse:self.globalCourse];
 }
 @end

@@ -13,6 +13,7 @@
 @interface TeacherCourseDetailsTableViewCell : UITableViewCell
 
 @property (strong, nonatomic) Course *course;
+@property (strong, nonatomic) Course *globalCourse;
 
 @property (weak, nonatomic) IBOutlet UILabel *descriptionLabel;
 @property (weak, nonatomic) IBOutlet UIButton *globalCourseButton;

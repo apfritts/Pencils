@@ -92,7 +92,7 @@
             break;
         }
         default:
-            return 45;
+            return 44;
             break;
     }
 
