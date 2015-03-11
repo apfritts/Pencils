@@ -95,7 +95,10 @@
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return [self.tableView dequeueReusableCellWithIdentifier:@"CourseCell"];
+    CourseTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"CourseCell"];
+    Course *course = self.currentCourses[indexPath.row];
+    cell.courseLabel.text = course.name;
+    return cell;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
