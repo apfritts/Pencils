@@ -17,10 +17,14 @@
  */
 
 #import "TeacherCourseViewController.h"
+#import "TeacherCourseDetailsTableViewCell.h"
+#import "TeacherMaterialsTableViewCell.h"
 
-@interface TeacherCourseViewController ()
+@interface TeacherCourseViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @property (strong, nonatomic) Course *course;
+@property (strong, nonatomic) NSMutableArray *materials;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
 
@@ -37,7 +41,67 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.title = @"Teacher Course";
+    self.title = [NSString stringWithFormat:@"%@", self.course.name];
+    
+    self.tableView.dataSource = self;
+    self.tableView.delegate = self;
+    
+    [self.tableView registerNib:[UINib nibWithNibName:@"TeacherCourseDetailsTableViewCell" bundle:nil] forCellReuseIdentifier:@"TeacherCourseDetailsCell"];
+    [self.tableView registerNib:[UINib nibWithNibName:@"TeacherMaterialsTableViewCell" bundle:nil] forCellReuseIdentifier:@"TeacherMaterialsCell"];
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 2;
+}
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    switch (section) {
+        case 0:
+            return 1;
+            break;
+        case 1:
+            return 3;
+            break;
+        default:
+            return 3;
+            break;
+    }
+}
+
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    switch (indexPath.section) {
+        case 0: {
+            TeacherCourseDetailsTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"TeacherCourseDetailsCell"];
+            cell.descriptionLabel.text = @"";
+            cell.course = self.course;
+            return cell;
+            break;
+        }
+        default: {
+            TeacherMaterialsTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"TeacherMaterialsCell"];
+            cell.materialNameLabel.text = @"Syllabus";
+            return cell;
+            break;
+        }
+    }
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    switch (indexPath.section) {
+        case 0: {
+            break;
+        }
+        default: {
+            //[NavigationUtility navigateToMaterialsView];
+            break;
+        }
+    }
+    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 @end

@@ -86,7 +86,7 @@
 -(void)headerTableViewCellButtonTap:(HeaderTableViewCell *)headerCell {
     Course *course = [[Course alloc] init];
     course.name = @"name of course";
-    NSArray *courses = @[course, course, course,course, course, course,course, course, course];
+    NSArray *courses = @[course, course, course, course, course, course, course, course, course];
     [NavigationUtility navigateToCourseListOf:courses];
 }
 

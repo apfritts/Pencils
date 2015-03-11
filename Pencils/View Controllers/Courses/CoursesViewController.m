@@ -17,6 +17,7 @@
  */
 
 #import "CoursesViewController.h"
+#import "GlobalCourseViewController.h"
 #import "ColorUtility.h"
 #import "Course.h"
 #import "CourseTableViewCell.h"
@@ -129,8 +130,10 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     Course *course = self.courses[indexPath.row];
     if (course.parent == nil) {
-        [NavigationUtility navigateToTeachCourse:self.courses[indexPath.row]];
+        // Global Course View
+        [NavigationUtility navigateToGlobalCourse:self.courses[indexPath.row]];
     } else {
+        // Teache Specific Course View
         [NavigationUtility navigateToTeacherCourse:self.courses[indexPath.row]];
     }
 }
