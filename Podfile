@@ -5,4 +5,5 @@ pod 'parse'
 pod 'FontAwesome+iOS'
 pod 'layerkit'
 pod 'MRProgress'
+pod 'THCalendarDatePicker'
 
