@@ -23,7 +23,8 @@
 @interface CreateCourseViewController ()
 
 @property (weak, nonatomic) IBOutlet UITextField *nameField;
-@property (weak, nonatomic) IBOutlet UITextField *descriptionField;
+@property (weak, nonatomic) IBOutlet UIView *descriptionView;
+@property (weak, nonatomic) IBOutlet UITextView *descriptionTextView;
 
 @end
 
@@ -33,6 +34,8 @@
     [super viewDidLoad];
     
     self.title = @"Create Course";
+    self.descriptionView.layer.cornerRadius = 8;
+    self.descriptionTextView.layer.cornerRadius = 8;
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Create" style:UIBarButtonItemStylePlain target:self action:@selector(onCreateTap)];
 }
 
@@ -40,7 +43,7 @@
     [NavigationUtility progressBegin];
     NSDictionary *dictionary = @{
                                  @"name": self.nameField.text,
-                                 @"description": self.descriptionField.text
+                                 @"description": self.descriptionTextView.text
                                  };
     [CourseManager createCourseWithDictionary:dictionary withCompletion:^(Course *course, NSError *error) {
         [NavigationUtility progressStop];

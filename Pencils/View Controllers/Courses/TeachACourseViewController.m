@@ -28,6 +28,7 @@
 @property (strong, nonatomic) Course *course;
 @property (strong, nonatomic) NSDate *startDate;
 @property (strong, nonatomic) NSDate *endDate;
+
 @property (strong, nonatomic) THDatePickerViewController *datePicker;
 @property (strong, nonatomic) NSDateFormatter *dateFormatter;
 @property (weak, nonatomic) UIButton *selectedDateButton;
