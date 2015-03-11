@@ -24,10 +24,11 @@
 #import "CourseManager.h"
 #import <FontAwesome+iOS/UIImage+FontAwesome.h>
 
-@interface CoursesViewController () <UITableViewDataSource, UITableViewDelegate>
+@interface CoursesViewController () <UISearchBarDelegate, UITableViewDataSource, UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSArray *courses;
+@property (strong, nonatomic) NSArray *filteredCourses;
 
 @end
 
@@ -72,21 +73,57 @@
     // Setup the table
     [self.tableView registerNib:[UINib nibWithNibName:@"CourseTableViewCell" bundle:nil] forCellReuseIdentifier:@"CourseCell"];
     self.tableView.rowHeight = UITableViewAutomaticDimension;
+    
+    // Setup the search bar
+    UISearchBar *searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, 38.0)];
+    searchBar.searchBarStyle = UISearchBarStyleDefault;
+    searchBar.delegate = self;
+    //searchBar.enablesReturnKeyAutomatically = YES;
+    searchBar.placeholder = @"Search courses";
+    self.tableView.tableHeaderView = searchBar;
 }
 
 -(void)onCreateTap {
     [NavigationUtility navigateToCourseCreate];
 }
 
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
+    NSLog(@"searching for %@", searchText);
+    if (searchText.length == 0) {
+        self.filteredCourses = self.courses;
+    } else {
+        NSExpression *lhs = [NSExpression expressionForKeyPath:@"name"];
+        NSExpression *rhs = [NSExpression expressionForConstantValue:searchText];
+        NSPredicate *finalPredicate = [NSComparisonPredicate
+                                       predicateWithLeftExpression:lhs
+                                       rightExpression:rhs
+                                       modifier:NSDirectPredicateModifier
+                                       type:NSContainsPredicateOperatorType
+                                       options:NSCaseInsensitivePredicateOption];
+        self.filteredCourses = [self.courses filteredArrayUsingPredicate:finalPredicate];
+    }
+    [self.tableView reloadData];
+    //[searchBar becomeFirstResponder];
+}
+
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     CourseTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"CourseCell"];
-    Course *course = self.courses[indexPath.row];
+    Course *course;
+    if (self.filteredCourses) {
+        course = self.filteredCourses[indexPath.row];
+    } else {
+        course = self.courses[indexPath.row];
+    }
     cell.courseLabel.text = course.name;
     return cell;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.courses.count;
+    if (self.filteredCourses) {
+        return self.filteredCourses.count;
+    } else {
+        return self.courses.count;
+    }
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
