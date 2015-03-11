@@ -45,9 +45,21 @@
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     
+    UIBarButtonItem *editCourseButton = [[UIBarButtonItem alloc] initWithTitle:@"Edit" style:UIBarButtonItemStylePlain target:self action:@selector(onEditButton)];
+    self.navigationItem.rightBarButtonItem = editCourseButton;
+    
     [self.tableView registerNib:[UINib nibWithNibName:@"GlobalCourseDetailsTableViewCell" bundle:nil] forCellReuseIdentifier:@"GlobalCourseDetailsCell"];
     [self.tableView registerNib:[UINib nibWithNibName:@"GlobalCourseTeacherTableViewCell" bundle:nil] forCellReuseIdentifier:@"GlobalCourseTeacherCell"];
     self.tableView.rowHeight = UITableViewAutomaticDimension;
+}
+
+- (void)onEditButton {
+    [NavigationUtility navigateToEditTeacherCourse:self.globalCourse];
+}
+
+- (void)onAddMaterialButton {
+    NSLog(@"Add a course material!");
+    
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -71,25 +83,80 @@
     }
 }
 
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    switch (indexPath.section) {
+        case 0: {
+            GlobalCourseDetailsTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"GlobalCourseDetailsCell"];
+            CGSize size = [cell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
+            return size.height + 1;
+            break;
+        }
+        default:
+            return 45;
+            break;
+    }
+
+}
+
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 1.0)];
+    [view setBackgroundColor:[UIColor colorWithRed:204/255.0 green:255/255.0 blue:255/255.0 alpha:1.0]];
+    
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(8, 4, tableView.frame.size.width, 30)];
+    [label setFont:[UIFont boldSystemFontOfSize:17]];
+
+    switch (section) {
+        case 0:
+            [label setText:@"Course Description"];
+            break;
+        case 1:
+            [label setText:@"Teachers"];
+            break;
+        case 2: {
+            [label setText:@"Materials"];
+            UIButton *addMaterialButton = [UIButton buttonWithType:UIButtonTypeContactAdd];
+            [addMaterialButton setFrame:CGRectMake((330.0), 5.0, 30.0, 30.0)];
+            addMaterialButton.tag = section;
+            addMaterialButton.hidden = NO;
+            [addMaterialButton setBackgroundColor:[UIColor clearColor]];
+            [addMaterialButton addTarget:self action:@selector(onAddMaterialButton) forControlEvents:UIControlEventTouchDown];
+            [view addSubview:addMaterialButton];
+            break;
+        }
+        default:
+            [label setText:@"Section"];
+            break;
+    }
+    
+    [view addSubview:label];
+    return view;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 38.0;
+}
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.section) {
         case 0: {
             GlobalCourseDetailsTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"GlobalCourseDetailsCell"];
-            cell.courseDescriptionLabel.text = @"";
             cell.course = self.globalCourse;
+            [cell.courseDescriptionLabel sizeToFit];
+            cell.courseDescriptionLabel.text = self.globalCourse.courseDescription;
             return cell;
             break;
         }
         case 1: {
             GlobalCourseTeacherTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"GlobalCourseTeacherCell"];
             cell.teacherLabel.text = @"Mattie";
+            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
             return cell;
             break;
         }
         default:{
             GlobalCourseTeacherTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"GlobalCourseTeacherCell"];
-            cell.teacherLabel.text = @"Louise";
+            cell.teacherLabel.text = @"Material";
             return cell;
             break;
         }
