@@ -88,6 +88,7 @@
     [NavigationUtility progressBegin];
     NSDictionary *dictionary = @{
                                  @"name": self.course.name,
+                                 @"description": self.course.description,
                                  @"start": self.startDate,
                                  @"end": self.endDate,
                                  @"parent": self.course,
