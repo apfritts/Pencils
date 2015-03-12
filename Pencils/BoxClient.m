@@ -7,13 +7,12 @@
 //
 
 #import "BoxClient.h"
-#import <BoxSDK/BoxSDK.h>
 
 @implementation BoxClient
 
 NSString *API_KEY = @"v9dbg1ui4camckxdd5pq3aqjpm23exzb";
 
-- (NSString *)convertFile:(NSURL *)url {
++ (NSString *)convertFile:(NSString *)url {
 /*
  curl https://view-api.box.com/1/documents \
  -H "Authorization: Token YOUR_API_KEY" \
@@ -26,36 +25,36 @@ NSString *API_KEY = @"v9dbg1ui4camckxdd5pq3aqjpm23exzb";
  -H "Content-type: multipart/form-data" \
  -F file=@A_FILE_TO_UPLOAD
  */
-    NSString *post = [NSString stringWithFormat: @"\"url\":\"%@\"", [url path]];
-    NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
-    
-    //NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
-    
+
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init] ;
-    [request setURL:[NSURL URLWithString:@"https://view-api.box.com/1/documents "]];
+    [request setURL:[NSURL URLWithString:@"https://view-api.box.com/1/documents"]];
     [request setHTTPMethod:@"POST"];
-    //[request setValue:postLength forHTTPHeaderField:@"Content-Length"];
-    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     NSString *token = [NSString stringWithFormat:@"Token %@", API_KEY];
     [request setValue:token forHTTPHeaderField:@"Authorization"];
+    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     
+    NSString *post = [NSString stringWithFormat: @"{\"url\":\"%@\"}", url];
+    [request setHTTPBody:[post dataUsingEncoding:NSUTF8StringEncoding]];
+
     [request setTimeoutInterval:20.0];
-    [request setHTTPBody:postData];
     NSURLResponse * response = nil;
     NSError * error = nil;
-    //[NSURLConnection connectionWithRequest:request delegate:self];
+    
+    NSLog(@"Request body %@", [[NSString alloc] initWithData:[request HTTPBody] encoding:NSUTF8StringEncoding]);
+    
     NSData * data = [NSURLConnection sendSynchronousRequest:request
                                           returningResponse:&response
                                                       error:&error];
     if (error == nil)
     {
-        //[data writeToFile:[fileURL path] options:NSDataWritingAtomic error:nil];
-        NSDictionary* json = [NSJSONSerialization JSONObjectWithData:data
-                                                             options:0
-                                                               error:nil];
-        NSString *fileId = json[@"id"];
-        NSLog(@"convert to fileId %@", fileId);
-        return fileId;
+        NSDictionary* json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+        if (error == nil) {
+            NSString *fileId = json[@"id"];
+            NSLog(@"onvert to fileId %@", fileId);
+            return fileId;
+        } else {
+            NSLog(@"error parsing conversion response %@", error);
+        }
     } else {
         NSLog(@"error getting preview %@", error);
     }

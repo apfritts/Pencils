@@ -9,6 +9,6 @@
 #import <Foundation/Foundation.h>
 
 @interface BoxClient : NSObject
-+ (BoxClient *) sharedInstance;
++ (NSString *)convertFile:(NSString *)url;
 + (NSURL *) getPreviewFile:(NSString *)id;
 @end
