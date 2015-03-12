@@ -19,6 +19,7 @@
 #import "GlobalCourseViewController.h"
 #import "GlobalCourseDetailsTableViewCell.h"
 #import "GlobalCourseTeacherTableViewCell.h"
+#import "MaterialCell.h"
 
 @interface GlobalCourseViewController () <UITableViewDataSource, UITableViewDelegate>
 
@@ -50,6 +51,7 @@
     
     [self.tableView registerNib:[UINib nibWithNibName:@"GlobalCourseDetailsTableViewCell" bundle:nil] forCellReuseIdentifier:@"GlobalCourseDetailsCell"];
     [self.tableView registerNib:[UINib nibWithNibName:@"GlobalCourseTeacherTableViewCell" bundle:nil] forCellReuseIdentifier:@"GlobalCourseTeacherCell"];
+    [self.tableView registerNib:[UINib nibWithNibName:@"MaterialCell" bundle:nil] forCellReuseIdentifier:@"MaterialCell"];
     self.tableView.rowHeight = UITableViewAutomaticDimension;
 }
 
@@ -155,8 +157,10 @@
             break;
         }
         default:{
-            GlobalCourseTeacherTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"MaterialTableViewCell"];
-            cell.teacherLabel.text = @"Material";
+            MaterialCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"MaterialCell"];
+            Material *material = [[Material alloc] init];
+            material.title = @"Material";
+            [cell setMaterial:material];
             return cell;
             break;
         }
