@@ -20,16 +20,49 @@
 #import "NavigationUtility.h"
 #import "UserManager.h"
 #import "SignupViewController.h"
+#import "ConstraintUtility.h"
 
 @interface LoginViewController ()
+
+@property (weak, nonatomic) IBOutlet UIImageView *pencilImage;
+@property (weak, nonatomic) IBOutlet UIView *formContainerView;
 @property (weak, nonatomic) IBOutlet UITextField *emailField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordField;
+
+@property (assign, nonatomic) BOOL animationDidRun;
 
 @end
 
 @implementation LoginViewController
 
-- (IBAction)loginTap:(id)sender {
+-(void)viewDidLoad {
+    [super viewDidLoad];
+    self.formContainerView.alpha = 0.0;
+    self.animationDidRun = NO;
+}
+
+-(void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    /* Mimic the AMEX app here:
+     * 1) Once loaded, elevate the Pencil icon
+     * 2) Have the shadow move a little
+     */
+    
+    if (self.animationDidRun == NO) {
+        self.animationDidRun = YES;
+        [UIView animateWithDuration:1.0 animations:^{
+            self.formContainerView.alpha = 1.0;
+        }];
+        [ConstraintUtility removeLayoutConstraint:NSLayoutAttributeCenterY betweenView:self.view andView:self.pencilImage];
+        [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.pencilImage attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeTop multiplier:1.0 constant:50.0]];
+        [UIView animateWithDuration:1.0 animations:^{
+            [self.view layoutIfNeeded];
+        }];
+    }
+}
+
+-(IBAction)loginTap:(id)sender {
     [NavigationUtility progressBegin];
     [UserManager loginWithEmail:self.emailField.text andPassword:self.passwordField.text andCompletion:^(User *user, NSError *error) {
         [NavigationUtility progressStop];
@@ -41,7 +74,7 @@
     }];
 }
 
-- (IBAction)signUpTap:(id)sender {
+-(IBAction)signUpTap:(id)sender {
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:[[SignupViewController alloc] init]];
     [self presentViewController:nav animated:YES completion:nil];
 }
