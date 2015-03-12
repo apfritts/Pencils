@@ -17,7 +17,10 @@
  */
 
 #import <UIKit/UIKit.h>
+#import "Material.h"
 
-@interface MaterialTableViewCell : UITableViewCell
+@interface MaterialCell : UITableViewCell
+
+@property (weak, nonatomic) Material *material;
 
 @end

@@ -16,18 +16,19 @@
  * limitations under the License.
  */
 
-#import "MaterialTableViewCell.h"
+#import "MaterialCell.h"
 
-@implementation MaterialTableViewCell
+@interface MaterialCell()
 
-- (void)awakeFromNib {
-    // Initialization code
-}
+@property (weak, nonatomic) IBOutlet UILabel *materialLabel;
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
+@end
 
-    // Configure the view for the selected state
+@implementation MaterialCell
+
+-(void)setMaterial:(Material *)material {
+    _material = material;
+    self.materialLabel.text = material.title;
 }
 
 @end

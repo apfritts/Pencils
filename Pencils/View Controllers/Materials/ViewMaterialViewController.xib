@@ -7,13 +7,26 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ViewMaterialViewController">
             <connections>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="webView" destination="HPH-sF-puj" id="Nyp-eM-1Gh"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HPH-sF-puj">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </webView>
+            </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="HPH-sF-puj" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="IBh-vh-kGg"/>
+                <constraint firstItem="HPH-sF-puj" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="PWd-ze-IFe"/>
+                <constraint firstAttribute="trailing" secondItem="HPH-sF-puj" secondAttribute="trailing" id="WLM-ZU-BYB"/>
+                <constraint firstAttribute="bottom" secondItem="HPH-sF-puj" secondAttribute="bottom" id="cl2-dM-utr"/>
+            </constraints>
         </view>
     </objects>
 </document>

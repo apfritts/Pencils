@@ -21,6 +21,7 @@
 @interface ViewMaterialViewController ()
 
 @property (strong, nonatomic) Material *material;
+@property (weak, nonatomic) IBOutlet UIWebView *webView;
 
 @end
 
@@ -38,6 +39,9 @@
     [super viewDidLoad];
     
     self.title = @"View Material";
+    NSURL *url = [NSURL URLWithString:@"https://app.box.com/s/82235i48qpfkwwsidacaram02xh41mz6"];
+    NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url];
+    [self.webView loadRequest:urlRequest];
 }
 
 @end

@@ -155,7 +155,7 @@
             break;
         }
         default:{
-            GlobalCourseTeacherTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"GlobalCourseTeacherCell"];
+            GlobalCourseTeacherTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"MaterialTableViewCell"];
             cell.teacherLabel.text = @"Material";
             return cell;
             break;

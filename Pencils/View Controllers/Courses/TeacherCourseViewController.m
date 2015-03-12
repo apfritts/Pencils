@@ -18,7 +18,7 @@
 
 #import "TeacherCourseViewController.h"
 #import "TeacherCourseDetailsTableViewCell.h"
-#import "TeacherMaterialsTableViewCell.h"
+#import "MaterialCell.h"
 #import "MaterialImportViewController.h"
 
 @interface TeacherCourseViewController () <UITableViewDataSource, UITableViewDelegate>
@@ -48,7 +48,7 @@
     self.tableView.delegate = self;
     
     [self.tableView registerNib:[UINib nibWithNibName:@"TeacherCourseDetailsTableViewCell" bundle:nil] forCellReuseIdentifier:@"TeacherCourseDetailsCell"];
-    [self.tableView registerNib:[UINib nibWithNibName:@"TeacherMaterialsTableViewCell" bundle:nil] forCellReuseIdentifier:@"TeacherMaterialsCell"];
+    [self.tableView registerNib:[UINib nibWithNibName:@"MaterialCell" bundle:nil] forCellReuseIdentifier:@"MaterialCell"];
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(onEditTap)];
@@ -143,8 +143,10 @@
             break;
         }
         default: {
-            TeacherMaterialsTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"TeacherMaterialsCell"];
-            cell.materialNameLabel.text = @"Syllabus";
+            MaterialCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"MaterialCell"];
+            Material *material = [[Material alloc] init];
+            material.title = @"Material Title";
+            [cell setMaterial:material];
             return cell;
             break;
         }
