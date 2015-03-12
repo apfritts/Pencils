@@ -12,6 +12,9 @@
 
 NSString *API_KEY = @"v9dbg1ui4camckxdd5pq3aqjpm23exzb";
 
+/*
+ This function converts input file to pdf and return the id of the pdf file
+ */
 + (NSString *)convertFile:(NSString *)url {
 /*
  curl https://view-api.box.com/1/documents \
@@ -62,6 +65,10 @@ NSString *API_KEY = @"v9dbg1ui4camckxdd5pq3aqjpm23exzb";
     return nil;
 }
 
+/*
+ This function gets the id of the pdf file which was the result of convertFile function and return the local url path to it
+ so it can be previewed locally
+ */
 + (NSURL *) getPreviewFile:(NSString *)id {
     /*
      curl https://view-api.box.com/1/documents/DOCUMENT_ID/content \

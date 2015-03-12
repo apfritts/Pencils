@@ -23,7 +23,7 @@
     // Do any additional setup after loading the view from its nib.
 }
 - (IBAction)onPreview:(id)sender {
-    NSURL *URL = [BoxClient getPreviewFile:self.id]; //@"37e8f5fb241e48068293c14f8fdc66d9", [[NSBundle mainBundle] URLForResource:@"pdf-test" withExtension:@"pdf"];
+    NSURL *URL = [BoxClient getPreviewFile:self.id];
     
     if (URL) {
         // Initialize Document Interaction Controller
