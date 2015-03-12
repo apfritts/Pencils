@@ -17,6 +17,7 @@
 		6AC8913B1AB239F70052DA5D /* BoxClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AC8913A1AB239F70052DA5D /* BoxClient.m */; };
 		6AC8913F1AB23A040052DA5D /* PreviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AC8913D1AB23A040052DA5D /* PreviewViewController.m */; };
 		6AC891401AB23A040052DA5D /* PreviewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6AC8913E1AB23A040052DA5D /* PreviewViewController.xib */; };
+		731CD9491AB1FE2200E77AC5 /* ConstraintUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 731CD9481AB1FE2200E77AC5 /* ConstraintUtility.m */; };
 		736A88E11AA819A40035631A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 736A88E01AA819A40035631A /* main.m */; };
 		736A88E41AA819A40035631A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 736A88E31AA819A40035631A /* AppDelegate.m */; };
 		736A88EC1AA819A40035631A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 736A88EB1AA819A40035631A /* Images.xcassets */; };
@@ -98,6 +99,8 @@
 		6AC8913D1AB23A040052DA5D /* PreviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreviewViewController.m; sourceTree = "<group>"; };
 		6AC8913E1AB23A040052DA5D /* PreviewViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PreviewViewController.xib; sourceTree = "<group>"; };
 		6F0F987FDC3E78742DF01139 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		731CD9471AB1FE2200E77AC5 /* ConstraintUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ConstraintUtility.h; path = Utilities/ConstraintUtility.h; sourceTree = "<group>"; };
+		731CD9481AB1FE2200E77AC5 /* ConstraintUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ConstraintUtility.m; path = Utilities/ConstraintUtility.m; sourceTree = "<group>"; };
 		736A88DB1AA819A40035631A /* Pencils.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pencils.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		736A88DF1AA819A40035631A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		736A88E01AA819A40035631A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -412,6 +415,8 @@
 			children = (
 				8F8B60491AAC904C00FF9FED /* ColorUtility.h */,
 				8F8B604A1AAC904C00FF9FED /* ColorUtility.m */,
+				731CD9471AB1FE2200E77AC5 /* ConstraintUtility.h */,
+				731CD9481AB1FE2200E77AC5 /* ConstraintUtility.m */,
 				736A893E1AA8B0AD0035631A /* NavigationUtility.h */,
 				736A893F1AA8B0AD0035631A /* NavigationUtility.m */,
 			);
@@ -684,6 +689,7 @@
 				736A89641AA8B5DF0035631A /* MaterialCell.m in Sources */,
 				736A89281AA8AF7C0035631A /* CourseTableViewCell.m in Sources */,
 				736A89331AA8B0070035631A /* HomeViewController.m in Sources */,
+				731CD9491AB1FE2200E77AC5 /* ConstraintUtility.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

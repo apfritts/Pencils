@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14D87h" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
     </dependencies>
@@ -7,7 +7,9 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController">
             <connections>
                 <outlet property="emailField" destination="692-es-Xaq" id="zMu-sk-O17"/>
+                <outlet property="formContainerView" destination="J5V-Py-CLd" id="POB-DT-FwK"/>
                 <outlet property="passwordField" destination="HV5-3C-hde" id="66d-5p-zsz"/>
+                <outlet property="pencilImage" destination="apq-rH-iN5" id="BFW-QK-BR5"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -16,24 +18,17 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Pencil" translatesAutoresizingMaskIntoConstraints="NO" id="apq-rH-iN5">
-                    <rect key="frame" x="200" y="64" width="200" height="200"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="200" id="MPC-Kp-fjP"/>
-                        <constraint firstAttribute="width" constant="200" id="x5P-4Z-R9E"/>
-                    </constraints>
-                </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J5V-Py-CLd">
-                    <rect key="frame" x="150" y="280" width="300" height="130"/>
+                    <rect key="frame" x="150" y="235" width="300" height="130"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="E-mail:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YSQ-US-GgG">
-                            <rect key="frame" x="10" y="15" width="53.5" height="20.5"/>
+                            <rect key="frame" x="10" y="15" width="54" height="21"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6nf-6c-OAA">
-                            <rect key="frame" x="10" y="55" width="81" height="20.5"/>
+                            <rect key="frame" x="10" y="55" width="81" height="21"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                             <nil key="highlightedColor"/>
@@ -82,20 +77,27 @@
                         <constraint firstItem="6nf-6c-OAA" firstAttribute="leading" secondItem="J5V-Py-CLd" secondAttribute="leading" constant="10" id="hRr-9w-q3P"/>
                         <constraint firstItem="Xcy-gd-slh" firstAttribute="centerY" secondItem="91W-Ad-rWD" secondAttribute="centerY" id="p3E-5A-VpU"/>
                         <constraint firstItem="HV5-3C-hde" firstAttribute="trailing" secondItem="91W-Ad-rWD" secondAttribute="trailing" id="ufE-hJ-MY8"/>
-                        <constraint firstAttribute="width" constant="300" id="vQt-4G-kMS"/>
+                        <constraint firstAttribute="width" priority="999" constant="300" id="vQt-4G-kMS"/>
                         <constraint firstItem="HV5-3C-hde" firstAttribute="width" secondItem="692-es-Xaq" secondAttribute="width" id="wZp-gf-15s"/>
                         <constraint firstItem="HV5-3C-hde" firstAttribute="top" secondItem="692-es-Xaq" secondAttribute="bottom" constant="10" id="xfs-6G-8Po"/>
                     </constraints>
                 </view>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Pencil" translatesAutoresizingMaskIntoConstraints="NO" id="apq-rH-iN5">
+                    <rect key="frame" x="200" y="200" width="200" height="200"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="200" id="MPC-Kp-fjP"/>
+                        <constraint firstAttribute="width" constant="200" id="x5P-4Z-R9E"/>
+                    </constraints>
+                </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="centerX" secondItem="apq-rH-iN5" secondAttribute="centerX" id="A6b-EN-YWw"/>
                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="J5V-Py-CLd" secondAttribute="trailing" constant="10" id="G64-GB-EyF"/>
                 <constraint firstAttribute="centerX" secondItem="J5V-Py-CLd" secondAttribute="centerX" id="GCQ-8N-ZVE"/>
-                <constraint firstItem="J5V-Py-CLd" firstAttribute="top" secondItem="apq-rH-iN5" secondAttribute="bottom" constant="16" id="GeM-B9-f0T"/>
+                <constraint firstAttribute="centerY" secondItem="apq-rH-iN5" secondAttribute="centerY" id="VrT-sw-KHN"/>
+                <constraint firstAttribute="centerY" secondItem="J5V-Py-CLd" secondAttribute="centerY" id="cWb-s9-NTk"/>
                 <constraint firstItem="J5V-Py-CLd" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="mW9-C4-aGL"/>
-                <constraint firstAttribute="bottom" secondItem="J5V-Py-CLd" secondAttribute="bottom" constant="190" id="v27-bd-TH3"/>
             </constraints>
             <point key="canvasLocation" x="290" y="405"/>
         </view>

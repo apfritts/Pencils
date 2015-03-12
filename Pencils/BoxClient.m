@@ -10,24 +10,6 @@
 #import <BoxSDK/BoxSDK.h>
 
 @implementation BoxClient
-+ (BoxClient *) sharedInstance {
-    static BoxClient *instance = nil;
-    
-    /*static dispatch_once_t once_token;
-    dispatch_once(&once_token, ^{
-        if (instance == nil) {
-            BoxSDK *sdk = [BoxSDK sharedSDK];
-            sdk.OAuth2Session.clientID = @"0038ygto5ft3tc0ojh80by67dhrgueav";
-            sdk.OAuth2Session.clientSecret = @"jmsCC5UsegPdoTm3rqFtpaskdItKqCIv";
-            //instance = [[ alloc] initWithBaseURL:[NSURL URLWithString:kTwitterBaseUrl] consumerKey:kTwitterConsumerKey consumerSecret:kTwitterConsumerSecret];
-            BoxAuthorizationViewController *authorizationController = [[BoxAuthorizationViewController alloc] initWithAuthorizationURL:[[BoxSDK sharedSDK].OAuth2Session authorizeURL] redirectURI:[[BoxSDK sharedSDK].OAuth2Session redirectURIString]];
-            authorizationController.delegate = self;
-            [self presentViewController:authorizationController animated:YES completion:nil];
-        }
-    });*/
-    
-    return instance;
-}
 
 NSString *API_KEY = @"v9dbg1ui4camckxdd5pq3aqjpm23exzb";
 
@@ -108,12 +90,5 @@ NSString *API_KEY = @"v9dbg1ui4camckxdd5pq3aqjpm23exzb";
     }
     return fileURL;
 }
-
-/*- (BOOL)authorizationViewController:(BoxAuthorizationViewController *)authorizationViewController shouldLoadReceivedOAuth2RedirectRequest:(NSURLRequest *)request
-{
-    [[BoxSDK sharedSDK].OAuth2Session performAuthorizationCodeGrantWithReceivedURL:request.URL];
-    return NO;
-}*/
-
 
 @end
