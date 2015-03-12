@@ -1,9 +1,5 @@
 PODS:
-  - 1PasswordExtension (1.1.2)
   - Bolts (1.1.4)
-  - box-ios-sdk-v2 (1.2.2):
-    - box-ios-sdk-v2/no-arc (= 1.2.2)
-  - box-ios-sdk-v2/no-arc (1.2.2)
   - FontAwesome+iOS (0.1.4)
   - KNSemiModalViewController (0.3)
   - LayerKit (0.10.3)
@@ -41,8 +37,6 @@ PODS:
     - KNSemiModalViewController (~> 0.3)
 
 DEPENDENCIES:
-  - 1PasswordExtension
-  - box-ios-sdk-v2
   - FontAwesome+iOS
   - layerkit
   - MRProgress
@@ -50,9 +44,7 @@ DEPENDENCIES:
   - THCalendarDatePicker
 
 SPEC CHECKSUMS:
-  1PasswordExtension: 38b5be7dd6dbe786c98f15d51d50ad21150db60a
   Bolts: dd9fb8433d67f5acc3b6b4d1379bbc5513d716c1
-  box-ios-sdk-v2: 5ce116481c2990693bd58405e70bd8b28ace44a4
   FontAwesome+iOS: 816c20304edef4ca92835de669577005cbaaf261
   KNSemiModalViewController: 6fb1e2f6a4d84238b524cb705e91118b0fa6bbc9
   LayerKit: 67cefd07350644909c91250c9b70063630858d07
