@@ -157,7 +157,7 @@
             break;
         }
         default: {
-            //[NavigationUtility navigateToMaterialsView];
+            [NavigationUtility navigateToMaterial:nil];
             break;
         }
     }
