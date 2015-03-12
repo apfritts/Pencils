@@ -62,6 +62,7 @@
 		8F1E33671AA915DA001C7A56 /* HeaderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F1E33651AA915DA001C7A56 /* HeaderTableViewCell.m */; };
 		8F1E33681AA915DA001C7A56 /* HeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F1E33661AA915DA001C7A56 /* HeaderTableViewCell.xib */; };
 		8F8B604B1AAC904C00FF9FED /* ColorUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F8B604A1AAC904C00FF9FED /* ColorUtility.m */; };
+		8FE90E0E1AB1171300EEE58F /* MaterialImportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FE90E0D1AB1171300EEE58F /* MaterialImportViewController.m */; };
 		8FEAE15C1AACAC5A000A0F2C /* RequestsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FEAE15A1AACAC5A000A0F2C /* RequestsTableViewCell.m */; };
 		8FEAE15D1AACAC5A000A0F2C /* RequestsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FEAE15B1AACAC5A000A0F2C /* RequestsTableViewCell.xib */; };
 		8FEAE1631AACB3F6000A0F2C /* EmptyListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FEAE1611AACB3F6000A0F2C /* EmptyListTableViewCell.m */; };
@@ -169,6 +170,9 @@
 		8F1E33661AA915DA001C7A56 /* HeaderTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HeaderTableViewCell.xib; path = Views/Common/HeaderTableViewCell.xib; sourceTree = "<group>"; };
 		8F8B60491AAC904C00FF9FED /* ColorUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ColorUtility.h; path = Utilities/ColorUtility.h; sourceTree = "<group>"; };
 		8F8B604A1AAC904C00FF9FED /* ColorUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ColorUtility.m; path = Utilities/ColorUtility.m; sourceTree = "<group>"; };
+		8FE90E0C1AB1171300EEE58F /* MaterialImportViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MaterialImportViewController.h; path = "View Controllers/Materials/MaterialImportViewController.h"; sourceTree = "<group>"; };
+		8FE90E0D1AB1171300EEE58F /* MaterialImportViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MaterialImportViewController.m; path = "View Controllers/Materials/MaterialImportViewController.m"; sourceTree = "<group>"; };
+		8FE90E0F1AB11B3300EEE58F /* Pencils.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Pencils.entitlements; sourceTree = "<group>"; };
 		8FEAE1591AACAC5A000A0F2C /* RequestsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RequestsTableViewCell.h; path = Views/Home/RequestsTableViewCell.h; sourceTree = "<group>"; };
 		8FEAE15A1AACAC5A000A0F2C /* RequestsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RequestsTableViewCell.m; path = Views/Home/RequestsTableViewCell.m; sourceTree = "<group>"; };
 		8FEAE15B1AACAC5A000A0F2C /* RequestsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RequestsTableViewCell.xib; path = Views/Home/RequestsTableViewCell.xib; sourceTree = "<group>"; };
@@ -238,6 +242,7 @@
 		736A88DD1AA819A40035631A /* Pencils */ = {
 			isa = PBXGroup;
 			children = (
+				8FE90E0F1AB11B3300EEE58F /* Pencils.entitlements */,
 				736A890D1AA8A9EF0035631A /* Controllers */,
 				736A89871AA8BB990035631A /* Data Managers */,
 				736A890B1AA8A9E30035631A /* Data Models */,
@@ -420,6 +425,8 @@
 		736A89701AA8B6530035631A /* Materials */ = {
 			isa = PBXGroup;
 			children = (
+				8FE90E0C1AB1171300EEE58F /* MaterialImportViewController.h */,
+				8FE90E0D1AB1171300EEE58F /* MaterialImportViewController.m */,
 				736A89771AA8B6DE0035631A /* ViewMaterialViewController.h */,
 				736A89781AA8B6DE0035631A /* ViewMaterialViewController.m */,
 				736A89791AA8B6DE0035631A /* ViewMaterialViewController.xib */,
@@ -511,6 +518,12 @@
 				TargetAttributes = {
 					736A88DA1AA819A40035631A = {
 						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = RXX47375NK;
+						SystemCapabilities = {
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
 					};
 					736A88F31AA819A40035631A = {
 						CreatedOnToolsVersion = 6.1.1;
@@ -621,6 +634,7 @@
 				736A88E41AA819A40035631A /* AppDelegate.m in Sources */,
 				736A894D1AA8B4480035631A /* CreateCourseViewController.m in Sources */,
 				736A89571AA8B4BD0035631A /* TeacherCourseViewController.m in Sources */,
+				8FE90E0E1AB1171300EEE58F /* MaterialImportViewController.m in Sources */,
 				8FEAE15C1AACAC5A000A0F2C /* RequestsTableViewCell.m in Sources */,
 				736A89481AA8B4300035631A /* CoursesViewController.m in Sources */,
 				736A88E11AA819A40035631A /* main.m in Sources */,
@@ -763,10 +777,14 @@
 			baseConfigurationReference = 0F2A0554565FA42DB574478E /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Pencils/Pencils.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Pencils/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -775,10 +793,14 @@
 			baseConfigurationReference = 6F0F987FDC3E78742DF01139 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Pencils/Pencils.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Pencils/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

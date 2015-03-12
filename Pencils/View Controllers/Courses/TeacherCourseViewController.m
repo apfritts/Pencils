@@ -19,6 +19,7 @@
 #import "TeacherCourseViewController.h"
 #import "TeacherCourseDetailsTableViewCell.h"
 #import "TeacherMaterialsTableViewCell.h"
+#import "MaterialImportViewController.h"
 
 @interface TeacherCourseViewController () <UITableViewDataSource, UITableViewDelegate>
 
@@ -49,14 +50,23 @@
     [self.tableView registerNib:[UINib nibWithNibName:@"TeacherCourseDetailsTableViewCell" bundle:nil] forCellReuseIdentifier:@"TeacherCourseDetailsCell"];
     [self.tableView registerNib:[UINib nibWithNibName:@"TeacherMaterialsTableViewCell" bundle:nil] forCellReuseIdentifier:@"TeacherMaterialsCell"];
     self.tableView.rowHeight = UITableViewAutomaticDimension;
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(onEditTap)];
 }
 
-- (void)onAddMaterialButton {
-    NSLog(@"Add a course material!");
+-(void)onEditTap {
+    [NavigationUtility navigateToEditTeacherCourse:self.course];
 }
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
+-(void)onAddMaterialButton {
+    //[NavigationUtility navigateToMaterialImport:self.course];
+    MaterialImportViewController *mivc = [[MaterialImportViewController alloc] initWithCourse:self.course andCompletion:^(Material *material, NSError *error) {
+        // do something
+    }];
+    [self presentViewController:mivc animated:YES completion:nil];
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 2;
 }
 

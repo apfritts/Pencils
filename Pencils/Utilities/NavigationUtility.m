@@ -38,6 +38,7 @@
 #import "SignupViewController.h"
 
 // Materials
+#import "MaterialImportViewController.h"
 #import "ViewMaterialViewController.h"
 
 // Upload
@@ -113,6 +114,10 @@
 
 +(void)navigateToMaterial:(Material *)material {
     [NavigationUtility pushViewController:[[ViewMaterialViewController alloc] initWithMaterial:material]];
+}
+
++(void)navigateToMaterialImport:(Course *)course {
+    //
 }
 
 +(void)navigateToMaterialUpload {

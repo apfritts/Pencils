@@ -34,6 +34,7 @@
 +(void)navigateToTeachCourse:(Course *)course;
 +(void)navigateToTeacherCourse:(Course *)course;
 +(void)navigateToMaterial:(Material *)material;
++(void)navigateToMaterialImport:(Course *)course;
 +(void)navigateToMaterialUpload;
 
 +(void)progressBegin;

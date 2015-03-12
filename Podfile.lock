@@ -3,7 +3,7 @@ PODS:
   - Bolts (1.1.4)
   - FontAwesome+iOS (0.1.4)
   - KNSemiModalViewController (0.3)
-  - LayerKit (0.10.2)
+  - LayerKit (0.10.3)
   - MRProgress (0.8.1):
     - MRProgress/ActivityIndicator (= 0.8.1)
     - MRProgress/Blur (= 0.8.1)
@@ -50,9 +50,9 @@ SPEC CHECKSUMS:
   Bolts: dd9fb8433d67f5acc3b6b4d1379bbc5513d716c1
   FontAwesome+iOS: 816c20304edef4ca92835de669577005cbaaf261
   KNSemiModalViewController: 6fb1e2f6a4d84238b524cb705e91118b0fa6bbc9
-  LayerKit: bfe4403e05dd8013b60166e3281bd057afae91a2
+  LayerKit: 67cefd07350644909c91250c9b70063630858d07
   MRProgress: cd12726e001ea25dec133322d34cc4754cbc58f8
   Parse: c2610f7a12ad0defc974803b819c4efe7746e6db
   THCalendarDatePicker: c482d4f630262bae6fe88113d0298f54bad1fd9d
 
-COCOAPODS: 0.35.0
+COCOAPODS: 0.36.0
