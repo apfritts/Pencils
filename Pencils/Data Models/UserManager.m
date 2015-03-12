@@ -75,12 +75,19 @@ static User *_currentUser;
 }
 
 +(void)listUsersForCourse:(Course *)course withCompletion:(void (^)(NSArray *, NSError *))completion {
-    PFQuery *query = [PFUser query];
-    // @TODO: many-to-many relationship search between course and users
+    PFQuery *query = [[PFQuery alloc] initWithClassName:@"Course"];
+    [query whereKey:@"parent" equalTo:[course persistance].objectId];
+    [query includeKey:@"user"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        NSArray *users = nil;
+        NSMutableArray *users = nil;
         if (objects) {
             users = [NSMutableArray array];
+            for (PFObject *course in objects) {
+                PFUser *pfUser = (PFUser *)course[@"user"];
+                if (pfUser) {
+                    [users addObject:[[User alloc] initWithParseObject:pfUser]];
+                }
+            }
         }
         if (completion) {
             completion(users, error);
