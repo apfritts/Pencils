@@ -19,6 +19,7 @@
 #import "AppDelegate.h"
 #import "NavigationUtility.h"
 #import "UserManager.h"
+#import <BoxSDK/BoxSDK.h>
 #import <Parse/Parse.h>
 
 @interface AppDelegate ()
@@ -32,6 +33,10 @@
     // Initialize Parse
     //[Parse enableLocalDatastore];
     [Parse setApplicationId:@"iDzDTVTy3MyydD3NuRXpTHtx1UqNxu2RhjDcjl4C" clientKey:@"DmsPDky8p7b9mrLaziANw7phlrsP0HFd6cclsn1U"];
+    
+    // Initialize Box
+    [BoxSDK sharedSDK].OAuth2Session.clientID = @"e28z9t1jgb6kdqrh9rnxawatv0nzolt9";
+    [BoxSDK sharedSDK].OAuth2Session.clientSecret = @"20YOfWANwhg2ZFbDDyT26F7br7cJyTyf";
     
     // Initialize the UI
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
