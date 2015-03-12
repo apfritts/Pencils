@@ -13,22 +13,35 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Z5-jQ-FmO">
-                        <rect key="frame" x="20" y="11.5" width="280" height="20.5"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Z5-jQ-FmO">
+                        <rect key="frame" x="20" y="12" width="242" height="20.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron-right" translatesAutoresizingMaskIntoConstraints="NO" id="XiX-6o-pgI">
+                        <rect key="frame" x="270" y="7" width="30" height="30"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="30" id="L7m-Cf-Crz"/>
+                            <constraint firstAttribute="height" constant="30" id="Z4z-XH-RVB"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="trailing" secondItem="1Z5-jQ-FmO" secondAttribute="trailing" constant="20" symbolic="YES" id="2gD-DS-1F5"/>
+                    <constraint firstAttribute="trailing" secondItem="XiX-6o-pgI" secondAttribute="trailing" constant="20" symbolic="YES" id="hmE-mX-Jce"/>
                     <constraint firstAttribute="centerY" secondItem="1Z5-jQ-FmO" secondAttribute="centerY" id="v38-PE-eP5"/>
                     <constraint firstItem="1Z5-jQ-FmO" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" symbolic="YES" id="w6H-Sj-QVH"/>
+                    <constraint firstItem="XiX-6o-pgI" firstAttribute="leading" secondItem="1Z5-jQ-FmO" secondAttribute="trailing" constant="8" symbolic="YES" id="wmE-Bg-Mhx"/>
+                    <constraint firstAttribute="centerY" secondItem="XiX-6o-pgI" secondAttribute="centerY" id="z9d-GW-iBt"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="materialLabel" destination="1Z5-jQ-FmO" id="JHZ-ge-dDT"/>
             </connections>
+            <point key="canvasLocation" x="295" y="217.5"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="chevron-right" width="32" height="32"/>
+    </resources>
 </document>
