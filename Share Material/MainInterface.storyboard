@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14D87h" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="ObA-dk-sSI">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+    </dependencies>
+    <scenes>
+        <!--Image-->
+        <scene sceneID="7MM-of-jgj">
+            <objects>
+                <viewController title="Image" id="ObA-dk-sSI" customClass="ActionViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="qkL-Od-lgU"/>
+                        <viewControllerLayoutGuide type="bottom" id="n38-gi-rB5"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="zMn-AG-sqS">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="528"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="NOA-Dm-cuz">
+                                <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                                <items>
+                                    <navigationItem id="3HJ-uW-3hn">
+                                        <barButtonItem key="leftBarButtonItem" title="Done" style="done" id="WYi-yp-eM6">
+                                            <connections>
+                                                <action selector="done" destination="ObA-dk-sSI" id="Qdu-qn-U6V"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title of Material:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hlz-pg-uGg">
+                                <rect key="frame" x="20" y="79" width="123" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select application course:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1wx-te-fI0">
+                                <rect key="frame" x="20" y="154" width="199" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2bG-oG-vfn">
+                                <rect key="frame" x="20" y="107.5" width="280" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="6dX-Di-JAJ">
+                                <rect key="frame" x="0.0" y="182.5" width="320" height="345.5"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="6dX-Di-JAJ" secondAttribute="trailing" id="07A-wj-AV0"/>
+                            <constraint firstItem="hlz-pg-uGg" firstAttribute="leading" secondItem="zMn-AG-sqS" secondAttribute="leading" constant="20" symbolic="YES" id="132-AW-GuQ"/>
+                            <constraint firstItem="2bG-oG-vfn" firstAttribute="top" secondItem="hlz-pg-uGg" secondAttribute="bottom" constant="8" symbolic="YES" id="1P4-El-Jbw"/>
+                            <constraint firstItem="1wx-te-fI0" firstAttribute="top" secondItem="2bG-oG-vfn" secondAttribute="bottom" multiplier="1.06" constant="8" symbolic="YES" id="4LO-VO-4w5"/>
+                            <constraint firstItem="6dX-Di-JAJ" firstAttribute="top" secondItem="1wx-te-fI0" secondAttribute="bottom" constant="8" symbolic="YES" id="6Bs-0f-yYb"/>
+                            <constraint firstItem="2bG-oG-vfn" firstAttribute="top" secondItem="hlz-pg-uGg" secondAttribute="bottom" constant="8" symbolic="YES" id="6pn-F3-8bH"/>
+                            <constraint firstAttribute="trailing" secondItem="NOA-Dm-cuz" secondAttribute="trailing" id="A05-Pj-hrr"/>
+                            <constraint firstItem="n38-gi-rB5" firstAttribute="top" secondItem="6dX-Di-JAJ" secondAttribute="bottom" id="Bg5-bZ-2pl"/>
+                            <constraint firstItem="NOA-Dm-cuz" firstAttribute="leading" secondItem="zMn-AG-sqS" secondAttribute="leading" id="HxO-8t-aoh"/>
+                            <constraint firstItem="6dX-Di-JAJ" firstAttribute="top" secondItem="1wx-te-fI0" secondAttribute="bottom" constant="8" symbolic="YES" id="MXE-Jx-oqF"/>
+                            <constraint firstItem="6dX-Di-JAJ" firstAttribute="leading" secondItem="zMn-AG-sqS" secondAttribute="leading" id="Nn7-mh-baR"/>
+                            <constraint firstAttribute="trailing" secondItem="2bG-oG-vfn" secondAttribute="trailing" constant="20" symbolic="YES" id="SHj-rk-qbR"/>
+                            <constraint firstItem="2bG-oG-vfn" firstAttribute="leading" secondItem="zMn-AG-sqS" secondAttribute="leading" constant="20" symbolic="YES" id="Sv1-LV-beC"/>
+                            <constraint firstItem="hlz-pg-uGg" firstAttribute="top" secondItem="NOA-Dm-cuz" secondAttribute="bottom" constant="15" id="for-vV-mSU"/>
+                            <constraint firstItem="NOA-Dm-cuz" firstAttribute="top" secondItem="qkL-Od-lgU" secondAttribute="bottom" id="we0-1t-bgp"/>
+                            <constraint firstItem="1wx-te-fI0" firstAttribute="leading" secondItem="zMn-AG-sqS" secondAttribute="leading" constant="20" symbolic="YES" id="xlL-R7-Af2"/>
+                        </constraints>
+                    </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="320" height="528"/>
+                    <connections>
+                        <outlet property="tableView" destination="6dX-Di-JAJ" id="OxR-br-3zc"/>
+                        <outlet property="titleLabel" destination="2bG-oG-vfn" id="CnA-8O-nyg"/>
+                        <outlet property="view" destination="zMn-AG-sqS" id="Qma-de-2ek"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="X47-rx-isc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="252" y="-124"/>
+        </scene>
+    </scenes>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>

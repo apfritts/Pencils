@@ -1,5 +1,4 @@
 PODS:
-  - 1PasswordExtension (1.1.2)
   - Bolts (1.1.4)
   - FontAwesome+iOS (0.1.4)
   - KNSemiModalViewController (0.3)
@@ -38,7 +37,6 @@ PODS:
     - KNSemiModalViewController (~> 0.3)
 
 DEPENDENCIES:
-  - 1PasswordExtension
   - FontAwesome+iOS
   - layerkit
   - MRProgress
@@ -46,7 +44,6 @@ DEPENDENCIES:
   - THCalendarDatePicker
 
 SPEC CHECKSUMS:
-  1PasswordExtension: 38b5be7dd6dbe786c98f15d51d50ad21150db60a
   Bolts: dd9fb8433d67f5acc3b6b4d1379bbc5513d716c1
   FontAwesome+iOS: 816c20304edef4ca92835de669577005cbaaf261
   KNSemiModalViewController: 6fb1e2f6a4d84238b524cb705e91118b0fa6bbc9
@@ -55,4 +52,4 @@ SPEC CHECKSUMS:
   Parse: c2610f7a12ad0defc974803b819c4efe7746e6db
   THCalendarDatePicker: c482d4f630262bae6fe88113d0298f54bad1fd9d
 
-COCOAPODS: 0.36.0.rc.1
+COCOAPODS: 0.36.0
