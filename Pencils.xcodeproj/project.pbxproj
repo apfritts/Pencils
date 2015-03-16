@@ -335,11 +335,11 @@
 		736A890D1AA8A9EF0035631A /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				6AC891371AB239CF0052DA5D /* Preview */,
 				736A89441AA8B4190035631A /* Courses */,
 				736A892F1AA8AFC90035631A /* Home */,
 				736A89131AA8AA380035631A /* Login and Signup */,
 				736A89701AA8B6530035631A /* Materials */,
+				6AC891371AB239CF0052DA5D /* Preview */,
 				736A897C1AA8B95E0035631A /* Upload */,
 			);
 			name = Controllers;

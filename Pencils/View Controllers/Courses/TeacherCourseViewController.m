@@ -20,8 +20,10 @@
 #import "TeacherCourseDetailsTableViewCell.h"
 #import "MaterialCell.h"
 #import "MaterialImportViewController.h"
+#import "UserManager.h"
+#import <MobileCoreServices/UTCoreTypes.h>
 
-@interface TeacherCourseViewController () <UITableViewDataSource, UITableViewDelegate>
+@interface TeacherCourseViewController () <UIDocumentMenuDelegate, UITableViewDataSource, UITableViewDelegate>
 
 @property (strong, nonatomic) Course *course;
 @property (strong, nonatomic) NSMutableArray *materials;
@@ -51,7 +53,9 @@
     [self.tableView registerNib:[UINib nibWithNibName:@"MaterialCell" bundle:nil] forCellReuseIdentifier:@"MaterialCell"];
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(onEditTap)];
+    if (self.course.user == [UserManager currentUser]) {
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(onEditTap)];
+    }
 }
 
 -(void)onEditTap {
@@ -59,11 +63,32 @@
 }
 
 -(void)onAddMaterialButton {
-    //[NavigationUtility navigateToMaterialImport:self.course];
     MaterialImportViewController *mivc = [[MaterialImportViewController alloc] initWithCourse:self.course andCompletion:^(Material *material, NSError *error) {
         // do something
+        if (material && !error) {
+            [self.materials addObject:material];
+        }
     }];
     [self presentViewController:mivc animated:YES completion:nil];
+    /*
+    NSArray *fileTypes = @[
+                           (NSString*)kUTTypePDF,
+                           @"com.microsoft.word.doc",
+                           @"com.microsoft.excel.xls",
+                           @"com.apple.keynote.key"
+                           ];
+    //[NavigationUtility navigateToMaterialImport:self.course];
+    UIDocumentMenuViewController *uiDocumentMenu = [[UIDocumentMenuViewController alloc] initWithDocumentTypes:fileTypes inMode:UIDocumentPickerModeImport];
+    uiDocumentMenu.delegate = self;
+    [self presentViewController:uiDocumentMenu animated:YES completion:nil];
+    */
+}
+
+
+- (void)documentMenu:(UIDocumentMenuViewController *)documentMenu didPickDocumentPicker:(UIDocumentPickerViewController *)documentPicker {
+    /*
+     NSLog(@"documentPicker");
+     */
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {

@@ -7,9 +7,13 @@
 //
 
 #import "MaterialImportViewController.h"
+#import "BoxClient.h"
+#import "MaterialManager.h"
 #import <MobileCoreServices/UTCoreTypes.h>
 
 @interface MaterialImportViewController () <UIDocumentPickerDelegate>
+
+@property (weak, nonatomic) Course *course;
 
 @end
 
@@ -18,6 +22,7 @@ typedef void (^ImportCompletionHandler)(Material *material, NSError *error);
 ImportCompletionHandler _completionHandler;
 
 -(instancetype)initWithCourse:(Course *)course andCompletion:(void (^)(Material *material, NSError *error))completion {
+    self.course = course;
     // @TODO: Get all file types from this list and put this somewhere central
     // https://developer.apple.com/library/ios/documentation/Miscellaneous/Reference/UTIRef/Articles/System-DeclaredUniformTypeIdentifiers.html#//apple_ref/doc/uid/TP40009259-SW1
     NSArray *fileTypes = @[
@@ -34,7 +39,21 @@ ImportCompletionHandler _completionHandler;
 }
 
 -(void)documentPicker:(UIDocumentPickerViewController *)controller didPickDocumentAtURL:(NSURL *)url {
-    _completionHandler(nil, nil);
+    if ([url startAccessingSecurityScopedResource]) {
+        NSLog(@"%@", [url absoluteString]);
+        NSString *convertedFileId = [BoxClient convertFile:[url absoluteString]];
+        NSDictionary *dictionary = @{
+                                     @"title": convertedFileId,
+                                     @"boxFileId": convertedFileId,
+                                     @"course": self.course
+                                     };
+        [MaterialManager createMaterialWithDictionary:dictionary withCompletion:^(Material *material, NSError *error) {
+            _completionHandler(material, error);
+        }];
+        [url stopAccessingSecurityScopedResource];
+    } else {
+        NSLog(@"ERROR");
+    }
 }
 
 -(void)documentPickerWasCancelled:(UIDocumentPickerViewController *)controller {

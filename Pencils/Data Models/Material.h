@@ -23,6 +23,7 @@
 @interface Material : NSObject
 
 @property (strong, nonatomic) NSString *title;
+@property (strong, nonatomic) NSString *boxFileId;
 @property (strong, nonatomic) Course *course;
 
 -(instancetype)initWithDictionary:(NSDictionary *)dictionary;

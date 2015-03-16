@@ -21,10 +21,12 @@
 @implementation MaterialManager
 
 +(void)createMaterialWithDictionary:(NSDictionary *)dictionary withCompletion:(void (^)(Material *material, NSError *error))completion {
-    Material *material = nil;
-    if (completion != nil) {
-        completion(material, nil);
-    }
+    Material *material = [[Material alloc] initWithDictionary:dictionary];
+    [material saveWithCompletion:^(NSError *error) {
+        if (completion) {
+            completion(material, error);
+        }
+    }];
 }
 
 +(void)listMaterialForCourse:(Course *)course withCompletion:(void (^)(NSArray *materials, NSError *error))completion {

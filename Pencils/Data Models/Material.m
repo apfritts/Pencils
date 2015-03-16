@@ -30,6 +30,7 @@
     self = [super init];
     if (self) {
         self.title = dictionary[@"title"];
+        self.boxFileId = dictionary[@"box_file_id"];
         self.course = dictionary[@"course"];
         self._persistance = [PFObject objectWithClassName:@"Material"];
     }
@@ -41,6 +42,7 @@
     if (self) {
         self._persistance = pfObject;
         self.title = pfObject[@"title"];
+        self.boxFileId = pfObject[@"box_file_id"];
         if ([pfObject[@"course"] isDataAvailable]) {
             self.course = [[Course alloc] initWithParseObject:pfObject[@"course"]];
         }
@@ -60,6 +62,7 @@
         return;
     }
     self._persistance[@"title"] = self.title;
+    self._persistance[@"box_file_id"] = self.boxFileId;
     self._persistance[@"course"] = [self.course persistance];
     [self._persistance saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         completion(error);
