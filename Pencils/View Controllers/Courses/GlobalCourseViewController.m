@@ -20,6 +20,7 @@
 #import "GlobalCourseDetailsTableViewCell.h"
 #import "GlobalCourseTeacherTableViewCell.h"
 #import "MaterialCell.h"
+#import "HeaderTableViewCell.h"
 
 @interface GlobalCourseViewController () <UITableViewDataSource, UITableViewDelegate>
 
@@ -52,6 +53,7 @@
     [self.tableView registerNib:[UINib nibWithNibName:@"GlobalCourseDetailsTableViewCell" bundle:nil] forCellReuseIdentifier:@"GlobalCourseDetailsCell"];
     [self.tableView registerNib:[UINib nibWithNibName:@"GlobalCourseTeacherTableViewCell" bundle:nil] forCellReuseIdentifier:@"GlobalCourseTeacherCell"];
     [self.tableView registerNib:[UINib nibWithNibName:@"MaterialCell" bundle:nil] forCellReuseIdentifier:@"MaterialCell"];
+    [self.tableView registerNib:[UINib nibWithNibName:@"HeaderTableViewCell" bundle:nil] forCellReuseIdentifier:@"HeaderCell"];
     self.tableView.rowHeight = UITableViewAutomaticDimension;
 }
 
@@ -102,37 +104,26 @@
 
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 1.0)];
-    [view setBackgroundColor:[UIColor colorWithRed:204/255.0 green:255/255.0 blue:255/255.0 alpha:1.0]];
-    
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(8, 4, tableView.frame.size.width, 30)];
-    [label setFont:[UIFont boldSystemFontOfSize:17]];
+    HeaderTableViewCell *header = [self.tableView dequeueReusableCellWithIdentifier:@"HeaderCell"];
 
     switch (section) {
         case 0:
-            [label setText:@"Course Description"];
+            [header.headerLabel setText:@"Course Description"];
             break;
         case 1:
-            [label setText:@"Teachers"];
+            [header.headerLabel setText:@"Teachers"];
             break;
         case 2: {
-            [label setText:@"Materials"];
-            UIButton *addMaterialButton = [UIButton buttonWithType:UIButtonTypeContactAdd];
-            [addMaterialButton setFrame:CGRectMake((330.0), 5.0, 30.0, 30.0)];
-            addMaterialButton.tag = section;
-            addMaterialButton.hidden = NO;
-            [addMaterialButton setBackgroundColor:[UIColor clearColor]];
-            [addMaterialButton addTarget:self action:@selector(onAddMaterialButton) forControlEvents:UIControlEventTouchDown];
-            [view addSubview:addMaterialButton];
+            [header.headerLabel setText:@"Materials"];
+            [header.headerButton setTitle:@"Add" forState:UIControlStateNormal];
             break;
         }
         default:
-            [label setText:@"Section"];
+            [header.headerLabel setText:@"Section"];
             break;
     }
     
-    [view addSubview:label];
-    return view;
+    return header;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {

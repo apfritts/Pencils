@@ -19,7 +19,7 @@
 #import "TeacherCourseViewController.h"
 #import "TeacherCourseDetailsTableViewCell.h"
 #import "MaterialCell.h"
-#import "MaterialImportViewController.h"
+#import "MaterialImporter.h"
 #import "UserManager.h"
 #import <MobileCoreServices/UTCoreTypes.h>
 
@@ -28,6 +28,7 @@
 @property (strong, nonatomic) Course *course;
 @property (strong, nonatomic) NSMutableArray *materials;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) MaterialImporter *materialImporter;
 
 @end
 
@@ -56,6 +57,10 @@
     if (self.course.user == [UserManager currentUser]) {
         self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(onEditTap)];
     }
+    
+    self.materialImporter = [[MaterialImporter alloc] initWithCourse:self.course andParent:self andCompletion:^(Material *material, NSError *error) {
+        NSLog(@"MaterialImporter complete!");
+    }];
 }
 
 -(void)onEditTap {
@@ -63,12 +68,7 @@
 }
 
 -(void)onAddMaterialButton {
-    [[[MaterialImportViewController alloc] initWithCourse:self.course andParent:self andCompletion:^(Material *material, NSError *error) {
-        // do something
-        if (material && !error) {
-            [self.materials addObject:material];
-        }
-    }] execute];
+    [self.materialImporter execute];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {

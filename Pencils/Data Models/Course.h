@@ -30,6 +30,7 @@
 @property (strong, nonatomic) Course *parent;
 @property (strong, nonatomic) User *user;
 @property (strong, nonatomic) User *owner;
+@property (strong, nonatomic) NSArray *materials;
 
 -(instancetype)initWithDictionary:(NSDictionary *)dictionary;
 -(instancetype)initWithParseObject:(PFObject *)pfObject;

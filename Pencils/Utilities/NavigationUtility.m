@@ -38,7 +38,7 @@
 #import "SignupViewController.h"
 
 // Materials
-#import "MaterialImportViewController.h"
+#import "MaterialImporter.h"
 #import "ViewMaterialViewController.h"
 
 // Upload

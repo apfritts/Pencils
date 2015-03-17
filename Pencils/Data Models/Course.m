@@ -36,6 +36,7 @@
         self.deleted = dictionary[@"deleted"];
         self.parent = dictionary[@"parent"];
         self.user = dictionary[@"user"];
+        self.materials = [dictionary[@"materials"] array];
         self._persistance = [PFObject objectWithClassName:@"Course"];
     }
     return self;
@@ -56,6 +57,9 @@
         if ([pfObject[@"user"] isDataAvailable]) {
             self.user = [[User alloc] initWithParseObject:[pfObject objectForKey:@"user"]];
         }
+//        if ([pfObject[@"materials"] isDataAvailable]) {
+            self.materials = [[NSArray alloc] init];
+//        }
     }
     return self;
 }

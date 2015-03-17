@@ -17,8 +17,8 @@
  */
 
 #import "CourseTableViewCell.h"
-#import <FontAwesome+iOS/UIFont+FontAwesome.h>
 #import <FontAwesome+iOS/NSString+FontAwesome.h>
+#import <FontAwesome+iOS/UIFont+FontAwesome.h>
 
 @interface CourseTableViewCell()
 

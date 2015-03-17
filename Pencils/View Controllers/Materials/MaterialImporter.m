@@ -6,12 +6,12 @@
 //  Copyright (c) 2015 Box. All rights reserved.
 //
 
-#import "MaterialImportViewController.h"
+#import "MaterialImporter.h"
 #import "BoxClient.h"
 #import "MaterialManager.h"
 #import <MobileCoreServices/UTCoreTypes.h>
 
-@interface MaterialImportViewController () <UIDocumentMenuDelegate, UIDocumentPickerDelegate>
+@interface MaterialImporter () <UIDocumentMenuDelegate, UIDocumentPickerDelegate>
 
 @property (weak, nonatomic) Course *course;
 @property (weak, nonatomic) UIViewController *parent;
@@ -19,7 +19,7 @@
 
 @end
 
-@implementation MaterialImportViewController
+@implementation MaterialImporter
 typedef void (^ImportCompletionHandler)(Material *material, NSError *error);
 ImportCompletionHandler _completionHandler;
 
@@ -32,17 +32,16 @@ ImportCompletionHandler _completionHandler;
     // @TODO: Get all file types from this list and put this somewhere central
     // https://developer.apple.com/library/ios/documentation/Miscellaneous/Reference/UTIRef/Articles/System-DeclaredUniformTypeIdentifiers.html#//apple_ref/doc/uid/TP40009259-SW1
     self.fileTypes = @[
-                       (NSString*)kUTTypePDF,
-                       @"com.microsoft.word.doc",
-                       @"com.microsoft.excel.xls",
-                       @"com.apple.keynote.key"
+                       (NSString*)kUTTypeItem,
+                       (NSString*)kUTTypePresentation,
+                       (NSString*)kUTTypeData
                        ];
     
     return self;
 }
 
 -(void)execute {
-    UIDocumentMenuViewController *uiDocumentMenu = [[UIDocumentMenuViewController alloc] initWithDocumentTypes:self.fileTypes inMode:UIDocumentPickerModeImport];
+    UIDocumentMenuViewController *uiDocumentMenu = [[UIDocumentMenuViewController alloc] initWithDocumentTypes:[self.fileTypes copy] inMode:UIDocumentPickerModeImport];
     uiDocumentMenu.delegate = self;
     [self.parent presentViewController:uiDocumentMenu animated:YES completion:nil];
 }
@@ -50,27 +49,24 @@ ImportCompletionHandler _completionHandler;
 # pragma mark - UIDocumentMenuDelegate
 
 - (void)documentMenu:(UIDocumentMenuViewController *)documentMenu didPickDocumentPicker:(UIDocumentPickerViewController *)documentPicker {
-     NSLog(@"documentPicker");
+    documentPicker.delegate = self;
+    [self.parent presentViewController:documentPicker animated:YES completion:^{
+        NSLog(@"Presenting!");
+    }];
 }
 
 # pragma mark - UIDocumentPickerDelegate
 
 -(void)documentPicker:(UIDocumentPickerViewController *)controller didPickDocumentAtURL:(NSURL *)url {
-    if ([url startAccessingSecurityScopedResource]) {
-        NSLog(@"%@", [url absoluteString]);
-        NSString *convertedFileId = [BoxClient convertFile:[url absoluteString]];
-        NSDictionary *dictionary = @{
-                                     @"title": convertedFileId,
-                                     @"boxFileId": convertedFileId,
-                                     @"course": self.course
-                                     };
-        [MaterialManager createMaterialWithDictionary:dictionary withCompletion:^(Material *material, NSError *error) {
-            _completionHandler(material, error);
-        }];
-        [url stopAccessingSecurityScopedResource];
-    } else {
-        NSLog(@"ERROR");
-    }
+    NSString *convertedFileId = [BoxClient convertFile:[url absoluteString]];
+    NSDictionary *dictionary = @{
+                                 @"title": convertedFileId,
+                                 @"boxFileId": convertedFileId,
+                                 @"course": self.course
+                                 };
+    [MaterialManager createMaterialWithDictionary:dictionary withCompletion:^(Material *material, NSError *error) {
+        _completionHandler(material, error);
+    }];
 }
 
 -(void)documentPickerWasCancelled:(UIDocumentPickerViewController *)controller {
