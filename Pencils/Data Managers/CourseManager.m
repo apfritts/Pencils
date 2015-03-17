@@ -34,6 +34,7 @@
     PFQuery *query = [PFQuery queryWithClassName:@"Course"];
     [query whereKey:@"parent" equalTo:[NSNull null]];
     [query includeKey:@"user"];
+    [query orderByAscending:@"name"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         NSMutableArray *courses = [NSMutableArray array];
         if (objects) {
@@ -71,6 +72,7 @@
     PFQuery *query = [PFQuery queryWithClassName:@"Course"];
     [query whereKey:@"user" equalTo:[user persistance]];
     [query includeKey:@"parent"];
+    [query orderByAscending:@"name"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         NSMutableArray *courses = [NSMutableArray array];
         if (objects) {

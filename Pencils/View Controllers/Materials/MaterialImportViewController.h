@@ -10,8 +10,9 @@
 #import "Course.h"
 #import "Material.h"
 
-@interface MaterialImportViewController : UIDocumentPickerViewController
+@interface MaterialImportViewController : NSObject
 
--(instancetype)initWithCourse:(Course *)course andCompletion:(void (^)(Material *material, NSError *error))completion;
+-(instancetype)initWithCourse:(Course *)course andParent:(UIViewController *)parent andCompletion:(void (^)(Material *material, NSError *error))completion;
+-(void)execute;
 
 @end

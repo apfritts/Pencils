@@ -23,7 +23,7 @@
 #import "UserManager.h"
 #import <MobileCoreServices/UTCoreTypes.h>
 
-@interface TeacherCourseViewController () <UIDocumentMenuDelegate, UITableViewDataSource, UITableViewDelegate>
+@interface TeacherCourseViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @property (strong, nonatomic) Course *course;
 @property (strong, nonatomic) NSMutableArray *materials;
@@ -63,32 +63,12 @@
 }
 
 -(void)onAddMaterialButton {
-    MaterialImportViewController *mivc = [[MaterialImportViewController alloc] initWithCourse:self.course andCompletion:^(Material *material, NSError *error) {
+    [[[MaterialImportViewController alloc] initWithCourse:self.course andParent:self andCompletion:^(Material *material, NSError *error) {
         // do something
         if (material && !error) {
             [self.materials addObject:material];
         }
-    }];
-    [self presentViewController:mivc animated:YES completion:nil];
-    /*
-    NSArray *fileTypes = @[
-                           (NSString*)kUTTypePDF,
-                           @"com.microsoft.word.doc",
-                           @"com.microsoft.excel.xls",
-                           @"com.apple.keynote.key"
-                           ];
-    //[NavigationUtility navigateToMaterialImport:self.course];
-    UIDocumentMenuViewController *uiDocumentMenu = [[UIDocumentMenuViewController alloc] initWithDocumentTypes:fileTypes inMode:UIDocumentPickerModeImport];
-    uiDocumentMenu.delegate = self;
-    [self presentViewController:uiDocumentMenu animated:YES completion:nil];
-    */
-}
-
-
-- (void)documentMenu:(UIDocumentMenuViewController *)documentMenu didPickDocumentPicker:(UIDocumentPickerViewController *)documentPicker {
-    /*
-     NSLog(@"documentPicker");
-     */
+    }] execute];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {

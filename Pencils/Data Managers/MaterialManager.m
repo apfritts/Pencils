@@ -32,6 +32,7 @@
 +(void)listMaterialForCourse:(Course *)course withCompletion:(void (^)(NSArray *materials, NSError *error))completion {
     PFQuery *query = [PFQuery queryWithClassName:@"Material"];
     [query whereKey:@"course" equalTo:[course persistance]];
+    [query orderByAscending:@"title"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         NSMutableArray *materials = [NSMutableArray array];
         if (objects) {
