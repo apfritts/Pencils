@@ -19,7 +19,6 @@
 #import "LoginViewController.h"
 #import "NavigationUtility.h"
 #import "UserManager.h"
-#import "ConstraintUtility.h"
 
 @interface LoginViewController ()
 
@@ -39,10 +38,11 @@
 @property (weak, nonatomic) IBOutlet UIView *actionView;
 @property (weak, nonatomic) IBOutlet UIButton *actionButton;
 
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *loginTopConstraint;
-@property (strong, nonatomic) NSLayoutConstraint *myLoginTopConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *tempLoginViewConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *tempPencilYConstraint;
+@property (strong, nonatomic) NSLayoutConstraint *loginViewTopConstraint;
 
-@property (assign, nonatomic) BOOL animationDidRun;
+@property (assign, nonatomic) BOOL doFirstLoad;
 
 @end
 
@@ -51,14 +51,16 @@
 -(void)viewDidLoad {
     [super viewDidLoad];
     self.formsContainerView.alpha = 0.0;
-    self.animationDidRun = NO;
+    self.doFirstLoad = YES;
 }
 
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    
-    [self removeLoginConstraints];
-    [self showLoginForm];
+    if (self.doFirstLoad) {
+        [self.formsContainerView removeConstraint:self.tempLoginViewConstraint];
+        [self showLoginForm];
+        [self.view layoutIfNeeded];
+    }
 }
 
 -(void)viewDidAppear:(BOOL)animated {
@@ -69,13 +71,18 @@
      * 2) TODO: Have the shadow move a little
      */
     
-    if (self.animationDidRun == NO) {
-        self.animationDidRun = YES;
+    if (self.doFirstLoad) {
+        self.doFirstLoad = NO;
         [UIView animateWithDuration:1.0 animations:^{
             self.formsContainerView.alpha = 1.0;
         }];
-        [ConstraintUtility removeLayoutConstraint:NSLayoutAttributeCenterY betweenView:self.view andView:self.pencilImage];
-        [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.pencilImage attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeTop multiplier:1.0 constant:50.0]];
+        [self.view removeConstraint:self.tempPencilYConstraint];
+        NSLayoutConstraint *pencilToSuperview = [NSLayoutConstraint constraintWithItem:self.pencilImage attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationGreaterThanOrEqual toItem:self.view attribute:NSLayoutAttributeTop multiplier:1.0 constant:10.0];
+        pencilToSuperview.priority = UILayoutPriorityDefaultHigh;
+        [self.view addConstraint:pencilToSuperview];
+        NSLayoutConstraint *pencilToFormConstraint = [NSLayoutConstraint constraintWithItem:self.pencilImage attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.formsContainerView attribute:NSLayoutAttributeTop multiplier:1.0 constant:8.0];
+        pencilToFormConstraint.priority = UILayoutPriorityDefaultHigh;
+        [self.view addConstraint:pencilToFormConstraint];
         [UIView animateWithDuration:1.0 animations:^{
             [self.view layoutIfNeeded];
         }];
@@ -89,6 +96,10 @@
     } else {
         [self showSignupForm];
     }
+    [UIView animateWithDuration:1.0 animations:^{
+        [self.view layoutIfNeeded];
+    }];
+
 }
 
 -(IBAction)actionButtonTap:(id)sender {
@@ -105,25 +116,20 @@
 
 -(void)removeLoginConstraints {
     NSLog(@"Login: I'm free!");
-    if (self.loginTopConstraint) {
-        [self.formsContainerView removeConstraint:self.loginTopConstraint];
-    } else {
-        [self.formsContainerView removeConstraint:self.myLoginTopConstraint];
-    }
+    [self.formsContainerView removeConstraint:self.loginViewTopConstraint];
 }
 
 -(void)showLoginForm {
     NSLog(@"Login");
-    self.myLoginTopConstraint = [NSLayoutConstraint constraintWithItem:self.loginFieldsView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.formLayoutToggle attribute:NSLayoutAttributeBottom multiplier:1.0 constant:8.0];
-    [self.formsContainerView addConstraint:self.myLoginTopConstraint];
-    [self.view layoutIfNeeded];
+    self.loginViewTopConstraint = [NSLayoutConstraint constraintWithItem:self.loginFieldsView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.formLayoutToggle attribute:NSLayoutAttributeBottom multiplier:1.0 constant:8.0];
+    [self.formsContainerView addConstraint:self.loginViewTopConstraint];    [self.actionButton setTitle:@"Login" forState:UIControlStateNormal];
 }
 
 -(void)showSignupForm {
     NSLog(@"Signup");
-    self.myLoginTopConstraint = [NSLayoutConstraint constraintWithItem:self.loginFieldsView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.signupFieldsView attribute:NSLayoutAttributeBottom multiplier:1.0 constant:8.0];
-    [self.formsContainerView addConstraint:self.myLoginTopConstraint];
-    [self.view layoutIfNeeded];
+    self.loginViewTopConstraint = [NSLayoutConstraint constraintWithItem:self.loginFieldsView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.signupFieldsView attribute:NSLayoutAttributeBottom multiplier:1.0 constant:8.0];
+    [self.formsContainerView addConstraint:self.loginViewTopConstraint];
+    [self.actionButton setTitle:@"Signup" forState:UIControlStateNormal];
 }
 
 @end
