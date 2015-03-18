@@ -19,15 +19,12 @@
 #import "LoginViewController.h"
 #import "NavigationUtility.h"
 #import "UserManager.h"
-#import "SignupViewController.h"
 #import "ConstraintUtility.h"
 
 @interface LoginViewController ()
 
 @property (weak, nonatomic) IBOutlet UIImageView *pencilImage;
 @property (weak, nonatomic) IBOutlet UIView *formsContainerView;
-
-@property (weak, nonatomic) IBOutlet UISegmentedControl *formLayoutToggle;
 
 @property (weak, nonatomic) IBOutlet UIView *signupFieldsView;
 @property (weak, nonatomic) IBOutlet UITextField *firstNameField;
@@ -73,7 +70,15 @@
     }
 }
 
--(IBAction)loginTap:(id)sender {
+- (IBAction)formLayoutToggled:(UISegmentedControl *)sender {
+    if (sender.selectedSegmentIndex == 0) {
+        NSLog(@"Login");
+    } else {
+        NSLog(@"Signup");
+    }
+}
+
+-(IBAction)actionButtonTap:(id)sender {
     [NavigationUtility progressBegin];
     [UserManager loginWithEmail:self.emailField.text andPassword:self.passwordField.text andCompletion:^(User *user, NSError *error) {
         [NavigationUtility progressStop];
@@ -83,11 +88,6 @@
             [NavigationUtility login];
         }
     }];
-}
-
--(IBAction)signUpTap:(id)sender {
-    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:[[SignupViewController alloc] init]];
-    [self presentViewController:nav animated:YES completion:nil];
 }
 
 @end

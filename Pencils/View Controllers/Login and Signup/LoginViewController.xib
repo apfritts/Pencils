@@ -10,7 +10,6 @@
                 <outlet property="actionView" destination="4BY-bS-tJP" id="QX9-Ak-3JG"/>
                 <outlet property="emailField" destination="692-es-Xaq" id="zMu-sk-O17"/>
                 <outlet property="firstNameField" destination="4an-V9-fbA" id="XWR-Gg-0va"/>
-                <outlet property="formLayoutToggle" destination="0Bb-Ej-IiO" id="hQb-Xm-qRa"/>
                 <outlet property="formsContainerView" destination="hD2-61-hIE" id="MtO-ia-8UO"/>
                 <outlet property="lastNameField" destination="W4a-s6-Sfq" id="08n-I4-uRY"/>
                 <outlet property="loginFieldsView" destination="J5V-Py-CLd" id="qcW-9y-Ltt"/>
@@ -37,6 +36,9 @@
                                 <segment title="Login"/>
                                 <segment title="Register"/>
                             </segments>
+                            <connections>
+                                <action selector="formLayoutToggled:" destination="-1" eventType="valueChanged" id="bnT-rY-baa"/>
+                            </connections>
                         </segmentedControl>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g83-pk-wPm" userLabel="Signup">
                             <rect key="frame" x="0.0" y="56" width="300" height="68"/>
@@ -126,6 +128,9 @@
                                 <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="34A-9J-1wR" userLabel="Action Button">
                                     <rect key="frame" x="131" y="0.0" width="38" height="30"/>
                                     <state key="normal" title="Login"/>
+                                    <connections>
+                                        <action selector="actionButtonTap:" destination="-1" eventType="touchUpInside" id="kaV-FN-KwK"/>
+                                    </connections>
                                 </button>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

@@ -35,7 +35,6 @@
 
 // Login and Signup
 #import "LoginViewController.h"
-#import "SignupViewController.h"
 
 // Materials
 #import "MaterialImporter.h"
