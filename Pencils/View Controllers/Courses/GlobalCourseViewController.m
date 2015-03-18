@@ -20,7 +20,7 @@
 #import "GlobalCourseDetailsTableViewCell.h"
 #import "GlobalCourseTeacherTableViewCell.h"
 #import "MaterialCell.h"
-#import "HeaderTableViewCell.h"
+#import "HeaderCell.h"
 
 @interface GlobalCourseViewController () <UITableViewDataSource, UITableViewDelegate>
 
@@ -62,7 +62,7 @@ static NSArray *__sectionHeaderTitles;
     [self.tableView registerNib:[UINib nibWithNibName:@"GlobalCourseDetailsTableViewCell" bundle:nil] forCellReuseIdentifier:@"GlobalCourseDetailsCell"];
     [self.tableView registerNib:[UINib nibWithNibName:@"GlobalCourseTeacherTableViewCell" bundle:nil] forCellReuseIdentifier:@"GlobalCourseTeacherCell"];
     [self.tableView registerNib:[UINib nibWithNibName:@"MaterialCell" bundle:nil] forCellReuseIdentifier:@"MaterialCell"];
-    [self.tableView registerNib:[UINib nibWithNibName:@"HeaderTableViewCell" bundle:nil] forCellReuseIdentifier:@"HeaderCell"];
+    [self.tableView registerNib:[UINib nibWithNibName:@"HeaderCell" bundle:nil] forCellReuseIdentifier:@"HeaderCell"];
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.sectionHeaderHeight = 48.0;
 }
@@ -114,7 +114,7 @@ static NSArray *__sectionHeaderTitles;
 
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    HeaderTableViewCell *header = [self.tableView dequeueReusableCellWithIdentifier:@"HeaderCell"];
+    HeaderCell *header = [self.tableView dequeueReusableCellWithIdentifier:@"HeaderCell"];
     [header.headerLabel setText:__sectionHeaderTitles[section]];
     if (section == 2) {
         [header.headerButton setTitle:@"Add" forState:UIControlStateNormal];

@@ -18,12 +18,13 @@
 
 #import "TeacherCourseViewController.h"
 #import "TeacherCourseDetailsTableViewCell.h"
+#import "HeaderCell.h"
 #import "MaterialCell.h"
 #import "MaterialImporter.h"
 #import "UserManager.h"
 #import <MobileCoreServices/UTCoreTypes.h>
 
-@interface TeacherCourseViewController () <UITableViewDataSource, UITableViewDelegate>
+@interface TeacherCourseViewController () <HeaderCellDelegate, UITableViewDataSource, UITableViewDelegate>
 
 @property (strong, nonatomic) Course *course;
 @property (strong, nonatomic) NSMutableArray *materials;
@@ -33,6 +34,11 @@
 @end
 
 @implementation TeacherCourseViewController
+static NSArray *__sectionHeaderTitles;
+
++(void)initialize {
+    __sectionHeaderTitles = @[@"Course Description", @"Materials"];
+}
 
 -(instancetype)initWithCourse:(Course *)course {
     self = [super init];
@@ -51,6 +57,7 @@
     self.tableView.delegate = self;
     
     [self.tableView registerNib:[UINib nibWithNibName:@"TeacherCourseDetailsTableViewCell" bundle:nil] forCellReuseIdentifier:@"TeacherCourseDetailsCell"];
+    [self.tableView registerNib:[UINib nibWithNibName:@"HeaderCell" bundle:nil] forCellReuseIdentifier:@"HeaderCell"];
     [self.tableView registerNib:[UINib nibWithNibName:@"MaterialCell" bundle:nil] forCellReuseIdentifier:@"MaterialCell"];
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     
@@ -58,17 +65,11 @@
         self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(onEditTap)];
     }
     
-    self.materialImporter = [[MaterialImporter alloc] initWithCourse:self.course andParent:self andCompletion:^(Material *material, NSError *error) {
-        NSLog(@"MaterialImporter complete!");
-    }];
+    self.tableView.sectionHeaderHeight = 48.0;
 }
 
 -(void)onEditTap {
     [NavigationUtility navigateToEditTeacherCourse:self.course];
-}
-
--(void)onAddMaterialButton {
-    [self.materialImporter execute];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -88,37 +89,23 @@
 }
 
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 1.0)];
-    [view setBackgroundColor:[UIColor colorWithRed:204/255.0 green:255/255.0 blue:255/255.0 alpha:1.0]];
-    
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(8, 4, tableView.frame.size.width, 30)];
-    [label setFont:[UIFont boldSystemFontOfSize:17]];
-    
-    switch (section) {
-        case 0:
-            [label setText:@"Course Description"];
-            break;
-        case 1: {
-            [label setText:@"Materials"];
-            UIButton *addMaterialButton = [UIButton buttonWithType:UIButtonTypeContactAdd];
-            [addMaterialButton setFrame:CGRectMake((330.0), 5.0, 30.0, 30.0)];
-            addMaterialButton.tag = section;
-            addMaterialButton.hidden = NO;
-            [addMaterialButton setBackgroundColor:[UIColor clearColor]];
-            [addMaterialButton addTarget:self action:@selector(onAddMaterialButton) forControlEvents:UIControlEventTouchDown];
-            [view addSubview:addMaterialButton];
-            break;
-        }
-        default:
-            [label setText:@"Section"];
-            break;
+    HeaderCell *header = [self.tableView dequeueReusableCellWithIdentifier:@"HeaderCell"];
+    if (section == 0) {
+        header.headerLabel.text = @"Course Description";
+        header.headerButton.hidden = YES;
+    } else if (section == 1) {
+        header.headerLabel.text = @"Materials";
+        [header.headerButton setTitle:@"Import" forState:UIControlStateNormal];
+        header.delegate = self;
     }
-    [view addSubview:label];
-    return view;
+    return header;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return 38.0;
+-(void)headerCellButtonTap:(HeaderCell *)headerCell {
+    self.materialImporter = [[MaterialImporter alloc] initWithCourse:self.course andParent:self andCompletion:^(Material *material, NSError *error) {
+        NSLog(@"MaterialImporter complete!");
+    }];
+    [self.materialImporter execute];
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

@@ -43,6 +43,7 @@ ImportCompletionHandler _completionHandler;
 -(void)execute {
     UIDocumentMenuViewController *uiDocumentMenu = [[UIDocumentMenuViewController alloc] initWithDocumentTypes:[self.fileTypes copy] inMode:UIDocumentPickerModeImport];
     uiDocumentMenu.delegate = self;
+    uiDocumentMenu.popoverPresentationController.sourceView = self.parent.view;
     [self.parent presentViewController:uiDocumentMenu animated:YES completion:nil];
 }
 
@@ -50,6 +51,7 @@ ImportCompletionHandler _completionHandler;
 
 - (void)documentMenu:(UIDocumentMenuViewController *)documentMenu didPickDocumentPicker:(UIDocumentPickerViewController *)documentPicker {
     documentPicker.delegate = self;
+    self.parent.modalPresentationStyle = UIModalPresentationPopover;
     [self.parent presentViewController:documentPicker animated:YES completion:nil];
 }
 

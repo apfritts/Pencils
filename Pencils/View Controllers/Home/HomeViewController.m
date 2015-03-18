@@ -24,11 +24,11 @@
 #import "ColorSchemesViewController.h"
 #import "CourseManager.h"
 #import "CourseTableViewCell.h"
-#import "HeaderTableViewCell.h"
+#import "HeaderCell.h"
 #import "RequestsTableViewCell.h"
 #import "UserManager.h"
 
-@interface HomeViewController () <HeaderTableViewCellDelegate, UITableViewDataSource, UITableViewDelegate>
+@interface HomeViewController () <HeaderCellDelegate, UITableViewDataSource, UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSArray *currentCourses;
@@ -50,7 +50,7 @@
     [super viewDidLoad];
     
     [self.tableView registerNib:[UINib nibWithNibName:@"CourseTableViewCell" bundle:nil] forCellReuseIdentifier:@"CourseCell"];
-    [self.tableView registerNib:[UINib nibWithNibName:@"HeaderTableViewCell" bundle:nil] forCellReuseIdentifier:@"HeaderCell"];
+    [self.tableView registerNib:[UINib nibWithNibName:@"HeaderCell" bundle:nil] forCellReuseIdentifier:@"HeaderCell"];
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.sectionHeaderHeight = 48.0;
     
@@ -77,14 +77,14 @@
 }
 
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    HeaderTableViewCell *header = [self.tableView dequeueReusableCellWithIdentifier:@"HeaderCell"];
+    HeaderCell *header = [self.tableView dequeueReusableCellWithIdentifier:@"HeaderCell"];
     header.headerLabel.text = @"Your Courses";
     [header.headerButton setTitle:@"View All" forState:UIControlStateNormal];
     header.delegate = self;
     return header;
 }
 
--(void)headerTableViewCellButtonTap:(HeaderTableViewCell *)headerCell {
+-(void)headerCellButtonTap:(HeaderCell *)headerCell {
     Course *course = [[Course alloc] init];
     course.name = @"name of course";
     NSArray *courses = @[course, course, course, course, course, course, course, course, course];

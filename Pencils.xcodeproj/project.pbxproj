@@ -61,8 +61,8 @@
 		736A899A1AA8CB190035631A /* Material.m in Sources */ = {isa = PBXBuildFile; fileRef = 736A89941AA8CB190035631A /* Material.m */; };
 		736A899B1AA8CB190035631A /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 736A89961AA8CB190035631A /* User.m */; };
 		736A899C1AA8CB190035631A /* UserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 736A89981AA8CB190035631A /* UserManager.m */; };
-		8F1E33671AA915DA001C7A56 /* HeaderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F1E33651AA915DA001C7A56 /* HeaderTableViewCell.m */; };
-		8F1E33681AA915DA001C7A56 /* HeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F1E33661AA915DA001C7A56 /* HeaderTableViewCell.xib */; };
+		8F1E33671AA915DA001C7A56 /* HeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F1E33651AA915DA001C7A56 /* HeaderCell.m */; };
+		8F1E33681AA915DA001C7A56 /* HeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F1E33661AA915DA001C7A56 /* HeaderCell.xib */; };
 		8F8B604B1AAC904C00FF9FED /* ColorUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F8B604A1AAC904C00FF9FED /* ColorUtility.m */; };
 		8FBA260C1AB91C700020614E /* ColorSchemesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FBA260A1AB91C700020614E /* ColorSchemesViewController.m */; };
 		8FBA260D1AB91C700020614E /* ColorSchemesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FBA260B1AB91C700020614E /* ColorSchemesViewController.xib */; };
@@ -173,9 +173,9 @@
 		736A89961AA8CB190035631A /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = "Data Models/User.m"; sourceTree = "<group>"; };
 		736A89971AA8CB190035631A /* UserManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserManager.h; path = "Data Models/UserManager.h"; sourceTree = "<group>"; };
 		736A89981AA8CB190035631A /* UserManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserManager.m; path = "Data Models/UserManager.m"; sourceTree = "<group>"; };
-		8F1E33641AA915DA001C7A56 /* HeaderTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HeaderTableViewCell.h; path = Views/Common/HeaderTableViewCell.h; sourceTree = "<group>"; };
-		8F1E33651AA915DA001C7A56 /* HeaderTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HeaderTableViewCell.m; path = Views/Common/HeaderTableViewCell.m; sourceTree = "<group>"; };
-		8F1E33661AA915DA001C7A56 /* HeaderTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HeaderTableViewCell.xib; path = Views/Common/HeaderTableViewCell.xib; sourceTree = "<group>"; };
+		8F1E33641AA915DA001C7A56 /* HeaderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HeaderCell.h; path = Views/Common/HeaderCell.h; sourceTree = "<group>"; };
+		8F1E33651AA915DA001C7A56 /* HeaderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HeaderCell.m; path = Views/Common/HeaderCell.m; sourceTree = "<group>"; };
+		8F1E33661AA915DA001C7A56 /* HeaderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HeaderCell.xib; path = Views/Common/HeaderCell.xib; sourceTree = "<group>"; };
 		8F8B60491AAC904C00FF9FED /* ColorUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ColorUtility.h; path = Utilities/ColorUtility.h; sourceTree = "<group>"; };
 		8F8B604A1AAC904C00FF9FED /* ColorUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ColorUtility.m; path = Utilities/ColorUtility.m; sourceTree = "<group>"; };
 		8FBA26091AB91C700020614E /* ColorSchemesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ColorSchemesViewController.h; path = "View Controllers/Home/ColorSchemesViewController.h"; sourceTree = "<group>"; };
@@ -380,9 +380,9 @@
 				8FEAE1601AACB3F6000A0F2C /* EmptyListTableViewCell.h */,
 				8FEAE1611AACB3F6000A0F2C /* EmptyListTableViewCell.m */,
 				8FEAE1621AACB3F6000A0F2C /* EmptyListTableViewCell.xib */,
-				8F1E33641AA915DA001C7A56 /* HeaderTableViewCell.h */,
-				8F1E33651AA915DA001C7A56 /* HeaderTableViewCell.m */,
-				8F1E33661AA915DA001C7A56 /* HeaderTableViewCell.xib */,
+				8F1E33641AA915DA001C7A56 /* HeaderCell.h */,
+				8F1E33651AA915DA001C7A56 /* HeaderCell.m */,
+				8F1E33661AA915DA001C7A56 /* HeaderCell.xib */,
 				736A89611AA8B5DF0035631A /* MaterialCell.h */,
 				736A89621AA8B5DF0035631A /* MaterialCell.m */,
 				736A89631AA8B5DF0035631A /* MaterialCell.xib */,
@@ -599,7 +599,7 @@
 				736A896F1AA8B6340035631A /* EditCourseViewController.xib in Resources */,
 				736A88EF1AA819A40035631A /* LaunchScreen.xib in Resources */,
 				736A88EC1AA819A40035631A /* Images.xcassets in Resources */,
-				8F1E33681AA915DA001C7A56 /* HeaderTableViewCell.xib in Resources */,
+				8F1E33681AA915DA001C7A56 /* HeaderCell.xib in Resources */,
 				736A897B1AA8B6DE0035631A /* ViewMaterialViewController.xib in Resources */,
 				736A89181AA8AA570035631A /* SignupViewController.xib in Resources */,
 				736A89531AA8B4880035631A /* GlobalCourseViewController.xib in Resources */,
@@ -682,7 +682,7 @@
 				736A89691AA8B6080035631A /* SearchTableViewCell.m in Sources */,
 				736A897A1AA8B6DE0035631A /* ViewMaterialViewController.m in Sources */,
 				736A896E1AA8B6340035631A /* EditCourseViewController.m in Sources */,
-				8F1E33671AA915DA001C7A56 /* HeaderTableViewCell.m in Sources */,
+				8F1E33671AA915DA001C7A56 /* HeaderCell.m in Sources */,
 				736A898A1AA8BBCB0035631A /* CourseManager.m in Sources */,
 				736A89991AA8CB190035631A /* Course.m in Sources */,
 				8FEAE1631AACB3F6000A0F2C /* EmptyListTableViewCell.m in Sources */,

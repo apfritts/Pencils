@@ -16,16 +16,16 @@
  * limitations under the License.
  */
 
-#import "HeaderTableViewCell.h"
+#import "HeaderCell.h"
 #import "ColorUtility.h"
 
-@interface HeaderTableViewCell()
+@interface HeaderCell()
 
 @property (weak, nonatomic) IBOutlet UIView *divider;
 
 @end
 
-@implementation HeaderTableViewCell
+@implementation HeaderCell
 
 -(void)awakeFromNib {
     [super awakeFromNib];
@@ -36,8 +36,8 @@
 }
 
 - (IBAction)buttonTap:(id)sender {
-    if ([self.delegate respondsToSelector:@selector(headerTableViewCellButtonTap:)]) {
-        [self.delegate headerTableViewCellButtonTap:self];
+    if ([self.delegate respondsToSelector:@selector(headerCellButtonTap:)]) {
+        [self.delegate headerCellButtonTap:self];
     }
 }
 
