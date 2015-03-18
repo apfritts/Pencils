@@ -68,6 +68,7 @@
         }];
         
         // @TODO: We need to cleanup all of these inits/viewDidLoad stuff
+        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Logout" style:UIBarButtonItemStylePlain target:self action:@selector(onLogoutTap)];
         self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Create" style:UIBarButtonItemStylePlain target:self action:@selector(onCreateTap)];
     }
     
@@ -86,6 +87,10 @@
 
 -(void)onCreateTap {
     [NavigationUtility navigateToCourseCreate];
+}
+
+-(void)onLogoutTap {
+    [NavigationUtility logout];
 }
 
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
