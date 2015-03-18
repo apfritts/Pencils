@@ -58,7 +58,7 @@ ImportCompletionHandler _completionHandler;
 -(void)documentPicker:(UIDocumentPickerViewController *)controller didPickDocumentAtURL:(NSURL *)url {
     NSString *convertedFileId = [BoxClient convertFile:[url absoluteString]];
     NSDictionary *dictionary = @{
-                                 @"title": convertedFileId,
+                                 @"title": [url lastPathComponent],
                                  @"boxFileId": convertedFileId,
                                  @"course": self.course
                                  };
