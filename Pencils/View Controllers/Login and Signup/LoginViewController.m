@@ -81,12 +81,7 @@
         }];
         
         [self.view removeConstraint:self.tempPencilYConstraint];
-        NSLayoutConstraint *pencilToSuperview = [NSLayoutConstraint constraintWithItem:self.pencilImage attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationGreaterThanOrEqual toItem:self.view attribute:NSLayoutAttributeTop multiplier:1.0 constant:10.0];
-        pencilToSuperview.priority = UILayoutPriorityDefaultHigh;
-        [self.view addConstraint:pencilToSuperview];
-        NSLayoutConstraint *pencilToFormConstraint = [NSLayoutConstraint constraintWithItem:self.pencilImage attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.formsContainerView attribute:NSLayoutAttributeTop multiplier:1.0 constant:8.0];
-        pencilToFormConstraint.priority = UILayoutPriorityDefaultHigh;
-        [self.view addConstraint:pencilToFormConstraint];
+        [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.pencilImage attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.formsContainerView attribute:NSLayoutAttributeTop multiplier:1.0 constant:8.0]];
         [UIView animateWithDuration:1.0 animations:^{
             [self.view layoutIfNeeded];
         }];
