@@ -40,10 +40,10 @@ ImportCompletionHandler _completionHandler;
     return self;
 }
 
--(void)execute {
+-(void)execute:(UIView *)popoverStart {
     UIDocumentMenuViewController *uiDocumentMenu = [[UIDocumentMenuViewController alloc] initWithDocumentTypes:[self.fileTypes copy] inMode:UIDocumentPickerModeImport];
     uiDocumentMenu.delegate = self;
-    uiDocumentMenu.popoverPresentationController.sourceView = self.parent.view;
+    uiDocumentMenu.popoverPresentationController.sourceView = popoverStart;
     [self.parent presentViewController:uiDocumentMenu animated:YES completion:nil];
 }
 

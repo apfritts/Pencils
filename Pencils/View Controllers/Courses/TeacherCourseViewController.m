@@ -105,7 +105,7 @@ static NSArray *__sectionHeaderTitles;
     self.materialImporter = [[MaterialImporter alloc] initWithCourse:self.course andParent:self andCompletion:^(Material *material, NSError *error) {
         NSLog(@"MaterialImporter complete!");
     }];
-    [self.materialImporter execute];
+    [self.materialImporter execute:headerCell.headerButton];
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
