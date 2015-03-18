@@ -50,9 +50,7 @@ ImportCompletionHandler _completionHandler;
 
 - (void)documentMenu:(UIDocumentMenuViewController *)documentMenu didPickDocumentPicker:(UIDocumentPickerViewController *)documentPicker {
     documentPicker.delegate = self;
-    [self.parent presentViewController:documentPicker animated:YES completion:^{
-        NSLog(@"Presenting!");
-    }];
+    [self.parent presentViewController:documentPicker animated:YES completion:nil];
 }
 
 # pragma mark - UIDocumentPickerDelegate

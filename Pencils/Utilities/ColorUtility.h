@@ -11,8 +11,10 @@
 
 @interface ColorUtility : NSObject
 
++(UIColor *)backgroundColor;
 +(UIColor *)primaryColor;
-+(UIColor *)transparent;
 +(UIColor *)shadedBackground;
++(UIColor *)tintColor;
++(UIColor *)transparent;
 
 @end

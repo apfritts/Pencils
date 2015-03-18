@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14D87h" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14D105g" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
     </dependencies>
@@ -25,12 +25,21 @@
                 </tableView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <gestureRecognizers/>
             <constraints>
                 <constraint firstItem="39l-ZG-NFr" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="4Nr-ao-j3L"/>
                 <constraint firstItem="39l-ZG-NFr" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="J34-IY-7vT"/>
                 <constraint firstAttribute="trailing" secondItem="39l-ZG-NFr" secondAttribute="trailing" id="dkE-KE-bGj"/>
                 <constraint firstAttribute="bottom" secondItem="39l-ZG-NFr" secondAttribute="bottom" id="qXs-CN-g2Q"/>
             </constraints>
+            <connections>
+                <outletCollection property="gestureRecognizers" destination="oPc-AK-uUk" appends="YES" id="BfL-lr-y3D"/>
+            </connections>
         </view>
+        <tapGestureRecognizer numberOfTapsRequired="3" numberOfTouchesRequired="3" id="oPc-AK-uUk">
+            <connections>
+                <action selector="showColorSchemeTaps:" destination="-1" id="5y7-5V-28u"/>
+            </connections>
+        </tapGestureRecognizer>
     </objects>
 </document>

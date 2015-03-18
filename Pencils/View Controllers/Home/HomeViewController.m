@@ -21,6 +21,7 @@
 #import "NavigationUtility.h"
 #import <FontAwesome+iOS/UIImage+FontAwesome.h>
 
+#import "ColorSchemesViewController.h"
 #import "CourseManager.h"
 #import "CourseTableViewCell.h"
 #import "HeaderTableViewCell.h"
@@ -103,6 +104,10 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [NavigationUtility navigateToTeacherCourse:self.currentCourses[indexPath.row]];
+}
+
+- (IBAction)showColorSchemeTaps:(id)sender {
+    [self presentViewController:[[ColorSchemesViewController alloc] init] animated:YES completion:nil];
 }
 
 @end

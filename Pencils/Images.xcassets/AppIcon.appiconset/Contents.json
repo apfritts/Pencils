@@ -6,8 +6,9 @@
       "scale" : "2x"
     },
     {
-      "idiom" : "iphone",
       "size" : "29x29",
+      "idiom" : "iphone",
+      "filename" : "Pencil-Settings-3x.png",
       "scale" : "3x"
     },
     {
@@ -16,14 +17,14 @@
       "scale" : "2x"
     },
     {
-      "idiom" : "iphone",
       "size" : "40x40",
+      "idiom" : "iphone",
+      "filename" : "Pencil-Spotlight-3x.png",
       "scale" : "3x"
     },
     {
-      "size" : "60x60",
       "idiom" : "iphone",
-      "filename" : "Pencil-AppIcon-2x.png",
+      "size" : "60x60",
       "scale" : "2x"
     },
     {
