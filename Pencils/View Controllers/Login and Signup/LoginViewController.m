@@ -21,7 +21,7 @@
 #import "NavigationUtility.h"
 #import "UserManager.h"
 
-@interface LoginViewController ()
+@interface LoginViewController () <UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UIImageView *pencilImage;
 @property (weak, nonatomic) IBOutlet UIView *formsContainerView;
@@ -29,12 +29,16 @@
 @property (weak, nonatomic) IBOutlet UISegmentedControl *formLayoutToggle;
 
 @property (weak, nonatomic) IBOutlet UIView *signupFieldsView;
+@property (weak, nonatomic) IBOutlet UILabel *firstNameLabel;
 @property (weak, nonatomic) IBOutlet UITextField *firstNameField;
+@property (weak, nonatomic) IBOutlet UILabel *lastNameLabel;
 @property (weak, nonatomic) IBOutlet UITextField *lastNameField;
 
 @property (weak, nonatomic) IBOutlet UIView *loginFieldsView;
 @property (weak, nonatomic) IBOutlet UIView *gradientView;
+@property (weak, nonatomic) IBOutlet UILabel *emailLabel;
 @property (weak, nonatomic) IBOutlet UITextField *emailField;
+@property (weak, nonatomic) IBOutlet UILabel *passwordLabel;
 @property (weak, nonatomic) IBOutlet UITextField *passwordField;
 
 @property (weak, nonatomic) IBOutlet UIView *actionView;
@@ -54,6 +58,16 @@
     [super viewDidLoad];
     self.formsContainerView.alpha = 0.0;
     self.doFirstLoad = YES;
+    
+    self.view.backgroundColor = [ColorUtility backgroundColor];
+    self.firstNameLabel.textColor = [ColorUtility primaryColor];
+    self.lastNameLabel.textColor = [ColorUtility primaryColor];
+    self.emailLabel.textColor = [ColorUtility primaryColor];
+    self.passwordLabel.textColor = [ColorUtility primaryColor];
+    self.formLayoutToggle.backgroundColor = [ColorUtility backgroundColor];
+    self.formLayoutToggle.tintColor = [ColorUtility tintColor];
+    self.actionButton.tintColor = [ColorUtility tintColor];
+    self.loginFieldsView.backgroundColor = [ColorUtility backgroundColor];
 }
 
 -(void)viewWillAppear:(BOOL)animated {
@@ -101,6 +115,19 @@
 
 }
 
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    if (textField == self.firstNameField) {
+        [self.lastNameField becomeFirstResponder];
+    } else if (textField == self.lastNameField) {
+        [self.emailField becomeFirstResponder];
+    } else if (textField == self.emailField) {
+        [self.passwordField becomeFirstResponder];
+    } else if (textField == self.passwordField) {
+        [self actionButtonTap:nil];
+    }
+    return YES;
+}
+
 -(IBAction)actionButtonTap:(id)sender {
     [NavigationUtility progressBegin];
     if (self.formLayoutToggle.selectedSegmentIndex == 0) {
@@ -108,6 +135,7 @@
             [NavigationUtility progressStop];
             if (error) {
                 [[[UIAlertView alloc] initWithTitle:@"Error!" message:error.description delegate:nil cancelButtonTitle:@"Try Again" otherButtonTitles:nil] show];
+                [self.emailField becomeFirstResponder];
             } else {
                 [NavigationUtility login];
             }
@@ -117,6 +145,7 @@
             [NavigationUtility progressStop];
             if (error) {
                 [[[UIAlertView alloc] initWithTitle:@"Error!" message:error.description delegate:nil cancelButtonTitle:@"Try again" otherButtonTitles:nil] show];
+                [self.firstNameField becomeFirstResponder];
             } else {
                 [NavigationUtility login];
             }

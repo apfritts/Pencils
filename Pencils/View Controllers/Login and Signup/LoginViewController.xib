@@ -9,13 +9,17 @@
                 <outlet property="actionButton" destination="34A-9J-1wR" id="C3n-Mj-DzL"/>
                 <outlet property="actionView" destination="4BY-bS-tJP" id="QX9-Ak-3JG"/>
                 <outlet property="emailField" destination="692-es-Xaq" id="zMu-sk-O17"/>
+                <outlet property="emailLabel" destination="YSQ-US-GgG" id="1XS-gn-DkZ"/>
                 <outlet property="firstNameField" destination="4an-V9-fbA" id="XWR-Gg-0va"/>
+                <outlet property="firstNameLabel" destination="k7n-xC-DxY" id="MiX-sM-Eah"/>
                 <outlet property="formLayoutToggle" destination="0Bb-Ej-IiO" id="tI3-zx-lkP"/>
                 <outlet property="formsContainerView" destination="hD2-61-hIE" id="MtO-ia-8UO"/>
                 <outlet property="gradientView" destination="QN5-dP-3NI" id="tJl-3D-dkb"/>
                 <outlet property="lastNameField" destination="W4a-s6-Sfq" id="08n-I4-uRY"/>
+                <outlet property="lastNameLabel" destination="oMO-ol-0w2" id="HhA-OC-TZO"/>
                 <outlet property="loginFieldsView" destination="J5V-Py-CLd" id="qcW-9y-Ltt"/>
                 <outlet property="passwordField" destination="HV5-3C-hde" id="66d-5p-zsz"/>
+                <outlet property="passwordLabel" destination="6nf-6c-OAA" id="LIz-cB-miR"/>
                 <outlet property="pencilImage" destination="apq-rH-iN5" id="BFW-QK-BR5"/>
                 <outlet property="signupFieldsView" destination="g83-pk-wPm" id="VZV-Wk-deI"/>
                 <outlet property="tempLoginViewConstraint" destination="Xn0-pd-43S" id="9pp-lP-p7T"/>
@@ -62,15 +66,21 @@
                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4an-V9-fbA">
                                     <rect key="frame" x="117" y="0.0" width="163" height="30"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                    <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
+                                    <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="next"/>
+                                    <connections>
+                                        <outlet property="delegate" destination="-1" id="tg8-Sp-HSk"/>
+                                    </connections>
                                 </textField>
                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="W4a-s6-Sfq">
                                     <rect key="frame" x="117" y="38" width="163" height="30"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                    <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
+                                    <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="next"/>
+                                    <connections>
+                                        <outlet property="delegate" destination="-1" id="ObM-NJ-GUd"/>
+                                    </connections>
                                 </textField>
                             </subviews>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstItem="4an-V9-fbA" firstAttribute="top" secondItem="g83-pk-wPm" secondAttribute="top" id="1TT-I7-UqM"/>
                                 <constraint firstItem="k7n-xC-DxY" firstAttribute="centerY" secondItem="4an-V9-fbA" secondAttribute="centerY" id="JeH-TK-1jk"/>
@@ -110,12 +120,18 @@
                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="692-es-Xaq">
                                     <rect key="frame" x="117" y="0.0" width="163" height="30"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                    <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
+                                    <textInputTraits key="textInputTraits" spellCheckingType="no" keyboardType="emailAddress" returnKeyType="next"/>
+                                    <connections>
+                                        <outlet property="delegate" destination="-1" id="HWV-HP-K0i"/>
+                                    </connections>
                                 </textField>
                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HV5-3C-hde">
                                     <rect key="frame" x="117" y="38" width="163" height="30"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                    <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                    <textInputTraits key="textInputTraits" returnKeyType="go" secureTextEntry="YES"/>
+                                    <connections>
+                                        <outlet property="delegate" destination="-1" id="ZoO-5A-aDh"/>
+                                    </connections>
                                 </textField>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -148,7 +164,7 @@
                                     </connections>
                                 </button>
                             </subviews>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstAttribute="centerX" secondItem="34A-9J-1wR" secondAttribute="centerX" id="2ak-O5-bwv"/>
                                 <constraint firstAttribute="bottom" secondItem="34A-9J-1wR" secondAttribute="bottom" id="8gg-qG-Od2"/>
@@ -157,7 +173,7 @@
                             </constraints>
                         </view>
                     </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstItem="g83-pk-wPm" firstAttribute="leading" secondItem="hD2-61-hIE" secondAttribute="leading" id="16L-A1-ZmE"/>
                         <constraint firstItem="4an-V9-fbA" firstAttribute="width" secondItem="692-es-Xaq" secondAttribute="width" id="2eH-9w-x7H"/>
