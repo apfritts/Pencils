@@ -25,8 +25,6 @@
 		736A88FB1AA819A40035631A /* PencilsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 736A88FA1AA819A40035631A /* PencilsTests.m */; };
 		736A89111AA8AA2A0035631A /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 736A890F1AA8AA2A0035631A /* LoginViewController.m */; };
 		736A89121AA8AA2A0035631A /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 736A89101AA8AA2A0035631A /* LoginViewController.xib */; };
-		736A89171AA8AA570035631A /* SignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 736A89151AA8AA570035631A /* SignupViewController.m */; };
-		736A89181AA8AA570035631A /* SignupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 736A89161AA8AA570035631A /* SignupViewController.xib */; };
 		736A89231AA8AD010035631A /* UserTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 736A89221AA8AD010035631A /* UserTest.m */; };
 		736A89281AA8AF7C0035631A /* CourseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 736A89261AA8AF7C0035631A /* CourseTableViewCell.m */; };
 		736A89291AA8AF7C0035631A /* CourseTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 736A89271AA8AF7C0035631A /* CourseTableViewCell.xib */; };
@@ -116,9 +114,6 @@
 		736A890E1AA8AA2A0035631A /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = "View Controllers/Login and Signup/LoginViewController.h"; sourceTree = "<group>"; };
 		736A890F1AA8AA2A0035631A /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = "View Controllers/Login and Signup/LoginViewController.m"; sourceTree = "<group>"; };
 		736A89101AA8AA2A0035631A /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LoginViewController.xib; path = "View Controllers/Login and Signup/LoginViewController.xib"; sourceTree = "<group>"; };
-		736A89141AA8AA570035631A /* SignupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SignupViewController.h; path = "View Controllers/Login and Signup/SignupViewController.h"; sourceTree = "<group>"; };
-		736A89151AA8AA570035631A /* SignupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SignupViewController.m; path = "View Controllers/Login and Signup/SignupViewController.m"; sourceTree = "<group>"; };
-		736A89161AA8AA570035631A /* SignupViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SignupViewController.xib; path = "View Controllers/Login and Signup/SignupViewController.xib"; sourceTree = "<group>"; };
 		736A89221AA8AD010035631A /* UserTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserTest.m; path = Models/UserTest.m; sourceTree = "<group>"; };
 		736A89251AA8AF7C0035631A /* CourseTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CourseTableViewCell.h; path = Views/Common/CourseTableViewCell.h; sourceTree = "<group>"; };
 		736A89261AA8AF7C0035631A /* CourseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CourseTableViewCell.m; path = Views/Common/CourseTableViewCell.m; sourceTree = "<group>"; };
@@ -356,9 +351,6 @@
 				736A890E1AA8AA2A0035631A /* LoginViewController.h */,
 				736A890F1AA8AA2A0035631A /* LoginViewController.m */,
 				736A89101AA8AA2A0035631A /* LoginViewController.xib */,
-				736A89141AA8AA570035631A /* SignupViewController.h */,
-				736A89151AA8AA570035631A /* SignupViewController.m */,
-				736A89161AA8AA570035631A /* SignupViewController.xib */,
 			);
 			name = "Login and Signup";
 			sourceTree = "<group>";
@@ -601,7 +593,6 @@
 				736A88EC1AA819A40035631A /* Images.xcassets in Resources */,
 				8F1E33681AA915DA001C7A56 /* HeaderCell.xib in Resources */,
 				736A897B1AA8B6DE0035631A /* ViewMaterialViewController.xib in Resources */,
-				736A89181AA8AA570035631A /* SignupViewController.xib in Resources */,
 				736A89531AA8B4880035631A /* GlobalCourseViewController.xib in Resources */,
 				736A89491AA8B4300035631A /* CoursesViewController.xib in Resources */,
 				736A89651AA8B5DF0035631A /* MaterialCell.xib in Resources */,
@@ -686,7 +677,6 @@
 				736A898A1AA8BBCB0035631A /* CourseManager.m in Sources */,
 				736A89991AA8CB190035631A /* Course.m in Sources */,
 				8FEAE1631AACB3F6000A0F2C /* EmptyListTableViewCell.m in Sources */,
-				736A89171AA8AA570035631A /* SignupViewController.m in Sources */,
 				736A89521AA8B4880035631A /* GlobalCourseViewController.m in Sources */,
 				736A89111AA8AA2A0035631A /* LoginViewController.m in Sources */,
 				736A89401AA8B0AD0035631A /* NavigationUtility.m in Sources */,
