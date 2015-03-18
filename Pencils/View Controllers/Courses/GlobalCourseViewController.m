@@ -58,8 +58,10 @@ static NSArray *__sectionHeaderTitles;
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     
-    UIBarButtonItem *editCourseButton = [[UIBarButtonItem alloc] initWithTitle:@"Edit" style:UIBarButtonItemStylePlain target:self action:@selector(onEditButton)];
-    self.navigationItem.rightBarButtonItem = editCourseButton;
+    if (self.globalCourse.owner == [UserManager currentUser]) {
+        UIBarButtonItem *editCourseButton = [[UIBarButtonItem alloc] initWithTitle:@"Edit" style:UIBarButtonItemStylePlain target:self action:@selector(onEditButton)];
+        self.navigationItem.rightBarButtonItem = editCourseButton;
+    }
     
     [UserManager listUsersForGlobalCourse:self.globalCourse withCompletion:^(NSArray *users, NSError *error) {
         self.users = [[NSArray alloc] initWithArray:users];
