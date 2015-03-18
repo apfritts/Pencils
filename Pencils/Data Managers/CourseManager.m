@@ -104,9 +104,22 @@
 
 
 +(void)searchForCourseByTitle:(NSString *)title inGlobalCourse:(Course *)globalCourse withCompletion:(void (^)(NSArray *, NSError *))completion {
-    if (completion != nil) {
-        completion(@[], nil);
-    }
+    PFQuery *query = [PFQuery queryWithClassName:@"Course"];
+    [query whereKey:@"title" hasPrefix:title];
+    [query whereKey:@"parent" equalTo:globalCourse];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        NSMutableArray *courses = [NSMutableArray array];
+        if (!error) {
+            for (PFObject *object in objects) {
+                Course *course = [[Course alloc] initWithParseObject:object];
+                course.parent = globalCourse;
+                [courses addObject:course];
+            }
+        }
+        if (completion) {
+            completion(courses, error);
+        }
+    }];
 }
 
 @end

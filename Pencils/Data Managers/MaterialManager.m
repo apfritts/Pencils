@@ -63,10 +63,22 @@
 }
 
 +(void)searchForMaterialInCourse:(Course *)course byTitle:(NSString *)title withCompletion:(void (^)(NSArray *, NSError *))completion {
-    NSArray *materials = nil;
-    if (completion != nil) {
-        completion(materials, nil);
-    }
+    PFQuery *query = [PFQuery queryWithClassName:@"Material"];
+    [query whereKey:@"title" hasPrefix:title];
+    [query whereKey:@"course" equalTo:course];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        NSMutableArray *materials = [NSMutableArray array];
+        if (!error) {
+            for (PFObject *object in objects) {
+                Material *material = [[Material alloc] initWithParseObject:object];
+                material.course = course;
+                [materials addObject:material];
+            }
+        }
+        if (completion) {
+            completion(materials, error);
+        }
+    }];
 }
 
 @end

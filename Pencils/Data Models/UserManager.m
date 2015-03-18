@@ -74,9 +74,10 @@ static User *_currentUser;
     _currentUser = nil;
 }
 
-+(void)listUsersForCourse:(Course *)course withCompletion:(void (^)(NSArray *, NSError *))completion {
-    PFQuery *query = [[PFQuery alloc] initWithClassName:@"Course"];
-    [query whereKey:@"parent" equalTo:[course persistance].objectId];
++(void)listUsersForGlobalCourse:(Course *)globalCourse withCompletion:(void (^)(NSArray *, NSError *))completion {
+    // Course -> parent Course -> courses -> each user
+    PFQuery *query = [PFQuery queryWithClassName:@"Course"];
+    [query whereKey:@"parent" equalTo:[globalCourse persistance]];
     [query includeKey:@"user"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         NSMutableArray *users = nil;
