@@ -21,11 +21,13 @@
 #import "GlobalCourseTeacherTableViewCell.h"
 #import "MaterialCell.h"
 #import "HeaderCell.h"
+#import "UserManager.h"
 
 @interface GlobalCourseViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) Course *globalCourse;
+@property (strong, nonatomic) NSArray *users;
 
 @end
 
@@ -58,6 +60,12 @@ static NSArray *__sectionHeaderTitles;
     
     UIBarButtonItem *editCourseButton = [[UIBarButtonItem alloc] initWithTitle:@"Edit" style:UIBarButtonItemStylePlain target:self action:@selector(onEditButton)];
     self.navigationItem.rightBarButtonItem = editCourseButton;
+    
+    [UserManager listUsersForGlobalCourse:self.globalCourse withCompletion:^(NSArray *users, NSError *error) {
+        self.users = [[NSArray alloc] initWithArray:users];
+        [self.tableView reloadData];
+    }];
+
     
     [self.tableView registerNib:[UINib nibWithNibName:@"GlobalCourseDetailsTableViewCell" bundle:nil] forCellReuseIdentifier:@"GlobalCourseDetailsCell"];
     [self.tableView registerNib:[UINib nibWithNibName:@"GlobalCourseTeacherTableViewCell" bundle:nil] forCellReuseIdentifier:@"GlobalCourseTeacherCell"];
@@ -136,8 +144,7 @@ static NSArray *__sectionHeaderTitles;
         }
         case 1: {
             GlobalCourseTeacherTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"GlobalCourseTeacherCell"];
-            cell.teacherLabel.text = @"Mattie";
-            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+            cell.teacherLabel.text = @"Mattie"; //self.users[indexPath.row];
             return cell;
             break;
         }

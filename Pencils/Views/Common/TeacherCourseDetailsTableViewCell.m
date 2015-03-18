@@ -23,4 +23,5 @@
 - (IBAction)onGlobalCourseButton:(id)sender {
     [NavigationUtility navigateToGlobalCourse:self.globalCourse];
 }
+
 @end

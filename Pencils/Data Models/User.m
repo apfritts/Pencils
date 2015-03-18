@@ -19,7 +19,7 @@
 #import "User.h"
 #import <Parse/Parse.h>
 
-@interface User()
+@interface User() <NSCopying>
 
 @property (strong, nonatomic) PFUser *_persistance;
 
@@ -80,6 +80,16 @@
 
 -(PFUser *)persistance {
     return self._persistance;
+}
+
+- (id)copyWithZone:(NSZone *)zone {
+    NSDictionary *userDictionary = @{
+        @"first_name" : self.firstName,
+        @"last_name" : self.lastName,
+        @"email" : self.email,
+        @"password" : self.password
+    };
+    return [[self class] initWithDictionary:userDictionary];
 }
 
 @end
