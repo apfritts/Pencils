@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14D98g" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
     </dependencies>
@@ -13,8 +13,14 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XIq-nf-zAM">
-                        <rect key="frame" x="8" y="12" width="252" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XIq-nf-zAM">
+                        <rect key="frame" x="8" y="11" width="42" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9LL-v5-lhP">
+                        <rect key="frame" x="58" y="11" width="42" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
@@ -31,16 +37,26 @@
                     <constraint firstItem="XIq-nf-zAM" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="2TC-XD-tTe"/>
                     <constraint firstAttribute="trailing" secondItem="yfr-Sz-mUR" secondAttribute="trailing" constant="8" id="FDo-m3-iVA"/>
                     <constraint firstAttribute="centerY" secondItem="XIq-nf-zAM" secondAttribute="centerY" id="Jj7-Ds-JSW"/>
+                    <constraint firstItem="9LL-v5-lhP" firstAttribute="leading" secondItem="XIq-nf-zAM" secondAttribute="trailing" constant="8" id="K37-Z0-dfd"/>
+                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="9LL-v5-lhP" secondAttribute="bottom" constant="8" id="UfE-TO-UT5"/>
                     <constraint firstAttribute="centerY" secondItem="XIq-nf-zAM" secondAttribute="centerY" id="cfF-8A-CTB"/>
                     <constraint firstAttribute="centerY" secondItem="yfr-Sz-mUR" secondAttribute="centerY" id="fRV-XE-8WJ"/>
                     <constraint firstItem="XIq-nf-zAM" firstAttribute="top" relation="greaterThanOrEqual" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="kFN-7R-0Jx"/>
-                    <constraint firstItem="yfr-Sz-mUR" firstAttribute="leading" secondItem="XIq-nf-zAM" secondAttribute="trailing" constant="10" id="qRg-sZ-t44"/>
+                    <constraint firstItem="9LL-v5-lhP" firstAttribute="top" relation="greaterThanOrEqual" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="qK6-JI-F8s"/>
+                    <constraint firstAttribute="centerY" secondItem="9LL-v5-lhP" secondAttribute="centerY" id="w4f-TW-HN4"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="chevronRight" destination="yfr-Sz-mUR" id="CQl-pa-UQh"/>
                 <outlet property="courseLabel" destination="XIq-nf-zAM" id="p6X-lh-kPi"/>
+                <outlet property="dateLabel" destination="9LL-v5-lhP" id="ucr-P3-aVP"/>
             </connections>
+            <point key="canvasLocation" x="455" y="573"/>
         </tableViewCell>
     </objects>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
 </document>

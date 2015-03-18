@@ -120,6 +120,8 @@
         course = self.courses[indexPath.row];
     }
     cell.courseLabel.text = course.name;
+    cell.dateLabel.text = [course formatDate:course.start];
+    
     return cell;
 }
 

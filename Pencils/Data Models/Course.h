@@ -37,5 +37,6 @@
 -(NSArray *)validate;
 -(void)saveWithCompletion:(void (^)(NSError *error))completion;
 -(PFObject *)persistance;
+-(NSString *)formatDate:(NSDate *)date;
 
 @end

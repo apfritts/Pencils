@@ -21,5 +21,6 @@
 @interface CourseTableViewCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UILabel *courseLabel;
+@property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 
 @end
