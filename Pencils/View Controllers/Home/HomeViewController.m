@@ -52,7 +52,7 @@
     [self.tableView registerNib:[UINib nibWithNibName:@"CourseTableViewCell" bundle:nil] forCellReuseIdentifier:@"CourseCell"];
     [self.tableView registerNib:[UINib nibWithNibName:@"HeaderTableViewCell" bundle:nil] forCellReuseIdentifier:@"HeaderCell"];
     self.tableView.rowHeight = UITableViewAutomaticDimension;
-    self.tableView.sectionHeaderHeight = 44.0;
+    self.tableView.sectionHeaderHeight = 48.0;
     
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Logout" style:UIBarButtonItemStylePlain target:self action:@selector(onLogoutTap)];
 }

@@ -17,8 +17,23 @@
  */
 
 #import "HeaderTableViewCell.h"
+#import "ColorUtility.h"
+
+@interface HeaderTableViewCell()
+
+@property (weak, nonatomic) IBOutlet UIView *divider;
+
+@end
 
 @implementation HeaderTableViewCell
+
+-(void)awakeFromNib {
+    [super awakeFromNib];
+    
+    [self.headerLabel setTintColor:[ColorUtility primaryColor]];
+    self.headerButton.tintColor = [ColorUtility primaryColor];
+    self.divider.backgroundColor = [ColorUtility shadedBackground];
+}
 
 - (IBAction)buttonTap:(id)sender {
     if ([self.delegate respondsToSelector:@selector(headerTableViewCellButtonTap:)]) {

@@ -30,6 +30,15 @@
 @end
 
 @implementation GlobalCourseViewController
+static NSArray *__sectionHeaderTitles;
+
++(void)initialize {
+    __sectionHeaderTitles = @[
+                              @"Course Description",
+                              @"Teachers",
+                              @"Materials"
+                              ];
+}
 
 -(instancetype)initWithGlobalCourse:(Course *)globalCourse {
     self = [super init];
@@ -55,6 +64,7 @@
     [self.tableView registerNib:[UINib nibWithNibName:@"MaterialCell" bundle:nil] forCellReuseIdentifier:@"MaterialCell"];
     [self.tableView registerNib:[UINib nibWithNibName:@"HeaderTableViewCell" bundle:nil] forCellReuseIdentifier:@"HeaderCell"];
     self.tableView.rowHeight = UITableViewAutomaticDimension;
+    self.tableView.sectionHeaderHeight = 48.0;
 }
 
 - (void)onEditButton {
@@ -105,29 +115,13 @@
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
     HeaderTableViewCell *header = [self.tableView dequeueReusableCellWithIdentifier:@"HeaderCell"];
-
-    switch (section) {
-        case 0:
-            [header.headerLabel setText:@"Course Description"];
-            break;
-        case 1:
-            [header.headerLabel setText:@"Teachers"];
-            break;
-        case 2: {
-            [header.headerLabel setText:@"Materials"];
-            [header.headerButton setTitle:@"Add" forState:UIControlStateNormal];
-            break;
-        }
-        default:
-            [header.headerLabel setText:@"Section"];
-            break;
+    [header.headerLabel setText:__sectionHeaderTitles[section]];
+    if (section == 2) {
+        [header.headerButton setTitle:@"Add" forState:UIControlStateNormal];
+    } else {
+        header.headerButton.hidden = YES;
     }
-    
     return header;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return 38.0;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
