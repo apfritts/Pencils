@@ -46,4 +46,22 @@ static UIColor *__transparentColor;
     return __transparentColor;
 }
 
++(void)transparentTransitionForView:(UIView *)view {
+    UIColor *colorOne = [UIColor colorWithWhite:1.0 alpha:0.0];
+    UIColor *colorTwo = [UIColor colorWithWhite:1.0  alpha:1.0];
+    
+//    NSArray *colors = @[colorOne, colorTwo];
+//    NSNumber *stopOne = [NSNumber numberWithFloat:0.0];
+//    NSNumber *stopTwo = [NSNumber numberWithFloat:1.0];
+//    
+//    NSArray *locations = [NSArray arrayWithObjects:stopOne, stopTwo, nil];
+    
+    CAGradientLayer *headerLayer = [CAGradientLayer layer];
+    headerLayer.colors = @[__backgroundColor, __tintColor];
+//    headerLayer.locations = locations;
+    
+    headerLayer.frame = view.frame;
+    [view.layer insertSublayer:headerLayer atIndex:0];
+}
+
 @end

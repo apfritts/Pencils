@@ -6,8 +6,9 @@
 //  Copyright (c) 2015 Box. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-#import <UIKit/UIColor.h>
+@import Foundation;
+@import QuartzCore;
+@import UIKit;
 
 @interface ColorUtility : NSObject
 
@@ -16,5 +17,6 @@
 +(UIColor *)shadedBackground;
 +(UIColor *)tintColor;
 +(UIColor *)transparent;
++(void)transparentTransitionForView:(UIView *)view;
 
 @end

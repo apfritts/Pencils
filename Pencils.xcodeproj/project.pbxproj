@@ -173,6 +173,7 @@
 		8FBA26091AB91C700020614E /* ColorSchemesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ColorSchemesViewController.h; path = "View Controllers/Home/ColorSchemesViewController.h"; sourceTree = "<group>"; };
 		8FBA260A1AB91C700020614E /* ColorSchemesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ColorSchemesViewController.m; path = "View Controllers/Home/ColorSchemesViewController.m"; sourceTree = "<group>"; };
 		8FBA260B1AB91C700020614E /* ColorSchemesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ColorSchemesViewController.xib; path = "View Controllers/Home/ColorSchemesViewController.xib"; sourceTree = "<group>"; };
+		8FBA260E1AB9C4C90020614E /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		8FE90E0C1AB1171300EEE58F /* MaterialImporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MaterialImporter.h; path = "View Controllers/Materials/MaterialImporter.h"; sourceTree = "<group>"; };
 		8FE90E0D1AB1171300EEE58F /* MaterialImporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MaterialImporter.m; path = "View Controllers/Materials/MaterialImporter.m"; sourceTree = "<group>"; };
 		8FE90E0F1AB11B3300EEE58F /* Pencils.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Pencils.entitlements; sourceTree = "<group>"; };
@@ -207,6 +208,7 @@
 		50EC3B1FA6DDFEB55F4412AE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8FBA260E1AB9C4C90020614E /* QuartzCore.framework */,
 				8FEAE15E1AACAE17000A0F2C /* libPods.a */,
 				54BF8E171EB0C38EEC311560 /* libPods.a */,
 			);

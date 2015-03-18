@@ -17,6 +17,7 @@
  */
 
 #import "LoginViewController.h"
+#import "ColorUtility.h"
 #import "NavigationUtility.h"
 #import "UserManager.h"
 
@@ -32,6 +33,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *lastNameField;
 
 @property (weak, nonatomic) IBOutlet UIView *loginFieldsView;
+@property (weak, nonatomic) IBOutlet UIView *gradientView;
 @property (weak, nonatomic) IBOutlet UITextField *emailField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordField;
 
@@ -60,6 +62,7 @@
         [self.formsContainerView removeConstraint:self.tempLoginViewConstraint];
         [self showLoginForm];
         [self.view layoutIfNeeded];
+        [ColorUtility transparentTransitionForView:self.gradientView];
     }
 }
 
@@ -76,6 +79,7 @@
         [UIView animateWithDuration:1.0 animations:^{
             self.formsContainerView.alpha = 1.0;
         }];
+        
         [self.view removeConstraint:self.tempPencilYConstraint];
         NSLayoutConstraint *pencilToSuperview = [NSLayoutConstraint constraintWithItem:self.pencilImage attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationGreaterThanOrEqual toItem:self.view attribute:NSLayoutAttributeTop multiplier:1.0 constant:10.0];
         pencilToSuperview.priority = UILayoutPriorityDefaultHigh;
@@ -89,14 +93,14 @@
     }
 }
 
-- (IBAction)formLayoutToggled:(UISegmentedControl *)sender {
+- (IBAction)formLayoutToggled:(id)sender {
     [self removeLoginConstraints];
-    if (sender.selectedSegmentIndex == 0) {
+    if (self.formLayoutToggle.selectedSegmentIndex == 0) {
         [self showLoginForm];
     } else {
         [self showSignupForm];
     }
-    [UIView animateWithDuration:1.0 animations:^{
+    [UIView animateWithDuration:0.7 animations:^{
         [self.view layoutIfNeeded];
     }];
 
@@ -104,29 +108,37 @@
 
 -(IBAction)actionButtonTap:(id)sender {
     [NavigationUtility progressBegin];
-    [UserManager loginWithEmail:self.emailField.text andPassword:self.passwordField.text andCompletion:^(User *user, NSError *error) {
-        [NavigationUtility progressStop];
-        if (error) {
-            [[[UIAlertView alloc] initWithTitle:@"Error!" message:error.description delegate:nil cancelButtonTitle:@"Try Again" otherButtonTitles:nil] show];
-        } else {
-            [NavigationUtility login];
-        }
-    }];
+    if (self.formLayoutToggle.selectedSegmentIndex == 0) {
+        [UserManager loginWithEmail:self.emailField.text andPassword:self.passwordField.text andCompletion:^(User *user, NSError *error) {
+            [NavigationUtility progressStop];
+            if (error) {
+                [[[UIAlertView alloc] initWithTitle:@"Error!" message:error.description delegate:nil cancelButtonTitle:@"Try Again" otherButtonTitles:nil] show];
+            } else {
+                [NavigationUtility login];
+            }
+        }];
+    } else {
+        [UserManager signUpWithFirstName:self.firstNameField.text andLastName:self.lastNameField.text andEmail:self.emailField.text andPassword:self.passwordField.text andCompletion:^(User *user, NSError *error) {
+            [NavigationUtility progressStop];
+            if (error) {
+                [[[UIAlertView alloc] initWithTitle:@"Error!" message:error.description delegate:nil cancelButtonTitle:@"Try again" otherButtonTitles:nil] show];
+            } else {
+                [NavigationUtility login];
+            }
+        }];
+    }
 }
 
 -(void)removeLoginConstraints {
-    NSLog(@"Login: I'm free!");
     [self.formsContainerView removeConstraint:self.loginViewTopConstraint];
 }
 
 -(void)showLoginForm {
-    NSLog(@"Login");
     self.loginViewTopConstraint = [NSLayoutConstraint constraintWithItem:self.loginFieldsView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.formLayoutToggle attribute:NSLayoutAttributeBottom multiplier:1.0 constant:8.0];
     [self.formsContainerView addConstraint:self.loginViewTopConstraint];    [self.actionButton setTitle:@"Login" forState:UIControlStateNormal];
 }
 
 -(void)showSignupForm {
-    NSLog(@"Signup");
     self.loginViewTopConstraint = [NSLayoutConstraint constraintWithItem:self.loginFieldsView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.signupFieldsView attribute:NSLayoutAttributeBottom multiplier:1.0 constant:8.0];
     [self.formsContainerView addConstraint:self.loginViewTopConstraint];
     [self.actionButton setTitle:@"Signup" forState:UIControlStateNormal];
