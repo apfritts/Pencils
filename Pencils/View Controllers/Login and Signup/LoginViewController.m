@@ -25,9 +25,20 @@
 @interface LoginViewController ()
 
 @property (weak, nonatomic) IBOutlet UIImageView *pencilImage;
-@property (weak, nonatomic) IBOutlet UIView *formContainerView;
+@property (weak, nonatomic) IBOutlet UIView *formsContainerView;
+
+@property (weak, nonatomic) IBOutlet UISegmentedControl *formLayoutToggle;
+
+@property (weak, nonatomic) IBOutlet UIView *signupFieldsView;
+@property (weak, nonatomic) IBOutlet UITextField *firstNameField;
+@property (weak, nonatomic) IBOutlet UITextField *lastNameField;
+
+@property (weak, nonatomic) IBOutlet UIView *loginFieldsView;
 @property (weak, nonatomic) IBOutlet UITextField *emailField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordField;
+
+@property (weak, nonatomic) IBOutlet UIView *actionView;
+@property (weak, nonatomic) IBOutlet UIButton *actionButton;
 
 @property (assign, nonatomic) BOOL animationDidRun;
 
@@ -37,7 +48,7 @@
 
 -(void)viewDidLoad {
     [super viewDidLoad];
-    self.formContainerView.alpha = 0.0;
+    self.loginFieldsView.alpha = 0.0;
     self.animationDidRun = NO;
 }
 
@@ -46,13 +57,13 @@
     
     /* Mimic the AMEX app here:
      * 1) Once loaded, elevate the Pencil icon
-     * 2) Have the shadow move a little
+     * 2) TODO: Have the shadow move a little
      */
     
     if (self.animationDidRun == NO) {
         self.animationDidRun = YES;
         [UIView animateWithDuration:1.0 animations:^{
-            self.formContainerView.alpha = 1.0;
+            self.loginFieldsView.alpha = 1.0;
         }];
         [ConstraintUtility removeLayoutConstraint:NSLayoutAttributeCenterY betweenView:self.view andView:self.pencilImage];
         [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.pencilImage attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeTop multiplier:1.0 constant:50.0]];
