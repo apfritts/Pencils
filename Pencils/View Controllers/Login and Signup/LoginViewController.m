@@ -26,6 +26,8 @@
 @property (weak, nonatomic) IBOutlet UIImageView *pencilImage;
 @property (weak, nonatomic) IBOutlet UIView *formsContainerView;
 
+@property (weak, nonatomic) IBOutlet UISegmentedControl *formLayoutToggle;
+
 @property (weak, nonatomic) IBOutlet UIView *signupFieldsView;
 @property (weak, nonatomic) IBOutlet UITextField *firstNameField;
 @property (weak, nonatomic) IBOutlet UITextField *lastNameField;
@@ -37,6 +39,9 @@
 @property (weak, nonatomic) IBOutlet UIView *actionView;
 @property (weak, nonatomic) IBOutlet UIButton *actionButton;
 
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *loginTopConstraint;
+@property (strong, nonatomic) NSLayoutConstraint *myLoginTopConstraint;
+
 @property (assign, nonatomic) BOOL animationDidRun;
 
 @end
@@ -45,8 +50,15 @@
 
 -(void)viewDidLoad {
     [super viewDidLoad];
-    self.loginFieldsView.alpha = 0.0;
+    self.formsContainerView.alpha = 0.0;
     self.animationDidRun = NO;
+}
+
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    [self removeLoginConstraints];
+    [self showLoginForm];
 }
 
 -(void)viewDidAppear:(BOOL)animated {
@@ -60,7 +72,7 @@
     if (self.animationDidRun == NO) {
         self.animationDidRun = YES;
         [UIView animateWithDuration:1.0 animations:^{
-            self.loginFieldsView.alpha = 1.0;
+            self.formsContainerView.alpha = 1.0;
         }];
         [ConstraintUtility removeLayoutConstraint:NSLayoutAttributeCenterY betweenView:self.view andView:self.pencilImage];
         [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.pencilImage attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeTop multiplier:1.0 constant:50.0]];
@@ -71,10 +83,11 @@
 }
 
 - (IBAction)formLayoutToggled:(UISegmentedControl *)sender {
+    [self removeLoginConstraints];
     if (sender.selectedSegmentIndex == 0) {
-        NSLog(@"Login");
+        [self showLoginForm];
     } else {
-        NSLog(@"Signup");
+        [self showSignupForm];
     }
 }
 
@@ -88,6 +101,29 @@
             [NavigationUtility login];
         }
     }];
+}
+
+-(void)removeLoginConstraints {
+    NSLog(@"Login: I'm free!");
+    if (self.loginTopConstraint) {
+        [self.formsContainerView removeConstraint:self.loginTopConstraint];
+    } else {
+        [self.formsContainerView removeConstraint:self.myLoginTopConstraint];
+    }
+}
+
+-(void)showLoginForm {
+    NSLog(@"Login");
+    self.myLoginTopConstraint = [NSLayoutConstraint constraintWithItem:self.loginFieldsView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.formLayoutToggle attribute:NSLayoutAttributeBottom multiplier:1.0 constant:8.0];
+    [self.formsContainerView addConstraint:self.myLoginTopConstraint];
+    [self.view layoutIfNeeded];
+}
+
+-(void)showSignupForm {
+    NSLog(@"Signup");
+    self.myLoginTopConstraint = [NSLayoutConstraint constraintWithItem:self.loginFieldsView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.signupFieldsView attribute:NSLayoutAttributeBottom multiplier:1.0 constant:8.0];
+    [self.formsContainerView addConstraint:self.myLoginTopConstraint];
+    [self.view layoutIfNeeded];
 }
 
 @end

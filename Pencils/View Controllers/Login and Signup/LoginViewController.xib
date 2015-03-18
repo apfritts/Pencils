@@ -10,9 +10,11 @@
                 <outlet property="actionView" destination="4BY-bS-tJP" id="QX9-Ak-3JG"/>
                 <outlet property="emailField" destination="692-es-Xaq" id="zMu-sk-O17"/>
                 <outlet property="firstNameField" destination="4an-V9-fbA" id="XWR-Gg-0va"/>
+                <outlet property="formLayoutToggle" destination="0Bb-Ej-IiO" id="tI3-zx-lkP"/>
                 <outlet property="formsContainerView" destination="hD2-61-hIE" id="MtO-ia-8UO"/>
                 <outlet property="lastNameField" destination="W4a-s6-Sfq" id="08n-I4-uRY"/>
                 <outlet property="loginFieldsView" destination="J5V-Py-CLd" id="qcW-9y-Ltt"/>
+                <outlet property="loginTopConstraint" destination="Xn0-pd-43S" id="6oj-5y-lRX"/>
                 <outlet property="passwordField" destination="HV5-3C-hde" id="66d-5p-zsz"/>
                 <outlet property="pencilImage" destination="apq-rH-iN5" id="BFW-QK-BR5"/>
                 <outlet property="signupFieldsView" destination="g83-pk-wPm" id="VZV-Wk-deI"/>
