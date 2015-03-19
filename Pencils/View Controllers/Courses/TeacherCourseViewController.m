@@ -90,22 +90,34 @@ static NSArray *__sectionHeaderTitles;
 
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     HeaderCell *header = [self.tableView dequeueReusableCellWithIdentifier:@"HeaderCell"];
+    header.section = section;
     if (section == 0) {
         header.headerLabel.text = @"Course Description";
-        header.headerButton.hidden = YES;
+        [header.headerButton setTitle:@"View Global Courses" forState:UIControlStateNormal];
     } else if (section == 1) {
         header.headerLabel.text = @"Materials";
         [header.headerButton setTitle:@"Import" forState:UIControlStateNormal];
-        header.delegate = self;
     }
+    header.delegate = self;
     return header;
 }
 
 -(void)headerCellButtonTap:(HeaderCell *)headerCell {
-    self.materialImporter = [[MaterialImporter alloc] initWithCourse:self.course andParent:self andCompletion:^(Material *material, NSError *error) {
-        NSLog(@"MaterialImporter complete!");
-    }];
-    [self.materialImporter execute:headerCell.headerButton];
+    switch (headerCell.section) {
+        case 0: {
+            [NavigationUtility navigateToGlobalCourse:self.course.parent];
+            break;
+        }
+        case 1: {
+            self.materialImporter = [[MaterialImporter alloc] initWithCourse:self.course andParent:self andCompletion:^(Material *material, NSError *error) {
+                NSLog(@"MaterialImporter complete!");
+            }];
+            [self.materialImporter execute:headerCell.headerButton];
+            break;
+        }
+        default:
+            break;
+    }
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

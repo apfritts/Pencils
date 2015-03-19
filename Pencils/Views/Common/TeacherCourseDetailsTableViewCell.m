@@ -20,8 +20,4 @@
     // Configure the view for the selected state
 }
 
-- (IBAction)onGlobalCourseButton:(id)sender {
-    [NavigationUtility navigateToGlobalCourse:self.globalCourse];
-}
-
 @end

@@ -23,7 +23,7 @@
 #import "HeaderCell.h"
 #import "UserManager.h"
 
-@interface GlobalCourseViewController () <UITableViewDataSource, UITableViewDelegate>
+@interface GlobalCourseViewController () <HeaderCellDelegate, UITableViewDataSource, UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) Course *globalCourse;
@@ -122,16 +122,31 @@ static NSArray *__sectionHeaderTitles;
 
 }
 
--(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
-{
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     HeaderCell *header = [self.tableView dequeueReusableCellWithIdentifier:@"HeaderCell"];
     [header.headerLabel setText:__sectionHeaderTitles[section]];
-    if (section == 2) {
+    header.section = section;
+    if (section == 0) {
+        [header.headerButton setTitle:@"Teach this course" forState:UIControlStateNormal];
+    } else if (section == 2) {
         [header.headerButton setTitle:@"Add" forState:UIControlStateNormal];
     } else {
         header.headerButton.hidden = YES;
     }
+    header.delegate = self;
     return header;
+}
+
+
+-(void)headerCellButtonTap:(HeaderCell *)headerCell {
+    switch (headerCell.section) {
+        case 0: {
+            [NavigationUtility navigateToTeachCourse:self.globalCourse];
+            break;
+        }
+        default:
+            break;
+    }
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {

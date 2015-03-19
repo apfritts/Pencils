@@ -31,5 +31,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *headerLabel;
 @property (weak, nonatomic) IBOutlet UIButton *headerButton;
 @property (weak, nonatomic) id<HeaderCellDelegate> delegate;
+@property (assign, nonatomic) NSInteger section;
 
 @end
