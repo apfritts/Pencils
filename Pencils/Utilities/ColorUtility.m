@@ -47,8 +47,8 @@ static UIColor *__transparentColor;
 }
 
 +(void)transparentTransitionForView:(UIView *)view {
-    UIColor *colorOne = [UIColor colorWithWhite:1.0 alpha:0.0];
-    UIColor *colorTwo = [UIColor colorWithWhite:1.0  alpha:1.0];
+//    UIColor *colorOne = [UIColor colorWithWhite:1.0 alpha:0.0];
+//    UIColor *colorTwo = [UIColor colorWithWhite:1.0  alpha:1.0];
     
 //    NSArray *colors = @[colorOne, colorTwo];
 //    NSNumber *stopOne = [NSNumber numberWithFloat:0.0];

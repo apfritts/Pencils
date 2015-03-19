@@ -19,7 +19,7 @@
 #import "User.h"
 #import <Parse/Parse.h>
 
-@interface User() <NSCopying>
+@interface User()
 
 @property (strong, nonatomic) PFUser *_persistance;
 
