@@ -12,7 +12,6 @@
 
 - (void)awakeFromNib {
     self.descriptionLabel.preferredMaxLayoutWidth = self.descriptionLabel.frame.size.width;
-    NSLog(@"%f", self.descriptionLabel.preferredMaxLayoutWidth);
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

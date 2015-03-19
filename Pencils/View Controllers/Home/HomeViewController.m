@@ -38,7 +38,6 @@
 @implementation HomeViewController
 
 -(instancetype)init {
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     self = [super init];
     if (self) {
         self.title = @"Home";

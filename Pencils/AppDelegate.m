@@ -35,6 +35,7 @@
     
     // Initialize the UI
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     [NavigationUtility registerWindow:self.window];
     if ([UserManager currentUser] == nil) {
         [NavigationUtility logout];
