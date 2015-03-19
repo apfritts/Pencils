@@ -23,11 +23,12 @@
 #import "HeaderCell.h"
 #import "UserManager.h"
 
-@interface GlobalCourseViewController () <HeaderCellDelegate, UITableViewDataSource, UITableViewDelegate>
+@interface GlobalCourseViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) Course *globalCourse;
 @property (strong, nonatomic) NSArray *users;
+@property (strong, nonatomic) NSMutableArray *rightBarButtons;
 
 @end
 
@@ -57,11 +58,18 @@ static NSArray *__sectionHeaderTitles;
     
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
+
+    self.rightBarButtons = [[NSMutableArray alloc] init];
     
-    if (self.globalCourse.owner == [UserManager currentUser]) {
+    if (self.globalCourse.owner != [UserManager currentUser]) {
         UIBarButtonItem *editCourseButton = [[UIBarButtonItem alloc] initWithTitle:@"Edit" style:UIBarButtonItemStylePlain target:self action:@selector(onEditButton)];
-        self.navigationItem.rightBarButtonItem = editCourseButton;
+        [self.rightBarButtons addObject:editCourseButton];
     }
+
+    UIBarButtonItem *teachCourseButton = [[UIBarButtonItem alloc] initWithTitle:@"Teach" style:UIBarButtonItemStylePlain target:self action:@selector(onTeachCourseButton)];
+    [self.rightBarButtons addObject:teachCourseButton];
+    
+    self.navigationItem.rightBarButtonItems = self.rightBarButtons;
     
     [UserManager listUsersForGlobalCourse:self.globalCourse withCompletion:^(NSArray *users, NSError *error) {
         self.users = [[NSArray alloc] initWithArray:users];
@@ -79,6 +87,10 @@ static NSArray *__sectionHeaderTitles;
 
 - (void)onEditButton {
     [NavigationUtility navigateToEditTeacherCourse:self.globalCourse];
+}
+
+- (void)onTeachCourseButton {
+    [NavigationUtility navigateToTeachCourse:self.globalCourse];
 }
 
 - (void)onAddMaterialButton {
@@ -125,28 +137,12 @@ static NSArray *__sectionHeaderTitles;
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     HeaderCell *header = [self.tableView dequeueReusableCellWithIdentifier:@"HeaderCell"];
     [header.headerLabel setText:__sectionHeaderTitles[section]];
-    header.section = section;
-    if (section == 0) {
-        [header.headerButton setTitle:@"Teach this course" forState:UIControlStateNormal];
-    } else if (section == 2) {
+    if (section == 2) {
         [header.headerButton setTitle:@"Add" forState:UIControlStateNormal];
     } else {
         header.headerButton.hidden = YES;
     }
-    header.delegate = self;
     return header;
-}
-
-
--(void)headerCellButtonTap:(HeaderCell *)headerCell {
-    switch (headerCell.section) {
-        case 0: {
-            [NavigationUtility navigateToTeachCourse:self.globalCourse];
-            break;
-        }
-        default:
-            break;
-    }
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -161,7 +157,8 @@ static NSArray *__sectionHeaderTitles;
         }
         case 1: {
             GlobalCourseTeacherTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"GlobalCourseTeacherCell"];
-            cell.teacherLabel.text = @"Mattie"; //self.users[indexPath.row];
+            User *user = self.users[indexPath.row];
+            cell.teacherLabel.text = [NSString stringWithFormat:@"%@ %@", user.firstName, user.lastName];
             return cell;
             break;
         }

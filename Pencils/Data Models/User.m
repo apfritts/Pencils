@@ -84,14 +84,4 @@
     return self._persistance;
 }
 
-- (id)copyWithZone:(NSZone *)zone {
-    NSDictionary *userDictionary = @{
-        @"first_name" : self.firstName,
-        @"last_name" : self.lastName,
-        @"email" : self.email,
-        @"password" : self.password
-    };
-    return [[self class] initWithDictionary:userDictionary];
-}
-
 @end

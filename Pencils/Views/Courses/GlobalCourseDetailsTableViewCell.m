@@ -11,6 +11,7 @@
 @implementation GlobalCourseDetailsTableViewCell
 
 - (void)awakeFromNib {
+    self.courseDescriptionLabel.preferredMaxLayoutWidth = self.courseDescriptionLabel.frame.size.width;
     // Initialization code
 }
 
@@ -20,7 +21,9 @@
     // Configure the view for the selected state
 }
 
-- (IBAction)onTeachCourseButton:(id)sender {
-    [NavigationUtility navigateToTeachCourse:self.course];
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    self.courseDescriptionLabel.preferredMaxLayoutWidth = self.courseDescriptionLabel.frame.size.width;
 }
+
 @end

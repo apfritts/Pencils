@@ -143,9 +143,6 @@ static NSArray *__sectionHeaderTitles;
             cell.descriptionLabel.text = self.course.courseDescription;
             cell.course = self.course;
             cell.globalCourse = self.course.parent;
-            if (!cell.globalCourse) {
-                cell.globalCourseButton.hidden=YES;
-            }
             return cell;
             break;
         }

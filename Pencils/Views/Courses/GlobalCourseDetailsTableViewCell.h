@@ -15,6 +15,5 @@
 @property (strong, nonatomic) Course *course;
 
 @property (weak, nonatomic) IBOutlet UILabel *courseDescriptionLabel;
-@property (weak, nonatomic) IBOutlet UIButton *teachCourseButton;
 
 @end

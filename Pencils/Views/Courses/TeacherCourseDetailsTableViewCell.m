@@ -11,13 +11,19 @@
 @implementation TeacherCourseDetailsTableViewCell
 
 - (void)awakeFromNib {
-    // Initialization code
+    self.descriptionLabel.preferredMaxLayoutWidth = self.descriptionLabel.frame.size.width;
+    NSLog(@"%f", self.descriptionLabel.preferredMaxLayoutWidth);
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
+}
+
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    self.descriptionLabel.preferredMaxLayoutWidth = self.descriptionLabel.frame.size.width;
 }
 
 @end
