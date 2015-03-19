@@ -8,9 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		4220930C02A341CF7DCA73C7 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 54BF8E171EB0C38EEC311560 /* libPods.a */; };
-		6AC8913B1AB239F70052DA5D /* BoxClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AC8913A1AB239F70052DA5D /* BoxClient.m */; };
-		6AC8913F1AB23A040052DA5D /* PreviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AC8913D1AB23A040052DA5D /* PreviewViewController.m */; };
-		6AC891401AB23A040052DA5D /* PreviewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6AC8913E1AB23A040052DA5D /* PreviewViewController.xib */; };
 		736A88E11AA819A40035631A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 736A88E01AA819A40035631A /* main.m */; };
 		736A88E41AA819A40035631A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 736A88E31AA819A40035631A /* AppDelegate.m */; };
 		736A88EC1AA819A40035631A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 736A88EB1AA819A40035631A /* Images.xcassets */; };
@@ -83,11 +80,6 @@
 /* Begin PBXFileReference section */
 		0F2A0554565FA42DB574478E /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		54BF8E171EB0C38EEC311560 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		6AC891391AB239F70052DA5D /* BoxClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoxClient.h; sourceTree = "<group>"; };
-		6AC8913A1AB239F70052DA5D /* BoxClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoxClient.m; sourceTree = "<group>"; };
-		6AC8913C1AB23A040052DA5D /* PreviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreviewViewController.h; sourceTree = "<group>"; };
-		6AC8913D1AB23A040052DA5D /* PreviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreviewViewController.m; sourceTree = "<group>"; };
-		6AC8913E1AB23A040052DA5D /* PreviewViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PreviewViewController.xib; sourceTree = "<group>"; };
 		6F0F987FDC3E78742DF01139 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		736A88DB1AA819A40035631A /* Pencils.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pencils.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		736A88DF1AA819A40035631A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -224,25 +216,6 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		6AC891371AB239CF0052DA5D /* Preview */ = {
-			isa = PBXGroup;
-			children = (
-				6AC8913C1AB23A040052DA5D /* PreviewViewController.h */,
-				6AC8913D1AB23A040052DA5D /* PreviewViewController.m */,
-				6AC8913E1AB23A040052DA5D /* PreviewViewController.xib */,
-			);
-			name = Preview;
-			sourceTree = "<group>";
-		};
-		6AC891381AB239D80052DA5D /* APIs */ = {
-			isa = PBXGroup;
-			children = (
-				6AC891391AB239F70052DA5D /* BoxClient.h */,
-				6AC8913A1AB239F70052DA5D /* BoxClient.m */,
-			);
-			name = APIs;
-			sourceTree = "<group>";
-		};
 		736A88D21AA819A40035631A = {
 			isa = PBXGroup;
 			children = (
@@ -267,7 +240,6 @@
 			isa = PBXGroup;
 			children = (
 				8FE90E0F1AB11B3300EEE58F /* Pencils.entitlements */,
-				6AC891381AB239D80052DA5D /* APIs */,
 				736A890D1AA8A9EF0035631A /* Controllers */,
 				736A89871AA8BB990035631A /* Data Managers */,
 				736A890B1AA8A9E30035631A /* Data Models */,
@@ -339,7 +311,6 @@
 				736A892F1AA8AFC90035631A /* Home */,
 				736A89131AA8AA380035631A /* Login and Signup */,
 				736A89701AA8B6530035631A /* Materials */,
-				6AC891371AB239CF0052DA5D /* Preview */,
 				736A897C1AA8B95E0035631A /* Upload */,
 			);
 			name = Controllers;
@@ -590,7 +561,6 @@
 				8FBA260D1AB91C700020614E /* ColorSchemesViewController.xib in Resources */,
 				736A89811AA8B9760035631A /* UploadViewController.xib in Resources */,
 				8FEAE15D1AACAC5A000A0F2C /* RequestsTableViewCell.xib in Resources */,
-				6AC891401AB23A040052DA5D /* PreviewViewController.xib in Resources */,
 				736A892E1AA8AFC20035631A /* TeacherTableViewCell.xib in Resources */,
 				736A896F1AA8B6340035631A /* EditCourseViewController.xib in Resources */,
 				736A88EF1AA819A40035631A /* LaunchScreen.xib in Resources */,
@@ -675,7 +645,6 @@
 				736A89801AA8B9760035631A /* UploadViewController.m in Sources */,
 				736A899A1AA8CB190035631A /* Material.m in Sources */,
 				8FD9DF5C1ABA5B7A002CC411 /* TeacherCourseDetailsTableViewCell.m in Sources */,
-				6AC8913F1AB23A040052DA5D /* PreviewViewController.m in Sources */,
 				736A89691AA8B6080035631A /* SearchTableViewCell.m in Sources */,
 				736A897A1AA8B6DE0035631A /* ViewMaterialViewController.m in Sources */,
 				736A896E1AA8B6340035631A /* EditCourseViewController.m in Sources */,
@@ -690,7 +659,6 @@
 				736A899C1AA8CB190035631A /* UserManager.m in Sources */,
 				736A895C1AA8B4D80035631A /* TeachACourseViewController.m in Sources */,
 				736A898D1AA8BCE80035631A /* MaterialManager.m in Sources */,
-				6AC8913B1AB239F70052DA5D /* BoxClient.m in Sources */,
 				736A89641AA8B5DF0035631A /* MaterialCell.m in Sources */,
 				736A89281AA8AF7C0035631A /* CourseTableViewCell.m in Sources */,
 				736A89331AA8B0070035631A /* HomeViewController.m in Sources */,

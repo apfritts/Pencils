@@ -20,6 +20,7 @@
 #import "TeacherCourseDetailsTableViewCell.h"
 #import "HeaderCell.h"
 #import "MaterialCell.h"
+#import "MaterialManager.h"
 #import "MaterialImporter.h"
 #import "UserManager.h"
 #import <MobileCoreServices/UTCoreTypes.h>
@@ -27,7 +28,7 @@
 @interface TeacherCourseViewController () <HeaderCellDelegate, UITableViewDataSource, UITableViewDelegate>
 
 @property (strong, nonatomic) Course *course;
-@property (strong, nonatomic) NSMutableArray *materials;
+@property (strong, nonatomic) NSArray *materials;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) MaterialImporter *materialImporter;
 
@@ -66,6 +67,13 @@ static NSArray *__sectionHeaderTitles;
     }
     
     self.tableView.sectionHeaderHeight = 48.0;
+    
+    [NavigationUtility progressBeginInView:self.view];
+    [MaterialManager listMaterialForCourse:self.course withCompletion:^(NSArray *materials, NSError *error) {
+        [NavigationUtility progressStop];
+        self.materials = materials;
+        [self.tableView reloadData];
+    }];
 }
 
 -(void)onEditTap {
@@ -93,7 +101,7 @@ static NSArray *__sectionHeaderTitles;
     header.section = section;
     if (section == 0) {
         header.headerLabel.text = @"Course Description";
-        [header.headerButton setTitle:@"View Global Courses" forState:UIControlStateNormal];
+        [header.headerButton setTitle:@"Parent Course" forState:UIControlStateNormal];
     } else if (section == 1) {
         header.headerLabel.text = @"Materials";
         [header.headerButton setTitle:@"Import" forState:UIControlStateNormal];
@@ -126,12 +134,10 @@ static NSArray *__sectionHeaderTitles;
             return 1;
             break;
         case 1:
-            return 3;
-            break;
-        default:
-            return 3;
+            return self.materials.count;
             break;
     }
+    return 0;
 }
 
 
@@ -146,15 +152,15 @@ static NSArray *__sectionHeaderTitles;
             return cell;
             break;
         }
-        default: {
+        case 1: {
             MaterialCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"MaterialCell"];
-            Material *material = [[Material alloc] init];
-            material.title = @"Material Title";
+            Material *material = self.materials[indexPath.row];
             [cell setMaterial:material];
             return cell;
             break;
         }
     }
+    return nil;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -163,7 +169,7 @@ static NSArray *__sectionHeaderTitles;
             break;
         }
         default: {
-            [NavigationUtility navigateToMaterial:nil];
+            [NavigationUtility navigateToMaterial:self.materials[indexPath.row]];
             break;
         }
     }

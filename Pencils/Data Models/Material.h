@@ -23,6 +23,7 @@
 @interface Material : NSObject
 
 @property (strong, nonatomic) NSString *title;
+@property (strong, nonatomic) PFFile *file;
 @property (strong, nonatomic) NSString *boxFileId;
 @property (strong, nonatomic) Course *course;
 
@@ -30,6 +31,7 @@
 -(instancetype)initWithParseObject:(PFObject *)pfObject;
 -(NSArray *)validate;
 -(void)saveWithCompletion:(void (^)(NSError *error))completion;
+-(void)retrieveFileWithCompletion:(void (^)(NSError *error))completion;
 -(PFObject *)persistance;
 
 @end

@@ -30,7 +30,7 @@
     self = [super init];
     if (self) {
         self.title = dictionary[@"title"];
-        self.boxFileId = dictionary[@"box_file_id"];
+        self.file = (PFFile *)dictionary[@"file"];
         self.course = dictionary[@"course"];
         self._persistance = [PFObject objectWithClassName:@"Material"];
     }
@@ -43,6 +43,9 @@
         self._persistance = pfObject;
         self.title = pfObject[@"title"];
         self.boxFileId = pfObject[@"box_file_id"];
+        if ([pfObject[@"file"] isDataAvailable]) {
+            self.file = pfObject[@"file"];
+        }
         if ([pfObject[@"course"] isDataAvailable]) {
             self.course = [[Course alloc] initWithParseObject:pfObject[@"course"]];
         }
@@ -62,13 +65,37 @@
         return;
     }
     self._persistance[@"title"] = self.title;
-    self._persistance[@"box_file_id"] = self.boxFileId;
+    if (self.boxFileId) {
+        self._persistance[@"box_file_id"] = self.boxFileId;
+    }
+    if (self.file) {
+        self._persistance[@"file"] = self.file;
+    }
     self._persistance[@"course"] = [self.course persistance];
     [self._persistance saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        if (completion) {
-            completion(error);
+        if (self.boxFileId == nil && self.file) {
+            self.boxFileId = self.file.url;
+            [self saveWithCompletion:^(NSError *error) {
+                if (completion) {
+                    completion(error);
+                }
+            }];
+        } else {
+            if (completion) {
+                completion(error);
+            }
         }
     }];
+}
+
+-(void)retrieveFileWithCompletion:(void (^)(NSError *error))completion {
+    if (self.file) {
+        if (completion) {
+            completion(nil);
+        }
+    } else {
+        
+    }
 }
 
 -(PFObject *)persistance {

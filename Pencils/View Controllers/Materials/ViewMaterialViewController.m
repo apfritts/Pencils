@@ -39,7 +39,8 @@
     [super viewDidLoad];
     
     self.title = @"View Material";
-    NSURL *url = [NSURL URLWithString:@"https://app.box.com/s/82235i48qpfkwwsidacaram02xh41mz6"];
+    NSURL *url = [NSURL URLWithString:self.material.boxFileId];
+    //NSURL *url = [NSURL URLWithString:@"https://app.box.com/s/82235i48qpfkwwsidacaram02xh41mz6"];
     NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url];
     [self.webView loadRequest:urlRequest];
 }

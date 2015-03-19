@@ -7,9 +7,10 @@
 //
 
 #import "MaterialImporter.h"
-#import "BoxClient.h"
 #import "MaterialManager.h"
+#import "NavigationUtility.h"
 #import <MobileCoreServices/UTCoreTypes.h>
+#import <Parse/Parse.h>
 
 @interface MaterialImporter () <UIDocumentMenuDelegate, UIDocumentPickerDelegate>
 
@@ -58,13 +59,15 @@ ImportCompletionHandler _completionHandler;
 # pragma mark - UIDocumentPickerDelegate
 
 -(void)documentPicker:(UIDocumentPickerViewController *)controller didPickDocumentAtURL:(NSURL *)url {
-    NSString *convertedFileId = [BoxClient convertFile:[url absoluteString]];
+    [NavigationUtility progressBeginInView:self.parent.view];
+    PFFile *file = [PFFile fileWithName:@"parse file" contentsAtPath:[url path]];
     NSDictionary *dictionary = @{
                                  @"title": [url lastPathComponent],
-                                 @"boxFileId": convertedFileId,
+                                 @"file": file,
                                  @"course": self.course
                                  };
     [MaterialManager createMaterialWithDictionary:dictionary withCompletion:^(Material *material, NSError *error) {
+        [NavigationUtility progressStop];
         _completionHandler(material, error);
     }];
 }
