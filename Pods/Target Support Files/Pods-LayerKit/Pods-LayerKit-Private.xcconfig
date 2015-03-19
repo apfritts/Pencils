@@ -2,6 +2,7 @@
 ENABLE_NS_ASSERTIONS = ${PODS_LAYERKIT_ENABLE_NS_ASSERTIONS}
 FRAMEWORK_SEARCH_PATHS = ${PODS_LAYERKIT_FRAMEWORK_SEARCH_PATHS}
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
-HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers/Build" "${PODS_ROOT}/Headers/Build/LayerKit" "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/Bolts" "${PODS_ROOT}/Headers/Public/FontAwesome+iOS" "${PODS_ROOT}/Headers/Public/KNSemiModalViewController" "${PODS_ROOT}/Headers/Public/LayerKit" "${PODS_ROOT}/Headers/Public/MRProgress" "${PODS_ROOT}/Headers/Public/Parse" "${PODS_ROOT}/Headers/Public/THCalendarDatePicker"
+HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers/Private" "${PODS_ROOT}/Headers/Private/LayerKit" "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/Bolts" "${PODS_ROOT}/Headers/Public/FontAwesome+iOS" "${PODS_ROOT}/Headers/Public/KNSemiModalViewController" "${PODS_ROOT}/Headers/Public/LayerKit" "${PODS_ROOT}/Headers/Public/MRProgress" "${PODS_ROOT}/Headers/Public/Parse" "${PODS_ROOT}/Headers/Public/THCalendarDatePicker"
 OTHER_LDFLAGS = ${PODS_LAYERKIT_OTHER_LDFLAGS} -ObjC
 PODS_ROOT = ${SRCROOT}
+SKIP_INSTALL = YES
