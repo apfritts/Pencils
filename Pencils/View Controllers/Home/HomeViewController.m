@@ -78,6 +78,7 @@
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    // @TODO: cache this and abstract it out - used in CoursesViewController too
     CourseTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"CourseCell"];
     CGSize size = [cell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
     return size.height + 1;
@@ -85,7 +86,7 @@
 
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     HeaderCell *header = [self.tableView dequeueReusableCellWithIdentifier:@"HeaderCell"];
-    header.headerLabel.text = @"Your Courses";
+    header.headerLabel.text = @"Courses you are teaching";
     [header.headerButton setTitle:@"View All" forState:UIControlStateNormal];
     header.delegate = self;
     return header;
@@ -106,7 +107,7 @@
     CourseTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"CourseCell"];
     Course *course = self.currentCourses[indexPath.row];
     cell.courseLabel.text = course.name;
-    cell.dateLabel.text = [course formatDate:course.start];
+    cell.descriptionLabel.text = [course datesTaught];
     return cell;
 }
 

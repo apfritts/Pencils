@@ -25,6 +25,12 @@
 @end
 
 @implementation Course
+static NSDateFormatter *__formatter;
+
++(void)initialize {
+    __formatter = [[NSDateFormatter alloc] init];
+    [__formatter setDateFormat:@"MMMM yyyy"];
+}
 
 -(instancetype)initWithDictionary:(NSDictionary *)dictionary {
     self = [super init];
@@ -118,11 +124,8 @@
     return self._persistance;
 }
 
--(NSString *)formatDate:(NSDate *)date {
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"(yyyy, MM dd)"];
-    NSString *stringFromDate = [formatter stringFromDate:date];
-    return stringFromDate;
+-(NSString *)datesTaught {
+    return [NSString stringWithFormat:@"%@ to %@", [__formatter stringFromDate:self.start], [__formatter stringFromDate:self.end]];
 }
 
 @end

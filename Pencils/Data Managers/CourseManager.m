@@ -71,6 +71,7 @@
 +(void)listCourseForUser:(User *)user withCompletion:(void (^)(NSArray *, NSError *))completion {
     PFQuery *query = [PFQuery queryWithClassName:@"Course"];
     [query whereKey:@"user" equalTo:[user persistance]];
+    [query whereKey:@"parent" notEqualTo:[NSNull null]];
     [query includeKey:@"parent"];
     [query orderByAscending:@"name"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {

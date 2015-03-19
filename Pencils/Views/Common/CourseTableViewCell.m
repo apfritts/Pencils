@@ -24,8 +24,6 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *chevronRight;
 
-
-
 @end
 
 @implementation CourseTableViewCell

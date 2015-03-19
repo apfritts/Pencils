@@ -23,6 +23,7 @@
 #import "CourseTableViewCell.h"
 #import "NavigationUtility.h"
 #import "CourseManager.h"
+#import "UserManager.h"
 #import <FontAwesome+iOS/UIImage+FontAwesome.h>
 
 @interface CoursesViewController () <UISearchBarDelegate, UITableViewDataSource, UITableViewDelegate>
@@ -120,9 +121,20 @@
         course = self.courses[indexPath.row];
     }
     cell.courseLabel.text = course.name;
-    cell.dateLabel.text = [course formatDate:course.start];
+    if (course.user == [UserManager currentUser]) {
+        cell.descriptionLabel.text = [course datesTaught];
+    } else {
+        cell.descriptionLabel.text = course.courseDescription;
+    }
     
     return cell;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    // @TODO: cache this and abstract it out - used in HomeViewController too
+    CourseTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"CourseCell"];
+    CGSize size = [cell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
+    return size.height + 1;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
