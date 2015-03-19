@@ -116,7 +116,9 @@ static NSDateFormatter *__formatter;
         self._persistance[@"user"] = [self.user persistance];
     }
     [self._persistance saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        completion(error);
+        if (completion) {
+            completion(error);
+        }
     }];
 }
 

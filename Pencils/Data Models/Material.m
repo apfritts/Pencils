@@ -65,7 +65,9 @@
     self._persistance[@"box_file_id"] = self.boxFileId;
     self._persistance[@"course"] = [self.course persistance];
     [self._persistance saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        completion(error);
+        if (completion) {
+            completion(error);
+        }
     }];
 }
 

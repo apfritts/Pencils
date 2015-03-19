@@ -74,7 +74,9 @@
         self._persistance.password = self.password;
     }
     [self._persistance saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        completion(error);
+        if (completion) {
+            completion(error);
+        }
     }];
 }
 
