@@ -65,6 +65,10 @@
     [self.startPicker setTitle:[self.dateFormatter stringFromDate:self.course.start] forState:UIControlStateNormal];
     [self.endPicker setTitle:[self.dateFormatter stringFromDate:self.course.end] forState:UIControlStateNormal];
     
+    // Style the description field
+    self.descriptionField.layer.cornerRadius = 5;
+    self.descriptionView.layer.cornerRadius = 5;
+    
     // Setup the date picker
     self.datePicker = [THDatePickerViewController datePicker];
     self.datePicker.delegate = self;

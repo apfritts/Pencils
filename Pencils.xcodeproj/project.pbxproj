@@ -172,7 +172,6 @@
 		8FEAE1591AACAC5A000A0F2C /* RequestsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RequestsTableViewCell.h; path = Views/Home/RequestsTableViewCell.h; sourceTree = "<group>"; };
 		8FEAE15A1AACAC5A000A0F2C /* RequestsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RequestsTableViewCell.m; path = Views/Home/RequestsTableViewCell.m; sourceTree = "<group>"; };
 		8FEAE15B1AACAC5A000A0F2C /* RequestsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RequestsTableViewCell.xib; path = Views/Home/RequestsTableViewCell.xib; sourceTree = "<group>"; };
-		8FEAE15E1AACAE17000A0F2C /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPods.a; path = "Pods/../build/Debug-iphoneos/libPods.a"; sourceTree = "<group>"; };
 		8FEAE1601AACB3F6000A0F2C /* EmptyListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EmptyListTableViewCell.h; path = Views/Common/EmptyListTableViewCell.h; sourceTree = "<group>"; };
 		8FEAE1611AACB3F6000A0F2C /* EmptyListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EmptyListTableViewCell.m; path = Views/Common/EmptyListTableViewCell.m; sourceTree = "<group>"; };
 		8FEAE1621AACB3F6000A0F2C /* EmptyListTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = EmptyListTableViewCell.xib; path = Views/Common/EmptyListTableViewCell.xib; sourceTree = "<group>"; };
@@ -201,7 +200,6 @@
 			isa = PBXGroup;
 			children = (
 				8FBA260E1AB9C4C90020614E /* QuartzCore.framework */,
-				8FEAE15E1AACAE17000A0F2C /* libPods.a */,
 				54BF8E171EB0C38EEC311560 /* libPods.a */,
 			);
 			name = Frameworks;

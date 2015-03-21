@@ -67,8 +67,6 @@
     [self.datePicker setSelectedBackgroundColor:[ColorUtility primaryColor]];
     [self.datePicker setDisableFutureSelection:NO];
     [self.datePicker setDisableHistorySelection:NO];
-    [self.datePicker.view setTintColor:[ColorUtility tintColor]];
-    self.datePicker.view.backgroundColor = [ColorUtility backgroundColor];
 }
 
 -(void)onTeachTap {
