@@ -17,20 +17,22 @@
  */
 
 #import "CoursesViewController.h"
-#import "GlobalCourseViewController.h"
+
 #import "ColorUtility.h"
 #import "Course.h"
-#import "CourseTableViewCell.h"
-#import "NavigationUtility.h"
 #import "CourseManager.h"
-#import "UserManager.h"
+#import "CourseTableViewCell.h"
 #import <FontAwesome+iOS/UIImage+FontAwesome.h>
+#import "GlobalCourseViewController.h"
+#import "NavigationUtility.h"
+#import "SearchUtility.h"
+#import "UserManager.h"
 
-@interface CoursesViewController () <UISearchBarDelegate, UITableViewDataSource, UITableViewDelegate>
+@interface CoursesViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSArray *courses;
-@property (strong, nonatomic) NSArray *filteredCourses;
+@property (strong, nonatomic) SearchUtility *searchUtility;
 
 @end
 
@@ -55,6 +57,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
+    // Setup the table
+    [self.tableView registerNib:[UINib nibWithNibName:@"CourseTableViewCell" bundle:nil] forCellReuseIdentifier:@"CourseCell"];
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
+    
+    // Setup the search bar
+    self.searchUtility = [[SearchUtility alloc] initWithTableView:self.tableView type:@"courses" keyPath:@"name" data:self.courses];
+    self.tableView.tableHeaderView = [self.searchUtility searchBarView];
+    
+    // Setup global courses
     if (self.courses == nil) {
         // This is THE top level list of global classes
         [NavigationUtility progressBegin];
@@ -64,6 +76,9 @@
                 [[[UIAlertView alloc] initWithTitle:@"Error" message:error.description delegate:nil cancelButtonTitle:@"Try Again" otherButtonTitles:nil] show];
             } else {
                 self.courses = courses;
+                if (self.searchUtility) {
+                    [self.searchUtility updateData:self.courses];
+                }
                 [self.tableView reloadData];
             }
         }];
@@ -72,18 +87,6 @@
         self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Logout" style:UIBarButtonItemStylePlain target:self action:@selector(onLogoutTap)];
         self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Create" style:UIBarButtonItemStylePlain target:self action:@selector(onCreateTap)];
     }
-    
-    // Setup the table
-    [self.tableView registerNib:[UINib nibWithNibName:@"CourseTableViewCell" bundle:nil] forCellReuseIdentifier:@"CourseCell"];
-    self.tableView.rowHeight = UITableViewAutomaticDimension;
-    
-    // Setup the search bar
-    UISearchBar *searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, 38.0)];
-    searchBar.searchBarStyle = UISearchBarStyleDefault;
-    searchBar.delegate = self;
-    //searchBar.enablesReturnKeyAutomatically = YES;
-    searchBar.placeholder = @"Search courses";
-    self.tableView.tableHeaderView = searchBar;
 }
 
 -(void)onCreateTap {
@@ -94,29 +97,11 @@
     [NavigationUtility logout];
 }
 
-- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
-    if (searchText.length == 0) {
-        self.filteredCourses = self.courses;
-    } else {
-        NSExpression *lhs = [NSExpression expressionForKeyPath:@"name"];
-        NSExpression *rhs = [NSExpression expressionForConstantValue:searchText];
-        NSPredicate *finalPredicate = [NSComparisonPredicate
-                                       predicateWithLeftExpression:lhs
-                                       rightExpression:rhs
-                                       modifier:NSDirectPredicateModifier
-                                       type:NSContainsPredicateOperatorType
-                                       options:NSCaseInsensitivePredicateOption];
-        self.filteredCourses = [self.courses filteredArrayUsingPredicate:finalPredicate];
-    }
-    [self.tableView reloadData];
-    //[searchBar becomeFirstResponder];
-}
-
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     CourseTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"CourseCell"];
     Course *course;
-    if (self.filteredCourses) {
-        course = self.filteredCourses[indexPath.row];
+    if (self.searchUtility.filteredData) {
+        course = self.searchUtility.filteredData[indexPath.row];
     } else {
         course = self.courses[indexPath.row];
     }
@@ -138,8 +123,8 @@
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if (self.filteredCourses) {
-        return self.filteredCourses.count;
+    if (self.searchUtility.filteredData) {
+        return self.searchUtility.filteredData.count;
     } else {
         return self.courses.count;
     }

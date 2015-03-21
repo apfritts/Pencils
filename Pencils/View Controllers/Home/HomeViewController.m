@@ -31,6 +31,7 @@
 @interface HomeViewController () <HeaderCellDelegate, UITableViewDataSource, UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) NSArray *myCourses;
 @property (strong, nonatomic) NSArray *currentCourses;
 
 @end
@@ -55,14 +56,19 @@
     self.tableView.sectionHeaderHeight = 48.0;
     
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Logout" style:UIBarButtonItemStylePlain target:self action:@selector(onLogoutTap)];
+    
+    [NavigationUtility progressBegin];
 }
 
 -(void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
-    [NavigationUtility progressBegin];
     [CourseManager listCourseForUser:[UserManager currentUser] withCompletion:^(NSArray *courses, NSError *error) {
-        self.currentCourses = courses;
+        self.myCourses = courses;
+        NSDate *now = [NSDate date];
+        self.currentCourses = [self.myCourses filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(Course *course, NSDictionary *bindings) {
+            return [now compare:course.start] != NSOrderedAscending && [now compare:course.end] != NSOrderedDescending;
+        }]];
         [self.tableView reloadData];
         [NavigationUtility progressStop];
     }];
@@ -92,10 +98,7 @@
 }
 
 -(void)headerCellButtonTap:(HeaderCell *)headerCell {
-    Course *course = [[Course alloc] init];
-    course.name = @"name of course";
-    NSArray *courses = @[course, course, course, course, course, course, course, course, course];
-    [NavigationUtility navigateToCourseListOf:courses];
+    [NavigationUtility navigateToCourseListOf:self.myCourses];
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

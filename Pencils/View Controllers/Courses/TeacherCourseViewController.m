@@ -17,13 +17,15 @@
  */
 
 #import "TeacherCourseViewController.h"
-#import "TeacherCourseDetailsTableViewCell.h"
+
 #import "HeaderCell.h"
 #import "MaterialCell.h"
 #import "MaterialManager.h"
 #import "MaterialImporter.h"
-#import "UserManager.h"
 #import <MobileCoreServices/UTCoreTypes.h>
+#import "SearchUtility.h"
+#import "TeacherCourseDetailsTableViewCell.h"
+#import "UserManager.h"
 
 @interface TeacherCourseViewController () <HeaderCellDelegate, UITableViewDataSource, UITableViewDelegate>
 
@@ -31,6 +33,7 @@
 @property (strong, nonatomic) NSArray *materials;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) MaterialImporter *materialImporter;
+@property (strong, nonatomic) SearchUtility *materialSearch;
 
 @end
 
@@ -68,11 +71,13 @@ static NSArray *__sectionHeaderTitles;
     
     self.tableView.sectionHeaderHeight = 48.0;
     
+    self.materialSearch = [[SearchUtility alloc] initWithTableView:self.tableView type:@"materials" keyPath:@"title" data:self.materials];
+    
     [NavigationUtility progressBeginInView:self.view];
     [MaterialManager listMaterialForCourse:self.course withCompletion:^(NSArray *materials, NSError *error) {
         [NavigationUtility progressStop];
         self.materials = materials;
-        [self.tableView reloadData];
+        [self.materialSearch updateData:self.materials];
     }];
 }
 
@@ -81,7 +86,7 @@ static NSArray *__sectionHeaderTitles;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 2;
+    return 3;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -90,6 +95,9 @@ static NSArray *__sectionHeaderTitles;
             return 90;
             break;
         }
+        case 1:
+            return UITableViewAutomaticDimension;
+            break;
         default:
             return 44;
             break;
@@ -97,17 +105,28 @@ static NSArray *__sectionHeaderTitles;
 }
 
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    HeaderCell *header = [self.tableView dequeueReusableCellWithIdentifier:@"HeaderCell"];
-    header.section = section;
-    if (section == 0) {
-        header.headerLabel.text = @"Course Description";
-        [header.headerButton setTitle:@"Parent Course" forState:UIControlStateNormal];
-    } else if (section == 1) {
-        header.headerLabel.text = @"Materials";
-        [header.headerButton setTitle:@"Import" forState:UIControlStateNormal];
+    switch (section) {
+        case 0: {
+            HeaderCell *header = [self.tableView dequeueReusableCellWithIdentifier:@"HeaderCell"];
+            header.section = section;
+            header.headerLabel.text = @"Course Description";
+            [header.headerButton setTitle:@"Parent Course" forState:UIControlStateNormal];
+            header.delegate = self;
+            return header;
+        }
+        case 2: {
+            return self.materialSearch.searchBarView;
+        }
+        case 1: {
+            HeaderCell *header = [self.tableView dequeueReusableCellWithIdentifier:@"HeaderCell"];
+            header.section = section;
+            header.headerLabel.text = @"Materials";
+            [header.headerButton setTitle:@"Import" forState:UIControlStateNormal];
+            header.delegate = self;
+            return header;
+        }
     }
-    header.delegate = self;
-    return header;
+    return nil;
 }
 
 -(void)headerCellButtonTap:(HeaderCell *)headerCell {
@@ -132,12 +151,17 @@ static NSArray *__sectionHeaderTitles;
     switch (section) {
         case 0:
             return 1;
-            break;
         case 1:
-            return self.materials.count;
-            break;
+            return 0;
+        case 2: {
+            if (self.materialSearch.filteredData) {
+                return self.materialSearch.filteredData.count;
+            } else {
+                return self.materials.count;
+            }
+        }
     }
-    return 0;
+    return 1;
 }
 
 
@@ -152,9 +176,9 @@ static NSArray *__sectionHeaderTitles;
             return cell;
             break;
         }
-        case 1: {
+        case 2: {
             MaterialCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"MaterialCell"];
-            Material *material = self.materials[indexPath.row];
+            Material *material = self.materialSearch.filteredData ? self.materialSearch.filteredData[indexPath.row] : self.materials[indexPath.row];
             [cell setMaterial:material];
             return cell;
             break;

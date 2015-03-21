@@ -51,6 +51,7 @@
 		736A899C1AA8CB190035631A /* UserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 736A89981AA8CB190035631A /* UserManager.m */; };
 		8F1E33671AA915DA001C7A56 /* HeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F1E33651AA915DA001C7A56 /* HeaderCell.m */; };
 		8F1E33681AA915DA001C7A56 /* HeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F1E33661AA915DA001C7A56 /* HeaderCell.xib */; };
+		8F2AFEB61ABE07A10045F6E6 /* SearchUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F2AFEB51ABE07A10045F6E6 /* SearchUtility.m */; };
 		8F8B604B1AAC904C00FF9FED /* ColorUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F8B604A1AAC904C00FF9FED /* ColorUtility.m */; };
 		8FBA260C1AB91C700020614E /* ColorSchemesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FBA260A1AB91C700020614E /* ColorSchemesViewController.m */; };
 		8FBA260D1AB91C700020614E /* ColorSchemesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FBA260B1AB91C700020614E /* ColorSchemesViewController.xib */; };
@@ -151,6 +152,8 @@
 		8F1E33641AA915DA001C7A56 /* HeaderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HeaderCell.h; path = Views/Common/HeaderCell.h; sourceTree = "<group>"; };
 		8F1E33651AA915DA001C7A56 /* HeaderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HeaderCell.m; path = Views/Common/HeaderCell.m; sourceTree = "<group>"; };
 		8F1E33661AA915DA001C7A56 /* HeaderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HeaderCell.xib; path = Views/Common/HeaderCell.xib; sourceTree = "<group>"; };
+		8F2AFEB41ABE07A10045F6E6 /* SearchUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchUtility.h; path = Utilities/SearchUtility.h; sourceTree = "<group>"; };
+		8F2AFEB51ABE07A10045F6E6 /* SearchUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchUtility.m; path = Utilities/SearchUtility.m; sourceTree = "<group>"; };
 		8F8B60491AAC904C00FF9FED /* ColorUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ColorUtility.h; path = Utilities/ColorUtility.h; sourceTree = "<group>"; };
 		8F8B604A1AAC904C00FF9FED /* ColorUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ColorUtility.m; path = Utilities/ColorUtility.m; sourceTree = "<group>"; };
 		8FBA26091AB91C700020614E /* ColorSchemesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ColorSchemesViewController.h; path = "View Controllers/Home/ColorSchemesViewController.h"; sourceTree = "<group>"; };
@@ -377,6 +380,8 @@
 				8F8B604A1AAC904C00FF9FED /* ColorUtility.m */,
 				736A893E1AA8B0AD0035631A /* NavigationUtility.h */,
 				736A893F1AA8B0AD0035631A /* NavigationUtility.m */,
+				8F2AFEB41ABE07A10045F6E6 /* SearchUtility.h */,
+				8F2AFEB51ABE07A10045F6E6 /* SearchUtility.m */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -652,6 +657,7 @@
 				736A89991AA8CB190035631A /* Course.m in Sources */,
 				8FEAE1631AACB3F6000A0F2C /* EmptyListTableViewCell.m in Sources */,
 				736A89521AA8B4880035631A /* GlobalCourseViewController.m in Sources */,
+				8F2AFEB61ABE07A10045F6E6 /* SearchUtility.m in Sources */,
 				736A89111AA8AA2A0035631A /* LoginViewController.m in Sources */,
 				736A89401AA8B0AD0035631A /* NavigationUtility.m in Sources */,
 				736A899C1AA8CB190035631A /* UserManager.m in Sources */,
