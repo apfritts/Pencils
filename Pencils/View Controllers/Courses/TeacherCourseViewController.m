@@ -24,7 +24,7 @@
 #import "MaterialImporter.h"
 #import <MobileCoreServices/UTCoreTypes.h>
 #import "SearchUtility.h"
-#import "TeacherCourseDetailsTableViewCell.h"
+#import "CourseDetailsCell.h"
 #import "UserManager.h"
 
 @interface TeacherCourseViewController () <HeaderCellDelegate, UITableViewDataSource, UITableViewDelegate>
@@ -60,7 +60,7 @@ static NSArray *__sectionHeaderTitles;
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     
-    [self.tableView registerNib:[UINib nibWithNibName:@"TeacherCourseDetailsTableViewCell" bundle:nil] forCellReuseIdentifier:@"TeacherCourseDetailsCell"];
+    [self.tableView registerNib:[UINib nibWithNibName:@"CourseDetailsCell" bundle:nil] forCellReuseIdentifier:@"CourseDetailsCell"];
     [self.tableView registerNib:[UINib nibWithNibName:@"HeaderCell" bundle:nil] forCellReuseIdentifier:@"HeaderCell"];
     [self.tableView registerNib:[UINib nibWithNibName:@"MaterialCell" bundle:nil] forCellReuseIdentifier:@"MaterialCell"];
     self.tableView.rowHeight = UITableViewAutomaticDimension;
@@ -143,7 +143,10 @@ static NSArray *__sectionHeaderTitles;
         }
         case 1: {
             self.materialImporter = [[MaterialImporter alloc] initWithCourse:self.course andParent:self andCompletion:^(Material *material, NSError *error) {
-                NSLog(@"MaterialImporter complete!");
+                NSMutableArray *materials = [NSMutableArray arrayWithArray:self.materials];
+                [materials addObject:material];
+                self.materials = materials;
+                [self.tableView reloadData];
             }];
             [self.materialImporter execute:headerCell.headerButton];
             break;
@@ -175,10 +178,9 @@ static NSArray *__sectionHeaderTitles;
 {
     switch (indexPath.section) {
         case 0: {
-            TeacherCourseDetailsTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"TeacherCourseDetailsCell"];
-            cell.descriptionLabel.text = self.course.courseDescription;
+            CourseDetailsCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"CourseDetailsCell"];
+            cell.courseDescriptionLabel.text = self.course.courseDescription;
             cell.course = self.course;
-            cell.globalCourse = self.course.parent;
             return cell;
             break;
         }

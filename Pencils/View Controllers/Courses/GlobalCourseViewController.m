@@ -17,8 +17,8 @@
  */
 
 #import "GlobalCourseViewController.h"
-#import "GlobalCourseDetailsTableViewCell.h"
-#import "GlobalCourseTeacherTableViewCell.h"
+#import "CourseDetailsCell.h"
+#import "PersonCell.h"
 #import "MaterialCell.h"
 #import "HeaderCell.h"
 #import "UserManager.h"
@@ -77,8 +77,8 @@ static NSArray *__sectionHeaderTitles;
     }];
 
     
-    [self.tableView registerNib:[UINib nibWithNibName:@"GlobalCourseDetailsTableViewCell" bundle:nil] forCellReuseIdentifier:@"GlobalCourseDetailsCell"];
-    [self.tableView registerNib:[UINib nibWithNibName:@"GlobalCourseTeacherTableViewCell" bundle:nil] forCellReuseIdentifier:@"GlobalCourseTeacherCell"];
+    [self.tableView registerNib:[UINib nibWithNibName:@"CourseDetailsCell" bundle:nil] forCellReuseIdentifier:@"CourseDetailsCell"];
+    [self.tableView registerNib:[UINib nibWithNibName:@"PersonCell" bundle:nil] forCellReuseIdentifier:@"PersonCell"];
     [self.tableView registerNib:[UINib nibWithNibName:@"MaterialCell" bundle:nil] forCellReuseIdentifier:@"MaterialCell"];
     [self.tableView registerNib:[UINib nibWithNibName:@"HeaderCell" bundle:nil] forCellReuseIdentifier:@"HeaderCell"];
     self.tableView.rowHeight = UITableViewAutomaticDimension;
@@ -95,7 +95,6 @@ static NSArray *__sectionHeaderTitles;
 
 - (void)onAddMaterialButton {
     NSLog(@"Add a course material!");
-    
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -122,7 +121,7 @@ static NSArray *__sectionHeaderTitles;
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.section) {
         case 0: {
-            GlobalCourseDetailsTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"GlobalCourseDetailsCell"];
+            CourseDetailsCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"CourseDetailsCell"];
             CGSize size = [cell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
             return size.height + 1;
             break;
@@ -148,7 +147,7 @@ static NSArray *__sectionHeaderTitles;
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.section) {
         case 0: {
-            GlobalCourseDetailsTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"GlobalCourseDetailsCell"];
+            CourseDetailsCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"CourseDetailsCell"];
             cell.course = self.globalCourse;
             [cell.courseDescriptionLabel sizeToFit];
             cell.courseDescriptionLabel.text = self.globalCourse.courseDescription;
@@ -156,7 +155,7 @@ static NSArray *__sectionHeaderTitles;
             break;
         }
         case 1: {
-            GlobalCourseTeacherTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"GlobalCourseTeacherCell"];
+            PersonCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"PersonCell"];
             User *user = self.users[indexPath.row];
             cell.teacherLabel.text = [NSString stringWithFormat:@"%@ %@", user.firstName, user.lastName];
             return cell;

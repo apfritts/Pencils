@@ -98,6 +98,9 @@ static NSDateFormatter *__formatter;
         completion([[NSError alloc] initWithDomain:@"com.box.Pencils" code:1 userInfo:@{@"validate": validate}]);
         return;
     }
+    if (self._persistance == nil) {
+        self._persistance = [PFObject objectWithClassName:@"Course"];
+    }
     self._persistance[@"name"] = self.name;
     self._persistance[@"description"] = self.courseDescription;
     if (self.start) {

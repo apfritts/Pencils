@@ -64,6 +64,9 @@
         completion([[NSError alloc] initWithDomain:@"com.box.Pencils" code:1 userInfo:@{@"validate": validate}]);
         return;
     }
+    if (self._persistance == nil) {
+        self._persistance = [PFObject objectWithClassName:@"Material"];
+    }
     self._persistance[@"title"] = self.title;
     if (self.boxFileId) {
         self._persistance[@"box_file_id"] = self.boxFileId;

@@ -1,5 +1,5 @@
 //
-//  GlobalCourseDetailsTableViewCell.h
+//  CourseDetailsCell.h
 //  Pencils
 //
 //  Created by William Seo on 3/10/15.
@@ -10,10 +10,9 @@
 #import "Course.h"
 #import "NavigationUtility.h"
 
-@interface GlobalCourseDetailsTableViewCell : UITableViewCell
+@interface CourseDetailsCell : UITableViewCell
 
 @property (strong, nonatomic) Course *course;
-
 @property (weak, nonatomic) IBOutlet UILabel *courseDescriptionLabel;
 
 @end

@@ -70,31 +70,21 @@
 }
 
 -(void)onTeachTap {
-    // @TODO: Move to data model
-    if (!self.startDate) {
-        [[[UIAlertView alloc] initWithTitle:@"Validation Error" message:@"You have to select a start date!" delegate:nil cancelButtonTitle:@"Fix it" otherButtonTitles:nil] show];
-        return;
-    }
-    if (!self.endDate) {
-        [[[UIAlertView alloc] initWithTitle:@"Validation Error" message:@"You have to select an end date!" delegate:nil cancelButtonTitle:@"Fix it" otherButtonTitles:nil] show];
-        return;
-    }
-    if (self.startDate > self.endDate) {
-        [[[UIAlertView alloc] initWithTitle:@"Validation Error" message:@"The start date is after the end date.\n\nYou cannot start the class after it ended!" delegate:nil cancelButtonTitle:@"Whoops!" otherButtonTitles:nil] show];
-        return;
-    }
-    
     // Create the course
+    Course *newCourse = [[Course alloc] init];
+    newCourse.name = self.course.name;
+    newCourse.courseDescription = self.course.courseDescription;
+    newCourse.start = self.startDate;
+    newCourse.end = self.endDate;
+    newCourse.parent = self.course;
+    newCourse.user = [UserManager currentUser];
+    NSArray *validationErrors = [newCourse validate];
+    if (validationErrors.count > 0) {
+        [[[UIAlertView alloc] initWithTitle:@"Error" message:validationErrors[0] delegate:nil cancelButtonTitle:@"Try Again" otherButtonTitles:nil] show];
+        return;
+    }
     [NavigationUtility progressBegin];
-    NSDictionary *dictionary = @{
-                                 @"name": self.course.name,
-                                 @"description": self.course.description,
-                                 @"start": self.startDate,
-                                 @"end": self.endDate,
-                                 @"parent": self.course,
-                                 @"user": [UserManager currentUser]
-                                 };
-    [CourseManager createCourseWithDictionary:dictionary withCompletion:^(Course *course, NSError *error) {
+    [CourseManager createCourse:newCourse withCompletion:^(Course *course, NSError *error) {
         [NavigationUtility progressStop];
         if (error) {
             [[[UIAlertView alloc] initWithTitle:@"Error" message:error.debugDescription delegate:nil cancelButtonTitle:@"Try Again" otherButtonTitles:nil] show];

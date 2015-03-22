@@ -22,6 +22,12 @@
 
 +(void)createMaterialWithDictionary:(NSDictionary *)dictionary withCompletion:(void (^)(Material *material, NSError *error))completion {
     Material *material = [[Material alloc] initWithDictionary:dictionary];
+    NSArray *validationErrors = [material validate];
+    if (validationErrors.count > 0) {
+        NSError *error = [NSError errorWithDomain:@"com.box.Pencils" code:1 userInfo:@{@"validationErrors": validationErrors}];
+        completion(nil, error);
+        return;
+    }
     [material saveWithCompletion:^(NSError *error) {
         if (completion) {
             completion(material, error);

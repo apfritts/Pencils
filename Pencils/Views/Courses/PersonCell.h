@@ -1,5 +1,5 @@
 //
-//  GlobalCourseTeacherTableViewCell.h
+//  PersonCell.h
 //  Pencils
 //
 //  Created by William Seo on 3/10/15.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface GlobalCourseTeacherTableViewCell : UITableViewCell
+@interface PersonCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UILabel *teacherLabel;
 

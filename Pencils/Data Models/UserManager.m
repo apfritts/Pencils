@@ -56,6 +56,12 @@ static User *_currentUser;
                                  @"password": password
                                  };
     User *user = [[User alloc] initWithDictionary:dictionary];
+    NSArray *validationErrors = [user validate];
+    if (validationErrors.count > 0) {
+        NSError *error = [NSError errorWithDomain:@"com.box.Pencils" code:1 userInfo:@{@"validationErrors": validationErrors}];
+        completion(nil, error);
+        return;
+    }
     [[user persistance] signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (completion) {
             if (error) {

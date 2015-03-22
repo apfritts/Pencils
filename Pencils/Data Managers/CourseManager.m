@@ -23,6 +23,16 @@
 
 +(void)createCourseWithDictionary:(NSDictionary *)dictionary withCompletion:(void (^)(Course *, NSError *))completion {
     Course *course = [[Course alloc] initWithDictionary:dictionary];
+    [CourseManager createCourse:course withCompletion:completion];
+}
+
++(void)createCourse:(Course *)course withCompletion:(void (^)(Course *course, NSError *error))completion {
+    NSArray *validationErrors = [course validate];
+    if (validationErrors.count > 0) {
+        NSError *error = [NSError errorWithDomain:@"com.box.Pencils" code:1 userInfo:@{@"validationErrors": validationErrors}];
+        completion(nil, error);
+        return;
+    }
     [course saveWithCompletion:^(NSError *error) {
         if (completion != nil) {
             completion(course, error);

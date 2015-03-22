@@ -1,14 +1,14 @@
 //
-//  GlobalCourseTeacherTableViewCell.m
+//  PersonCell.m
 //  Pencils
 //
 //  Created by William Seo on 3/10/15.
 //  Copyright (c) 2015 Box. All rights reserved.
 //
 
-#import "GlobalCourseTeacherTableViewCell.h"
+#import "PersonCell.h"
 
-@implementation GlobalCourseTeacherTableViewCell
+@implementation PersonCell
 
 - (void)awakeFromNib {
     // Initialization code
