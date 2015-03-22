@@ -69,6 +69,8 @@ static NSArray *__sectionHeaderTitles;
         self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(onEditTap)];
     }
     
+    [self.course addObserver:self forKeyPath:@"courseDescription" options:0 context:NULL];
+    
     self.tableView.sectionHeaderHeight = 48.0;
     
     self.materialSearch = [[SearchUtility alloc] initWithTableView:self.tableView type:@"materials" keyPath:@"title" data:self.materials];
@@ -79,6 +81,10 @@ static NSArray *__sectionHeaderTitles;
         self.materials = materials;
         [self.materialSearch updateData:self.materials];
     }];
+}
+
+-(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+    [self.tableView reloadData];
 }
 
 -(void)onEditTap {
@@ -198,6 +204,10 @@ static NSArray *__sectionHeaderTitles;
         }
     }
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+-(void)dealloc {
+    [self.course removeObserver:self forKeyPath:@"courseDescription"];
 }
 
 @end
