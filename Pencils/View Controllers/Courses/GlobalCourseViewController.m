@@ -20,15 +20,16 @@
 #import "CourseDetailsCell.h"
 #import "PersonCell.h"
 #import "MaterialCell.h"
+#import "MaterialImporter.h"
 #import "HeaderCell.h"
 #import "UserManager.h"
 
-@interface GlobalCourseViewController () <UITableViewDataSource, UITableViewDelegate>
+@interface GlobalCourseViewController () <HeaderCellDelegate, UITableViewDataSource, UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (strong, nonatomic) Course *globalCourse;
+@property (strong, nonatomic) Course *course;
 @property (strong, nonatomic) NSArray *users;
-@property (strong, nonatomic) NSMutableArray *rightBarButtons;
+@property (strong, nonatomic) MaterialImporter *materialImporter;
 
 @end
 
@@ -46,7 +47,7 @@ static NSArray *__sectionHeaderTitles;
 -(instancetype)initWithGlobalCourse:(Course *)globalCourse {
     self = [super init];
     if (self) {
-        self.globalCourse = globalCourse;
+        self.course = globalCourse;
     }
     return self;
 }
@@ -54,29 +55,28 @@ static NSArray *__sectionHeaderTitles;
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.title = [NSString stringWithFormat:@"%@", self.globalCourse.name];
+    self.title = [NSString stringWithFormat:@"%@", self.course.name];
     
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
 
-    self.rightBarButtons = [[NSMutableArray alloc] init];
-    
-    if (self.globalCourse.owner != [UserManager currentUser]) {
+    NSMutableArray *rightBarButtons = [[NSMutableArray alloc] init];
+    if (self.course.owner != [UserManager currentUser]) {
         UIBarButtonItem *editCourseButton = [[UIBarButtonItem alloc] initWithTitle:@"Edit" style:UIBarButtonItemStylePlain target:self action:@selector(onEditButton)];
-        [self.rightBarButtons addObject:editCourseButton];
+        [rightBarButtons addObject:editCourseButton];
     }
-
     UIBarButtonItem *teachCourseButton = [[UIBarButtonItem alloc] initWithTitle:@"Teach" style:UIBarButtonItemStylePlain target:self action:@selector(onTeachCourseButton)];
-    [self.rightBarButtons addObject:teachCourseButton];
+    [rightBarButtons addObject:teachCourseButton];
+    self.navigationItem.rightBarButtonItems = rightBarButtons;
     
-    self.navigationItem.rightBarButtonItems = self.rightBarButtons;
-    
-    [UserManager listUsersForGlobalCourse:self.globalCourse withCompletion:^(NSArray *users, NSError *error) {
+    [UserManager listUsersForGlobalCourse:self.course withCompletion:^(NSArray *users, NSError *error) {
         self.users = [[NSArray alloc] initWithArray:users];
         [self.tableView reloadData];
     }];
+    [self.course retrieveMaterials:^(NSError *error) {
+        [self.tableView reloadData];
+    }];
 
-    
     [self.tableView registerNib:[UINib nibWithNibName:@"CourseDetailsCell" bundle:nil] forCellReuseIdentifier:@"CourseDetailsCell"];
     [self.tableView registerNib:[UINib nibWithNibName:@"PersonCell" bundle:nil] forCellReuseIdentifier:@"PersonCell"];
     [self.tableView registerNib:[UINib nibWithNibName:@"MaterialCell" bundle:nil] forCellReuseIdentifier:@"MaterialCell"];
@@ -86,15 +86,11 @@ static NSArray *__sectionHeaderTitles;
 }
 
 - (void)onEditButton {
-    [NavigationUtility navigateToEditTeacherCourse:self.globalCourse];
+    [NavigationUtility navigateToEditTeacherCourse:self.course];
 }
 
 - (void)onTeachCourseButton {
-    [NavigationUtility navigateToTeachCourse:self.globalCourse];
-}
-
-- (void)onAddMaterialButton {
-    NSLog(@"Add a course material!");
+    [NavigationUtility navigateToTeachCourse:self.course];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -137,20 +133,28 @@ static NSArray *__sectionHeaderTitles;
     HeaderCell *header = [self.tableView dequeueReusableCellWithIdentifier:@"HeaderCell"];
     [header.headerLabel setText:__sectionHeaderTitles[section]];
     if (section == 2) {
-        [header.headerButton setTitle:@"Add" forState:UIControlStateNormal];
+        [header.headerButton setTitle:@"Add Material" forState:UIControlStateNormal];
+        header.delegate = self;
     } else {
         header.headerButton.hidden = YES;
     }
     return header;
 }
 
+-(void)headerCellButtonTap:(HeaderCell *)headerCell {
+    self.materialImporter = [[MaterialImporter alloc] initWithCourse:self.course andParent:self andCompletion:^(Material *material, NSError *error) {
+        [self.tableView reloadData];
+    }];
+    [self.materialImporter execute:headerCell.headerButton];
+}
+
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.section) {
         case 0: {
             CourseDetailsCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"CourseDetailsCell"];
-            cell.course = self.globalCourse;
+            cell.course = self.course;
             [cell.courseDescriptionLabel sizeToFit];
-            cell.courseDescriptionLabel.text = self.globalCourse.courseDescription;
+            cell.courseDescriptionLabel.text = self.course.courseDescription;
             return cell;
             break;
         }
@@ -178,7 +182,7 @@ static NSArray *__sectionHeaderTitles;
             break;
         }
         case 1: {
-            [NavigationUtility navigateToTeacherCourse:self.globalCourse];
+            [NavigationUtility navigateToTeacherCourse:self.course];
             break;
         }
         default: {

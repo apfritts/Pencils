@@ -68,6 +68,9 @@ ImportCompletionHandler _completionHandler;
                                  };
     [MaterialManager createMaterialWithDictionary:dictionary withCompletion:^(Material *material, NSError *error) {
         [NavigationUtility progressStop];
+        NSMutableArray *materials = [NSMutableArray arrayWithArray:self.course.materials];
+        [materials addObject:material];
+        self.course.materials = materials;
         _completionHandler(material, error);
     }];
 }

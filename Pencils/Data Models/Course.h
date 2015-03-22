@@ -36,6 +36,7 @@
 -(instancetype)initWithParseObject:(PFObject *)pfObject;
 -(NSArray *)validate;
 -(void)saveWithCompletion:(void (^)(NSError *error))completion;
+-(void)retrieveMaterials:(void(^)(NSError *error))completion;
 -(PFObject *)persistance;
 -(NSString *)datesTaught;
 
