@@ -179,7 +179,7 @@ static NSArray *__sectionHeaderTitles;
     switch (indexPath.section) {
         case 0: {
             CourseDetailsCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"CourseDetailsCell"];
-            cell.courseDescriptionLabel.text = self.course.courseDescription;
+            cell.courseDescriptionTextView.text = self.course.courseDescription;
             cell.course = self.course;
             return cell;
             break;

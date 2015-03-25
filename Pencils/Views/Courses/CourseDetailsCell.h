@@ -13,6 +13,8 @@
 @interface CourseDetailsCell : UITableViewCell
 
 @property (strong, nonatomic) Course *course;
-@property (weak, nonatomic) IBOutlet UILabel *courseDescriptionLabel;
+//@property (weak, nonatomic) IBOutlet UILabel *courseDescriptionLabel;
+@property (weak, nonatomic) IBOutlet UITextView *courseDescriptionTextView;
 
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *textViewHeightConstraint;
 @end

@@ -18,6 +18,7 @@
 
 #import "Course.h"
 #import "MaterialManager.h"
+#import "CourseManager.h"
 
 @interface Course()
 
@@ -44,6 +45,7 @@ static NSDateFormatter *__formatter;
         self.parent = dictionary[@"parent"];
         self.user = dictionary[@"user"];
         self.materials = [dictionary[@"materials"] array];
+        self.objectId = dictionary[@"objectId"];
         self._persistance = [PFObject objectWithClassName:@"Course"];
     }
     return self;
@@ -58,6 +60,7 @@ static NSDateFormatter *__formatter;
         self.start = [pfObject objectForKey:@"start"];
         self.end = [pfObject objectForKey:@"end"];
         self.deleted = [pfObject objectForKey:@"deleted"];
+        self.objectId = [pfObject objectId];
         if ([pfObject[@"parent"] isDataAvailable]) {
             self.parent = [[Course alloc] initWithParseObject:[pfObject objectForKey:@"parent"]];
         }

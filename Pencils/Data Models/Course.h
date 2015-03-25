@@ -31,6 +31,7 @@
 @property (strong, nonatomic) User *user;
 @property (strong, nonatomic) User *owner;
 @property (strong, nonatomic) NSArray *materials;
+@property (strong, nonatomic) NSString *objectId;
 
 -(instancetype)initWithDictionary:(NSDictionary *)dictionary;
 -(instancetype)initWithParseObject:(PFObject *)pfObject;

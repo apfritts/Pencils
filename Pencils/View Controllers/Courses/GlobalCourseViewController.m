@@ -23,6 +23,7 @@
 #import "MaterialImporter.h"
 #import "HeaderCell.h"
 #import "UserManager.h"
+#import "CourseManager.h"
 
 @interface GlobalCourseViewController () <HeaderCellDelegate, UITableViewDataSource, UITableViewDelegate>
 
@@ -50,6 +51,13 @@ static NSArray *__sectionHeaderTitles;
         self.course = globalCourse;
     }
     return self;
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [CourseManager retreiveCourseById:self.course.objectId withCompletion:^(Course *course, NSError *error) {
+        self.course = course;
+        [self.tableView reloadData];
+    }];
 }
 
 - (void)viewDidLoad {
@@ -82,6 +90,7 @@ static NSArray *__sectionHeaderTitles;
     [self.tableView registerNib:[UINib nibWithNibName:@"MaterialCell" bundle:nil] forCellReuseIdentifier:@"MaterialCell"];
     [self.tableView registerNib:[UINib nibWithNibName:@"HeaderCell" bundle:nil] forCellReuseIdentifier:@"HeaderCell"];
     self.tableView.rowHeight = UITableViewAutomaticDimension;
+    self.tableView.estimatedRowHeight = 45;
     self.tableView.sectionHeaderHeight = 48.0;
 }
 
@@ -118,9 +127,7 @@ static NSArray *__sectionHeaderTitles;
     switch (indexPath.section) {
         case 0: {
             CourseDetailsCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"CourseDetailsCell"];
-            CGSize size = [cell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
-            return size.height + 1;
-            break;
+            return cell.contentView.frame.size.height;
         }
         default:
             return 44;
@@ -152,9 +159,9 @@ static NSArray *__sectionHeaderTitles;
     switch (indexPath.section) {
         case 0: {
             CourseDetailsCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"CourseDetailsCell"];
+            cell.courseDescriptionTextView.text = self.course.courseDescription;
             cell.course = self.course;
-            [cell.courseDescriptionLabel sizeToFit];
-            cell.courseDescriptionLabel.text = self.course.courseDescription;
+            [cell.courseDescriptionTextView sizeToFit];
             return cell;
             break;
         }

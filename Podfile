@@ -5,5 +5,5 @@ pod 'FontAwesome+iOS'
 pod 'layerkit'
 pod 'MRProgress'
 pod 'parse'
-pod 'THCalendarDatePicker', git: 'git@github.com:apfritts/THCalendarDatePicker.git'
+pod 'THCalendarDatePicker'
 

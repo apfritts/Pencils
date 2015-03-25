@@ -11,12 +11,13 @@
 @implementation CourseDetailsCell
 
 - (void)awakeFromNib {
-    self.courseDescriptionLabel.preferredMaxLayoutWidth = self.courseDescriptionLabel.frame.size.width;
+    [self layoutSubviews];
 }
 
 - (void)layoutSubviews {
+    CGSize sizeThatFitsTextView = [self.courseDescriptionTextView sizeThatFits:CGSizeMake(self.courseDescriptionTextView.frame.size.width, MAXFLOAT)];
+    self.textViewHeightConstraint.constant = sizeThatFitsTextView.height;
     [super layoutSubviews];
-    self.courseDescriptionLabel.preferredMaxLayoutWidth = self.courseDescriptionLabel.frame.size.width;
 }
 
 @end
