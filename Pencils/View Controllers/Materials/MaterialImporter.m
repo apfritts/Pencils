@@ -12,7 +12,7 @@
 #import <MobileCoreServices/UTCoreTypes.h>
 #import <Parse/Parse.h>
 
-@interface MaterialImporter () <UIDocumentMenuDelegate, UIDocumentPickerDelegate>
+@interface MaterialImporter () <UIAlertViewDelegate, UIDocumentMenuDelegate, UIDocumentPickerDelegate>
 
 @property (strong, nonatomic) Course *course;
 @property (weak, nonatomic) UIViewController *parent;
@@ -60,19 +60,27 @@ ImportCompletionHandler _completionHandler;
 
 -(void)documentPicker:(UIDocumentPickerViewController *)controller didPickDocumentAtURL:(NSURL *)url {
     [NavigationUtility progressBeginInView:self.parent.view];
-    PFFile *file = [PFFile fileWithName:@"parse file" contentsAtPath:[url path]];
-    NSDictionary *dictionary = @{
-                                 @"title": [url lastPathComponent],
-                                 @"file": file,
-                                 @"course": self.course
-                                 };
-    [MaterialManager createMaterialWithDictionary:dictionary withCompletion:^(Material *material, NSError *error) {
+    @try {
+        PFFile *file = [PFFile fileWithName:@"parse file" contentsAtPath:[url path]];
+        NSDictionary *dictionary = @{
+                                     @"title": [url lastPathComponent],
+                                     @"file": file,
+                                     @"course": self.course
+                                     };
+        [MaterialManager createMaterialWithDictionary:dictionary withCompletion:^(Material *material, NSError *error) {
+            NSMutableArray *materials = [NSMutableArray arrayWithArray:self.course.materials];
+            [materials addObject:material];
+            self.course.materials = materials;
+            _completionHandler(material, error);
+        }];
+    }
+    @catch (NSException *exception) {
+        [[[UIAlertView alloc] initWithTitle:@"Error" message:@"Failed to get the file. This usually happens when the file is too big or the internet connection was lost." delegate:nil cancelButtonTitle:@"Try Again" otherButtonTitles:nil] show];
+        _completionHandler(nil, [NSError errorWithDomain:@"com.box.Pencils" code:1 userInfo:nil]);
+    }
+    @finally {
         [NavigationUtility progressStop];
-        NSMutableArray *materials = [NSMutableArray arrayWithArray:self.course.materials];
-        [materials addObject:material];
-        self.course.materials = materials;
-        _completionHandler(material, error);
-    }];
+    }
 }
 
 -(void)documentPickerWasCancelled:(UIDocumentPickerViewController *)controller {

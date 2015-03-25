@@ -138,10 +138,12 @@ static NSArray *__sectionHeaderTitles;
         }
         case 1: {
             self.materialImporter = [[MaterialImporter alloc] initWithCourse:self.course andParent:self andCompletion:^(Material *material, NSError *error) {
-                NSMutableArray *materials = [NSMutableArray arrayWithArray:self.materials];
-                [materials addObject:material];
-                self.materials = materials;
-                [self.tableView reloadData];
+                if (!error) {
+                    NSMutableArray *materials = [NSMutableArray arrayWithArray:self.materials];
+                    [materials addObject:material];
+                    self.materials = materials;
+                    [self.tableView reloadData];
+                }
             }];
             [self.materialImporter execute:headerCell.headerButton];
             break;
