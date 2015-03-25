@@ -23,7 +23,6 @@
 #import "MaterialManager.h"
 #import "MaterialImporter.h"
 #import <MobileCoreServices/UTCoreTypes.h>
-#import "SearchUtility.h"
 #import "CourseDetailsCell.h"
 #import "UserManager.h"
 
@@ -33,7 +32,6 @@
 @property (strong, nonatomic) NSArray *materials;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) MaterialImporter *materialImporter;
-@property (strong, nonatomic) SearchUtility *materialSearch;
 
 @end
 
@@ -63,11 +61,11 @@ static NSArray *__sectionHeaderTitles;
     
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
-    
     [self.tableView registerNib:[UINib nibWithNibName:@"CourseDetailsCell" bundle:nil] forCellReuseIdentifier:@"CourseDetailsCell"];
     [self.tableView registerNib:[UINib nibWithNibName:@"HeaderCell" bundle:nil] forCellReuseIdentifier:@"HeaderCell"];
     [self.tableView registerNib:[UINib nibWithNibName:@"MaterialCell" bundle:nil] forCellReuseIdentifier:@"MaterialCell"];
     self.tableView.rowHeight = UITableViewAutomaticDimension;
+    self.tableView.sectionHeaderHeight = 48.0;
     
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil];
     if (self.course.user == [UserManager currentUser]) {
@@ -76,15 +74,11 @@ static NSArray *__sectionHeaderTitles;
     
     [self.course addObserver:self forKeyPath:@"courseDescription" options:0 context:NULL];
     
-    self.tableView.sectionHeaderHeight = 48.0;
-    
-    self.materialSearch = [[SearchUtility alloc] initWithTableView:self.tableView type:@"materials" keyPath:@"title" data:self.materials];
-    
     [NavigationUtility progressBeginInView:self.view];
     [MaterialManager listMaterialForCourse:self.course withCompletion:^(NSArray *materials, NSError *error) {
         [NavigationUtility progressStop];
         self.materials = materials;
-        [self.materialSearch updateData:self.materials];
+        [self.tableView reloadData];
     }];
 }
 
@@ -97,47 +91,43 @@ static NSArray *__sectionHeaderTitles;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 3;
+    return 2;
+}
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    switch (section) {
+        case 0:
+            return 1;
+        case 1:
+            return self.materials.count;
+        default:
+            return 0;
+    }
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.section) {
-        case 0: {
+        case 0:
             return 90;
-            break;
-        }
         case 1:
             return UITableViewAutomaticDimension;
-            break;
         default:
             return 44;
-            break;
     }
 }
 
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    switch (section) {
-        case 0: {
-            HeaderCell *header = [self.tableView dequeueReusableCellWithIdentifier:@"HeaderCell"];
-            header.section = section;
-            header.headerLabel.text = @"Course Description";
-            [header.headerButton setTitle:@"Parent Course" forState:UIControlStateNormal];
-            header.delegate = self;
-            return header;
-        }
-        case 2: {
-            return self.materialSearch.searchBarView;
-        }
-        case 1: {
-            HeaderCell *header = [self.tableView dequeueReusableCellWithIdentifier:@"HeaderCell"];
-            header.section = section;
-            header.headerLabel.text = @"Materials";
-            [header.headerButton setTitle:@"Import" forState:UIControlStateNormal];
-            header.delegate = self;
-            return header;
-        }
+    HeaderCell *header = [self.tableView dequeueReusableCellWithIdentifier:@"HeaderCell"];
+    header.section = section;
+    header.delegate = self;
+    if (section == 0) {
+        header.headerLabel.text = @"Course Description";
+        [header.headerButton setTitle:@"Parent Course" forState:UIControlStateNormal];
+    } else {
+        header.headerLabel.text = @"Materials";
+        [header.headerButton setTitle:@"Import" forState:UIControlStateNormal];
     }
-    return nil;
+    return header;
 }
 
 -(void)headerCellButtonTap:(HeaderCell *)headerCell {
@@ -156,28 +146,8 @@ static NSArray *__sectionHeaderTitles;
             [self.materialImporter execute:headerCell.headerButton];
             break;
         }
-        default:
-            break;
     }
 }
-
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    switch (section) {
-        case 0:
-            return 1;
-        case 1:
-            return 0;
-        case 2: {
-            if (self.materialSearch.filteredData) {
-                return self.materialSearch.filteredData.count;
-            } else {
-                return self.materials.count;
-            }
-        }
-    }
-    return 1;
-}
-
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -187,14 +157,12 @@ static NSArray *__sectionHeaderTitles;
             cell.courseDescriptionTextView.text = self.course.courseDescription;
             cell.course = self.course;
             return cell;
-            break;
         }
-        case 2: {
+        case 1: {
             MaterialCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"MaterialCell"];
-            Material *material = self.materialSearch.filteredData ? self.materialSearch.filteredData[indexPath.row] : self.materials[indexPath.row];
+            Material *material = self.materials[indexPath.row];
             [cell setMaterial:material];
             return cell;
-            break;
         }
     }
     return nil;

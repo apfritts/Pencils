@@ -48,9 +48,9 @@
 		8F1E33671AA915DA001C7A56 /* HeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F1E33651AA915DA001C7A56 /* HeaderCell.m */; };
 		8F1E33681AA915DA001C7A56 /* HeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F1E33661AA915DA001C7A56 /* HeaderCell.xib */; };
 		8F2AFEB61ABE07A10045F6E6 /* SearchUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F2AFEB51ABE07A10045F6E6 /* SearchUtility.m */; };
+		8F4827CC1AC2E54700446291 /* EmptyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F4827CA1AC2E54700446291 /* EmptyCell.m */; };
+		8F4827CD1AC2E54700446291 /* EmptyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F4827CB1AC2E54700446291 /* EmptyCell.xib */; };
 		8F8B604B1AAC904C00FF9FED /* ColorUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F8B604A1AAC904C00FF9FED /* ColorUtility.m */; };
-		8FBA260C1AB91C700020614E /* ColorSchemesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FBA260A1AB91C700020614E /* ColorSchemesViewController.m */; };
-		8FBA260D1AB91C700020614E /* ColorSchemesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FBA260B1AB91C700020614E /* ColorSchemesViewController.xib */; };
 		8FD9DF581ABA5B7A002CC411 /* CourseDetailsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FD9DF501ABA5B7A002CC411 /* CourseDetailsCell.m */; };
 		8FD9DF591ABA5B7A002CC411 /* CourseDetailsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FD9DF511ABA5B7A002CC411 /* CourseDetailsCell.xib */; };
 		8FD9DF5A1ABA5B7A002CC411 /* PersonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FD9DF531ABA5B7A002CC411 /* PersonCell.m */; };
@@ -142,11 +142,11 @@
 		8F1E33661AA915DA001C7A56 /* HeaderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HeaderCell.xib; path = Views/Common/HeaderCell.xib; sourceTree = "<group>"; };
 		8F2AFEB41ABE07A10045F6E6 /* SearchUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchUtility.h; path = Utilities/SearchUtility.h; sourceTree = "<group>"; };
 		8F2AFEB51ABE07A10045F6E6 /* SearchUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchUtility.m; path = Utilities/SearchUtility.m; sourceTree = "<group>"; };
+		8F4827C91AC2E54700446291 /* EmptyCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EmptyCell.h; path = Views/Courses/EmptyCell.h; sourceTree = "<group>"; };
+		8F4827CA1AC2E54700446291 /* EmptyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EmptyCell.m; path = Views/Courses/EmptyCell.m; sourceTree = "<group>"; };
+		8F4827CB1AC2E54700446291 /* EmptyCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = EmptyCell.xib; path = Views/Courses/EmptyCell.xib; sourceTree = "<group>"; };
 		8F8B60491AAC904C00FF9FED /* ColorUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ColorUtility.h; path = Utilities/ColorUtility.h; sourceTree = "<group>"; };
 		8F8B604A1AAC904C00FF9FED /* ColorUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ColorUtility.m; path = Utilities/ColorUtility.m; sourceTree = "<group>"; };
-		8FBA26091AB91C700020614E /* ColorSchemesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ColorSchemesViewController.h; path = "View Controllers/Home/ColorSchemesViewController.h"; sourceTree = "<group>"; };
-		8FBA260A1AB91C700020614E /* ColorSchemesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ColorSchemesViewController.m; path = "View Controllers/Home/ColorSchemesViewController.m"; sourceTree = "<group>"; };
-		8FBA260B1AB91C700020614E /* ColorSchemesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ColorSchemesViewController.xib; path = "View Controllers/Home/ColorSchemesViewController.xib"; sourceTree = "<group>"; };
 		8FBA260E1AB9C4C90020614E /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		8FD9DF4F1ABA5B7A002CC411 /* CourseDetailsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CourseDetailsCell.h; path = Views/Courses/CourseDetailsCell.h; sourceTree = "<group>"; };
 		8FD9DF501ABA5B7A002CC411 /* CourseDetailsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CourseDetailsCell.m; path = Views/Courses/CourseDetailsCell.m; sourceTree = "<group>"; };
@@ -344,9 +344,6 @@
 		736A892F1AA8AFC90035631A /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				8FBA26091AB91C700020614E /* ColorSchemesViewController.h */,
-				8FBA260A1AB91C700020614E /* ColorSchemesViewController.m */,
-				8FBA260B1AB91C700020614E /* ColorSchemesViewController.xib */,
 				736A89301AA8B0070035631A /* HomeViewController.h */,
 				736A89311AA8B0070035631A /* HomeViewController.m */,
 				736A89321AA8B0070035631A /* HomeViewController.xib */,
@@ -423,6 +420,9 @@
 				8FD9DF4F1ABA5B7A002CC411 /* CourseDetailsCell.h */,
 				8FD9DF501ABA5B7A002CC411 /* CourseDetailsCell.m */,
 				8FD9DF511ABA5B7A002CC411 /* CourseDetailsCell.xib */,
+				8F4827C91AC2E54700446291 /* EmptyCell.h */,
+				8F4827CA1AC2E54700446291 /* EmptyCell.m */,
+				8F4827CB1AC2E54700446291 /* EmptyCell.xib */,
 				8FD9DF521ABA5B7A002CC411 /* PersonCell.h */,
 				8FD9DF531ABA5B7A002CC411 /* PersonCell.m */,
 				8FD9DF541ABA5B7A002CC411 /* PersonCell.xib */,
@@ -530,7 +530,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				736A89291AA8AF7C0035631A /* CourseTableViewCell.xib in Resources */,
-				8FBA260D1AB91C700020614E /* ColorSchemesViewController.xib in Resources */,
+				8F4827CD1AC2E54700446291 /* EmptyCell.xib in Resources */,
 				8FEAE15D1AACAC5A000A0F2C /* RequestsTableViewCell.xib in Resources */,
 				736A896F1AA8B6340035631A /* EditCourseViewController.xib in Resources */,
 				736A88EF1AA819A40035631A /* LaunchScreen.xib in Resources */,
@@ -608,10 +608,10 @@
 				736A89481AA8B4300035631A /* CoursesViewController.m in Sources */,
 				8FD9DF581ABA5B7A002CC411 /* CourseDetailsCell.m in Sources */,
 				736A88E11AA819A40035631A /* main.m in Sources */,
-				8FBA260C1AB91C700020614E /* ColorSchemesViewController.m in Sources */,
 				8F8B604B1AAC904C00FF9FED /* ColorUtility.m in Sources */,
 				736A899A1AA8CB190035631A /* Material.m in Sources */,
 				736A89691AA8B6080035631A /* SearchTableViewCell.m in Sources */,
+				8F4827CC1AC2E54700446291 /* EmptyCell.m in Sources */,
 				736A897A1AA8B6DE0035631A /* ViewMaterialViewController.m in Sources */,
 				736A896E1AA8B6340035631A /* EditCourseViewController.m in Sources */,
 				8F1E33671AA915DA001C7A56 /* HeaderCell.m in Sources */,

@@ -14,7 +14,7 @@
 
 @interface MaterialImporter () <UIDocumentMenuDelegate, UIDocumentPickerDelegate>
 
-@property (weak, nonatomic) Course *course;
+@property (strong, nonatomic) Course *course;
 @property (weak, nonatomic) UIViewController *parent;
 @property (strong, nonatomic) NSArray *fileTypes;
 

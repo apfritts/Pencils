@@ -17,13 +17,15 @@
  */
 
 #import "GlobalCourseViewController.h"
+
 #import "CourseDetailsCell.h"
-#import "PersonCell.h"
+#import "CourseManager.h"
+#import "EmptyCell.h"
+#import "HeaderCell.h"
 #import "MaterialCell.h"
 #import "MaterialImporter.h"
-#import "HeaderCell.h"
+#import "PersonCell.h"
 #import "UserManager.h"
-#import "CourseManager.h"
 
 @interface GlobalCourseViewController () <HeaderCellDelegate, UITableViewDataSource, UITableViewDelegate>
 
@@ -38,11 +40,7 @@
 static NSArray *__sectionHeaderTitles;
 
 +(void)initialize {
-    __sectionHeaderTitles = @[
-                              @"Course Description",
-                              @"Teachers",
-                              @"Materials"
-                              ];
+    __sectionHeaderTitles = @[@"Course Description", @"Teachers", @"Materials"];
 }
 
 -(instancetype)initWithGlobalCourse:(Course *)globalCourse {
@@ -53,13 +51,6 @@ static NSArray *__sectionHeaderTitles;
     return self;
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    [CourseManager retreiveCourseById:self.course.objectId withCompletion:^(Course *course, NSError *error) {
-        self.course = course;
-        [self.tableView reloadData];
-    }];
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -67,6 +58,14 @@ static NSArray *__sectionHeaderTitles;
     
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
+    [self.tableView registerNib:[UINib nibWithNibName:@"CourseDetailsCell" bundle:nil] forCellReuseIdentifier:@"CourseDetailsCell"];
+    [self.tableView registerNib:[UINib nibWithNibName:@"EmptyCell" bundle:nil] forCellReuseIdentifier:@"EmptyCell"];
+    [self.tableView registerNib:[UINib nibWithNibName:@"HeaderCell" bundle:nil] forCellReuseIdentifier:@"HeaderCell"];
+    [self.tableView registerNib:[UINib nibWithNibName:@"MaterialCell" bundle:nil] forCellReuseIdentifier:@"MaterialCell"];
+    [self.tableView registerNib:[UINib nibWithNibName:@"PersonCell" bundle:nil] forCellReuseIdentifier:@"PersonCell"];
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
+    self.tableView.estimatedRowHeight = 45;
+    self.tableView.sectionHeaderHeight = 48.0;
     
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil];
     NSMutableArray *rightBarButtons = [[NSMutableArray alloc] init];
@@ -78,21 +77,18 @@ static NSArray *__sectionHeaderTitles;
     [rightBarButtons addObject:teachCourseButton];
     self.navigationItem.rightBarButtonItems = rightBarButtons;
     
+    [self.course addObserver:self forKeyPath:@"courseDescription" options:0 context:NULL];
+    
+    [NavigationUtility progressBeginInView:self.view];
     [UserManager listUsersForGlobalCourse:self.course withCompletion:^(NSArray *users, NSError *error) {
         self.users = [[NSArray alloc] initWithArray:users];
         [self.tableView reloadData];
+        [self shouldStopProgress];
     }];
     [self.course retrieveMaterials:^(NSError *error) {
         [self.tableView reloadData];
+        [self shouldStopProgress];
     }];
-
-    [self.tableView registerNib:[UINib nibWithNibName:@"CourseDetailsCell" bundle:nil] forCellReuseIdentifier:@"CourseDetailsCell"];
-    [self.tableView registerNib:[UINib nibWithNibName:@"PersonCell" bundle:nil] forCellReuseIdentifier:@"PersonCell"];
-    [self.tableView registerNib:[UINib nibWithNibName:@"MaterialCell" bundle:nil] forCellReuseIdentifier:@"MaterialCell"];
-    [self.tableView registerNib:[UINib nibWithNibName:@"HeaderCell" bundle:nil] forCellReuseIdentifier:@"HeaderCell"];
-    self.tableView.rowHeight = UITableViewAutomaticDimension;
-    self.tableView.estimatedRowHeight = 45;
-    self.tableView.sectionHeaderHeight = 48.0;
 }
 
 - (void)onEditButton {
@@ -103,6 +99,12 @@ static NSArray *__sectionHeaderTitles;
     [NavigationUtility navigateToTeachCourse:self.course];
 }
 
+-(void)shouldStopProgress {
+    if (self.users != nil && self.course.materials != nil) {
+        [NavigationUtility progressStop];
+    }
+}
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 3;
 }
@@ -111,16 +113,12 @@ static NSArray *__sectionHeaderTitles;
     switch (section) {
         case 0:
             return 1;
-            break;
         case 1:
-            return 3;
-            break;
+            return self.users.count || 1;
         case 2:
-            return 3;
-            break;
+            return self.course.materials.count || 1;
         default:
             return 3;
-            break;
     }
 }
 
@@ -132,7 +130,6 @@ static NSArray *__sectionHeaderTitles;
         }
         default:
             return 44;
-            break;
     }
 
 }
@@ -141,7 +138,7 @@ static NSArray *__sectionHeaderTitles;
     HeaderCell *header = [self.tableView dequeueReusableCellWithIdentifier:@"HeaderCell"];
     [header.headerLabel setText:__sectionHeaderTitles[section]];
     if (section == 2) {
-        [header.headerButton setTitle:@"Add Material" forState:UIControlStateNormal];
+        [header.headerButton setTitle:@"Import" forState:UIControlStateNormal];
         header.delegate = self;
     } else {
         header.headerButton.hidden = YES;
@@ -151,6 +148,9 @@ static NSArray *__sectionHeaderTitles;
 
 -(void)headerCellButtonTap:(HeaderCell *)headerCell {
     self.materialImporter = [[MaterialImporter alloc] initWithCourse:self.course andParent:self andCompletion:^(Material *material, NSError *error) {
+        NSMutableArray *materials = [NSMutableArray arrayWithArray:self.course.materials];
+        [materials addObject:material];
+        self.course.materials = materials;
         [self.tableView reloadData];
     }];
     [self.materialImporter execute:headerCell.headerButton];
@@ -164,22 +164,30 @@ static NSArray *__sectionHeaderTitles;
             cell.course = self.course;
             [cell.courseDescriptionTextView sizeToFit];
             return cell;
-            break;
         }
         case 1: {
-            PersonCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"PersonCell"];
-            User *user = self.users[indexPath.row];
-            cell.teacherLabel.text = [NSString stringWithFormat:@"%@ %@", user.firstName, user.lastName];
-            return cell;
-            break;
+            if (self.users.count == 0) {
+                EmptyCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"EmptyCell"];
+                [cell setMessage:@"No teachers...yet!"];
+                return cell;
+            } else {
+                PersonCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"PersonCell"];
+                User *user = self.users[indexPath.row];
+                cell.teacherLabel.text = [NSString stringWithFormat:@"%@ %@", user.firstName, user.lastName];
+                return cell;
+            }
         }
         default:{
-            MaterialCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"MaterialCell"];
-            Material *material = [[Material alloc] init];
-            material.title = @"Material";
-            [cell setMaterial:material];
-            return cell;
-            break;
+            if (self.course.materials.count == 0) {
+                EmptyCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"EmptyCell"];
+                [cell setMessage:@"No materials...yet!"];
+                return cell;
+            } else {
+                MaterialCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"MaterialCell"];
+                Material *material = self.course.materials[indexPath.row];
+                [cell setMaterial:material];
+                return cell;
+            }
         }
     }
 }
@@ -198,6 +206,10 @@ static NSArray *__sectionHeaderTitles;
         }
     }
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+-(void)dealloc {
+    [self.course removeObserver:self forKeyPath:@"courseDescription"];
 }
 
 @end
