@@ -31,6 +31,7 @@
 @interface HomeViewController () <HeaderCellDelegate, UITableViewDataSource, UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UIView *emptyListView;
 @property (strong, nonatomic) NSArray *myCourses;
 @property (strong, nonatomic) NSArray *currentCourses;
 
@@ -57,6 +58,8 @@
     
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Logout" style:UIBarButtonItemStylePlain target:self action:@selector(onLogoutTap)];
     
+    self.emptyListView.alpha = 0.0;
+    
     [NavigationUtility progressBegin];
 }
 
@@ -70,6 +73,11 @@
             return [now compare:course.start] != NSOrderedAscending && [now compare:course.end] != NSOrderedDescending;
         }]];
         [self.tableView reloadData];
+        if (self.currentCourses.count == 0) {
+            [UIView animateWithDuration:0.5 animations:^{
+                self.emptyListView.alpha = 1.0;
+            }];
+        }
         [NavigationUtility progressStop];
     }];
 }
@@ -119,6 +127,10 @@
 
 - (IBAction)showColorSchemeTaps:(id)sender {
     [self presentViewController:[[ColorSchemesViewController alloc] init] animated:YES completion:nil];
+}
+
+- (IBAction)teachClassesTap:(id)sender {
+    [NavigationUtility navigateToCourses];
 }
 
 @end

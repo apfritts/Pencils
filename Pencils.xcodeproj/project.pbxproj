@@ -507,7 +507,7 @@
 				TargetAttributes = {
 					736A88DA1AA819A40035631A = {
 						CreatedOnToolsVersion = 6.1.1;
-						DevelopmentTeam = 52ZR695AX2;
+						DevelopmentTeam = RXX47375NK;
 						SystemCapabilities = {
 							com.apple.iCloud = {
 								enabled = 1;
@@ -516,6 +516,7 @@
 					};
 					736A88F31AA819A40035631A = {
 						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = RXX47375NK;
 						TestTargetID = 736A88DA1AA819A40035631A;
 					};
 				};

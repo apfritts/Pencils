@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7525" systemVersion="14D113c" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7516"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController">
             <connections>
+                <outlet property="emptyListView" destination="UjL-zX-yBD" id="WcK-RM-foj"/>
                 <outlet property="tableView" destination="39l-ZG-NFr" id="rtu-Pf-mQo"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -15,7 +16,7 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="39l-ZG-NFr">
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="39l-ZG-NFr">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <connections>
@@ -23,18 +24,58 @@
                         <outlet property="delegate" destination="-1" id="9Wx-TC-Kyb"/>
                     </connections>
                 </tableView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UjL-zX-yBD">
+                    <rect key="frame" x="150" y="150" width="300" height="300"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="EmptyBookshelf" translatesAutoresizingMaskIntoConstraints="NO" id="RO7-lL-bEJ">
+                            <rect key="frame" x="20" y="20" width="260" height="193"/>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="You aren't teaching any classes!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eqJ-aJ-Mje">
+                            <rect key="frame" x="20" y="221" width="260" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P3U-0E-0CN">
+                            <rect key="frame" x="75" y="250" width="151" height="30"/>
+                            <state key="normal" title="Find Classes to Teach">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="teachClassesTap:" destination="-1" eventType="touchUpInside" id="cbr-z3-TBf"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="RO7-lL-bEJ" secondAttribute="trailing" constant="20" symbolic="YES" id="2HH-6N-ocz"/>
+                        <constraint firstItem="eqJ-aJ-Mje" firstAttribute="top" secondItem="RO7-lL-bEJ" secondAttribute="bottom" constant="8" symbolic="YES" id="47F-nE-ba0"/>
+                        <constraint firstAttribute="bottom" secondItem="P3U-0E-0CN" secondAttribute="bottom" constant="20" symbolic="YES" id="4l4-mV-5CH"/>
+                        <constraint firstAttribute="height" constant="300" id="Ap8-hz-kNw"/>
+                        <constraint firstItem="RO7-lL-bEJ" firstAttribute="leading" secondItem="UjL-zX-yBD" secondAttribute="leading" constant="20" symbolic="YES" id="EcQ-D6-Net"/>
+                        <constraint firstAttribute="centerX" secondItem="P3U-0E-0CN" secondAttribute="centerX" id="Mvv-yY-lQS"/>
+                        <constraint firstAttribute="trailing" secondItem="eqJ-aJ-Mje" secondAttribute="trailing" constant="20" symbolic="YES" id="TEU-jr-mko"/>
+                        <constraint firstItem="eqJ-aJ-Mje" firstAttribute="leading" secondItem="UjL-zX-yBD" secondAttribute="leading" constant="20" symbolic="YES" id="jIe-q2-osg"/>
+                        <constraint firstItem="P3U-0E-0CN" firstAttribute="top" secondItem="eqJ-aJ-Mje" secondAttribute="bottom" constant="8" symbolic="YES" id="jd3-rW-VD1"/>
+                        <constraint firstItem="RO7-lL-bEJ" firstAttribute="top" secondItem="UjL-zX-yBD" secondAttribute="top" constant="20" symbolic="YES" id="mnn-Vw-inx"/>
+                        <constraint firstAttribute="width" constant="300" id="q1Z-oI-Ji0"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <gestureRecognizers/>
             <constraints>
                 <constraint firstItem="39l-ZG-NFr" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="4Nr-ao-j3L"/>
                 <constraint firstItem="39l-ZG-NFr" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="J34-IY-7vT"/>
+                <constraint firstAttribute="centerX" secondItem="UjL-zX-yBD" secondAttribute="centerX" id="Qab-es-nJs"/>
                 <constraint firstAttribute="trailing" secondItem="39l-ZG-NFr" secondAttribute="trailing" id="dkE-KE-bGj"/>
                 <constraint firstAttribute="bottom" secondItem="39l-ZG-NFr" secondAttribute="bottom" id="qXs-CN-g2Q"/>
+                <constraint firstAttribute="centerY" secondItem="UjL-zX-yBD" secondAttribute="centerY" id="qxz-Y4-J28"/>
             </constraints>
             <connections>
                 <outletCollection property="gestureRecognizers" destination="oPc-AK-uUk" appends="YES" id="BfL-lr-y3D"/>
             </connections>
+            <point key="canvasLocation" x="428" y="453"/>
         </view>
         <tapGestureRecognizer numberOfTapsRequired="3" numberOfTouchesRequired="3" id="oPc-AK-uUk">
             <connections>
@@ -42,4 +83,7 @@
             </connections>
         </tapGestureRecognizer>
     </objects>
+    <resources>
+        <image name="EmptyBookshelf" width="297" height="297"/>
+    </resources>
 </document>

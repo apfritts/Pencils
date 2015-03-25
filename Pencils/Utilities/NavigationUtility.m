@@ -62,7 +62,7 @@
 }
 
 +(void)navigateToCourses {
-    // Sets to Courses tab controller
+    [tabBarController setSelectedIndex:1];
 }
 
 +(void)navigateToEditTeacherCourse:(Course *)course {
