@@ -55,7 +55,11 @@ static NSArray *__sectionHeaderTitles;
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.title = [NSString stringWithFormat:@"%@", self.course.name];
+    if (self.course.user == [UserManager currentUser]) {
+        self.title = [NSString stringWithFormat:@"My %@", self.course.name];
+    } else {
+        self.title = [NSString stringWithFormat:@"%@", self.course.name];
+    }
     
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
@@ -65,6 +69,7 @@ static NSArray *__sectionHeaderTitles;
     [self.tableView registerNib:[UINib nibWithNibName:@"MaterialCell" bundle:nil] forCellReuseIdentifier:@"MaterialCell"];
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil];
     if (self.course.user == [UserManager currentUser]) {
         self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(onEditTap)];
     }

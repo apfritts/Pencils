@@ -41,7 +41,7 @@
 -(instancetype)init {
     self = [super init];
     if (self) {
-        self.title = @"Courses";
+        self.title = @"Course Catalog";
         [self.tabBarItem setImage:[UIImage imageWithIcon:@"icon-book" backgroundColor:[ColorUtility transparent] iconColor:[ColorUtility primaryColor] iconScale:1.0 andSize:CGSizeMake(30.0, 30.0)]];
     }
     return self;
@@ -85,7 +85,9 @@
         
         // @TODO: We need to cleanup all of these inits/viewDidLoad stuff
         self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Logout" style:UIBarButtonItemStylePlain target:self action:@selector(onLogoutTap)];
-        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Create" style:UIBarButtonItemStylePlain target:self action:@selector(onCreateTap)];
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCompose target:self action:@selector(onCreateTap)];
+    } else {
+        self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil];
     }
 }
 

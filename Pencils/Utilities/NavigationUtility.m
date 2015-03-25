@@ -40,9 +40,6 @@
 #import "MaterialImporter.h"
 #import "ViewMaterialViewController.h"
 
-// Upload
-#import "UploadViewController.h"
-
 @interface NavigationUtility()
 
 +(void)pushViewController:(UIViewController *)viewController;

@@ -63,11 +63,12 @@ static NSArray *__sectionHeaderTitles;
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.title = [NSString stringWithFormat:@"%@", self.course.name];
+    self.title = [NSString stringWithFormat:@"Global %@", self.course.name];
     
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
-
+    
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil];
     NSMutableArray *rightBarButtons = [[NSMutableArray alloc] init];
     if (self.course.owner != [UserManager currentUser]) {
         UIBarButtonItem *editCourseButton = [[UIBarButtonItem alloc] initWithTitle:@"Edit" style:UIBarButtonItemStylePlain target:self action:@selector(onEditButton)];

@@ -19,6 +19,10 @@
 #import "CreateCourseViewController.h"
 #import "NavigationUtility.h"
 #import "CourseManager.h"
+#import "ColorUtility.h"
+#import <FontAwesome+iOS/NSString+FontAwesome.h>
+#import <FontAwesome+iOS/UIFont+FontAwesome.h>
+#import <FontAwesome+iOS/UIImage+FontAwesome.h>
 
 @interface CreateCourseViewController ()
 
@@ -36,7 +40,27 @@
     self.title = @"Create Course";
     self.descriptionView.layer.cornerRadius = 8;
     self.descriptionTextView.layer.cornerRadius = 8;
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Create" style:UIBarButtonItemStylePlain target:self action:@selector(onCreateTap)];
+    UIButton *btnBack = [UIButton buttonWithType:UIButtonTypeCustom];
+    [btnBack setImage:[UIImage imageWithIcon:@"icon-chevron-left" backgroundColor:[UIColor clearColor] iconColor:[ColorUtility tintColor] iconScale:1.0 andSize:CGSizeMake(15.0, 24.0)] forState:UIControlStateNormal];
+    [btnBack setTitleColor:[ColorUtility tintColor] forState:UIControlStateNormal];
+    [btnBack setTitle:@" Back" forState:UIControlStateNormal];
+    btnBack.imageEdgeInsets = UIEdgeInsetsZero;
+    btnBack.titleEdgeInsets = UIEdgeInsetsZero;
+    [btnBack sizeToFit];
+    //btnBack.frame = (CGRect) {.size.width = 65, .size.height = 30};
+    //NSString *faBack = [NSString fontAwesomeIconStringForEnum:FAIconChevronLeft];
+    //NSMutableAttributedString *back = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@ Back", faBack]];
+    //[back addAttribute:NSFontAttributeName value:[UIFont fontAwesomeFontOfSize:17.0] range:NSMakeRange(0, 1)];
+    //UILabel *backLabel = [[UILabel alloc] init];
+    //[backLabel setAttributedText:back];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:btnBack];
+    //self.navigationItem.leftBarButtonItem.target = self;
+    //self.navigationItem.leftBarButtonItem.action = @selector(onBackTap);
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(onCreateTap)];
+}
+
+-(void)onBackTap {
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 -(void)onCreateTap {

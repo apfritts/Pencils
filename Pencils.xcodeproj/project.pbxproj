@@ -39,8 +39,6 @@
 		736A896F1AA8B6340035631A /* EditCourseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 736A896D1AA8B6340035631A /* EditCourseViewController.xib */; };
 		736A897A1AA8B6DE0035631A /* ViewMaterialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 736A89781AA8B6DE0035631A /* ViewMaterialViewController.m */; };
 		736A897B1AA8B6DE0035631A /* ViewMaterialViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 736A89791AA8B6DE0035631A /* ViewMaterialViewController.xib */; };
-		736A89801AA8B9760035631A /* UploadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 736A897E1AA8B9760035631A /* UploadViewController.m */; };
-		736A89811AA8B9760035631A /* UploadViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 736A897F1AA8B9760035631A /* UploadViewController.xib */; };
 		736A898A1AA8BBCB0035631A /* CourseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 736A89891AA8BBCB0035631A /* CourseManager.m */; };
 		736A898D1AA8BCE80035631A /* MaterialManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 736A898C1AA8BCE80035631A /* MaterialManager.m */; };
 		736A89991AA8CB190035631A /* Course.m in Sources */ = {isa = PBXBuildFile; fileRef = 736A89921AA8CB190035631A /* Course.m */; };
@@ -127,9 +125,6 @@
 		736A89771AA8B6DE0035631A /* ViewMaterialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ViewMaterialViewController.h; path = "View Controllers/Materials/ViewMaterialViewController.h"; sourceTree = "<group>"; };
 		736A89781AA8B6DE0035631A /* ViewMaterialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ViewMaterialViewController.m; path = "View Controllers/Materials/ViewMaterialViewController.m"; sourceTree = "<group>"; };
 		736A89791AA8B6DE0035631A /* ViewMaterialViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ViewMaterialViewController.xib; path = "View Controllers/Materials/ViewMaterialViewController.xib"; sourceTree = "<group>"; };
-		736A897D1AA8B9760035631A /* UploadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UploadViewController.h; path = "View Controllers/Upload/UploadViewController.h"; sourceTree = "<group>"; };
-		736A897E1AA8B9760035631A /* UploadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UploadViewController.m; path = "View Controllers/Upload/UploadViewController.m"; sourceTree = "<group>"; };
-		736A897F1AA8B9760035631A /* UploadViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = UploadViewController.xib; path = "View Controllers/Upload/UploadViewController.xib"; sourceTree = "<group>"; };
 		736A89881AA8BBCB0035631A /* CourseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CourseManager.h; path = "Data Managers/CourseManager.h"; sourceTree = "<group>"; };
 		736A89891AA8BBCB0035631A /* CourseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CourseManager.m; path = "Data Managers/CourseManager.m"; sourceTree = "<group>"; };
 		736A898B1AA8BCE80035631A /* MaterialManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MaterialManager.h; path = "Data Managers/MaterialManager.h"; sourceTree = "<group>"; };
@@ -302,7 +297,6 @@
 				736A892F1AA8AFC90035631A /* Home */,
 				736A89131AA8AA380035631A /* Login and Signup */,
 				736A89701AA8B6530035631A /* Materials */,
-				736A897C1AA8B95E0035631A /* Upload */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -408,16 +402,6 @@
 				736A89791AA8B6DE0035631A /* ViewMaterialViewController.xib */,
 			);
 			name = Materials;
-			sourceTree = "<group>";
-		};
-		736A897C1AA8B95E0035631A /* Upload */ = {
-			isa = PBXGroup;
-			children = (
-				736A897D1AA8B9760035631A /* UploadViewController.h */,
-				736A897E1AA8B9760035631A /* UploadViewController.m */,
-				736A897F1AA8B9760035631A /* UploadViewController.xib */,
-			);
-			name = Upload;
 			sourceTree = "<group>";
 		};
 		736A89871AA8BB990035631A /* Data Managers */ = {
@@ -547,7 +531,6 @@
 			files = (
 				736A89291AA8AF7C0035631A /* CourseTableViewCell.xib in Resources */,
 				8FBA260D1AB91C700020614E /* ColorSchemesViewController.xib in Resources */,
-				736A89811AA8B9760035631A /* UploadViewController.xib in Resources */,
 				8FEAE15D1AACAC5A000A0F2C /* RequestsTableViewCell.xib in Resources */,
 				736A896F1AA8B6340035631A /* EditCourseViewController.xib in Resources */,
 				736A88EF1AA819A40035631A /* LaunchScreen.xib in Resources */,
@@ -627,7 +610,6 @@
 				736A88E11AA819A40035631A /* main.m in Sources */,
 				8FBA260C1AB91C700020614E /* ColorSchemesViewController.m in Sources */,
 				8F8B604B1AAC904C00FF9FED /* ColorUtility.m in Sources */,
-				736A89801AA8B9760035631A /* UploadViewController.m in Sources */,
 				736A899A1AA8CB190035631A /* Material.m in Sources */,
 				736A89691AA8B6080035631A /* SearchTableViewCell.m in Sources */,
 				736A897A1AA8B6DE0035631A /* ViewMaterialViewController.m in Sources */,
