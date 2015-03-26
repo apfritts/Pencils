@@ -113,10 +113,20 @@ static NSArray *__sectionHeaderTitles;
     switch (section) {
         case 0:
             return 1;
-        case 1:
-            return self.users.count || 1;
-        case 2:
-            return self.course.materials.count || 1;
+        case 1: {
+            if (self.users.count == 0) {
+                return 1;
+            } else {
+                return self.users.count;
+            }
+        }
+        case 2: {
+            if (self.course.materials.count == 0) {
+                return 1;
+            } else {
+                return self.course.materials.count;
+            }
+        }
         default:
             return 3;
     }
@@ -187,7 +197,7 @@ static NSArray *__sectionHeaderTitles;
             } else {
                 MaterialCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"MaterialCell"];
                 Material *material = self.course.materials[indexPath.row];
-                [cell setMaterial:material];
+                [cell updateMaterial:material];
                 return cell;
             }
         }
@@ -204,6 +214,7 @@ static NSArray *__sectionHeaderTitles;
             break;
         }
         default: {
+            [NavigationUtility navigateToMaterial:self.course.materials[indexPath.row]];
             break;
         }
     }

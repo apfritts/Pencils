@@ -23,4 +23,6 @@
 
 @property (weak, nonatomic) Material *material;
 
+-(void)updateMaterial:(Material *)material;
+
 @end

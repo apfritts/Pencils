@@ -131,16 +131,12 @@ static NSDateFormatter *__formatter;
 
 // @TODO: Make this conform to the standard getters and setters interface
 -(void)retrieveMaterials:(void(^)(NSError *))completion {
-    if (self.materials) {
-        completion(nil);
-    } else {
-        [MaterialManager listMaterialForCourse:self withCompletion:^(NSArray *materials, NSError *error) {
-            if (!error) {
-                self.materials = materials;
-            }
-            completion(error);
-        }];
-    }
+    [MaterialManager listMaterialForCourse:self withCompletion:^(NSArray *materials, NSError *error) {
+        if (!error) {
+            self.materials = materials;
+        }
+        completion(error);
+    }];
 }
 
 -(PFObject *)persistance {

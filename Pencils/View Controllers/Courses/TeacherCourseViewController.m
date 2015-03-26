@@ -163,7 +163,7 @@ static NSArray *__sectionHeaderTitles;
         case 1: {
             MaterialCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"MaterialCell"];
             Material *material = self.materials[indexPath.row];
-            [cell setMaterial:material];
+            [cell updateMaterial:material];
             return cell;
         }
     }

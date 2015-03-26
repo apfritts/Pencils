@@ -29,8 +29,8 @@
 
 @implementation MaterialCell
 
--(void)setMaterial:(Material *)material {
-    _material = material;
+-(void)updateMaterial:(Material *)material {
+    self.material = material;
     self.materialLabel.text = material.title;
     self.selectionStyle = UITableViewCellSelectionStyleNone;
     self.chevronRight.font = [UIFont fontAwesomeFontOfSize:17.0];
