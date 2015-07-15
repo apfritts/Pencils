@@ -1,0 +1,52 @@
+PODS:
+  - Bolts/Tasks (1.2.0)
+  - FontAwesome+iOS (0.1.4)
+  - KNSemiModalViewController (0.3)
+  - MRProgress (0.8.2):
+    - MRProgress/ActivityIndicator (= 0.8.2)
+    - MRProgress/Blur (= 0.8.2)
+    - MRProgress/Circular (= 0.8.2)
+    - MRProgress/Icons (= 0.8.2)
+    - MRProgress/NavigationBarProgress (= 0.8.2)
+    - MRProgress/Overlay (= 0.8.2)
+  - MRProgress/ActivityIndicator (0.8.2):
+    - MRProgress/Stopable
+  - MRProgress/Blur (0.8.2):
+    - MRProgress/Helper
+  - MRProgress/Circular (0.8.2):
+    - MRProgress/Helper
+    - MRProgress/ProgressBaseClass
+    - MRProgress/Stopable
+  - MRProgress/Helper (0.8.2)
+  - MRProgress/Icons (0.8.2)
+  - MRProgress/NavigationBarProgress (0.8.2):
+    - MRProgress/ProgressBaseClass
+  - MRProgress/Overlay (0.8.2):
+    - MRProgress/ActivityIndicator
+    - MRProgress/Blur
+    - MRProgress/Circular
+    - MRProgress/Helper
+    - MRProgress/Icons
+  - MRProgress/ProgressBaseClass (0.8.2)
+  - MRProgress/Stopable (0.8.2):
+    - MRProgress/Helper
+  - Parse (1.7.5):
+    - Bolts/Tasks (>= 1.2.0)
+  - THCalendarDatePicker (1.2.0):
+    - KNSemiModalViewController (~> 0.3)
+
+DEPENDENCIES:
+  - FontAwesome+iOS
+  - MRProgress
+  - Parse
+  - THCalendarDatePicker
+
+SPEC CHECKSUMS:
+  Bolts: d176cb1e0012175589e389a9db49b85e27787576
+  FontAwesome+iOS: 9070b682a9255ca0fdc34bcfb129ad0ba2b73b87
+  KNSemiModalViewController: 8c0056377714b5170c52c65977d540200405411f
+  MRProgress: f4cfe862082418e8f542f077772283f425d6c699
+  Parse: 7c0f115eff3e0cea3fac08d50bda47154edb8832
+  THCalendarDatePicker: 16eb78fd0ca01460ad660dc203a565c44b5d3aed
+
+COCOAPODS: 0.37.2
